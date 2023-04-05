@@ -1,0 +1,12 @@
+app_name = "Astrologer API"
+version = "3.0.0"
+description = "An API for astrological calculations."
+admin_email = "giacomo.battaglia@yahoo.it"
+debug = true
+docs_url = "/docs"
+redoc_url = "/redoc"
+log_level = "10"
+
+allowed_hosts = ['*']
+
+allowed_cors_origins = ['*']

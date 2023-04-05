@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+kerykeion = "*"
+
+[dev-packages]
+black = "*"
+pytest = "*"
+mypy = "*"
+httpx = "*"
+types-requests = "*"
+
+[requires]
+python_version = "3.11"
+
+[scripts]
+dev = "uvicorn app.main:app --reload --log-level debug"
+test = "pytest -vv"
+analyze = "python -m mypy --ignore-missing-imports ."
+schema = "python dump_schema.py"
+format = "black . --line-length 180"
