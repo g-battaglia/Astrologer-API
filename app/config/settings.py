@@ -17,17 +17,17 @@ GEONAMES_USERNAME = getenv("GEONAMES_USERNAME", False)
 
 # Open config file
 if ENV_TYPE == "production":
-    logger.debug("Loading production config")
+    logger.info("Loading production config")
     with open(pathlib.Path(__file__).parent.absolute() / "config.prod.toml", "rb") as config_file:
         config = load_toml(config_file)
 
 elif ENV_TYPE == "test":
-    logger.debug("Loading test config")
+    logger.info("Loading test config")
     with open(pathlib.Path(__file__).parent.absolute() / "config.test.toml", "rb") as config_file:
         config = load_toml(config_file)
 
 elif ENV_TYPE == "dev":
-    logger.debug("Loading development config")
+    logger.info("Loading development config")
     with open(pathlib.Path(__file__).parent.absolute() / "config.dev.toml", "rb") as config_file:
         config = load_toml(config_file)
 
