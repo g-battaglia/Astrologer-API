@@ -142,6 +142,6 @@ https://gist.github.com/astrologiadavvero/0fd43d6970a9b63af41659ea78b885e9
 
 # Copyright
 
-Astrologer API is a project by Giacomo Battaglia, it's based ok Kerykeion, which is from the same author and is a Python library for astrology calculations. All the tools underneath are built upon the Swiss Ephemeris and must preserve the copyright of the Swiss Ephemeris and the AGPL license.
+Astrologer API is a project by Giacomo Battaglia, it's based on Kerykeion, which is from the same author and is a Python library for astrology calculations. All the tools underneath are built upon the Swiss Ephemeris and must preserve the copyright of the Swiss Ephemeris and the AGPL license.
 
 Authors of the Swiss Ephemeris: Dieter Koch and Alois Treindl (Astrodienst AG, Zuerich)
