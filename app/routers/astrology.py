@@ -7,6 +7,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 from logging import getLogger
 from kerykeion import KrInstance
+from requests import get
 
 from ..models.requests import SubjectModel, TransitModel
 from ..models.responses import AstrologicalDataResponseModel, AstrologicalBirthChartResponseModel
@@ -15,7 +16,8 @@ from ..logic.astrology.utils import filtrateAndGetDict
 from ..utils.write_response_to_log import get_write_response_to_log
 from ..utils.internal_server_error_json_response import InternalServerErrorJsonResponse
 
-write_response_to_log = get_write_response_to_log(getLogger(__name__))
+logger = getLogger(__name__)
+write_response_to_log = get_write_response_to_log(logger)
 
 router = APIRouter()
 
@@ -25,17 +27,28 @@ async def get_now(request: Request) -> JSONResponse:
     """
     Returns the current astrological data in JSON format.
     """
-
+    
+    # Get current UTC time from the time API
     write_response_to_log(20, request, "Getting current astrological data")
 
     try:
+        # On some Cloud providers, the time is not set correctly, so we need to get the current UTC time from the time API
+        logger.debug("Getting current UTC time from the time API")
+        datetime_dict = get("https://timeapi.io/api/Time/current/zone?timeZone=UTC").json()
+        logger.debug(f"Current UTC time: {datetime_dict}")
+
         kr_object = KrInstance(
             city="GMT",
             nation="UK",
             lat=51.477928,
             lng=-0.001545,
             tz_str="GMT",
-            geonames_username="g.battaglia",
+            year=datetime_dict["year"],
+            month=datetime_dict["month"],
+            day=datetime_dict["day"],
+            hour=datetime_dict["hour"],
+            minute=datetime_dict["minute"],
+            geonames_username="g.battaglia"
         )
 
         response_dict = {"status": "OK", "data": filtrateAndGetDict(kr_object)}
