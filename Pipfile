@@ -6,7 +6,8 @@ name = "pypi"
 [packages]
 fastapi = "*"
 uvicorn = "*"
-kerykeion = "*"
+kerykeion = "==3.4.4"
+pydantic = "==1.10.14"
 
 [dev-packages]
 black = "*"
