@@ -4,10 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+pydantic = "*"
+pydantic-settings = "*"
+starlette = "*"
 fastapi = "*"
 uvicorn = "*"
-kerykeion = "==3.4.4"
-pydantic = "==1.10.14"
+types-pytz = "*"
+pytz = "*"
+scour = "*"
+typing-extensions = "*"
+kerykeion = "*"
 
 [dev-packages]
 black = "*"
@@ -21,7 +27,8 @@ python_version = "3.11"
 
 [scripts]
 dev = "uvicorn app.main:app --reload --log-level debug"
-test = "pytest -vv"
-analyze = "python -m mypy --ignore-missing-imports ."
+test = "pytest -v"
+test-verbose = "pytest -vv"
+quality = "python -m mypy --ignore-missing-imports ."
 schema = "python dump_schema.py"
-format = "black . --line-length 180"
+format = "black . --line-length 200"

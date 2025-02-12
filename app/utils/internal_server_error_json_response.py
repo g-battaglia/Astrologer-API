@@ -2,7 +2,6 @@
     This is part of Astrologer API (C) 2023 Giacomo Battaglia
 """
 
-
 from fastapi.responses import JSONResponse
 
 InternalServerErrorJsonResponse = JSONResponse(

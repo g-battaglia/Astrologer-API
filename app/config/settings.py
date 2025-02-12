@@ -5,7 +5,7 @@
 import pathlib
 from logging import getLogger
 from os import getenv
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 from tomllib import load as load_toml
 
 
@@ -32,14 +32,16 @@ elif ENV_TYPE == "dev":
         config = load_toml(config_file)
 
 else:
-    logger.error("No ENV_TYPE set, exiting")
-    exit(1)
+    logger.info("No ENV_TYPE set, loading production config")
+    with open(pathlib.Path(__file__).parent.absolute() / "config.prod.toml", "rb") as config_file:
+        config = load_toml(config_file)
 
 
 class Settings(BaseSettings):
     # Environment variables
     rapid_api_secret_key: str = getenv("RAPID_API_SECRET_KEY", "")
     geonames_username: str = getenv("GEONAMES_USERNAME", "")
+    env_type: str | bool = ENV_TYPE
 
     # Config file
     admin_email: str = config["admin_email"]
@@ -51,7 +53,50 @@ class Settings(BaseSettings):
     docs_url: str | None = config["docs_url"]
     redoc_url: str | None = config["redoc_url"]
     version: str = config["version"]
-    log_level: int = config["log_level"]
+    secret_key_name: str = config["secret_key_name"]
+
+    # Common settings
+    log_level: int = int(config["log_level"])
+    LOGGING_CONFIG: dict = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "default": {
+                "()": "uvicorn.logging.DefaultFormatter",
+                "fmt": "[%(asctime)s] %(levelprefix)s %(message)s - Module: %(name)s",
+                "use_colors": None,
+                "datefmt": "%Y-%m-%d %H:%M:%S",
+            },
+            "access": {
+                "()": "uvicorn.logging.AccessFormatter",
+                "fmt": "[%(asctime)s] %(levelprefix)s %(message)s - Module: %(name)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S",
+            },
+        },
+        "handlers": {
+            "default": {
+                "formatter": "default",
+                "class": "logging.StreamHandler",
+                "stream": "ext://sys.stderr",
+            },
+            "access": {
+                "formatter": "access",
+                "class": "logging.StreamHandler",
+                "stream": "ext://sys.stdout",
+            },
+        },
+        "loggers": {
+            "uvicorn": {"handlers": ["default"], "level": log_level, "propagate": False},
+            "uvicorn.error": {
+                "level": log_level,
+            },
+            "root": {
+                "handlers": ["default"],
+                "level": log_level,
+            },
+            "uvicorn.access": {"handlers": ["access"], "level": log_level, "propagate": False},
+        },
+    }
 
 
 settings = Settings()

@@ -2,28 +2,17 @@
     This is part of Astrologer API (C) 2023 Giacomo Battaglia
 """
 
-
 import logging
+import logging.config
 
-from datetime import datetime
 from fastapi import FastAPI
-from pathlib import Path
-from starlette.middleware.base import BaseHTTPMiddleware
 
-from .routers import astrology
-from .routers import geonames
+from .routers import main_router
 from .config.settings import settings
-from .middleware.rapidapi_middleware import RapidApiMiddleware
-from .middleware.status_middleware import add_process_time_header
+from .middleware.secret_key_checker_middleware import SecretKeyCheckerMiddleware
 
 
-logging.basicConfig(
-    filename=Path(__file__).parent.parent / f'logs/{datetime.now().strftime("%m-%d-%Y")}.log',
-    filemode="a",
-    force=True,
-    format="[%(asctime)s] %(levelname)4s - %(message)s - Module: %(name)s",
-    level=settings.log_level,
-)
+logging.config.dictConfig(settings.LOGGING_CONFIG)
 
 app = FastAPI(
     debug=settings.debug,
@@ -34,18 +23,23 @@ app = FastAPI(
     redoc_url=settings.redoc_url,
 )
 
-# Routers #
-app.include_router(astrology.router, tags=["Astrology"])
-app.include_router(geonames.router, tags=["Geonames"])
+#------------------------------------------------------------------------------
+# Routers 
+#------------------------------------------------------------------------------
 
-# Middleware #
-app.add_middleware(BaseHTTPMiddleware, dispatch=add_process_time_header)
-# With the decorator function would be:
-# app.middleware("http")(add_process_time_header)
+app.include_router(main_router.router, tags=["Endpoints"])
 
-if settings.debug is False:
+#------------------------------------------------------------------------------
+# Middleware 
+#------------------------------------------------------------------------------
+
+if settings.debug is True:
+    pass
+
+else:
     app.add_middleware(
-        RapidApiMiddleware,
+        SecretKeyCheckerMiddleware,
+        secret_key_name=settings.secret_key_name,
         secret_keys=[
             settings.rapid_api_secret_key,
         ],

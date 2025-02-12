@@ -1,11 +1,12 @@
 app_name = "Astrologer API"
-version = "3.0.0"
-description = "An API for astrological calculations."
-admin_email = "giacomo.battaglia@yahoo.it"
+version = "4.0.0"
+description = "Astrology Made Easy"
+admin_email = "kerykeion.astrology@gmail.com"
 debug = false
 docs_url = "/docs"
 redoc_url = "/redoc"
-log_level = "20"
+log_level = 20
+secret_key_name = "X-RapidAPI-Proxy-Secret"
 
 allowed_hosts = [
     "rapidapi.com",
