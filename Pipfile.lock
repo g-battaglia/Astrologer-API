@@ -189,12 +189,12 @@
         },
         "kerykeion": {
             "hashes": [
-                "sha256:338aee7c8b077ca4af949b0350eb12ba33983c78fe66819a7e8a2003727c7fff",
-                "sha256:7bf4040a708784741c9581ad657c4911af4fdec9361d13367104ae519ee92b44"
+                "sha256:069499b3d12d6441931431f8fd9c146b66bd228b9d30def821062adbbf3882ff",
+                "sha256:81778e21f6f07162a398c3c2d428c5fd0bf446a85ef11afa2791963c762e9ae2"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9' and python_version < '4.0'",
-            "version": "==4.24.3"
+            "version": "==4.24.4"
         },
         "platformdirs": {
             "hashes": [
