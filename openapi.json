@@ -2,7 +2,17 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Astrologer API",
-    "description": "Astrology Made Easy",
+    "summary": "Astrology Made Easy",
+    "description": "The Astrologer API is a RESTful service providing extensive astrology calculations, designed for seamless integration into projects. It offers a rich set of astrological charts and data, making it an invaluable tool for both developers and astrology enthusiasts.",
+    "contact": {
+      "name": "Kerykeion Astrology",
+      "url": "https://www.kerykeion.net/",
+      "email": "kerykeion.astrology@gmail.com"
+    },
+    "license": {
+      "name": "AGPL-3.0",
+      "url": "https://www.gnu.org/licenses/agpl-3.0.html"
+    },
     "version": "4.0.0"
   },
   "paths": {
