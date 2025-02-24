@@ -127,5 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-openapi.json
 cache/geonames_cache.sqlite

@@ -1,0 +1,3457 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Astrologer API",
+    "description": "Astrology Made Easy",
+    "version": "4.0.0"
+  },
+  "paths": {
+    "/api/v4/now": {
+      "get": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Get Now",
+        "description": "Retrieve astrological data for the current moment.",
+        "operationId": "get_now_api_v4_now_get",
+        "responses": {
+          "200": {
+            "description": "Current astrological data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BirthDataResponseModel"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v4/birth-data": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Birth Data",
+        "operationId": "birth_data_api_v4_birth_data_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BirthDataRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Birth data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BirthDataResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v4/birth-chart": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Birth Chart",
+        "operationId": "birth_chart_api_v4_birth_chart_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BirthChartRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Birth chart",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BirthChartResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v4/synastry-chart": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Synastry Chart",
+        "operationId": "synastry_chart_api_v4_synastry_chart_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SynastryChartRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Synastry data",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v4/transit-chart": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Transit Chart",
+        "operationId": "transit_chart_api_v4_transit_chart_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransitChartRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Transit data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SynastryChartResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v4/synastry-aspects-data": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Synastry Aspects Data",
+        "operationId": "synastry_aspects_data_api_v4_synastry_aspects_data_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SynastryAspectsRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Synastry aspects data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SynastryAspectsResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v4/natal-aspects-data": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Natal Aspects Data",
+        "operationId": "natal_aspects_data_api_v4_natal_aspects_data_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NatalAspectsRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Birth aspects data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SynastryAspectsResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v4/relationship-score": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Relationship Score",
+        "description": "Calculates the relevance of the relationship between two subjects using the Ciro Discepolo method.\n\nResults:\n    - 0 to 5: Minimal relationship\n    - 5 to 10: Medium relationship\n    - 10 to 15: Important relationship\n    - 15 to 20: Very important relationship\n    - 20 to 35: Exceptional relationship\n    - 30 and above: Rare Exceptional relationship\n\nMore details: https://www-cirodiscepolo-it.translate.goog/Articoli/Discepoloele.htm?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp",
+        "operationId": "relationship_score_api_v4_relationship_score_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipScoreRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Relationship score",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RelationshipScoreResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActiveAspect": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "conjunction",
+              "semi-sextile",
+              "semi-square",
+              "sextile",
+              "quintile",
+              "square",
+              "trine",
+              "sesquiquadrate",
+              "biquintile",
+              "quincunx",
+              "opposition"
+            ],
+            "title": "Name"
+          },
+          "orb": {
+            "type": "integer",
+            "title": "Orb"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "orb"
+        ],
+        "title": "ActiveAspect"
+      },
+      "AspectModel": {
+        "properties": {
+          "p1_name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "Sun",
+                  "Moon",
+                  "Mercury",
+                  "Venus",
+                  "Mars",
+                  "Jupiter",
+                  "Saturn",
+                  "Uranus",
+                  "Neptune",
+                  "Pluto",
+                  "Mean_Node",
+                  "True_Node",
+                  "Mean_South_Node",
+                  "True_South_Node",
+                  "Chiron",
+                  "Mean_Lilith"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "Ascendant",
+                  "Medium_Coeli",
+                  "Descendant",
+                  "Imum_Coeli"
+                ]
+              }
+            ],
+            "title": "P1 Name",
+            "description": "The name of the first planet."
+          },
+          "p1_abs_pos": {
+            "type": "number",
+            "title": "P1 Abs Pos",
+            "description": "The absolute position of the first planet."
+          },
+          "p2_name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "Sun",
+                  "Moon",
+                  "Mercury",
+                  "Venus",
+                  "Mars",
+                  "Jupiter",
+                  "Saturn",
+                  "Uranus",
+                  "Neptune",
+                  "Pluto",
+                  "Mean_Node",
+                  "True_Node",
+                  "Mean_South_Node",
+                  "True_South_Node",
+                  "Chiron",
+                  "Mean_Lilith"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "Ascendant",
+                  "Medium_Coeli",
+                  "Descendant",
+                  "Imum_Coeli"
+                ]
+              }
+            ],
+            "title": "P2 Name",
+            "description": "The name of the second planet."
+          },
+          "p2_abs_pos": {
+            "type": "number",
+            "title": "P2 Abs Pos",
+            "description": "The absolute position of the second planet."
+          },
+          "aspect": {
+            "type": "string",
+            "enum": [
+              "conjunction",
+              "semi-sextile",
+              "semi-square",
+              "sextile",
+              "quintile",
+              "square",
+              "trine",
+              "sesquiquadrate",
+              "biquintile",
+              "quincunx",
+              "opposition"
+            ],
+            "title": "Aspect",
+            "description": "The aspect between the two planets."
+          },
+          "orbit": {
+            "type": "number",
+            "title": "Orbit",
+            "description": "The orbit between the two planets."
+          },
+          "aspect_degrees": {
+            "type": "number",
+            "title": "Aspect Degrees",
+            "description": "The degrees of the aspect."
+          },
+          "diff": {
+            "type": "number",
+            "title": "Diff",
+            "description": "The difference between the two planets."
+          },
+          "p1": {
+            "type": "integer",
+            "title": "P1",
+            "description": "The id of the first planet."
+          },
+          "p2": {
+            "type": "integer",
+            "title": "P2",
+            "description": "The id of the second planet."
+          }
+        },
+        "type": "object",
+        "required": [
+          "p1_name",
+          "p1_abs_pos",
+          "p2_name",
+          "p2_abs_pos",
+          "aspect",
+          "orbit",
+          "aspect_degrees",
+          "diff",
+          "p1",
+          "p2"
+        ],
+        "title": "AspectModel",
+        "description": "The model for the aspects, similar to the one in the Kerykeion library."
+      },
+      "AstrologicalSubjectModel": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "year": {
+            "type": "integer",
+            "title": "Year"
+          },
+          "month": {
+            "type": "integer",
+            "title": "Month"
+          },
+          "day": {
+            "type": "integer",
+            "title": "Day"
+          },
+          "hour": {
+            "type": "integer",
+            "title": "Hour"
+          },
+          "minute": {
+            "type": "integer",
+            "title": "Minute"
+          },
+          "city": {
+            "type": "string",
+            "title": "City"
+          },
+          "nation": {
+            "type": "string",
+            "title": "Nation"
+          },
+          "lng": {
+            "type": "number",
+            "title": "Lng"
+          },
+          "lat": {
+            "type": "number",
+            "title": "Lat"
+          },
+          "tz_str": {
+            "type": "string",
+            "title": "Tz Str"
+          },
+          "zodiac_type": {
+            "type": "string",
+            "enum": [
+              "Tropic",
+              "Sidereal"
+            ],
+            "title": "Zodiac Type"
+          },
+          "sidereal_mode": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "FAGAN_BRADLEY",
+                  "LAHIRI",
+                  "DELUCE",
+                  "RAMAN",
+                  "USHASHASHI",
+                  "KRISHNAMURTI",
+                  "DJWHAL_KHUL",
+                  "YUKTESHWAR",
+                  "JN_BHASIN",
+                  "BABYL_KUGLER1",
+                  "BABYL_KUGLER2",
+                  "BABYL_KUGLER3",
+                  "BABYL_HUBER",
+                  "BABYL_ETPSC",
+                  "ALDEBARAN_15TAU",
+                  "HIPPARCHOS",
+                  "SASSANIAN",
+                  "J2000",
+                  "J1900",
+                  "B1950"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sidereal Mode"
+          },
+          "houses_system_identifier": {
+            "type": "string",
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "F",
+              "H",
+              "I",
+              "i",
+              "K",
+              "L",
+              "M",
+              "N",
+              "O",
+              "P",
+              "Q",
+              "R",
+              "S",
+              "T",
+              "U",
+              "V",
+              "W",
+              "X",
+              "Y"
+            ],
+            "title": "Houses System Identifier"
+          },
+          "houses_system_name": {
+            "type": "string",
+            "title": "Houses System Name"
+          },
+          "perspective_type": {
+            "type": "string",
+            "title": "Perspective Type"
+          },
+          "iso_formatted_local_datetime": {
+            "type": "string",
+            "title": "Iso Formatted Local Datetime"
+          },
+          "iso_formatted_utc_datetime": {
+            "type": "string",
+            "title": "Iso Formatted Utc Datetime"
+          },
+          "julian_day": {
+            "type": "number",
+            "title": "Julian Day"
+          },
+          "utc_time": {
+            "type": "number",
+            "title": "Utc Time"
+          },
+          "local_time": {
+            "type": "number",
+            "title": "Local Time"
+          },
+          "sun": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "moon": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "mercury": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "venus": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "mars": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "jupiter": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "saturn": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "uranus": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "neptune": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "pluto": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "ascendant": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "descendant": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "medium_coeli": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "imum_coeli": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "chiron": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mean_lilith": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "first_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "second_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "third_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "fourth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "fifth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "sixth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "seventh_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "eighth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "ninth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "tenth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "eleventh_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "twelfth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "mean_node": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "true_node": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "mean_south_node": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "true_south_node": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "planets_names_list": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "Sun",
+                "Moon",
+                "Mercury",
+                "Venus",
+                "Mars",
+                "Jupiter",
+                "Saturn",
+                "Uranus",
+                "Neptune",
+                "Pluto",
+                "Mean_Node",
+                "True_Node",
+                "Mean_South_Node",
+                "True_South_Node",
+                "Chiron",
+                "Mean_Lilith"
+              ]
+            },
+            "type": "array",
+            "title": "Planets Names List"
+          },
+          "axial_cusps_names_list": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "Ascendant",
+                "Medium_Coeli",
+                "Descendant",
+                "Imum_Coeli"
+              ]
+            },
+            "type": "array",
+            "title": "Axial Cusps Names List"
+          },
+          "houses_names_list": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "First_House",
+                "Second_House",
+                "Third_House",
+                "Fourth_House",
+                "Fifth_House",
+                "Sixth_House",
+                "Seventh_House",
+                "Eighth_House",
+                "Ninth_House",
+                "Tenth_House",
+                "Eleventh_House",
+                "Twelfth_House"
+              ]
+            },
+            "type": "array",
+            "title": "Houses Names List"
+          },
+          "lunar_phase": {
+            "$ref": "#/components/schemas/LunarPhaseModel"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "year",
+          "month",
+          "day",
+          "hour",
+          "minute",
+          "city",
+          "nation",
+          "lng",
+          "lat",
+          "tz_str",
+          "zodiac_type",
+          "sidereal_mode",
+          "houses_system_identifier",
+          "houses_system_name",
+          "perspective_type",
+          "iso_formatted_local_datetime",
+          "iso_formatted_utc_datetime",
+          "julian_day",
+          "utc_time",
+          "local_time",
+          "sun",
+          "moon",
+          "mercury",
+          "venus",
+          "mars",
+          "jupiter",
+          "saturn",
+          "uranus",
+          "neptune",
+          "pluto",
+          "ascendant",
+          "descendant",
+          "medium_coeli",
+          "imum_coeli",
+          "chiron",
+          "mean_lilith",
+          "first_house",
+          "second_house",
+          "third_house",
+          "fourth_house",
+          "fifth_house",
+          "sixth_house",
+          "seventh_house",
+          "eighth_house",
+          "ninth_house",
+          "tenth_house",
+          "eleventh_house",
+          "twelfth_house",
+          "mean_node",
+          "true_node",
+          "mean_south_node",
+          "true_south_node",
+          "planets_names_list",
+          "axial_cusps_names_list",
+          "houses_names_list",
+          "lunar_phase"
+        ],
+        "title": "AstrologicalSubjectModel"
+      },
+      "BirthChartRequestModel": {
+        "properties": {
+          "subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "theme": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "light",
+                  "dark",
+                  "dark-high-contrast",
+                  "classic"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Theme",
+            "description": "The theme of the chart.",
+            "default": "classic",
+            "examples": [
+              "classic",
+              "light",
+              "dark",
+              "dark-high-contrast"
+            ]
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "EN",
+                  "FR",
+                  "PT",
+                  "IT",
+                  "CN",
+                  "ES",
+                  "RU",
+                  "TR",
+                  "DE",
+                  "HI"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "description": "The language of the chart.",
+            "default": "EN",
+            "examples": [
+              "EN",
+              "FR",
+              "PT",
+              "IT",
+              "CN",
+              "ES",
+              "RU",
+              "TR",
+              "DE",
+              "HI"
+            ]
+          },
+          "wheel_only": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Wheel Only",
+            "description": "If set to True, only the zodiac wheel will be returned. No additional information will be displayed.",
+            "default": false
+          },
+          "active_points": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Sun",
+                        "Moon",
+                        "Mercury",
+                        "Venus",
+                        "Mars",
+                        "Jupiter",
+                        "Saturn",
+                        "Uranus",
+                        "Neptune",
+                        "Pluto",
+                        "Mean_Node",
+                        "True_Node",
+                        "Mean_South_Node",
+                        "True_South_Node",
+                        "Chiron",
+                        "Mean_Lilith"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Ascendant",
+                        "Medium_Coeli",
+                        "Descendant",
+                        "Imum_Coeli"
+                      ]
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Points",
+            "description": "The active points to display in the chart.",
+            "default": [
+              "Sun",
+              "Moon",
+              "Mercury",
+              "Venus",
+              "Mars",
+              "Jupiter",
+              "Saturn",
+              "Uranus",
+              "Neptune",
+              "Pluto",
+              "Mean_Node",
+              "Chiron",
+              "Ascendant",
+              "Medium_Coeli",
+              "Mean_Lilith",
+              "Mean_South_Node"
+            ],
+            "examples": [
+              [
+                "Sun",
+                "Moon",
+                "Mercury",
+                "Venus",
+                "Mars",
+                "Jupiter",
+                "Saturn",
+                "Uranus",
+                "Neptune",
+                "Pluto",
+                "Mean_Node",
+                "Chiron",
+                "Ascendant",
+                "Medium_Coeli",
+                "Mean_Lilith",
+                "Mean_South_Node"
+              ]
+            ]
+          },
+          "active_aspects": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ActiveAspect"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Aspects",
+            "description": "The active aspects to display in the chart.",
+            "default": [
+              {
+                "name": "conjunction",
+                "orb": 10
+              },
+              {
+                "name": "opposition",
+                "orb": 10
+              },
+              {
+                "name": "trine",
+                "orb": 8
+              },
+              {
+                "name": "sextile",
+                "orb": 6
+              },
+              {
+                "name": "square",
+                "orb": 5
+              },
+              {
+                "name": "quintile",
+                "orb": 1
+              }
+            ],
+            "examples": [
+              [
+                {
+                  "name": "conjunction",
+                  "orb": 10
+                },
+                {
+                  "name": "opposition",
+                  "orb": 10
+                },
+                {
+                  "name": "trine",
+                  "orb": 8
+                },
+                {
+                  "name": "sextile",
+                  "orb": 6
+                },
+                {
+                  "name": "square",
+                  "orb": 5
+                },
+                {
+                  "name": "quintile",
+                  "orb": 1
+                }
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "subject"
+        ],
+        "title": "BirthChartRequestModel",
+        "description": "The request model for the Birth Chart endpoint."
+      },
+      "BirthChartResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the response."
+          },
+          "data": {
+            "$ref": "#/components/schemas/BirthDataModel",
+            "description": "The data of the subject."
+          },
+          "chart": {
+            "type": "string",
+            "title": "Chart",
+            "description": "The SVG chart of the birth chart."
+          },
+          "aspects": {
+            "items": {
+              "$ref": "#/components/schemas/AspectModel"
+            },
+            "type": "array",
+            "title": "Aspects",
+            "description": "The aspects of the birth chart."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data",
+          "chart",
+          "aspects"
+        ],
+        "title": "BirthChartResponseModel",
+        "description": "The response model for the Birth Chart endpoint."
+      },
+      "BirthDataModel": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the subject."
+          },
+          "year": {
+            "type": "integer",
+            "title": "Year",
+            "description": "Year of birth."
+          },
+          "month": {
+            "type": "integer",
+            "title": "Month",
+            "description": "Month of birth."
+          },
+          "day": {
+            "type": "integer",
+            "title": "Day",
+            "description": "Day of birth."
+          },
+          "hour": {
+            "type": "integer",
+            "title": "Hour",
+            "description": "Hour of birth."
+          },
+          "minute": {
+            "type": "integer",
+            "title": "Minute",
+            "description": "Minute of birth."
+          },
+          "city": {
+            "type": "string",
+            "title": "City",
+            "description": "City of birth."
+          },
+          "nation": {
+            "type": "string",
+            "title": "Nation",
+            "description": "Nation of birth."
+          },
+          "lng": {
+            "type": "number",
+            "title": "Lng",
+            "description": "Longitude of birth."
+          },
+          "lat": {
+            "type": "number",
+            "title": "Lat",
+            "description": "Latitude of birth."
+          },
+          "tz_str": {
+            "type": "string",
+            "title": "Tz Str",
+            "description": "Timezone of birth."
+          },
+          "zodiac_type": {
+            "type": "string",
+            "enum": [
+              "Tropic",
+              "Sidereal"
+            ],
+            "title": "Zodiac Type",
+            "description": "The type of zodiac used."
+          },
+          "local_time": {
+            "type": "string",
+            "title": "Local Time",
+            "description": "The local time of birth."
+          },
+          "utc_time": {
+            "type": "string",
+            "title": "Utc Time",
+            "description": "The UTC time of birth."
+          },
+          "julian_day": {
+            "type": "number",
+            "title": "Julian Day",
+            "description": "The Julian day of birth."
+          },
+          "sun": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the Sun."
+          },
+          "moon": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the Moon."
+          },
+          "mercury": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of Mercury."
+          },
+          "venus": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of Venus."
+          },
+          "mars": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of Mars."
+          },
+          "jupiter": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of Jupiter."
+          },
+          "saturn": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of Saturn."
+          },
+          "uranus": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of Uranus."
+          },
+          "neptune": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of Neptune."
+          },
+          "pluto": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of Pluto."
+          },
+          "chiron": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of Chiron."
+          },
+          "asc": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the ascendant."
+          },
+          "dsc": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the descendant."
+          },
+          "mc": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the midheaven."
+          },
+          "ic": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the imum coeli."
+          },
+          "first_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the first house."
+          },
+          "second_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the second house."
+          },
+          "third_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the third house."
+          },
+          "fourth_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the fourth house."
+          },
+          "fifth_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the fifth house."
+          },
+          "sixth_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the sixth house."
+          },
+          "seventh_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the seventh house."
+          },
+          "eighth_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the eighth house."
+          },
+          "ninth_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the ninth house."
+          },
+          "tenth_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the tenth house."
+          },
+          "eleventh_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the eleventh house."
+          },
+          "twelfth_house": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the twelfth house."
+          },
+          "mean_node": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the mean node."
+          },
+          "true_node": {
+            "$ref": "#/components/schemas/PlanetModel",
+            "description": "The data of the true node."
+          },
+          "lunar_phase": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LunarPhaseModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The lunar phase of the subject."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "year",
+          "month",
+          "day",
+          "hour",
+          "minute",
+          "city",
+          "nation",
+          "lng",
+          "lat",
+          "tz_str",
+          "zodiac_type",
+          "local_time",
+          "utc_time",
+          "julian_day",
+          "sun",
+          "moon",
+          "mercury",
+          "venus",
+          "mars",
+          "jupiter",
+          "saturn",
+          "uranus",
+          "neptune",
+          "pluto",
+          "chiron",
+          "asc",
+          "dsc",
+          "mc",
+          "ic",
+          "first_house",
+          "second_house",
+          "third_house",
+          "fourth_house",
+          "fifth_house",
+          "sixth_house",
+          "seventh_house",
+          "eighth_house",
+          "ninth_house",
+          "tenth_house",
+          "eleventh_house",
+          "twelfth_house",
+          "mean_node",
+          "true_node",
+          "lunar_phase"
+        ],
+        "title": "BirthDataModel",
+        "description": "The model for the birth data."
+      },
+      "BirthDataRequestModel": {
+        "properties": {
+          "subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          }
+        },
+        "type": "object",
+        "required": [
+          "subject"
+        ],
+        "title": "BirthDataRequestModel",
+        "description": "The request model for the Birth Data endpoint."
+      },
+      "BirthDataResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the response."
+          },
+          "data": {
+            "$ref": "#/components/schemas/BirthDataModel",
+            "description": "The data of the subject."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data"
+        ],
+        "title": "BirthDataResponseModel",
+        "description": "The response model for the Birth Data endpoint."
+      },
+      "DoubleDataModel": {
+        "properties": {
+          "first_subject": {
+            "$ref": "#/components/schemas/AstrologicalSubjectModel",
+            "description": "The data of the first subject."
+          },
+          "second_subject": {
+            "$ref": "#/components/schemas/AstrologicalSubjectModel",
+            "description": "The data of the second subject."
+          }
+        },
+        "type": "object",
+        "required": [
+          "first_subject",
+          "second_subject"
+        ],
+        "title": "DoubleDataModel",
+        "description": "The model for the data of two subjects."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "KerykeionPointModel": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "Sun",
+                  "Moon",
+                  "Mercury",
+                  "Venus",
+                  "Mars",
+                  "Jupiter",
+                  "Saturn",
+                  "Uranus",
+                  "Neptune",
+                  "Pluto",
+                  "Mean_Node",
+                  "True_Node",
+                  "Mean_South_Node",
+                  "True_South_Node",
+                  "Chiron",
+                  "Mean_Lilith"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "First_House",
+                  "Second_House",
+                  "Third_House",
+                  "Fourth_House",
+                  "Fifth_House",
+                  "Sixth_House",
+                  "Seventh_House",
+                  "Eighth_House",
+                  "Ninth_House",
+                  "Tenth_House",
+                  "Eleventh_House",
+                  "Twelfth_House"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "Ascendant",
+                  "Medium_Coeli",
+                  "Descendant",
+                  "Imum_Coeli"
+                ]
+              }
+            ],
+            "title": "Name"
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "Cardinal",
+              "Fixed",
+              "Mutable"
+            ],
+            "title": "Quality"
+          },
+          "element": {
+            "type": "string",
+            "enum": [
+              "Air",
+              "Fire",
+              "Earth",
+              "Water"
+            ],
+            "title": "Element"
+          },
+          "sign": {
+            "type": "string",
+            "enum": [
+              "Ari",
+              "Tau",
+              "Gem",
+              "Can",
+              "Leo",
+              "Vir",
+              "Lib",
+              "Sco",
+              "Sag",
+              "Cap",
+              "Aqu",
+              "Pis"
+            ],
+            "title": "Sign"
+          },
+          "sign_num": {
+            "type": "integer",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "title": "Sign Num"
+          },
+          "position": {
+            "type": "number",
+            "title": "Position"
+          },
+          "abs_pos": {
+            "type": "number",
+            "title": "Abs Pos"
+          },
+          "emoji": {
+            "type": "string",
+            "title": "Emoji"
+          },
+          "point_type": {
+            "type": "string",
+            "enum": [
+              "Planet",
+              "House",
+              "AxialCusps"
+            ],
+            "title": "Point Type"
+          },
+          "house": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "First_House",
+                  "Second_House",
+                  "Third_House",
+                  "Fourth_House",
+                  "Fifth_House",
+                  "Sixth_House",
+                  "Seventh_House",
+                  "Eighth_House",
+                  "Ninth_House",
+                  "Tenth_House",
+                  "Eleventh_House",
+                  "Twelfth_House"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "House"
+          },
+          "retrograde": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Retrograde"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "quality",
+          "element",
+          "sign",
+          "sign_num",
+          "position",
+          "abs_pos",
+          "emoji",
+          "point_type"
+        ],
+        "title": "KerykeionPointModel",
+        "description": "Kerykeion Point Model"
+      },
+      "LunarPhaseModel": {
+        "properties": {
+          "degrees_between_s_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Degrees Between S M"
+          },
+          "moon_phase": {
+            "type": "integer",
+            "title": "Moon Phase"
+          },
+          "sun_phase": {
+            "type": "integer",
+            "title": "Sun Phase"
+          },
+          "moon_emoji": {
+            "type": "string",
+            "enum": [
+              "\ud83c\udf11",
+              "\ud83c\udf12",
+              "\ud83c\udf13",
+              "\ud83c\udf14",
+              "\ud83c\udf15",
+              "\ud83c\udf16",
+              "\ud83c\udf17",
+              "\ud83c\udf18"
+            ],
+            "title": "Moon Emoji"
+          },
+          "moon_phase_name": {
+            "type": "string",
+            "enum": [
+              "New Moon",
+              "Waxing Crescent",
+              "First Quarter",
+              "Waxing Gibbous",
+              "Full Moon",
+              "Waning Gibbous",
+              "Last Quarter",
+              "Waning Crescent"
+            ],
+            "title": "Moon Phase Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "degrees_between_s_m",
+          "moon_phase",
+          "sun_phase",
+          "moon_emoji",
+          "moon_phase_name"
+        ],
+        "title": "LunarPhaseModel"
+      },
+      "NatalAspectsRequestModel": {
+        "properties": {
+          "subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "active_points": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Sun",
+                        "Moon",
+                        "Mercury",
+                        "Venus",
+                        "Mars",
+                        "Jupiter",
+                        "Saturn",
+                        "Uranus",
+                        "Neptune",
+                        "Pluto",
+                        "Mean_Node",
+                        "True_Node",
+                        "Mean_South_Node",
+                        "True_South_Node",
+                        "Chiron",
+                        "Mean_Lilith"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Ascendant",
+                        "Medium_Coeli",
+                        "Descendant",
+                        "Imum_Coeli"
+                      ]
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Points",
+            "description": "The active points to display in the chart.",
+            "default": [
+              "Sun",
+              "Moon",
+              "Mercury",
+              "Venus",
+              "Mars",
+              "Jupiter",
+              "Saturn",
+              "Uranus",
+              "Neptune",
+              "Pluto",
+              "Mean_Node",
+              "Chiron",
+              "Ascendant",
+              "Medium_Coeli",
+              "Mean_Lilith",
+              "Mean_South_Node"
+            ],
+            "examples": [
+              [
+                "Sun",
+                "Moon",
+                "Mercury",
+                "Venus",
+                "Mars",
+                "Jupiter",
+                "Saturn",
+                "Uranus",
+                "Neptune",
+                "Pluto",
+                "Mean_Node",
+                "Chiron",
+                "Ascendant",
+                "Medium_Coeli",
+                "Mean_Lilith",
+                "Mean_South_Node"
+              ]
+            ]
+          },
+          "active_aspects": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ActiveAspect"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Aspects",
+            "description": "The active aspects to display in the chart.",
+            "default": [
+              {
+                "name": "conjunction",
+                "orb": 10
+              },
+              {
+                "name": "opposition",
+                "orb": 10
+              },
+              {
+                "name": "trine",
+                "orb": 8
+              },
+              {
+                "name": "sextile",
+                "orb": 6
+              },
+              {
+                "name": "square",
+                "orb": 5
+              },
+              {
+                "name": "quintile",
+                "orb": 1
+              }
+            ],
+            "examples": [
+              [
+                {
+                  "name": "conjunction",
+                  "orb": 10
+                },
+                {
+                  "name": "opposition",
+                  "orb": 10
+                },
+                {
+                  "name": "trine",
+                  "orb": 8
+                },
+                {
+                  "name": "sextile",
+                  "orb": 6
+                },
+                {
+                  "name": "square",
+                  "orb": 5
+                },
+                {
+                  "name": "quintile",
+                  "orb": 1
+                }
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "subject"
+        ],
+        "title": "NatalAspectsRequestModel",
+        "description": "The request model for the Birth Data endpoint."
+      },
+      "PlanetModel": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "Sun",
+                  "Moon",
+                  "Mercury",
+                  "Venus",
+                  "Mars",
+                  "Jupiter",
+                  "Saturn",
+                  "Uranus",
+                  "Neptune",
+                  "Pluto",
+                  "Mean_Node",
+                  "True_Node",
+                  "Mean_South_Node",
+                  "True_South_Node",
+                  "Chiron",
+                  "Mean_Lilith"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "Ascendant",
+                  "Medium_Coeli",
+                  "Descendant",
+                  "Imum_Coeli"
+                ]
+              }
+            ],
+            "title": "Name",
+            "description": "The name of the planet."
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "Cardinal",
+              "Fixed",
+              "Mutable"
+            ],
+            "title": "Quality",
+            "description": "The quality of the planet."
+          },
+          "element": {
+            "type": "string",
+            "enum": [
+              "Air",
+              "Fire",
+              "Earth",
+              "Water"
+            ],
+            "title": "Element",
+            "description": "The element of the planet."
+          },
+          "sign": {
+            "type": "string",
+            "enum": [
+              "Ari",
+              "Tau",
+              "Gem",
+              "Can",
+              "Leo",
+              "Vir",
+              "Lib",
+              "Sco",
+              "Sag",
+              "Cap",
+              "Aqu",
+              "Pis"
+            ],
+            "title": "Sign",
+            "description": "The sign in which the planet is located."
+          },
+          "sign_num": {
+            "type": "integer",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "title": "Sign Num",
+            "description": "The number of the sign in which the planet is located."
+          },
+          "position": {
+            "type": "number",
+            "title": "Position",
+            "description": "The position of the planet inside the sign."
+          },
+          "abs_pos": {
+            "type": "number",
+            "title": "Abs Pos",
+            "description": "The absolute position of the planet in the 360 degrees circle of the zodiac."
+          },
+          "emoji": {
+            "type": "string",
+            "enum": [
+              "\u2648\ufe0f",
+              "\u2649\ufe0f",
+              "\u264a\ufe0f",
+              "\u264b\ufe0f",
+              "\u264c\ufe0f",
+              "\u264d\ufe0f",
+              "\u264e\ufe0f",
+              "\u264f\ufe0f",
+              "\u2650\ufe0f",
+              "\u2651\ufe0f",
+              "\u2652\ufe0f",
+              "\u2653\ufe0f"
+            ],
+            "title": "Emoji",
+            "description": "The emoji of the sign in which the planet is located."
+          },
+          "point_type": {
+            "type": "string",
+            "enum": [
+              "Planet",
+              "House",
+              "AxialCusps"
+            ],
+            "title": "Point Type",
+            "description": "The type of the point."
+          },
+          "house": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "First_House",
+                  "Second_House",
+                  "Third_House",
+                  "Fourth_House",
+                  "Fifth_House",
+                  "Sixth_House",
+                  "Seventh_House",
+                  "Eighth_House",
+                  "Ninth_House",
+                  "Tenth_House",
+                  "Eleventh_House",
+                  "Twelfth_House"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "House",
+            "description": "The house in which the planet is located."
+          },
+          "retrograde": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Retrograde",
+            "description": "The retrograde status of the planet."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "quality",
+          "element",
+          "sign",
+          "sign_num",
+          "position",
+          "abs_pos",
+          "emoji",
+          "point_type",
+          "house"
+        ],
+        "title": "PlanetModel",
+        "description": "The model for the planets, similar to the one in the Kerykeion library."
+      },
+      "RelationshipScoreRequestModel": {
+        "properties": {
+          "first_subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "second_subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          }
+        },
+        "type": "object",
+        "required": [
+          "first_subject",
+          "second_subject"
+        ],
+        "title": "RelationshipScoreRequestModel",
+        "description": "The request model for the Relationship Score endpoint."
+      },
+      "RelationshipScoreResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the response."
+          },
+          "data": {
+            "$ref": "#/components/schemas/DoubleDataModel",
+            "description": "The data of the two subjects."
+          },
+          "score": {
+            "type": "number",
+            "title": "Score",
+            "description": "The relationship score between the two subjects."
+          },
+          "aspects": {
+            "items": {
+              "$ref": "#/components/schemas/AspectModel"
+            },
+            "type": "array",
+            "title": "Aspects",
+            "description": "The aspects between the two subjects. In the Kerykeion library is referred as 'relevant_aspects'."
+          },
+          "is_destiny_sign": {
+            "type": "boolean",
+            "title": "Is Destiny Sign",
+            "description": "If the two sings are reciprocally destiny signs."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data",
+          "score",
+          "aspects",
+          "is_destiny_sign"
+        ],
+        "title": "RelationshipScoreResponseModel",
+        "description": "The response model for the Relationship Score endpoint."
+      },
+      "SubjectModel": {
+        "properties": {
+          "year": {
+            "type": "integer",
+            "title": "Year",
+            "description": "The year of birth.",
+            "examples": [
+              1980
+            ]
+          },
+          "month": {
+            "type": "integer",
+            "title": "Month",
+            "description": "The month of birth.",
+            "examples": [
+              12
+            ]
+          },
+          "day": {
+            "type": "integer",
+            "title": "Day",
+            "description": "The day of birth.",
+            "examples": [
+              12
+            ]
+          },
+          "hour": {
+            "type": "integer",
+            "title": "Hour",
+            "description": "The hour of birth.",
+            "examples": [
+              12
+            ]
+          },
+          "minute": {
+            "type": "integer",
+            "title": "Minute",
+            "description": "The minute of birth.",
+            "examples": [
+              12
+            ]
+          },
+          "longitude": {
+            "type": "number",
+            "title": "Longitude",
+            "description": "The longitude of the birth location. Defaults on London.",
+            "examples": [
+              0
+            ]
+          },
+          "latitude": {
+            "type": "number",
+            "title": "Latitude",
+            "description": "The latitude of the birth location. Defaults on London.",
+            "examples": [
+              51.4825766
+            ]
+          },
+          "city": {
+            "type": "string",
+            "title": "City",
+            "description": "The name of city of birth.",
+            "examples": [
+              "London"
+            ]
+          },
+          "nation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nation",
+            "description": "The name of the nation of birth.",
+            "default": "null",
+            "examples": [
+              "GB"
+            ]
+          },
+          "timezone": {
+            "type": "string",
+            "title": "Timezone",
+            "description": "The timezone of the birth location.",
+            "examples": [
+              "Europe/London"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the person to get the Birth Chart for.",
+            "examples": [
+              "John Doe"
+            ]
+          },
+          "zodiac_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "Tropic",
+                  "Sidereal"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Zodiac Type",
+            "description": "The type of zodiac used (Tropic or Sidereal).",
+            "default": "Tropic",
+            "examples": [
+              "Tropic",
+              "Sidereal"
+            ]
+          },
+          "sidereal_mode": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "FAGAN_BRADLEY",
+                  "LAHIRI",
+                  "DELUCE",
+                  "RAMAN",
+                  "USHASHASHI",
+                  "KRISHNAMURTI",
+                  "DJWHAL_KHUL",
+                  "YUKTESHWAR",
+                  "JN_BHASIN",
+                  "BABYL_KUGLER1",
+                  "BABYL_KUGLER2",
+                  "BABYL_KUGLER3",
+                  "BABYL_HUBER",
+                  "BABYL_ETPSC",
+                  "ALDEBARAN_15TAU",
+                  "HIPPARCHOS",
+                  "SASSANIAN",
+                  "J2000",
+                  "J1900",
+                  "B1950"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sidereal Mode",
+            "description": "The sidereal mode used.",
+            "examples": [
+              null
+            ]
+          },
+          "perspective_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "Apparent Geocentric",
+                  "Heliocentric",
+                  "Topocentric",
+                  "True Geocentric"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Perspective Type",
+            "description": "The perspective type used.",
+            "default": "Apparent Geocentric",
+            "examples": [
+              "Apparent Geocentric",
+              "Heliocentric",
+              "Topocentric",
+              "True Geocentric"
+            ]
+          },
+          "houses_system_identifier": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "A",
+                  "B",
+                  "C",
+                  "D",
+                  "F",
+                  "H",
+                  "I",
+                  "i",
+                  "K",
+                  "L",
+                  "M",
+                  "N",
+                  "O",
+                  "P",
+                  "Q",
+                  "R",
+                  "S",
+                  "T",
+                  "U",
+                  "V",
+                  "W",
+                  "X",
+                  "Y"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Houses System Identifier",
+            "description": "The house system to use. The following are the available house systems: A = equal B = Alcabitius C = Campanus D = equal (MC) F = Carter poli-equ. H = horizon/azimut I = Sunshine i = Sunshine/alt. K = Koch L = Pullen SD M = Morinus N = equal/1=Aries O = Porphyry P = Placidus Q = Pullen SR R = Regiomontanus S = Sripati T = Polich/Page U = Krusinski-Pisa-Goelzer V = equal/Vehlow W = equal/whole sign X = axial rotation system/Meridian houses Y = APC houses Usually the standard is Placidus (P)",
+            "default": "P",
+            "examples": [
+              "P"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "year",
+          "month",
+          "day",
+          "hour",
+          "minute",
+          "longitude",
+          "latitude",
+          "city",
+          "timezone",
+          "name"
+        ],
+        "title": "SubjectModel"
+      },
+      "SynastryAspectsRequestModel": {
+        "properties": {
+          "first_subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "second_subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "active_points": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Sun",
+                        "Moon",
+                        "Mercury",
+                        "Venus",
+                        "Mars",
+                        "Jupiter",
+                        "Saturn",
+                        "Uranus",
+                        "Neptune",
+                        "Pluto",
+                        "Mean_Node",
+                        "True_Node",
+                        "Mean_South_Node",
+                        "True_South_Node",
+                        "Chiron",
+                        "Mean_Lilith"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Ascendant",
+                        "Medium_Coeli",
+                        "Descendant",
+                        "Imum_Coeli"
+                      ]
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Points",
+            "description": "The active points to display in the chart.",
+            "default": [
+              "Sun",
+              "Moon",
+              "Mercury",
+              "Venus",
+              "Mars",
+              "Jupiter",
+              "Saturn",
+              "Uranus",
+              "Neptune",
+              "Pluto",
+              "Mean_Node",
+              "Chiron",
+              "Ascendant",
+              "Medium_Coeli",
+              "Mean_Lilith",
+              "Mean_South_Node"
+            ],
+            "examples": [
+              [
+                "Sun",
+                "Moon",
+                "Mercury",
+                "Venus",
+                "Mars",
+                "Jupiter",
+                "Saturn",
+                "Uranus",
+                "Neptune",
+                "Pluto",
+                "Mean_Node",
+                "Chiron",
+                "Ascendant",
+                "Medium_Coeli",
+                "Mean_Lilith",
+                "Mean_South_Node"
+              ]
+            ]
+          },
+          "active_aspects": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ActiveAspect"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Aspects",
+            "description": "The active aspects to display in the chart.",
+            "default": [
+              {
+                "name": "conjunction",
+                "orb": 10
+              },
+              {
+                "name": "opposition",
+                "orb": 10
+              },
+              {
+                "name": "trine",
+                "orb": 8
+              },
+              {
+                "name": "sextile",
+                "orb": 6
+              },
+              {
+                "name": "square",
+                "orb": 5
+              },
+              {
+                "name": "quintile",
+                "orb": 1
+              }
+            ],
+            "examples": [
+              [
+                {
+                  "name": "conjunction",
+                  "orb": 10
+                },
+                {
+                  "name": "opposition",
+                  "orb": 10
+                },
+                {
+                  "name": "trine",
+                  "orb": 8
+                },
+                {
+                  "name": "sextile",
+                  "orb": 6
+                },
+                {
+                  "name": "square",
+                  "orb": 5
+                },
+                {
+                  "name": "quintile",
+                  "orb": 1
+                }
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "first_subject",
+          "second_subject"
+        ],
+        "title": "SynastryAspectsRequestModel",
+        "description": "The request model for the Aspects endpoint."
+      },
+      "SynastryAspectsResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the response."
+          },
+          "data": {
+            "$ref": "#/components/schemas/DoubleDataModel",
+            "description": "The data of the two subjects."
+          },
+          "aspects": {
+            "items": {
+              "$ref": "#/components/schemas/AspectModel"
+            },
+            "type": "array",
+            "title": "Aspects",
+            "description": "A list with the aspects between the two subjects."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data",
+          "aspects"
+        ],
+        "title": "SynastryAspectsResponseModel",
+        "description": "The response model for the Aspects endpoint."
+      },
+      "SynastryChartRequestModel": {
+        "properties": {
+          "first_subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "second_subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "theme": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "light",
+                  "dark",
+                  "dark-high-contrast",
+                  "classic"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Theme",
+            "description": "The theme of the chart.",
+            "default": "classic",
+            "examples": [
+              "classic",
+              "light",
+              "dark",
+              "dark-high-contrast"
+            ]
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "EN",
+                  "FR",
+                  "PT",
+                  "IT",
+                  "CN",
+                  "ES",
+                  "RU",
+                  "TR",
+                  "DE",
+                  "HI"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "description": "The language of the chart.",
+            "default": "EN",
+            "examples": [
+              "EN",
+              "FR",
+              "PT",
+              "IT",
+              "CN",
+              "ES",
+              "RU",
+              "TR",
+              "DE",
+              "HI"
+            ]
+          },
+          "wheel_only": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Wheel Only",
+            "description": "If set to True, only the zodiac wheel will be returned. No additional information will be displayed.",
+            "default": false
+          },
+          "active_points": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Sun",
+                        "Moon",
+                        "Mercury",
+                        "Venus",
+                        "Mars",
+                        "Jupiter",
+                        "Saturn",
+                        "Uranus",
+                        "Neptune",
+                        "Pluto",
+                        "Mean_Node",
+                        "True_Node",
+                        "Mean_South_Node",
+                        "True_South_Node",
+                        "Chiron",
+                        "Mean_Lilith"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Ascendant",
+                        "Medium_Coeli",
+                        "Descendant",
+                        "Imum_Coeli"
+                      ]
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Points",
+            "description": "The active points to display in the chart.",
+            "default": [
+              "Sun",
+              "Moon",
+              "Mercury",
+              "Venus",
+              "Mars",
+              "Jupiter",
+              "Saturn",
+              "Uranus",
+              "Neptune",
+              "Pluto",
+              "Mean_Node",
+              "Chiron",
+              "Ascendant",
+              "Medium_Coeli",
+              "Mean_Lilith",
+              "Mean_South_Node"
+            ],
+            "examples": [
+              [
+                "Sun",
+                "Moon",
+                "Mercury",
+                "Venus",
+                "Mars",
+                "Jupiter",
+                "Saturn",
+                "Uranus",
+                "Neptune",
+                "Pluto",
+                "Mean_Node",
+                "Chiron",
+                "Ascendant",
+                "Medium_Coeli",
+                "Mean_Lilith",
+                "Mean_South_Node"
+              ]
+            ]
+          },
+          "active_aspects": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ActiveAspect"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Aspects",
+            "description": "The active aspects to display in the chart.",
+            "default": [
+              {
+                "name": "conjunction",
+                "orb": 10
+              },
+              {
+                "name": "opposition",
+                "orb": 10
+              },
+              {
+                "name": "trine",
+                "orb": 8
+              },
+              {
+                "name": "sextile",
+                "orb": 6
+              },
+              {
+                "name": "square",
+                "orb": 5
+              },
+              {
+                "name": "quintile",
+                "orb": 1
+              }
+            ],
+            "examples": [
+              [
+                {
+                  "name": "conjunction",
+                  "orb": 10
+                },
+                {
+                  "name": "opposition",
+                  "orb": 10
+                },
+                {
+                  "name": "trine",
+                  "orb": 8
+                },
+                {
+                  "name": "sextile",
+                  "orb": 6
+                },
+                {
+                  "name": "square",
+                  "orb": 5
+                },
+                {
+                  "name": "quintile",
+                  "orb": 1
+                }
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "first_subject",
+          "second_subject"
+        ],
+        "title": "SynastryChartRequestModel",
+        "description": "The request model for the Synastry Chart endpoint."
+      },
+      "SynastryChartResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the response."
+          },
+          "data": {
+            "$ref": "#/components/schemas/DoubleDataModel",
+            "description": "The data of the two subjects."
+          },
+          "chart": {
+            "type": "string",
+            "title": "Chart",
+            "description": "The SVG chart of the synastry."
+          },
+          "aspects": {
+            "items": {
+              "$ref": "#/components/schemas/AspectModel"
+            },
+            "type": "array",
+            "title": "Aspects",
+            "description": "The aspects between the two subjects."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data",
+          "chart",
+          "aspects"
+        ],
+        "title": "SynastryChartResponseModel",
+        "description": "The response model for the Synastry."
+      },
+      "TransitChartRequestModel": {
+        "properties": {
+          "first_subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "transit_subject": {
+            "$ref": "#/components/schemas/TransitSubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "theme": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "light",
+                  "dark",
+                  "dark-high-contrast",
+                  "classic"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Theme",
+            "description": "The theme of the chart.",
+            "default": "classic",
+            "examples": [
+              "classic",
+              "light",
+              "dark",
+              "dark-high-contrast"
+            ]
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "EN",
+                  "FR",
+                  "PT",
+                  "IT",
+                  "CN",
+                  "ES",
+                  "RU",
+                  "TR",
+                  "DE",
+                  "HI"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "description": "The language of the chart.",
+            "default": "EN",
+            "examples": [
+              "EN",
+              "FR",
+              "PT",
+              "IT",
+              "CN",
+              "ES",
+              "RU",
+              "TR",
+              "DE",
+              "HI"
+            ]
+          },
+          "wheel_only": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Wheel Only",
+            "description": "If set to True, only the zodiac wheel will be returned. No additional information will be displayed.",
+            "default": false
+          },
+          "active_points": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Sun",
+                        "Moon",
+                        "Mercury",
+                        "Venus",
+                        "Mars",
+                        "Jupiter",
+                        "Saturn",
+                        "Uranus",
+                        "Neptune",
+                        "Pluto",
+                        "Mean_Node",
+                        "True_Node",
+                        "Mean_South_Node",
+                        "True_South_Node",
+                        "Chiron",
+                        "Mean_Lilith"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Ascendant",
+                        "Medium_Coeli",
+                        "Descendant",
+                        "Imum_Coeli"
+                      ]
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Points",
+            "description": "The active points to display in the chart.",
+            "default": [
+              "Sun",
+              "Moon",
+              "Mercury",
+              "Venus",
+              "Mars",
+              "Jupiter",
+              "Saturn",
+              "Uranus",
+              "Neptune",
+              "Pluto",
+              "Mean_Node",
+              "Chiron",
+              "Ascendant",
+              "Medium_Coeli",
+              "Mean_Lilith",
+              "Mean_South_Node"
+            ],
+            "examples": [
+              [
+                "Sun",
+                "Moon",
+                "Mercury",
+                "Venus",
+                "Mars",
+                "Jupiter",
+                "Saturn",
+                "Uranus",
+                "Neptune",
+                "Pluto",
+                "Mean_Node",
+                "Chiron",
+                "Ascendant",
+                "Medium_Coeli",
+                "Mean_Lilith",
+                "Mean_South_Node"
+              ]
+            ]
+          },
+          "active_aspects": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ActiveAspect"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Aspects",
+            "description": "The active aspects to display in the chart.",
+            "default": [
+              {
+                "name": "conjunction",
+                "orb": 10
+              },
+              {
+                "name": "opposition",
+                "orb": 10
+              },
+              {
+                "name": "trine",
+                "orb": 8
+              },
+              {
+                "name": "sextile",
+                "orb": 6
+              },
+              {
+                "name": "square",
+                "orb": 5
+              },
+              {
+                "name": "quintile",
+                "orb": 1
+              }
+            ],
+            "examples": [
+              [
+                {
+                  "name": "conjunction",
+                  "orb": 10
+                },
+                {
+                  "name": "opposition",
+                  "orb": 10
+                },
+                {
+                  "name": "trine",
+                  "orb": 8
+                },
+                {
+                  "name": "sextile",
+                  "orb": 6
+                },
+                {
+                  "name": "square",
+                  "orb": 5
+                },
+                {
+                  "name": "quintile",
+                  "orb": 1
+                }
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "first_subject",
+          "transit_subject"
+        ],
+        "title": "TransitChartRequestModel",
+        "description": "The request model for the Transit Chart endpoint."
+      },
+      "TransitSubjectModel": {
+        "properties": {
+          "year": {
+            "type": "integer",
+            "title": "Year",
+            "description": "The year of birth.",
+            "examples": [
+              1980
+            ]
+          },
+          "month": {
+            "type": "integer",
+            "title": "Month",
+            "description": "The month of birth.",
+            "examples": [
+              12
+            ]
+          },
+          "day": {
+            "type": "integer",
+            "title": "Day",
+            "description": "The day of birth.",
+            "examples": [
+              12
+            ]
+          },
+          "hour": {
+            "type": "integer",
+            "title": "Hour",
+            "description": "The hour of birth.",
+            "examples": [
+              12
+            ]
+          },
+          "minute": {
+            "type": "integer",
+            "title": "Minute",
+            "description": "The minute of birth.",
+            "examples": [
+              12
+            ]
+          },
+          "longitude": {
+            "type": "number",
+            "title": "Longitude",
+            "description": "The longitude of the birth location. Defaults on London.",
+            "examples": [
+              0
+            ]
+          },
+          "latitude": {
+            "type": "number",
+            "title": "Latitude",
+            "description": "The latitude of the birth location. Defaults on London.",
+            "examples": [
+              51.4825766
+            ]
+          },
+          "city": {
+            "type": "string",
+            "title": "City",
+            "description": "The name of city of birth.",
+            "examples": [
+              "London"
+            ]
+          },
+          "nation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nation",
+            "description": "The name of the nation of birth.",
+            "default": "null",
+            "examples": [
+              "GB"
+            ]
+          },
+          "timezone": {
+            "type": "string",
+            "title": "Timezone",
+            "description": "The timezone of the birth location.",
+            "examples": [
+              "Europe/London"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "year",
+          "month",
+          "day",
+          "hour",
+          "minute",
+          "longitude",
+          "latitude",
+          "city",
+          "timezone"
+        ],
+        "title": "TransitSubjectModel"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "RapidAPIKey": {
+        "type": "apiKey",
+        "name": "x-rapidapi-key",
+        "in": "header"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://astrologer.p.rapidapi.com/"
+    }
+  ]
+}
