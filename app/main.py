@@ -13,14 +13,23 @@ from .middleware.secret_key_checker_middleware import SecretKeyCheckerMiddleware
 
 
 logging.config.dictConfig(settings.LOGGING_CONFIG)
-
 app = FastAPI(
     debug=settings.debug,
-    title=settings.app_name,
-    version=settings.version,
-    description=settings.description,
     docs_url=settings.docs_url,
     redoc_url=settings.redoc_url,
+    title="Astrologer API",
+    version="4.0.0",
+    summary="Astrology Made Easy",
+    description="The Astrologer API is a RESTful service providing extensive astrology calculations, designed for seamless integration into projects. It offers a rich set of astrological charts and data, making it an invaluable tool for both developers and astrology enthusiasts.",
+    contact={
+        "name": "Kerykeion Astrology",
+        "url": "https://www.kerykeion.net/",
+        "email": settings.admin_email,
+    },
+    license_info={
+        "name": "AGPL-3.0",
+        "url": "https://www.gnu.org/licenses/agpl-3.0.html",
+    },
 )
 
 #------------------------------------------------------------------------------

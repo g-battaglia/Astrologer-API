@@ -1,6 +1,6 @@
 # Astrologer API
 
-The Astrologer API is a RESTful service providing extensive astrology calculations, designed for seamless integration into your projects. It offers a rich set of astrological data and insights, making it an invaluable tool for both developers and astrology enthusiasts.
+The Astrologer API is a RESTful service providing extensive astrology calculations, designed for seamless integration into projects. It offers a rich set of astrological charts and data, making it an invaluable tool for both developers and astrology enthusiasts.
 
 ## Subscription
 
@@ -305,11 +305,8 @@ The Astrologer API can be freely used in both open-source and closed-source comm
 For full compliance, we recommend adding this statement in your Terms and Conditions or elsewhere on your site/app:
 
 ---
----
 Astrological data and charts on this site are generated using [AstrologerAPI](https://rapidapi.com/gbattaglia/api/astrologer), an open-source third-party service licensed under AGPL v3. Source code:
 - [V4 Astrologer API](https://github.com/g-battaglia/v4.astrologer-api)
-- [V3 Astrologer API](https://github.com/g-battaglia/Astrologer-API)
----
 ---
 
 This guarantees full transparency and complete licensing compliance, leaving no room for doubt.

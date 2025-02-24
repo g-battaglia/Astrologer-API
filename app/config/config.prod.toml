@@ -1,6 +1,3 @@
-app_name = "Astrologer API"
-version = "4.0.0"
-description = "Astrology Made Easy"
 admin_email = "kerykeion.astrology@gmail.com"
 debug = false
 docs_url = "/docs"

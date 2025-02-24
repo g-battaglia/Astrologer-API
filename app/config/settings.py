@@ -47,12 +47,9 @@ class Settings(BaseSettings):
     admin_email: str = config["admin_email"]
     allowed_hosts: list = config["allowed_hosts"]
     allowed_cors_origins: list = config["allowed_cors_origins"]
-    app_name: str = config["app_name"]
-    description: str = config["description"]
     debug: bool = config["debug"]
     docs_url: str | None = config["docs_url"]
     redoc_url: str | None = config["redoc_url"]
-    version: str = config["version"]
     secret_key_name: str = config["secret_key_name"]
 
     # Common settings
