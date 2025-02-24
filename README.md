@@ -33,6 +33,10 @@ Replace `YOUR_API_KEY` with your actual API key obtained during registration.
 
 ## Features
 
+## Data
+
+
+
 ### Charts
 
 The Astrologer API provides various `*-chart` endpoints with customizable options:
