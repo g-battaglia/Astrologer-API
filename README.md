@@ -10,9 +10,13 @@ To access the Astrologer API, subscribe here:
 
 ## Documentation
 
-Explore the comprehensive API documentation with interactive features:
+Explore the comprehensive API documentation:
 
-[Astrologer API OpenAPI (Swagger) Documentation](https://www.kerykeion.net/astrologer-api-swagger/)
+- [Swagger Documentation](https://www.kerykeion.net/astrologer-api-swagger/): Interactive documentation with detailed information on all endpoints and parameters.
+
+- [Redoc Documentation](https://www.kerykeion.net/astrologer-api-redoc/): A clean, user-friendly documentation interface for easy reference.
+
+- [OpenAPI Specification](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/master/openapi.json): The full OpenAPI specification for the Astrologer API.
 
 ## Getting Started
 
@@ -32,10 +36,6 @@ headers: {
 Replace `YOUR_API_KEY` with your actual API key obtained during registration.
 
 ## Features
-
-## Data
-
-
 
 ### Charts
 
