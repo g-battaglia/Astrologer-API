@@ -35,6 +35,7 @@ headers: {
 
 Replace `YOUR_API_KEY` with your actual API key obtained during registration.
 
+
 ## Features
 
 ### Charts
