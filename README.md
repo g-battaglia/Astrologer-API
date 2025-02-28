@@ -2,6 +2,81 @@
 
 The Astrologer API is a RESTful service providing extensive astrology calculations, designed for seamless integration into projects. It offers a rich set of astrological charts and data, making it an invaluable tool for both developers and astrology enthusiasts.
 
+Here's an example of a birth chart generated using the Astrologer API:
+
+![John Lenon Chart](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/master/tests/charts/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart.svg)
+
+
+## Quick Endpoints Overview
+
+### Birth Chart
+
+**Endpoint**: `POST /api/v4/birth-chart`
+
+Generate a birth chart for a specific date, time, and location. 
+It includes 
+- the subject data (huses, planets, etc)
+- an SVG in string format of the chart
+- the subject aspects
+
+
+### Synastry Chart
+
+**Endpoint**: `POST /api/v4/synastry-chart`
+
+Generate a synastry chart to compare two birth charts and analyze compatibility.
+It includes:
+- an SVG in string format of the chart
+- the data of the 2 subjects
+- the aspects between the 2 subjects
+
+### Transit Chart
+
+**Endpoint**: `POST /api/v4/transit-chart`
+
+Generate a transits chart for a specific date.
+It includes:
+- an SVG in string format of the chart
+- the data of the subject and of the transit (as a secondo subject)
+- the aspects between the 2 subjects
+
+### Relationship Score Data
+
+**Endpoint**: `POST /api/v4/relationship-score`
+
+Calculate the relationship score between two subjects based on their birth charts. It uses the Ciro Discepolo method and returns a score from 0 to 44.
+It includes:
+- the data of the 2 subjects
+- the aspects between the 2 subjects
+- the relationship score
+
+### Natal Aspects Data
+
+**Endpoint**: `POST /api/v4/natal-aspects-data`
+
+The same exact data of the birth chart, but without the chart itself. It includes:
+- the data of the subject
+- the aspects
+
+### Synastry Aspects Data
+**Endpoint**: `POST /api/v4/synastry-aspects-data`
+
+The same exact data of the synastry chart, but without the chart itself. It includes:
+- the data of the 2 subjects
+- the aspects between the 2 subjects
+
+### Birth Data
+**Endpoint**: `POST /api/v4/birth-data`
+
+Get the data of a birth chart without the chart itself and without the aspects. It includes:
+- the data of the subject
+
+### Now Chart
+
+**Endpoint**: `GET /api/v4/now`
+
+The only one GET endpoint. It returns the same exact data of the birth chart, but for the current date and time at UTC.
+
 ## Subscription
 
 To access the Astrologer API, subscribe here:
@@ -306,7 +381,14 @@ For full compliance, we recommend adding this statement in your Terms and Condit
 
 ---
 Astrological data and charts on this site are generated using [AstrologerAPI](https://rapidapi.com/gbattaglia/api/astrologer), an open-source third-party service licensed under AGPL v3. Source code:
-- [V4 Astrologer API](https://github.com/g-battaglia/v4.astrologer-api)
+- [Astrologer API Github](https://github.com/g-battaglia/Astrologer-API)
 ---
 
 This guarantees full transparency and complete licensing compliance, leaving no room for doubt.
+
+
+## Contact & Support  
+
+Need help or have feedback? Reach us at:
+[kerykeion.astrology@gmail.com](mailto:kerykeion.astrology@gmail.com)  
+
