@@ -1,6 +1,6 @@
 # Astrologer API
 
-The Astrologer API is a RESTful service providing extensive astrology calculations, designed for seamless integration into projects. It offers a rich set of astrological charts and data, making it an invaluable tool for both developers and astrology enthusiasts.
+The Astrologer API is a RESTful service providing extensive astrology calculations, designed for seamless integration into projects. It offers a set of astrological charts and data, making it an invaluable tool for both developers and astrology enthusiasts.
 
 Here's an example of a birth chart generated using the Astrologer API:
 
