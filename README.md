@@ -71,7 +71,7 @@ The same exact data of the synastry chart, but without the chart itself. It incl
 Get the data of a birth chart without the chart itself and without the aspects. It includes:
 - the data of the subject
 
-### Now Chart
+### Now Data
 
 **Endpoint**: `GET /api/v4/now`
 
