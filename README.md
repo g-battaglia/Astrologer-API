@@ -362,6 +362,80 @@ Accurate astrological calculations require the correct timezone. Refer to the fo
 
 [List of TZ Database Time Zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
+#### Active Points and Aspects
+
+For all the Charts endpoints (Birth Chart, Transit Chart), 
+Natal Aspects Data and Synastry Aspects Data you can customize which celestial points to include and which aspects to calculate using the `active_points` and `active_aspects` parameters.
+
+Example API request:
+
+```json
+{
+    "subject": {
+        "year": 1980,
+        "month": 12,
+        "day": 12,
+        "hour": 12,
+        "minute": 12,
+        "longitude": 0,
+        "latitude": 51.4825766,
+        "city": "London",
+        "nation": "GB",
+        "timezone": "Europe/London",
+        "name": "John Doe",
+        "zodiac_type": "Tropic"
+    },
+    "active_points": [
+        "Sun",
+        "Moon",
+        "Mercury",
+        "Venus",
+        "Mars",
+        "Jupiter",
+        "Saturn",
+        "Uranus",
+        "Neptune",
+        "Pluto",
+        "Mean_Node",
+        "Chiron",
+        "Ascendant",
+        "Medium_Coeli",
+        "Mean_Lilith",
+        "Mean_South_Node"
+    ],
+    "active_aspects": [
+        {
+            "name": "conjunction",
+            "orb": 10
+        },
+        {
+            "name": "opposition",
+            "orb": 10
+        },
+        {
+            "name": "trine",
+            "orb": 8
+        },
+        {
+            "name": "sextile",
+            "orb": 6
+        },
+        {
+            "name": "square",
+            "orb": 5
+        },
+        {
+            "name": "quintile",
+            "orb": 1
+        }
+    ]
+}
+```
+
+These parameters allow you to:
+- Specify which celestial points to include in the chart and calculations
+- Define which aspects to calculate along with their orbs (the degree of allowable deviation from exact aspect)
+
 ## Copyright and License
 
 Astrologer API is Free/Libre Open Source Software with an AGPLv3 license. All the terms and conditions of the AGPLv3 license apply to the Astrologer API.
@@ -391,4 +465,3 @@ This guarantees full transparency and complete licensing compliance, leaving no 
 
 Need help or have feedback? Reach us at:
 [kerykeion.astrology@gmail.com](mailto:kerykeion.astrology@gmail.com)  
-
