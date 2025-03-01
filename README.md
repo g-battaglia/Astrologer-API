@@ -8,14 +8,14 @@ The Astrologer API is a comprehensive RESTful service for astrological calculati
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `/api/v4/birth-chart` | POST | Generates a complete birth chart with subject data, SVG chart, and aspects |
-| `/api/v4/synastry-chart` | POST | Creates a compatibility chart comparing two birth charts |
-| `/api/v4/transit-chart` | POST | Produces a transit chart for a specific date |
+| `/api/v4/birth-chart` | POST | Generates a SVG birth chart in string format. The body of the response includes the data for the subject and the aspects. |
+| `/api/v4/synastry-chart` | POST | Generates a synastry chart for two subjects. The response includes the data for both subjects and the aspects between them and the SVG chart in string format
+| `/api/v4/transit-chart` | POST | Generates a transit chart for a subject. The response includes the data for the subject and the aspects and the SVG chart in string format |
 | `/api/v4/relationship-score` | POST | Calculates compatibility scores (0-44) using the Ciro Discepolo method |
-| `/api/v4/natal-aspects-data` | POST | Returns birth chart data without the visual chart |
-| `/api/v4/synastry-aspects-data` | POST | Provides synastry data without the visual chart |
-| `/api/v4/birth-data` | POST | Returns basic birth chart data only |
-| `/api/v4/now` | GET | Delivers birth chart data for current UTC time |
+| `/api/v4/natal-aspects-data` | POST | Returns birth chart data/aspects without the visual chart |
+| `/api/v4/synastry-aspects-data` | POST | Provides synastry data/aspects without the visual chart |
+| `/api/v4/birth-data` | POST | Returns basic birth chart data only, without the visual chart and aspects |
+| `/api/v4/now` | GET | Delivers birth chart data only for current UTC time. No visual chart or aspects are included |
 
 ## Getting Started
 
@@ -108,6 +108,7 @@ Example:
 Available themes:
 
 - `light`: Modern soft-colored light theme
+
 ![John Lennon Chart Example](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/master/tests/charts/svg/John%20Lennon%20-%20Light%20Theme%20-%20Natal%20Chart.svg)
 
 - `dark`: Modern dark theme
@@ -115,9 +116,11 @@ Available themes:
 ![John Lennon Chart Example](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/master/tests/charts/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart.svg)
 
 - `dark-high-contrast`: High-contrast dark theme
+
 ![John Lennon Chart Example](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/master/tests/charts/svg/John%20Lennon%20-%20Dark%20High%20Contrast%20Theme%20-%20Natal%20Chart.svg)
 
 - `classic`: Traditional colorful theme
+
 ![Albert Einstein Chart Example](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/master/tests/charts/svg/Albert%20Einstein%20-%20Natal%20Chart.svg)
 
 Example:
