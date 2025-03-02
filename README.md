@@ -100,34 +100,35 @@ Example API request:
 
 #### Themes
 
-Customize the appearance of your charts using the `theme` parameter. Available themes include:
+Customize the appearance of your charts using the `theme` parameter. Available themes are:
 
-- `classic`: A traditional, colorful theme
-- `light`: A modern, soft-colored light theme
-- `dark`: A modern dark theme
-- `dark-high-contrast`: A dark theme with enhanced contrast for better readability
+Available themes:
+
+- `light`: Modern soft-colored light theme
+
+![John Lennon Chart Example](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/master/tests/charts/svg/John%20Lennon%20-%20Light%20Theme%20-%20Natal%20Chart.svg)
+
+- `dark`: Modern dark theme
+  
+![John Lennon Chart Example](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/master/tests/charts/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart.svg)
+
+- `dark-high-contrast`: High-contrast dark theme
+
+![John Lennon Chart Example](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/master/tests/charts/svg/John%20Lennon%20-%20Dark%20High%20Contrast%20Theme%20-%20Natal%20Chart.svg)
+
+- `classic`: Traditional colorful theme
+
+![Albert Einstein Chart Example](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/master/tests/charts/svg/Albert%20Einstein%20-%20Natal%20Chart.svg)
 
 Example API request:
 
 ```json
 {
-    "subject": {
-        "year": 1980,
-        "month": 12,
-        "day": 12,
-        "hour": 12,
-        "minute": 12,
-        "longitude": 0,
-        "latitude": 51.4825766,
-        "city": "London",
-        "nation": "GB",
-        "timezone": "Europe/London",
-        "name": "John Doe",
-        "zodiac_type": "Tropic"
-    },
+    "subject": { /* ... */ },
     "theme": "dark"
 }
-```
+
+
 
 ### Zodiac Types
 
