@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 from typing import Optional, get_args, Union
 from kerykeion.kr_types.kr_models import ActiveAspect
 from pytz import all_timezones
@@ -12,11 +12,12 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
     day: int = Field(description="The day of birth.", examples=[12])
     hour: int = Field(description="The hour of birth.", examples=[12])
     minute: int = Field(description="The minute of birth.", examples=[12])
-    longitude: float = Field(description="The longitude of the birth location. Defaults on London.", examples=[0])
-    latitude: float = Field(description="The latitude of the birth location. Defaults on London.", examples=[51.4825766])
+    longitude: Optional[float] = Field(description="The longitude of the birth location. Defaults on London.", examples=[0], default=None)
+    latitude: Optional[float] = Field(description="The latitude of the birth location. Defaults on London.", examples=[51.4825766], default=None)
     city: str = Field(description="The name of city of birth.", examples=["London"])
     nation: Optional[str] = Field(default="null", description="The name of the nation of birth.", examples=["GB"])
-    timezone: str = Field(description="The timezone of the birth location.", examples=["Europe/London"])
+    timezone: Optional[str] = Field(description="The timezone of the birth location.", examples=["Europe/London"], default=None)
+    geonames_username: Optional[str] = Field(description="The username for the Geonames API.", examples=[None], default=None)
 
 
     @field_validator("longitude")
@@ -82,7 +83,35 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
             return "null"
         return value
 
+    @model_validator(mode="after")
+    def check_lat_lng_tz_or_geonames(self):
+        lat = self.latitude
+        lng = self.longitude
+        tz = self.timezone
+        geonames = self.geonames_username
+
+        # If latitude, longitude, and timezone are all missing, geonames_username must be provided
+        if lat is None and lng is None and tz is None:
+            if not geonames:
+                raise ValueError("Either provide latitude, longitude, timezone or specify geonames_username.")
+
+        # If any one of latitude, longitude, or timezone is missing (but not all), either fill them all or use geonames_username
+        missing_fields = sum(1 for f in [lat, lng, tz] if f is None)
+        if 0 < missing_fields < 3 and not geonames:
+            raise ValueError("Please provide all missing fields (latitude, longitude, timezone) or specify geonames_username.")
+
+        if geonames and (lat or lng or tz):
+            self.latitude = None
+            self.longitude = None
+            self.timezone = None
+
+        return self
+
 class SubjectModel(AbstractBaseSubjectModel):
+    """
+    The request model for the Birth Chart endpoint.
+    """
+
     name: str = Field(description="The name of the person to get the Birth Chart for.", examples=["John Doe"])
     zodiac_type: Optional[ZodiacType] = Field(default="Tropic", description="The type of zodiac used (Tropic or Sidereal).", examples=list(get_args(ZodiacType)))
     sidereal_mode: Union[SiderealMode, None] = Field(default=None, description="The sidereal mode used.", examples=[None])

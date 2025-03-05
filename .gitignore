@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 cache/geonames_cache.sqlite
+cache/kerykeion_geonames_cache.sqlite

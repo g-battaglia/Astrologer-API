@@ -111,7 +111,8 @@ async def birth_data(birth_data_request: BirthDataRequestModel, request: Request
             sidereal_mode=subject.sidereal_mode,
             houses_system_identifier=subject.houses_system_identifier, # type: ignore
             perspective_type=subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=subject.geonames_username,
+            online=True if subject.geonames_username else False,
         )
 
         data = astrological_subject.model().model_dump()
@@ -121,6 +122,16 @@ async def birth_data(birth_data_request: BirthDataRequestModel, request: Request
         return JSONResponse(content=response_dict, status_code=200)
 
     except Exception as e:
+        if "data found for this city" in str(e):
+            write_request_to_log(40, request, e)
+            return JSONResponse(
+                content={
+                    "status": "ERROR",
+                    "message": "City/Location name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request.",
+                },
+                status_code=400,
+            )
+
         write_request_to_log(40, request, e)
         return InternalServerErrorJsonResponse
 
@@ -148,7 +159,8 @@ async def birth_chart(request_body: BirthChartRequestModel, request: Request):
             sidereal_mode=subject.sidereal_mode,
             houses_system_identifier=subject.houses_system_identifier, # type: ignore
             perspective_type=subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=subject.geonames_username,
+            online=True if subject.geonames_username else False,
         )
 
         data = astrological_subject.model().model_dump()
@@ -177,6 +189,17 @@ async def birth_chart(request_body: BirthChartRequestModel, request: Request):
         )
 
     except Exception as e:
+        # If error contains "wrong username"
+        if "data found for this city" in str(e):
+            write_request_to_log(40, request, e)
+            return JSONResponse(
+                content={
+                    "status": "ERROR",
+                    "message": "City/Location name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request.",
+                },
+                status_code=400,
+            )
+
         write_request_to_log(40, request, e)
         return InternalServerErrorJsonResponse
 
@@ -205,7 +228,8 @@ async def synastry_chart(synastry_chart_request: SynastryChartRequestModel, requ
             sidereal_mode=first_subject.sidereal_mode,
             houses_system_identifier=first_subject.houses_system_identifier, # type: ignore
             perspective_type=first_subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=first_subject.geonames_username,
+            online=True if first_subject.geonames_username else False,
         )
 
         second_astrological_subject = AstrologicalSubject(
@@ -224,7 +248,8 @@ async def synastry_chart(synastry_chart_request: SynastryChartRequestModel, requ
             sidereal_mode=second_subject.sidereal_mode,
             houses_system_identifier=second_subject.houses_system_identifier, # type: ignore
             perspective_type=second_subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=second_subject.geonames_username,
+            online=True if second_subject.geonames_username else False,
         )
 
         kerykeion_chart = KerykeionChartSVG(
@@ -256,6 +281,16 @@ async def synastry_chart(synastry_chart_request: SynastryChartRequestModel, requ
         )
 
     except Exception as e:
+        if "data found for this city" in str(e):
+            write_request_to_log(40, request, e)
+            return JSONResponse(
+                content={
+                    "status": "ERROR",
+                    "message": "City/Location name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request.",
+                },
+                status_code=400,
+            )
+
         write_request_to_log(40, request, e)
         return InternalServerErrorJsonResponse
 
@@ -284,7 +319,8 @@ async def transit_chart(transit_chart_request: TransitChartRequestModel, request
             sidereal_mode=first_subject.sidereal_mode,
             houses_system_identifier=first_subject.houses_system_identifier, # type: ignore
             perspective_type=first_subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=first_subject.geonames_username,
+            online=True if first_subject.geonames_username else False,
         )
 
         second_astrological_subject = AstrologicalSubject(
@@ -303,7 +339,8 @@ async def transit_chart(transit_chart_request: TransitChartRequestModel, request
             sidereal_mode=first_subject.sidereal_mode,
             houses_system_identifier=first_subject.houses_system_identifier, # type: ignore
             perspective_type=first_subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=second_subject.geonames_username,
+            online=True if second_subject.geonames_username else False,
         )
 
         kerykeion_chart = KerykeionChartSVG(
@@ -335,6 +372,16 @@ async def transit_chart(transit_chart_request: TransitChartRequestModel, request
         )
 
     except Exception as e:
+        if "data found for this city" in str(e):
+            write_request_to_log(40, request, e)
+            return JSONResponse(
+                content={
+                    "status": "ERROR",
+                    "message": "City/Location name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request.",
+                },
+                status_code=400,
+            )
+
         write_request_to_log(40, request, e)
         return InternalServerErrorJsonResponse
 
@@ -363,7 +410,8 @@ async def synastry_aspects_data(aspects_request_content: SynastryAspectsRequestM
             sidereal_mode=first_subject.sidereal_mode,
             houses_system_identifier=first_subject.houses_system_identifier, # type: ignore
             perspective_type=first_subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=first_subject.geonames_username,
+            online=True if first_subject.geonames_username else False,
         )
 
         second_astrological_subject = AstrologicalSubject(
@@ -382,7 +430,8 @@ async def synastry_aspects_data(aspects_request_content: SynastryAspectsRequestM
             sidereal_mode=second_subject.sidereal_mode,
             houses_system_identifier=second_subject.houses_system_identifier, # type: ignore
             perspective_type=second_subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=second_subject.geonames_username,
+            online=True if second_subject.geonames_username else False,
         )
 
         aspects = SynastryAspects(
@@ -405,6 +454,16 @@ async def synastry_aspects_data(aspects_request_content: SynastryAspectsRequestM
         )
 
     except Exception as e:
+        if "data found for this city" in str(e):
+            write_request_to_log(40, request, e)
+            return JSONResponse(
+                content={
+                    "status": "ERROR",
+                    "message": "City/Location name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request.",
+                },
+                status_code=400,
+            )
+
         write_request_to_log(40, request, e)
         return InternalServerErrorJsonResponse
 
@@ -432,7 +491,8 @@ async def natal_aspects_data(aspects_request_content: NatalAspectsRequestModel, 
             sidereal_mode=subject.sidereal_mode,
             houses_system_identifier=subject.houses_system_identifier, # type: ignore
             perspective_type=subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=subject.geonames_username,
+            online=True if subject.geonames_username else False,
         )
 
         aspects = NatalAspects(
@@ -451,6 +511,16 @@ async def natal_aspects_data(aspects_request_content: NatalAspectsRequestModel, 
         )
 
     except Exception as e:
+        if "data found for this city" in str(e):
+            write_request_to_log(40, request, e)
+            return JSONResponse(
+                content={
+                    "status": "ERROR",
+                    "message": "City/Location name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request.",
+                },
+                status_code=400,
+            )
+
         write_request_to_log(40, request, e)
         return InternalServerErrorJsonResponse
 
@@ -493,7 +563,8 @@ async def relationship_score(relationship_score_request: RelationshipScoreReques
             sidereal_mode=first_subject.sidereal_mode,
             houses_system_identifier=first_subject.houses_system_identifier, # type: ignore
             perspective_type=first_subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=first_subject.geonames_username,
+            online=True if first_subject.geonames_username else False,
         )
 
         second_astrological_subject = AstrologicalSubject(
@@ -512,7 +583,8 @@ async def relationship_score(relationship_score_request: RelationshipScoreReques
             sidereal_mode=second_subject.sidereal_mode,
             houses_system_identifier=second_subject.houses_system_identifier, # type: ignore
             perspective_type=second_subject.perspective_type, # type: ignore
-            online=False,
+            geonames_username=second_subject.geonames_username,
+            online=True if second_subject.geonames_username else False,
         )
 
         score_factory = RelationshipScoreFactory(first_astrological_subject, second_astrological_subject)
@@ -533,5 +605,15 @@ async def relationship_score(relationship_score_request: RelationshipScoreReques
         return JSONResponse(content=response_content, status_code=200)
 
     except Exception as e:
+        if "data found for this city" in str(e):
+            write_request_to_log(40, request, e)
+            return JSONResponse(
+                content={
+                    "status": "ERROR",
+                    "message": "City/Location name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request.",
+                },
+                status_code=400,
+            )
+
         write_request_to_log(40, request, e)
         return InternalServerErrorJsonResponse

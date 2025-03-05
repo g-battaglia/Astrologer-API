@@ -381,6 +381,49 @@ These parameters allow you to:
 - Specify which celestial points to include in the chart and calculations
 - Define which aspects to calculate along with their orbs (the degree of allowable deviation from exact aspect)
 
+## Automatic Coordinates
+
+It is possible to use automatic coordinates if you do not want to implement a different method for calculating latitude, longitude, and timezone.
+
+To do this, you must pass the `geonames_username` parameter inside the `subject` object in every request that contains the `subject` object.
+
+### Logic
+- If `geonames_username` is present, the `longitude`, `latitude`, and `timezone` parameters are automatically ignored.
+- If **NOT** present, all three parameters (`longitude`, `latitude`, and `timezone`) must be specified.
+
+### Recommendation
+It is recommended to use actual coordinates directly for greater accuracy.
+
+### Obtaining a Geonames Username
+If you want to calculate coordinates automatically, you need to obtain a `username` for the Geonames Timezone service. The service is free for up to **10,000 requests per day**.
+
+### Example
+
+```json
+{
+    "subject": {
+        "year": 1980,
+        "month": 12,
+        "day": 12,
+        "hour": 12,
+        "minute": 12,
+        "city": "Jamaica, New York",
+        "nation": "US",
+        "name": "John Doe",
+        "zodiac_type": "Tropic",
+        "geonames_username": "YOUR_GEONAMES_USERNAME"
+    }
+}
+```
+
+### Demo Username
+
+You can use the following demo username for testing purposes:
+`astrologer.api.demo`
+
+*NOTE*: This username is for testing purposes only and is shared among all users. It's not guaranteed to work in a production environment. 
+For production use, you should obtain your own Geonames username.
+
 ## Copyright and License
 
 Astrologer API is Free/Libre Open Source Software with an AGPLv3 license. All the terms and conditions of the AGPLv3 license apply to the Astrologer API.
