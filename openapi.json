@@ -824,6 +824,12 @@
           },
           "perspective_type": {
             "type": "string",
+            "enum": [
+              "Apparent Geocentric",
+              "Heliocentric",
+              "Topocentric",
+              "True Geocentric"
+            ],
             "title": "Perspective Type"
           },
           "iso_formatted_local_datetime": {
@@ -1079,7 +1085,8 @@
           "houses_names_list",
           "lunar_phase"
         ],
-        "title": "AstrologicalSubjectModel"
+        "title": "AstrologicalSubjectModel",
+        "description": "Pydantic Model for Astrological Subject"
       },
       "BirthChartRequestModel": {
         "properties": {
@@ -2387,7 +2394,14 @@
             ]
           },
           "longitude": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Longitude",
             "description": "The longitude of the birth location. Defaults on London.",
             "examples": [
@@ -2395,7 +2409,14 @@
             ]
           },
           "latitude": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Latitude",
             "description": "The latitude of the birth location. Defaults on London.",
             "examples": [
@@ -2427,11 +2448,33 @@
             ]
           },
           "timezone": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Timezone",
             "description": "The timezone of the birth location.",
             "examples": [
               "Europe/London"
+            ]
+          },
+          "geonames_username": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Geonames Username",
+            "description": "The username for the Geonames API.",
+            "examples": [
+              null
             ]
           },
           "name": {
@@ -2574,13 +2617,11 @@
           "day",
           "hour",
           "minute",
-          "longitude",
-          "latitude",
           "city",
-          "timezone",
           "name"
         ],
-        "title": "SubjectModel"
+        "title": "SubjectModel",
+        "description": "The request model for the Birth Chart endpoint."
       },
       "SynastryAspectsRequestModel": {
         "properties": {
@@ -3355,7 +3396,14 @@
             ]
           },
           "longitude": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Longitude",
             "description": "The longitude of the birth location. Defaults on London.",
             "examples": [
@@ -3363,7 +3411,14 @@
             ]
           },
           "latitude": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Latitude",
             "description": "The latitude of the birth location. Defaults on London.",
             "examples": [
@@ -3395,11 +3450,33 @@
             ]
           },
           "timezone": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Timezone",
             "description": "The timezone of the birth location.",
             "examples": [
               "Europe/London"
+            ]
+          },
+          "geonames_username": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Geonames Username",
+            "description": "The username for the Geonames API.",
+            "examples": [
+              null
             ]
           }
         },
@@ -3410,10 +3487,7 @@
           "day",
           "hour",
           "minute",
-          "longitude",
-          "latitude",
-          "city",
-          "timezone"
+          "city"
         ],
         "title": "TransitSubjectModel"
       },
