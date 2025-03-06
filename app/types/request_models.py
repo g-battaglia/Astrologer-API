@@ -81,6 +81,12 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
     def validate_nation(cls, value):
         if not value:
             return "null"
+
+        if len(value) != 2 or not value.isalpha():  # Esattamente 2 lettere
+            raise ValueError(
+                f"Invalid nation code: '{value}'. It must be a 2-letter country code following the ISO 3166-1 alpha-2 standard."
+            )
+
         return value
 
     @model_validator(mode="after")
