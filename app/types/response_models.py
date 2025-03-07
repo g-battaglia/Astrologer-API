@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-from kerykeion.kr_types import LunarPhaseModel, AstrologicalSubjectModel
+from kerykeion.kr_types import LunarPhaseModel, AstrologicalSubjectModel, CompositeSubjectModel
 from kerykeion.kr_types import Quality, Element, Sign, Houses, Planet, AxialCusps, AspectName, SignsEmoji, SignNumbers, PointType, ZodiacType
 from typing import Optional
 
@@ -127,6 +127,23 @@ class DoubleDataModel(BaseModel):
     second_subject: AstrologicalSubjectModel = Field(description="The data of the second subject.")
 
 
+class TransitDataModel(BaseModel):
+    """
+    The model for the data of two subjects.
+    """
+    first_subject: AstrologicalSubjectModel = Field(description="The data of the first subject.")
+    transit: AstrologicalSubjectModel = Field(description="The data of the second subject.")
+
+
+class CompositeDataModel(BaseModel):
+    """
+    The model for the data of the composite chart.
+    """
+    composite_subject: CompositeSubjectModel = Field(description="The data of the composite chart.")
+    first_subject: AstrologicalSubjectModel = Field(description="The data of the first subject.")
+    second_subject: AstrologicalSubjectModel = Field(description="The data of the second subject.")
+
+
 class SynastryChartResponseModel(BaseModel):
     """
     The response model for the Synastry.
@@ -134,6 +151,25 @@ class SynastryChartResponseModel(BaseModel):
     status: str = Field(description="The status of the response.")
     data: DoubleDataModel = Field(description="The data of the two subjects.")
     chart: str = Field(description="The SVG chart of the synastry.")
+    aspects: list[AspectModel] = Field(description="The aspects between the two subjects.")
+
+
+class TransitChartResponseModel(BaseModel):
+    """
+    The response model for the Transit.
+    """
+    status: str = Field(description="The status of the response.")
+    data: TransitDataModel = Field(description="The data of the two subjects.")
+    chart: str = Field(description="The SVG chart of the transit.")
+    aspects: list[AspectModel] = Field(description="The aspects between the two subjects.")
+
+
+class TransitAspectsResponseModel(BaseModel):
+    """
+    The response model for the Transit Data endpoint.
+    """
+    status: str = Field(description="The status of the response.")
+    data: TransitDataModel = Field(description="The data of the two subjects.")
     aspects: list[AspectModel] = Field(description="The aspects between the two subjects.")
 
 
@@ -156,4 +192,25 @@ class SynastryAspectsResponseModel(BaseModel):
 
     status: str = Field(description="The status of the response.")
     data: DoubleDataModel = Field(description="The data of the two subjects.")
+    aspects: list[AspectModel] = Field(description="A list with the aspects between the two subjects.")
+
+
+class CompositeChartResponseModel(BaseModel):
+    """
+    The response model for the Composite Chart endpoint.
+    """
+
+    status: str = Field(description="The status of the response.")
+    data: CompositeDataModel = Field(description="The data of the subjects and the composite chart.")
+    chart: str = Field(description="The SVG chart of the composite chart.")
+    aspects: list[AspectModel] = Field(description="The aspects between the two subjects.")
+
+
+class CompositeAspectsResponseModel(BaseModel):
+    """
+    The response model for the Composite Aspects endpoint.
+    """
+
+    status: str = Field(description="The status of the response.")
+    data: CompositeDataModel = Field(description="The data of the subjects and the composite chart.")
     aspects: list[AspectModel] = Field(description="A list with the aspects between the two subjects.")

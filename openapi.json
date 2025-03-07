@@ -282,7 +282,73 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SynastryChartResponseModel"
+                  "$ref": "#/components/schemas/TransitChartResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v4/transit-aspects-data": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Transit Aspects Data",
+        "operationId": "transit_aspects_data_api_v4_transit_aspects_data_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransitChartRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Transit aspects data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransitAspectsResponseModel"
                 }
               }
             }
@@ -482,6 +548,140 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RelationshipScoreResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v4/composite-chart": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Composite Chart",
+        "description": "Calculates the composite chart between two subjects using the midpoint method.",
+        "operationId": "composite_chart_api_v4_composite_chart_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompositeChartRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Composite data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompositeChartResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v4/composite-aspects-data": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "summary": "Composite Aspects Data",
+        "description": "Calculates the composite aspects between two subjects.",
+        "operationId": "composite_aspects_data_api_v4_composite_aspects_data_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompositeChartRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Composite aspects data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompositeAspectsResponseModel"
                 }
               }
             }
@@ -1658,6 +1858,665 @@
         ],
         "title": "BirthDataResponseModel",
         "description": "The response model for the Birth Data endpoint."
+      },
+      "CompositeAspectsResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the response."
+          },
+          "data": {
+            "$ref": "#/components/schemas/CompositeDataModel",
+            "description": "The data of the subjects and the composite chart."
+          },
+          "aspects": {
+            "items": {
+              "$ref": "#/components/schemas/AspectModel"
+            },
+            "type": "array",
+            "title": "Aspects",
+            "description": "A list with the aspects between the two subjects."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data",
+          "aspects"
+        ],
+        "title": "CompositeAspectsResponseModel",
+        "description": "The response model for the Composite Aspects endpoint."
+      },
+      "CompositeChartRequestModel": {
+        "properties": {
+          "first_subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "second_subject": {
+            "$ref": "#/components/schemas/SubjectModel",
+            "description": "The name of the person to get the Birth Chart for."
+          },
+          "theme": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "light",
+                  "dark",
+                  "dark-high-contrast",
+                  "classic"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Theme",
+            "description": "The theme of the chart.",
+            "default": "classic",
+            "examples": [
+              "classic",
+              "light",
+              "dark",
+              "dark-high-contrast"
+            ]
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "EN",
+                  "FR",
+                  "PT",
+                  "IT",
+                  "CN",
+                  "ES",
+                  "RU",
+                  "TR",
+                  "DE",
+                  "HI"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "description": "The language of the chart.",
+            "default": "EN",
+            "examples": [
+              "EN",
+              "FR",
+              "PT",
+              "IT",
+              "CN",
+              "ES",
+              "RU",
+              "TR",
+              "DE",
+              "HI"
+            ]
+          },
+          "wheel_only": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Wheel Only",
+            "description": "If set to True, only the zodiac wheel will be returned. No additional information will be displayed.",
+            "default": false
+          },
+          "active_points": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Sun",
+                        "Moon",
+                        "Mercury",
+                        "Venus",
+                        "Mars",
+                        "Jupiter",
+                        "Saturn",
+                        "Uranus",
+                        "Neptune",
+                        "Pluto",
+                        "Mean_Node",
+                        "True_Node",
+                        "Mean_South_Node",
+                        "True_South_Node",
+                        "Chiron",
+                        "Mean_Lilith"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Ascendant",
+                        "Medium_Coeli",
+                        "Descendant",
+                        "Imum_Coeli"
+                      ]
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Points",
+            "description": "The active points to display in the chart.",
+            "default": [
+              "Sun",
+              "Moon",
+              "Mercury",
+              "Venus",
+              "Mars",
+              "Jupiter",
+              "Saturn",
+              "Uranus",
+              "Neptune",
+              "Pluto",
+              "Mean_Node",
+              "Chiron",
+              "Ascendant",
+              "Medium_Coeli",
+              "Mean_Lilith",
+              "Mean_South_Node"
+            ],
+            "examples": [
+              [
+                "Sun",
+                "Moon",
+                "Mercury",
+                "Venus",
+                "Mars",
+                "Jupiter",
+                "Saturn",
+                "Uranus",
+                "Neptune",
+                "Pluto",
+                "Mean_Node",
+                "Chiron",
+                "Ascendant",
+                "Medium_Coeli",
+                "Mean_Lilith",
+                "Mean_South_Node"
+              ]
+            ]
+          },
+          "active_aspects": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ActiveAspect"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Aspects",
+            "description": "The active aspects to display in the chart.",
+            "default": [
+              {
+                "name": "conjunction",
+                "orb": 10
+              },
+              {
+                "name": "opposition",
+                "orb": 10
+              },
+              {
+                "name": "trine",
+                "orb": 8
+              },
+              {
+                "name": "sextile",
+                "orb": 6
+              },
+              {
+                "name": "square",
+                "orb": 5
+              },
+              {
+                "name": "quintile",
+                "orb": 1
+              }
+            ],
+            "examples": [
+              [
+                {
+                  "name": "conjunction",
+                  "orb": 10
+                },
+                {
+                  "name": "opposition",
+                  "orb": 10
+                },
+                {
+                  "name": "trine",
+                  "orb": 8
+                },
+                {
+                  "name": "sextile",
+                  "orb": 6
+                },
+                {
+                  "name": "square",
+                  "orb": 5
+                },
+                {
+                  "name": "quintile",
+                  "orb": 1
+                }
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "first_subject",
+          "second_subject"
+        ],
+        "title": "CompositeChartRequestModel",
+        "description": "The request model for the Synastry Chart endpoint."
+      },
+      "CompositeChartResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the response."
+          },
+          "data": {
+            "$ref": "#/components/schemas/CompositeDataModel",
+            "description": "The data of the subjects and the composite chart."
+          },
+          "chart": {
+            "type": "string",
+            "title": "Chart",
+            "description": "The SVG chart of the composite chart."
+          },
+          "aspects": {
+            "items": {
+              "$ref": "#/components/schemas/AspectModel"
+            },
+            "type": "array",
+            "title": "Aspects",
+            "description": "The aspects between the two subjects."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data",
+          "chart",
+          "aspects"
+        ],
+        "title": "CompositeChartResponseModel",
+        "description": "The response model for the Composite Chart endpoint."
+      },
+      "CompositeDataModel": {
+        "properties": {
+          "composite_subject": {
+            "$ref": "#/components/schemas/CompositeSubjectModel",
+            "description": "The data of the composite chart."
+          },
+          "first_subject": {
+            "$ref": "#/components/schemas/AstrologicalSubjectModel",
+            "description": "The data of the first subject."
+          },
+          "second_subject": {
+            "$ref": "#/components/schemas/AstrologicalSubjectModel",
+            "description": "The data of the second subject."
+          }
+        },
+        "type": "object",
+        "required": [
+          "composite_subject",
+          "first_subject",
+          "second_subject"
+        ],
+        "title": "CompositeDataModel",
+        "description": "The model for the data of the composite chart."
+      },
+      "CompositeSubjectModel": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "first_subject": {
+            "$ref": "#/components/schemas/AstrologicalSubjectModel"
+          },
+          "second_subject": {
+            "$ref": "#/components/schemas/AstrologicalSubjectModel"
+          },
+          "composite_chart_type": {
+            "type": "string",
+            "title": "Composite Chart Type"
+          },
+          "zodiac_type": {
+            "type": "string",
+            "enum": [
+              "Tropic",
+              "Sidereal"
+            ],
+            "title": "Zodiac Type"
+          },
+          "sidereal_mode": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "FAGAN_BRADLEY",
+                  "LAHIRI",
+                  "DELUCE",
+                  "RAMAN",
+                  "USHASHASHI",
+                  "KRISHNAMURTI",
+                  "DJWHAL_KHUL",
+                  "YUKTESHWAR",
+                  "JN_BHASIN",
+                  "BABYL_KUGLER1",
+                  "BABYL_KUGLER2",
+                  "BABYL_KUGLER3",
+                  "BABYL_HUBER",
+                  "BABYL_ETPSC",
+                  "ALDEBARAN_15TAU",
+                  "HIPPARCHOS",
+                  "SASSANIAN",
+                  "J2000",
+                  "J1900",
+                  "B1950"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sidereal Mode"
+          },
+          "houses_system_identifier": {
+            "type": "string",
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "F",
+              "H",
+              "I",
+              "i",
+              "K",
+              "L",
+              "M",
+              "N",
+              "O",
+              "P",
+              "Q",
+              "R",
+              "S",
+              "T",
+              "U",
+              "V",
+              "W",
+              "X",
+              "Y"
+            ],
+            "title": "Houses System Identifier"
+          },
+          "houses_system_name": {
+            "type": "string",
+            "title": "Houses System Name"
+          },
+          "perspective_type": {
+            "type": "string",
+            "enum": [
+              "Apparent Geocentric",
+              "Heliocentric",
+              "Topocentric",
+              "True Geocentric"
+            ],
+            "title": "Perspective Type"
+          },
+          "sun": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "moon": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "mercury": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "venus": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "mars": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "jupiter": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "saturn": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "uranus": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "neptune": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "pluto": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "ascendant": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "descendant": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "medium_coeli": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "imum_coeli": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "chiron": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mean_lilith": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "first_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "second_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "third_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "fourth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "fifth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "sixth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "seventh_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "eighth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "ninth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "tenth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "eleventh_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "twelfth_house": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "mean_node": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "true_node": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "mean_south_node": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "true_south_node": {
+            "$ref": "#/components/schemas/KerykeionPointModel"
+          },
+          "planets_names_list": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "Sun",
+                "Moon",
+                "Mercury",
+                "Venus",
+                "Mars",
+                "Jupiter",
+                "Saturn",
+                "Uranus",
+                "Neptune",
+                "Pluto",
+                "Mean_Node",
+                "True_Node",
+                "Mean_South_Node",
+                "True_South_Node",
+                "Chiron",
+                "Mean_Lilith"
+              ]
+            },
+            "type": "array",
+            "title": "Planets Names List"
+          },
+          "axial_cusps_names_list": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "Ascendant",
+                "Medium_Coeli",
+                "Descendant",
+                "Imum_Coeli"
+              ]
+            },
+            "type": "array",
+            "title": "Axial Cusps Names List"
+          },
+          "houses_names_list": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "First_House",
+                "Second_House",
+                "Third_House",
+                "Fourth_House",
+                "Fifth_House",
+                "Sixth_House",
+                "Seventh_House",
+                "Eighth_House",
+                "Ninth_House",
+                "Tenth_House",
+                "Eleventh_House",
+                "Twelfth_House"
+              ]
+            },
+            "type": "array",
+            "title": "Houses Names List"
+          },
+          "lunar_phase": {
+            "$ref": "#/components/schemas/LunarPhaseModel"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "first_subject",
+          "second_subject",
+          "composite_chart_type",
+          "zodiac_type",
+          "sidereal_mode",
+          "houses_system_identifier",
+          "houses_system_name",
+          "perspective_type",
+          "sun",
+          "moon",
+          "mercury",
+          "venus",
+          "mars",
+          "jupiter",
+          "saturn",
+          "uranus",
+          "neptune",
+          "pluto",
+          "ascendant",
+          "descendant",
+          "medium_coeli",
+          "imum_coeli",
+          "chiron",
+          "mean_lilith",
+          "first_house",
+          "second_house",
+          "third_house",
+          "fourth_house",
+          "fifth_house",
+          "sixth_house",
+          "seventh_house",
+          "eighth_house",
+          "ninth_house",
+          "tenth_house",
+          "eleventh_house",
+          "twelfth_house",
+          "mean_node",
+          "true_node",
+          "mean_south_node",
+          "true_south_node",
+          "planets_names_list",
+          "axial_cusps_names_list",
+          "houses_names_list",
+          "lunar_phase"
+        ],
+        "title": "CompositeSubjectModel",
+        "description": "Pydantic Model for Composite Subject"
       },
       "DoubleDataModel": {
         "properties": {
@@ -3071,7 +3930,7 @@
         "title": "SynastryChartRequestModel",
         "description": "The request model for the Synastry Chart endpoint."
       },
-      "SynastryChartResponseModel": {
+      "TransitAspectsResponseModel": {
         "properties": {
           "status": {
             "type": "string",
@@ -3079,13 +3938,8 @@
             "description": "The status of the response."
           },
           "data": {
-            "$ref": "#/components/schemas/DoubleDataModel",
+            "$ref": "#/components/schemas/TransitDataModel",
             "description": "The data of the two subjects."
-          },
-          "chart": {
-            "type": "string",
-            "title": "Chart",
-            "description": "The SVG chart of the synastry."
           },
           "aspects": {
             "items": {
@@ -3100,11 +3954,10 @@
         "required": [
           "status",
           "data",
-          "chart",
           "aspects"
         ],
-        "title": "SynastryChartResponseModel",
-        "description": "The response model for the Synastry."
+        "title": "TransitAspectsResponseModel",
+        "description": "The response model for the Transit Data endpoint."
       },
       "TransitChartRequestModel": {
         "properties": {
@@ -3352,6 +4205,60 @@
         ],
         "title": "TransitChartRequestModel",
         "description": "The request model for the Transit Chart endpoint."
+      },
+      "TransitChartResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the response."
+          },
+          "data": {
+            "$ref": "#/components/schemas/TransitDataModel",
+            "description": "The data of the two subjects."
+          },
+          "chart": {
+            "type": "string",
+            "title": "Chart",
+            "description": "The SVG chart of the transit."
+          },
+          "aspects": {
+            "items": {
+              "$ref": "#/components/schemas/AspectModel"
+            },
+            "type": "array",
+            "title": "Aspects",
+            "description": "The aspects between the two subjects."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data",
+          "chart",
+          "aspects"
+        ],
+        "title": "TransitChartResponseModel",
+        "description": "The response model for the Transit."
+      },
+      "TransitDataModel": {
+        "properties": {
+          "first_subject": {
+            "$ref": "#/components/schemas/AstrologicalSubjectModel",
+            "description": "The data of the first subject."
+          },
+          "transit": {
+            "$ref": "#/components/schemas/AstrologicalSubjectModel",
+            "description": "The data of the second subject."
+          }
+        },
+        "type": "object",
+        "required": [
+          "first_subject",
+          "transit"
+        ],
+        "title": "TransitDataModel",
+        "description": "The model for the data of two subjects."
       },
       "TransitSubjectModel": {
         "properties": {

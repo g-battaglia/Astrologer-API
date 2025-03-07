@@ -257,3 +257,17 @@ class NatalAspectsRequestModel(BaseModel):
     subject: SubjectModel = Field(description="The name of the person to get the Birth Chart for.")
     active_points: Optional[list[Union[Planet, AxialCusps]]] = Field(default=DEFAULT_ACTIVE_POINTS, description="The active points to display in the chart.", examples=[DEFAULT_ACTIVE_POINTS])
     active_aspects: Optional[list[ActiveAspect]] = Field(default=DEFAULT_ACTIVE_ASPECTS, description="The active aspects to display in the chart.", examples=[DEFAULT_ACTIVE_ASPECTS])
+
+
+class CompositeChartRequestModel(BaseModel):
+    """
+    The request model for the Synastry Chart endpoint.
+    """
+
+    first_subject: SubjectModel = Field(description="The name of the person to get the Birth Chart for.")
+    second_subject: SubjectModel = Field(description="The name of the person to get the Birth Chart for.")
+    theme: Optional[KerykeionChartTheme] = Field(default="classic", description="The theme of the chart.", examples=["classic", "light", "dark", "dark-high-contrast"])
+    language: Optional[KerykeionChartLanguage] = Field(default="EN", description="The language of the chart.", examples=list(get_args(KerykeionChartLanguage)))
+    wheel_only: Optional[bool] = Field(default=False, description="If set to True, only the zodiac wheel will be returned. No additional information will be displayed.")
+    active_points: Optional[list[Union[Planet, AxialCusps]]] = Field(default=DEFAULT_ACTIVE_POINTS, description="The active points to display in the chart.", examples=[DEFAULT_ACTIVE_POINTS])
+    active_aspects: Optional[list[ActiveAspect]] = Field(default=DEFAULT_ACTIVE_ASPECTS, description="The active aspects to display in the chart.", examples=[DEFAULT_ACTIVE_ASPECTS])

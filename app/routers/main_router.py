@@ -2,7 +2,14 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 from logging import getLogger
-from kerykeion import AstrologicalSubject, KerykeionChartSVG, SynastryAspects, NatalAspects, RelationshipScoreFactory
+from kerykeion import (
+    AstrologicalSubject, 
+    KerykeionChartSVG, 
+    SynastryAspects, 
+    NatalAspects, 
+    RelationshipScoreFactory, 
+    CompositeSubjectFactory
+)
 from kerykeion.settings.config_constants import DEFAULT_ACTIVE_POINTS, DEFAULT_ACTIVE_ASPECTS
 from requests import get as requests_get
 
@@ -17,19 +24,35 @@ from ..types.request_models import (
     RelationshipScoreRequestModel,
     SynastryAspectsRequestModel,
     NatalAspectsRequestModel,
+    CompositeChartRequestModel
 )
 from ..types.response_models import (
     BirthDataResponseModel,
     BirthChartResponseModel,
     SynastryChartResponseModel,
     RelationshipScoreResponseModel,
-    SynastryAspectsResponseModel
+    SynastryAspectsResponseModel,
+    CompositeChartResponseModel,
+    CompositeAspectsResponseModel,
+    TransitAspectsResponseModel,
+    TransitChartResponseModel
 )
 
 logger = getLogger(__name__)
 write_request_to_log = get_write_request_to_log(logger)
 
 router = APIRouter()
+
+
+@router.get("/api/v4/health", response_description="Health check", include_in_schema=False)
+async def health(request: Request) -> JSONResponse:
+    """
+    Health check endpoint.
+    """
+
+    write_request_to_log(20, request, "Health check")
+
+    return JSONResponse(content={"status": "OK"}, status_code=200)
 
 
 @router.get("/", response_description="Status of the API", response_model=BirthDataResponseModel, include_in_schema=False)
@@ -295,7 +318,7 @@ async def synastry_chart(synastry_chart_request: SynastryChartRequestModel, requ
         return InternalServerErrorJsonResponse
 
 
-@router.post("/api/v4/transit-chart", response_description="Transit data", response_model=SynastryChartResponseModel)
+@router.post("/api/v4/transit-chart", response_description="Transit data", response_model=TransitChartResponseModel)
 async def transit_chart(transit_chart_request: TransitChartRequestModel, request: Request):
     write_request_to_log(20, request, f"Getting birth chart for: {request}")
 
@@ -367,6 +390,88 @@ async def transit_chart(transit_chart_request: TransitChartRequestModel, request
                     "subject": first_astrological_subject.model().model_dump(),
                     "transit": second_astrological_subject.model().model_dump(),
                 },
+            },
+            status_code=200,
+        )
+
+    except Exception as e:
+        if "data found for this city" in str(e):
+            write_request_to_log(40, request, e)
+            return JSONResponse(
+                content={
+                    "status": "ERROR",
+                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                },
+                status_code=400,
+            )
+
+        write_request_to_log(40, request, e)
+        return InternalServerErrorJsonResponse
+
+
+@router.post("/api/v4/transit-aspects-data", response_description="Transit aspects data", response_model=TransitAspectsResponseModel)
+async def transit_aspects_data(transit_chart_request: TransitChartRequestModel, request: Request) -> JSONResponse:
+    write_request_to_log(20, request, f"Getting birth chart for: {request}")
+
+    first_subject = transit_chart_request.first_subject
+    second_subject = transit_chart_request.transit_subject
+
+    try:
+        first_astrological_subject = AstrologicalSubject(
+            name=first_subject.name,
+            year=first_subject.year,
+            month=first_subject.month,
+            day=first_subject.day,
+            hour=first_subject.hour,
+            minute=first_subject.minute,
+            city=first_subject.city,
+            nation=first_subject.nation,
+            lat=first_subject.latitude,
+            lng=first_subject.longitude,
+            tz_str=first_subject.timezone,
+            zodiac_type=first_subject.zodiac_type, # type: ignore
+            sidereal_mode=first_subject.sidereal_mode,
+            houses_system_identifier=first_subject.houses_system_identifier, # type: ignore
+            perspective_type=first_subject.perspective_type, # type: ignore
+            geonames_username=first_subject.geonames_username,
+            online=True if first_subject.geonames_username else False,
+        )
+
+        second_astrological_subject = AstrologicalSubject(
+            name="Transit",
+            year=second_subject.year,
+            month=second_subject.month,
+            day=second_subject.day,
+            hour=second_subject.hour,
+            minute=second_subject.minute,
+            city=second_subject.city,
+            nation=second_subject.nation,
+            lat=second_subject.latitude,
+            lng=second_subject.longitude,
+            tz_str=second_subject.timezone,
+            zodiac_type=first_astrological_subject.zodiac_type, # type: ignore
+            sidereal_mode=first_subject.sidereal_mode,
+            houses_system_identifier=first_subject.houses_system_identifier, # type: ignore
+            perspective_type=first_subject.perspective_type, # type: ignore
+            geonames_username=second_subject.geonames_username,
+            online=True if second_subject.geonames_username else False,
+        )
+
+        aspects = SynastryAspects(
+            first_astrological_subject,
+            second_astrological_subject,
+            active_points=transit_chart_request.active_points or DEFAULT_ACTIVE_POINTS,
+            active_aspects=transit_chart_request.active_aspects or DEFAULT_ACTIVE_ASPECTS,
+        ).relevant_aspects
+
+        return JSONResponse(
+            content={
+                "status": "OK",
+                "data": {
+                    "subject": first_astrological_subject.model().model_dump(),
+                    "transit": second_astrological_subject.model().model_dump(),
+                },
+                "aspects": [aspect.model_dump() for aspect in aspects],
             },
             status_code=200,
         )
@@ -603,6 +708,199 @@ async def relationship_score(relationship_score_request: RelationshipScoreReques
         }
 
         return JSONResponse(content=response_content, status_code=200)
+
+    except Exception as e:
+        if "data found for this city" in str(e):
+            write_request_to_log(40, request, e)
+            return JSONResponse(
+                content={
+                    "status": "ERROR",
+                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                },
+                status_code=400,
+            )
+
+        write_request_to_log(40, request, e)
+        return InternalServerErrorJsonResponse
+
+
+@router.post("/api/v4/composite-chart", response_description="Composite data", response_model=CompositeChartResponseModel)
+async def composite_chart(composite_chart_request: CompositeChartRequestModel, request: Request) -> JSONResponse:
+    """
+    Calculates the composite chart between two subjects using the midpoint method.
+    """
+
+    first_subject = composite_chart_request.first_subject
+    second_subject = composite_chart_request.second_subject
+
+    write_request_to_log(20, request, f"Getting composite data for: {first_subject} and {second_subject}")
+
+    try:
+        first_astrological_subject = AstrologicalSubject(
+            name=first_subject.name,
+            year=first_subject.year,
+            month=first_subject.month,
+            day=first_subject.day,
+            hour=first_subject.hour,
+            minute=first_subject.minute,
+            city=first_subject.city,
+            nation=first_subject.nation,
+            lat=first_subject.latitude,
+            lng=first_subject.longitude,
+            tz_str=first_subject.timezone,
+            zodiac_type=first_subject.zodiac_type, # type: ignore
+            sidereal_mode=first_subject.sidereal_mode,
+            houses_system_identifier=first_subject.houses_system_identifier, # type: ignore
+            perspective_type=first_subject.perspective_type, # type: ignore
+            geonames_username=first_subject.geonames_username,
+            online=True if first_subject.geonames_username else False,
+        )
+
+        second_astrological_subject = AstrologicalSubject(
+            name=second_subject.name,
+            year=second_subject.year,
+            month=second_subject.month,
+            day=second_subject.day,
+            hour=second_subject.hour,
+            minute=second_subject.minute,
+            city=second_subject.city,
+            nation=second_subject.nation,
+            lat=second_subject.latitude,
+            lng=second_subject.longitude,
+            tz_str=second_subject.timezone,
+            zodiac_type=second_subject.zodiac_type, # type: ignore
+            sidereal_mode=second_subject.sidereal_mode,
+            houses_system_identifier=second_subject.houses_system_identifier, # type: ignore
+            perspective_type=second_subject.perspective_type, # type: ignore
+            geonames_username=second_subject.geonames_username,
+            online=True if second_subject.geonames_username else False,
+        )
+
+        composite_factory = CompositeSubjectFactory(first_astrological_subject, second_astrological_subject)
+        composite_subject = composite_factory.get_midpoint_composite_subject_model()
+
+        kerykeion_chart = KerykeionChartSVG(
+            composite_subject,
+            chart_type="Composite",
+            theme=composite_chart_request.theme
+        )
+
+        if composite_chart_request.wheel_only:
+            svg = kerykeion_chart.makeWheelOnlyTemplate(minify=True)
+        else:
+            svg = kerykeion_chart.makeTemplate(minify=True)
+
+        composite_subject_dict = composite_subject.model_dump()
+        for key in ["first_subject", "second_subject"]:
+            if key in composite_subject_dict:
+                composite_subject_dict.pop(key)
+
+        return JSONResponse(
+            content={
+                "status": "OK",
+                "chart": svg,
+                "aspects": [aspect.model_dump() for aspect in kerykeion_chart.aspects_list],
+                "data": {
+                    "composite_subject": composite_subject_dict,
+                    "first_subject": first_astrological_subject.model().model_dump(),
+                    "second_subject": second_astrological_subject.model().model_dump(),
+                },
+            },
+            status_code=200,
+        )
+
+    except Exception as e:
+        if "data found for this city" in str(e):
+            write_request_to_log(40, request, e)
+            return JSONResponse(
+                content={
+                    "status": "ERROR",
+                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                },
+                status_code=400,
+            )
+
+        write_request_to_log(40, request, e)
+        return InternalServerErrorJsonResponse
+
+
+@router.post("/api/v4/composite-aspects-data", response_description="Composite aspects data", response_model=CompositeAspectsResponseModel)
+async def composite_aspects_data(composite_chart_request: CompositeChartRequestModel, request: Request) -> JSONResponse:
+    """
+    Calculates the composite aspects between two subjects.
+    """
+
+    first_subject = composite_chart_request.first_subject
+    second_subject = composite_chart_request.second_subject
+
+    write_request_to_log(20, request, f"Getting composite data for: {first_subject} and {second_subject}")
+
+    try:
+        first_astrological_subject = AstrologicalSubject(
+            name=first_subject.name,
+            year=first_subject.year,
+            month=first_subject.month,
+            day=first_subject.day,
+            hour=first_subject.hour,
+            minute=first_subject.minute,
+            city=first_subject.city,
+            nation=first_subject.nation,
+            lat=first_subject.latitude,
+            lng=first_subject.longitude,
+            tz_str=first_subject.timezone,
+            zodiac_type=first_subject.zodiac_type, # type: ignore
+            sidereal_mode=first_subject.sidereal_mode,
+            houses_system_identifier=first_subject.houses_system_identifier, # type: ignore
+            perspective_type=first_subject.perspective_type, # type: ignore
+            geonames_username=first_subject.geonames_username,
+            online=True if first_subject.geonames_username else False,
+        )
+
+        second_astrological_subject = AstrologicalSubject(
+            name=second_subject.name,
+            year=second_subject.year,
+            month=second_subject.month,
+            day=second_subject.day,
+            hour=second_subject.hour,
+            minute=second_subject.minute,
+            city=second_subject.city,
+            nation=second_subject.nation,
+            lat=second_subject.latitude,
+            lng=second_subject.longitude,
+            tz_str=second_subject.timezone,
+            zodiac_type=second_subject.zodiac_type, # type: ignore
+            sidereal_mode=second_subject.sidereal_mode,
+            houses_system_identifier=second_subject.houses_system_identifier, # type: ignore
+            perspective_type=second_subject.perspective_type, # type: ignore
+            geonames_username=second_subject.geonames_username,
+            online=True if second_subject.geonames_username else False,
+        )
+
+        composite_factory = CompositeSubjectFactory(first_astrological_subject, second_astrological_subject)
+        composite_data = composite_factory.get_midpoint_composite_subject_model()
+        aspects = NatalAspects(
+            composite_data,
+            active_points=composite_chart_request.active_points or DEFAULT_ACTIVE_POINTS,
+            active_aspects=composite_chart_request.active_aspects or DEFAULT_ACTIVE_ASPECTS,
+        ).relevant_aspects
+
+        composite_subject_dict = composite_data.model_dump()
+        for key in ["first_subject", "second_subject"]:
+            if key in composite_subject_dict:
+                composite_subject_dict.pop(key)
+
+        return JSONResponse(
+            content={
+                "status": "OK",
+                "data": {
+                    "composite_subject": composite_subject_dict,
+                    "first_subject": first_astrological_subject.model().model_dump(),
+                    "second_subject": second_astrological_subject.model().model_dump(),
+                },
+                "aspects": [aspect.model_dump() for aspect in aspects],
+            },
+            status_code=200,
+        )
 
     except Exception as e:
         if "data found for this city" in str(e):
