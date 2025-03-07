@@ -130,7 +130,7 @@ Example API request:
     "subject": { /* ... */ },
     "theme": "dark"
 }
-
+```
 
 
 ### Zodiac Types
@@ -390,17 +390,20 @@ It is possible to use automatic coordinates if you do not want to implement a di
 
 To do this, you must pass the `geonames_username` parameter inside the `subject` object in every request that contains the `subject` object.
 
-### Logic
+**Logic**
+
 - If `geonames_username` is present, the `longitude`, `latitude`, and `timezone` parameters are automatically ignored.
 - If **NOT** present, all three parameters (`longitude`, `latitude`, and `timezone`) must be specified.
 
-### Recommendation
+**Recommendation**
+
 It is recommended to use actual coordinates directly for greater accuracy.
 
-### Obtaining a Geonames Username
+**Obtaining a Geonames Username**
+
 If you want to calculate coordinates automatically, you need to obtain a `username` for the Geonames Timezone service. The service is free for up to **10,000 requests per day**.
 
-### Example
+**Example**
 
 ```json
 {
@@ -418,14 +421,6 @@ If you want to calculate coordinates automatically, you need to obtain a `userna
     }
 }
 ```
-
-### Demo Username
-
-You can use the following demo username for testing purposes:
-`astrologer.api.demo`
-
-*NOTE*: This username is for testing purposes only and is shared among all users. It's not guaranteed to work in a production environment. 
-For production use, you should obtain your own Geonames username.
 
 ## Copyright and License
 
