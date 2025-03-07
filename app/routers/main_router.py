@@ -113,6 +113,10 @@ async def get_now(request: Request) -> JSONResponse:
 
 @router.post("/api/v4/birth-data", response_description="Birth data", response_model=BirthDataResponseModel)
 async def birth_data(birth_data_request: BirthDataRequestModel, request: Request):
+    """
+    Retrieve astrological data for a specific birth date. Does not include the chart nor the aspects.
+    """
+
     write_request_to_log(20, request, f"Getting birth chart for: {request}")
 
     subject = birth_data_request.subject
@@ -161,6 +165,10 @@ async def birth_data(birth_data_request: BirthDataRequestModel, request: Request
 
 @router.post("/api/v4/birth-chart", response_description="Birth chart", response_model=BirthChartResponseModel)
 async def birth_chart(request_body: BirthChartRequestModel, request: Request):
+    """
+    Retrieve an astrological birth chart for a specific birth date. Includes the data for the subject and the aspects.
+    """
+
     write_request_to_log(20, request, f"Getting birth chart for: {request}")
 
     subject = request_body.subject
@@ -229,6 +237,10 @@ async def birth_chart(request_body: BirthChartRequestModel, request: Request):
 
 @router.post("/api/v4/synastry-chart", response_description="Synastry data")
 async def synastry_chart(synastry_chart_request: SynastryChartRequestModel, request: Request):
+    """
+    Retrieve a synastry chart between two subjects. Includes the data for the subjects and the aspects.
+    """
+
     write_request_to_log(20, request, f"Getting birth chart for: {request}")
 
     first_subject = synastry_chart_request.first_subject
