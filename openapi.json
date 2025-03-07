@@ -69,6 +69,7 @@
           "Endpoints"
         ],
         "summary": "Birth Data",
+        "description": "Retrieve astrological data for a specific birth date. Does not include the chart nor the aspects.",
         "operationId": "birth_data_api_v4_birth_data_post",
         "requestBody": {
           "content": {
@@ -135,6 +136,7 @@
           "Endpoints"
         ],
         "summary": "Birth Chart",
+        "description": "Retrieve an astrological birth chart for a specific birth date. Includes the data for the subject and the aspects.",
         "operationId": "birth_chart_api_v4_birth_chart_post",
         "requestBody": {
           "content": {
@@ -201,6 +203,7 @@
           "Endpoints"
         ],
         "summary": "Synastry Chart",
+        "description": "Retrieve a synastry chart between two subjects. Includes the data for the subjects and the aspects.",
         "operationId": "synastry_chart_api_v4_synastry_chart_post",
         "requestBody": {
           "content": {
@@ -265,6 +268,7 @@
           "Endpoints"
         ],
         "summary": "Transit Chart",
+        "description": "Retrieve a transit chart for a specific subject. Includes the data for the subject and the aspects.",
         "operationId": "transit_chart_api_v4_transit_chart_post",
         "requestBody": {
           "content": {
@@ -331,6 +335,7 @@
           "Endpoints"
         ],
         "summary": "Transit Aspects Data",
+        "description": "Retrieve transit aspects and data for a specific subject. Does not include the chart.",
         "operationId": "transit_aspects_data_api_v4_transit_aspects_data_post",
         "requestBody": {
           "content": {
@@ -397,6 +402,7 @@
           "Endpoints"
         ],
         "summary": "Synastry Aspects Data",
+        "description": "Retrieve synastry aspects between two subjects. Does not include the chart.",
         "operationId": "synastry_aspects_data_api_v4_synastry_aspects_data_post",
         "requestBody": {
           "content": {
@@ -463,6 +469,7 @@
           "Endpoints"
         ],
         "summary": "Natal Aspects Data",
+        "description": "Retrieve natal aspects and data for a specific subject. Does not include the chart.",
         "operationId": "natal_aspects_data_api_v4_natal_aspects_data_post",
         "requestBody": {
           "content": {
@@ -596,7 +603,7 @@
           "Endpoints"
         ],
         "summary": "Composite Chart",
-        "description": "Calculates the composite chart between two subjects using the midpoint method.",
+        "description": "Retrieve a composite chart between two subjects. Includes the data for the subjects and the aspects.\nThe method used is the midpoint method.",
         "operationId": "composite_chart_api_v4_composite_chart_post",
         "requestBody": {
           "content": {
@@ -663,7 +670,7 @@
           "Endpoints"
         ],
         "summary": "Composite Aspects Data",
-        "description": "Calculates the composite aspects between two subjects.",
+        "description": "Retrieves the data and the aspects for a composite chart between two subjects. Does not include the chart.",
         "operationId": "composite_aspects_data_api_v4_composite_aspects_data_post",
         "requestBody": {
           "content": {
