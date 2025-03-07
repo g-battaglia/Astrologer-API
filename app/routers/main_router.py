@@ -332,6 +332,10 @@ async def synastry_chart(synastry_chart_request: SynastryChartRequestModel, requ
 
 @router.post("/api/v4/transit-chart", response_description="Transit data", response_model=TransitChartResponseModel)
 async def transit_chart(transit_chart_request: TransitChartRequestModel, request: Request):
+    """
+    Retrieve a transit chart for a specific subject. Includes the data for the subject and the aspects.
+    """
+
     write_request_to_log(20, request, f"Getting birth chart for: {request}")
 
     first_subject = transit_chart_request.first_subject
@@ -423,6 +427,10 @@ async def transit_chart(transit_chart_request: TransitChartRequestModel, request
 
 @router.post("/api/v4/transit-aspects-data", response_description="Transit aspects data", response_model=TransitAspectsResponseModel)
 async def transit_aspects_data(transit_chart_request: TransitChartRequestModel, request: Request) -> JSONResponse:
+    """
+    Retrieve transit aspects and data for a specific subject. Does not include the chart.
+    """
+
     write_request_to_log(20, request, f"Getting birth chart for: {request}")
 
     first_subject = transit_chart_request.first_subject
@@ -505,6 +513,10 @@ async def transit_aspects_data(transit_chart_request: TransitChartRequestModel, 
 
 @router.post("/api/v4/synastry-aspects-data", response_description="Synastry aspects data", response_model=SynastryAspectsResponseModel)
 async def synastry_aspects_data(aspects_request_content: SynastryAspectsRequestModel, request: Request) -> JSONResponse:
+    """
+    Retrieve synastry aspects between two subjects. Does not include the chart.
+    """
+
     write_request_to_log(20, request, f"Getting birth chart for: {request}")
 
     first_subject = aspects_request_content.first_subject
@@ -587,6 +599,10 @@ async def synastry_aspects_data(aspects_request_content: SynastryAspectsRequestM
 
 @router.post("/api/v4/natal-aspects-data", response_description="Birth aspects data", response_model=SynastryAspectsResponseModel)
 async def natal_aspects_data(aspects_request_content: NatalAspectsRequestModel, request: Request) -> JSONResponse:
+    """
+    Retrieve natal aspects and data for a specific subject. Does not include the chart.
+    """
+
     write_request_to_log(20, request, f"Getting birth chart for: {request}")
 
     subject = aspects_request_content.subject
@@ -739,7 +755,8 @@ async def relationship_score(relationship_score_request: RelationshipScoreReques
 @router.post("/api/v4/composite-chart", response_description="Composite data", response_model=CompositeChartResponseModel)
 async def composite_chart(composite_chart_request: CompositeChartRequestModel, request: Request) -> JSONResponse:
     """
-    Calculates the composite chart between two subjects using the midpoint method.
+    Retrieve a composite chart between two subjects. Includes the data for the subjects and the aspects.
+    The method used is the midpoint method.
     """
 
     first_subject = composite_chart_request.first_subject
@@ -839,7 +856,7 @@ async def composite_chart(composite_chart_request: CompositeChartRequestModel, r
 @router.post("/api/v4/composite-aspects-data", response_description="Composite aspects data", response_model=CompositeAspectsResponseModel)
 async def composite_aspects_data(composite_chart_request: CompositeChartRequestModel, request: Request) -> JSONResponse:
     """
-    Calculates the composite aspects between two subjects.
+    Retrieves the data and the aspects for a composite chart between two subjects. Does not include the chart.
     """
 
     first_subject = composite_chart_request.first_subject
