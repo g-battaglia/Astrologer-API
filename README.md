@@ -10,19 +10,19 @@ Here's an example of a birth chart generated using the Astrologer API:
 ## Quick Endpoints Overview
 
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/v4/birth-chart` | POST | Generates a SVG birth chart in string format. The body of the response includes the data for the subject and the aspects. |
-| `/api/v4/synastry-chart` | POST | Generates a synastry chart for two subjects. The response includes the data for both subjects and the aspects between them and the SVG chart in string format
-| `/api/v4/transit-chart` | POST | Generates a transit chart for a subject. The response includes the data for the subject and the aspects and the SVG chart in string format |
-| `/api/v4/composite-chart` | POST | Generates a composite chart for two subjects using the midpoint method. The response includes the data for both subjects and the aspects between them and the SVG chart in string format |
-| `/api/v4/relationship-score` | POST | Calculates compatibility scores (0-44) using the Ciro Discepolo method |
-| `/api/v4/natal-aspects-data` | POST | Returns birth chart data/aspects without the visual chart |
-| `/api/v4/synastry-aspects-data` | POST | Provides synastry data/aspects without the visual chart |
-| `/api/v4/transit-aspects-data` | POST | Delivers transit data/aspects without the visual chart |
-| `/api/v4/composite-aspects-data` | POST | Offers composite data/aspects without the visual chart |
-| `/api/v4/birth-data` | POST | Returns basic birth chart data only, without the visual chart and aspects |
-| `/api/v4/now` | GET | Delivers birth chart data only for current UTC time. No visual chart or aspects are included |
+| Endpoint                          | Method | Description |
+|-----------------------------------|--------|-------------|
+| `/api/v4/birth-chart`            | POST   | Generates a full birth chart as an SVG string, including planetary positions and aspects. |
+| `/api/v4/synastry-chart`         | POST   | Creates a synastry chart comparing two subjects, displaying their interactions and compatibility, along with an SVG representation. |
+| `/api/v4/transit-chart`          | POST   | Generates a transit chart for a subject, showing current planetary influences, with an SVG visual representation. |
+| `/api/v4/composite-chart`        | POST   | Computes a composite chart for two subjects using the midpoint method, including aspects and an SVG visual representation. |
+| `/api/v4/relationship-score`     | POST   | Calculates a compatibility score (0-44) using the Ciro Discepolo method to assess relationship potential. |
+| `/api/v4/natal-aspects-data`     | POST   | Provides detailed birth chart data and aspects without the visual chart. |
+| `/api/v4/synastry-aspects-data`  | POST   | Returns synastry-related data and aspects between two subjects, without an SVG chart. |
+| `/api/v4/transit-aspects-data`   | POST   | Offers transit chart data and aspects for a subject, without an SVG visual representation. |
+| `/api/v4/composite-aspects-data` | POST   | Delivers composite chart data and aspects without generating an SVG chart. |
+| `/api/v4/birth-data`             | POST   | Returns essential birth chart data without aspects or visual representation. |
+| `/api/v4/now`                    | GET    | Retrieves birth chart data for the current UTC time, excluding aspects and the visual chart. |
 
 ## Subscription
 
