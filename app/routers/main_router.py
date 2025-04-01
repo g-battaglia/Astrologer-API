@@ -11,10 +11,10 @@ from kerykeion import (
     CompositeSubjectFactory
 )
 from kerykeion.settings.config_constants import DEFAULT_ACTIVE_POINTS, DEFAULT_ACTIVE_ASPECTS
-from requests import get as requests_get
 
 # Local
 from ..utils.internal_server_error_json_response import InternalServerErrorJsonResponse
+from ..utils.get_ntp_time import get_ntp_time
 from ..utils.write_request_to_log import get_write_request_to_log
 from ..types.request_models import (
     BirthDataRequestModel,
@@ -81,13 +81,25 @@ async def get_now(request: Request) -> JSONResponse:
 
     # Get current UTC time from the time API
     write_request_to_log(20, request, "Getting current astrological data")
+    
+    logger.debug("Getting current UTC time from the time API")
+    try:
+        utc_datetime = get_ntp_time()
+        datetime_dict = {
+            "year": utc_datetime.year, # type: ignore
+            "month": utc_datetime.month, # type: ignore
+            "day": utc_datetime.day, # type: ignore
+            "hour": utc_datetime.hour, # type: ignore
+            "minute": utc_datetime.minute, # type: ignore
+            "second": utc_datetime.second, # type: ignore
+        }
+    except Exception as e:
+        write_request_to_log(40, request, e)
+        return InternalServerErrorJsonResponse
+    logger.debug(f"Current UTC time: {datetime_dict}")
 
     try:
         # On some Cloud providers, the time is not set correctly, so we need to get the current UTC time from the time API
-        logger.debug("Getting current UTC time from the time API")
-        datetime_dict = requests_get("https://timeapi.io/api/Time/current/zone?timeZone=UTC").json()
-        logger.debug(f"Current UTC time: {datetime_dict}")
-
         today_subject = AstrologicalSubject(
             city="GMT",
             nation="UK",
@@ -235,7 +247,7 @@ async def birth_chart(request_body: BirthChartRequestModel, request: Request):
         return InternalServerErrorJsonResponse
 
 
-@router.post("/api/v4/synastry-chart", response_description="Synastry data")
+@router.post("/api/v4/synastry-chart", response_description="Synastry data", response_model=SynastryChartResponseModel)
 async def synastry_chart(synastry_chart_request: SynastryChartRequestModel, request: Request):
     """
     Retrieve a synastry chart between two subjects. Includes the data for the subjects and the aspects.
