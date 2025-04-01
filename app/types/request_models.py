@@ -22,24 +22,32 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
 
     @field_validator("longitude")
     def validate_longitude(cls, value):
+        if value is None:
+            return None
         if value < -180 or value > 180:
             raise ValueError(f"Invalid longitude '{value}'. Please use a value between -180 and 180.")
         return value
 
     @field_validator("latitude")
     def validate_latitude(cls, value):
+        if value is None:
+            return None
         if value < -90 or value > 90:
             raise ValueError(f"Invalid latitude '{value}'. Please use a value between -90 and 90.")
         return value
 
     @field_validator("timezone")
     def validate_timezone(cls, value):
+        if value is None:
+            return None
         if value not in all_timezones:
             raise ValueError(f"Invalid timezone '{value}'. Please use a valid timezone. You can find a list of valid timezones at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.")
         return value
 
     @field_validator("month")
     def validate_month(cls, value):
+        if value is None:
+            return None
         if value < 1 or value > 12:
             raise ValueError(f"Invalid month '{value}'. Please use a value between 1 and 12.")
         return value
@@ -61,18 +69,24 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
 
     @field_validator("hour")
     def validate_hour(cls, value):
+        if value is None:
+            return None
         if value < 0 or value > 23:
             raise ValueError(f"Invalid hour '{value}'. Please use a value between 0 and 23.")
         return value
 
     @field_validator("minute")
     def validate_minute(cls, value):
+        if value is None:
+            return None
         if value < 0 or value > 59:
             raise ValueError(f"Invalid minute '{value}'. Please use a value between 0 and 59.")
         return value
 
     @field_validator("year")
     def validate_year(cls, value):
+        if value is None:
+            return None
         if value < 1800 or value > 2100:
             raise ValueError(f"Invalid year '{value}'. Please use a value between 1800 and 2300.")
         return value
