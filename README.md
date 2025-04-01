@@ -402,6 +402,7 @@ It is recommended to use actual coordinates directly for greater accuracy.
 **Obtaining a Geonames Username**
 
 If you want to calculate coordinates automatically, you need to obtain a `username` for the Geonames Timezone service. The service is free for up to **10,000 requests per day**.
+You can obtain a Geonames username by signing up at <a href="http://www.geonames.org/login" target="_blank">Geonames</a>.
 
 **Example**
 
