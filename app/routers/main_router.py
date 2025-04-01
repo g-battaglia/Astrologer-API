@@ -43,6 +43,7 @@ write_request_to_log = get_write_request_to_log(logger)
 
 router = APIRouter()
 
+GEONAMES_ERROR_MESSAGE = "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. You can create a free username here: https://www.geonames.org/login/. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.)."
 
 @router.get("/api/v4/health", response_description="Health check", include_in_schema=False)
 async def health(request: Request) -> JSONResponse:
@@ -166,7 +167,7 @@ async def birth_data(birth_data_request: BirthDataRequestModel, request: Request
             return JSONResponse(
                 content={
                     "status": "ERROR",
-                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                    "message": GEONAMES_ERROR_MESSAGE,
                 },
                 status_code=400,
             )
@@ -238,7 +239,7 @@ async def birth_chart(request_body: BirthChartRequestModel, request: Request):
             return JSONResponse(
                 content={
                     "status": "ERROR",
-                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                    "message": GEONAMES_ERROR_MESSAGE,
                 },
                 status_code=400,
             )
@@ -333,7 +334,7 @@ async def synastry_chart(synastry_chart_request: SynastryChartRequestModel, requ
             return JSONResponse(
                 content={
                     "status": "ERROR",
-                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                    "message": GEONAMES_ERROR_MESSAGE,
                 },
                 status_code=400,
             )
@@ -428,7 +429,7 @@ async def transit_chart(transit_chart_request: TransitChartRequestModel, request
             return JSONResponse(
                 content={
                     "status": "ERROR",
-                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                    "message": GEONAMES_ERROR_MESSAGE,
                 },
                 status_code=400,
             )
@@ -514,7 +515,7 @@ async def transit_aspects_data(transit_chart_request: TransitChartRequestModel, 
             return JSONResponse(
                 content={
                     "status": "ERROR",
-                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                    "message": GEONAMES_ERROR_MESSAGE,
                 },
                 status_code=400,
             )
@@ -600,7 +601,7 @@ async def synastry_aspects_data(aspects_request_content: SynastryAspectsRequestM
             return JSONResponse(
                 content={
                     "status": "ERROR",
-                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                    "message": GEONAMES_ERROR_MESSAGE,
                 },
                 status_code=400,
             )
@@ -661,7 +662,7 @@ async def natal_aspects_data(aspects_request_content: NatalAspectsRequestModel, 
             return JSONResponse(
                 content={
                     "status": "ERROR",
-                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                    "message": GEONAMES_ERROR_MESSAGE,
                 },
                 status_code=400,
             )
@@ -755,7 +756,7 @@ async def relationship_score(relationship_score_request: RelationshipScoreReques
             return JSONResponse(
                 content={
                     "status": "ERROR",
-                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                    "message": GEONAMES_ERROR_MESSAGE,
                 },
                 status_code=400,
             )
@@ -856,7 +857,7 @@ async def composite_chart(composite_chart_request: CompositeChartRequestModel, r
             return JSONResponse(
                 content={
                     "status": "ERROR",
-                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                    "message": GEONAMES_ERROR_MESSAGE,
                 },
                 status_code=400,
             )
@@ -949,7 +950,7 @@ async def composite_aspects_data(composite_chart_request: CompositeChartRequestM
             return JSONResponse(
                 content={
                     "status": "ERROR",
-                    "message": "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. If you want to bypass the usage of GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the country code (e.g. US, UK, FR, DE, etc.).",
+                    "message": GEONAMES_ERROR_MESSAGE,
                 },
                 status_code=400,
             )
