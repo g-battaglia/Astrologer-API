@@ -2,6 +2,11 @@ import socket
 import struct
 from typing import Union
 from datetime import datetime, timezone
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def get_ntp_time(server: str = "time.google.com", timeout: int = 5) -> Union[datetime, Exception]:
     """
@@ -38,6 +43,8 @@ def get_ntp_time(server: str = "time.google.com", timeout: int = 5) -> Union[dat
             return datetime.fromtimestamp(unix_time, tz=timezone.utc)
             
     except socket.timeout as e:
+        logger.error(f"Timeout error: {e}")
         raise TimeoutError("Timeout during NTP request") from e
     except Exception as e:
+        logger.error(f"An error occurred: {e}")
         raise e
