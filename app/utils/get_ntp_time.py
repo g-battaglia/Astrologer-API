@@ -48,3 +48,11 @@ def get_ntp_time(server: str = "time.google.com", timeout: int = 5) -> Union[dat
     except Exception as e:
         logger.error(f"An error occurred: {e}")
         raise e
+
+if __name__ == "__main__":
+    # Example usage
+    try:
+        ntp_time = get_ntp_time()
+        print(f"Current NTP time: {ntp_time}")
+    except Exception as e:
+        print(f"Failed to get NTP time: {e}")

@@ -14,7 +14,7 @@ from kerykeion.settings.config_constants import DEFAULT_ACTIVE_POINTS, DEFAULT_A
 
 # Local
 from ..utils.internal_server_error_json_response import InternalServerErrorJsonResponse
-from ..utils.get_ntp_time import get_ntp_time
+from ..utils.get_time_from_google import get_time_from_google
 from ..utils.write_request_to_log import get_write_request_to_log
 from ..types.request_models import (
     BirthDataRequestModel,
@@ -85,7 +85,7 @@ async def get_now(request: Request) -> JSONResponse:
     
     logger.debug("Getting current UTC time from the time API")
     try:
-        utc_datetime = get_ntp_time()
+        utc_datetime = get_time_from_google()
         datetime_dict = {
             "year": utc_datetime.year, # type: ignore
             "month": utc_datetime.month, # type: ignore
