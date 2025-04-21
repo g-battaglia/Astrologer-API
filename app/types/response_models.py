@@ -214,3 +214,12 @@ class CompositeAspectsResponseModel(BaseModel):
     status: str = Field(description="The status of the response.")
     data: CompositeDataModel = Field(description="The data of the subjects and the composite chart.")
     aspects: list[AspectModel] = Field(description="A list with the aspects between the two subjects.")
+
+
+class EphemerisDataResponseModel(BaseModel):
+    """
+    Response model for the Ephemeris Data endpoint.
+    """
+    status: str
+    message: Optional[str] = None
+    data: Optional[list[dict]] = None

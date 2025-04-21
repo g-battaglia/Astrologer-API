@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, field_validator, model_validator
-from typing import Optional, get_args, Union
+from typing import Optional, get_args, Union, Literal
 from kerykeion.kr_types.kr_models import ActiveAspect
 from pytz import all_timezones
 from kerykeion.kr_types.kr_literals import KerykeionChartTheme, KerykeionChartLanguage, SiderealMode, ZodiacType, HousesSystemIdentifier, PerspectiveType, AxialCusps, Planet
@@ -285,3 +285,34 @@ class CompositeChartRequestModel(BaseModel):
     wheel_only: Optional[bool] = Field(default=False, description="If set to True, only the zodiac wheel will be returned. No additional information will be displayed.")
     active_points: Optional[list[Union[Planet, AxialCusps]]] = Field(default=DEFAULT_ACTIVE_POINTS, description="The active points to display in the chart.", examples=[DEFAULT_ACTIVE_POINTS])
     active_aspects: Optional[list[ActiveAspect]] = Field(default=DEFAULT_ACTIVE_ASPECTS, description="The active aspects to display in the chart.", examples=[DEFAULT_ACTIVE_ASPECTS])
+
+
+class EphemerisDataRequestModel(BaseModel):
+    """
+    Request model for the Ephemeris Data endpoint.
+    """
+    start_date: str = Field(description="Start date in ISO format (e.g. 2023-01-01T00:00:00)", examples=["2023-01-01T00:00:00"])
+    end_date: str = Field(description="End date in ISO format (e.g. 2023-01-31T00:00:00)", examples=["2023-01-31T00:00:00"])
+    step_type: Literal["days", "hours", "minutes"] = Field(
+        default="days", 
+        description="Type of time interval between calculations",
+        examples=["days", "hours", "minutes"]
+    )
+    step: int = Field(default=1, description="Step value for the interval", examples=[1])
+    latitude: float = Field(default=51.4769, description="Latitude for calculation (default: Greenwich)", examples=[51.4769])
+    longitude: float = Field(default=0.0005, description="Longitude for calculation (default: Greenwich)", examples=[0.0005])
+    timezone: str = Field(default="Etc/UTC", description="Timezone string", examples=["Etc/UTC", "Europe/Rome"])
+    is_dst: bool = Field(default=False, description="Whether daylight saving time is active", examples=[False])
+    disable_chiron_and_lilith: bool = Field(default=False, description="Whether to disable Chiron and Lilith calculations", examples=[False])
+    zodiac_type: ZodiacType = Field(default="Tropic", description="Type of zodiac to use", examples=["Tropic", "Sidereal"])
+    sidereal_mode: Optional[SiderealMode] = Field(default=None, description="Sidereal mode if zodiac type is Sidereal", examples=[None])
+    houses_system_identifier: HousesSystemIdentifier = Field(default="P", description="Houses system to use", examples=["P"])
+    perspective_type: PerspectiveType = Field(default="Apparent Geocentric", description="Perspective type for calculations", examples=["Apparent Geocentric"])
+    max_days: Optional[int] = Field(default=730, description="Maximum number of days allowed (set to null to disable)", examples=[730])
+    max_hours: Optional[int] = Field(default=8760, description="Maximum number of hours allowed (set to null to disable)", examples=[8760])
+    max_minutes: Optional[int] = Field(default=525600, description="Maximum number of minutes allowed (set to null to disable)", examples=[525600])
+    format: Literal["json", "astrological_subjects"] = Field(
+        default="json", 
+        description="Format of the response data",
+        examples=["json", "astrological_subjects"]
+    )

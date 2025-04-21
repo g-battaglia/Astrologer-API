@@ -1,4 +1,5 @@
 # External Libraries
+from datetime import datetime
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 from logging import getLogger
@@ -8,11 +9,11 @@ from kerykeion import (
     SynastryAspects, 
     NatalAspects, 
     RelationshipScoreFactory, 
-    CompositeSubjectFactory
+    CompositeSubjectFactory,
+    EphemerisDataFactory
 )
 from kerykeion.settings.config_constants import DEFAULT_ACTIVE_POINTS, DEFAULT_ACTIVE_ASPECTS
 
-# Local
 from ..utils.internal_server_error_json_response import InternalServerErrorJsonResponse
 from ..utils.get_time_from_google import get_time_from_google
 from ..utils.write_request_to_log import get_write_request_to_log
@@ -24,7 +25,8 @@ from ..types.request_models import (
     RelationshipScoreRequestModel,
     SynastryAspectsRequestModel,
     NatalAspectsRequestModel,
-    CompositeChartRequestModel
+    CompositeChartRequestModel,
+    EphemerisDataRequestModel
 )
 from ..types.response_models import (
     BirthDataResponseModel,
@@ -35,7 +37,8 @@ from ..types.response_models import (
     CompositeChartResponseModel,
     CompositeAspectsResponseModel,
     TransitAspectsResponseModel,
-    TransitChartResponseModel
+    TransitChartResponseModel,
+    EphemerisDataResponseModel
 )
 
 logger = getLogger(__name__)
@@ -955,5 +958,79 @@ async def composite_aspects_data(composite_chart_request: CompositeChartRequestM
                 status_code=400,
             )
 
+        write_request_to_log(40, request, e)
+        return InternalServerErrorJsonResponse
+
+
+@router.post("/api/v4/ephemeris-data", response_description="Ephemeris data for a date range", response_model=EphemerisDataResponseModel)
+async def ephemeris_data(ephemeris_request: EphemerisDataRequestModel, request: Request) -> JSONResponse:
+    """
+    Generate ephemeris data for a given date range.
+    
+    This endpoint calculates planetary positions and house cusps for each date/time point in the specified range.
+    You can customize the calculation by specifying the step type (days, hours, minutes), zodiac type, house system,
+    and other astrological parameters.
+    
+    The response includes planetary positions and house cusps for each point in time.
+    
+    Note: Large date ranges with small steps may result in timeout errors or be rejected due to resource limitations.
+    Maximum allowed ranges: 730 days, 8760 hours, or 525600 minutes by default.
+    """
+    
+    write_request_to_log(20, request, f"Getting ephemeris data: {ephemeris_request}")
+    
+    try:
+        # Parse ISO format dates
+        start_datetime = datetime.fromisoformat(ephemeris_request.start_date)
+        end_datetime = datetime.fromisoformat(ephemeris_request.end_date)
+        
+        # Create the factory
+        factory = EphemerisDataFactory(
+            start_datetime=start_datetime,
+            end_datetime=end_datetime,
+            step_type=ephemeris_request.step_type,
+            step=ephemeris_request.step,
+            lat=ephemeris_request.latitude,
+            lng=ephemeris_request.longitude,
+            tz_str=ephemeris_request.timezone,
+            is_dst=ephemeris_request.is_dst,
+            disable_chiron_and_lilith=ephemeris_request.disable_chiron_and_lilith,
+            zodiac_type=ephemeris_request.zodiac_type,
+            sidereal_mode=ephemeris_request.sidereal_mode,
+            houses_system_identifier=ephemeris_request.houses_system_identifier,
+            perspective_type=ephemeris_request.perspective_type,
+            max_days=ephemeris_request.max_days,
+            max_hours=ephemeris_request.max_hours,
+            max_minutes=ephemeris_request.max_minutes,
+        )
+        
+        # Get ephemeris data based on the requested format
+        if ephemeris_request.format == "json":
+            data_models_list = factory.get_ephemeris_data(as_model=True)
+            data = [single_data_model.model_dump() for single_data_model in data_models_list]
+        else:  # astrological_subjects
+            subjects = factory.get_ephemeris_data_as_astrological_subjects(as_model=False)
+            data = [subject.model().model_dump() for subject in subjects]
+        
+        return JSONResponse(
+            content={
+                "status": "OK",
+                "data": data
+            },
+            status_code=200,
+        )
+    
+    except ValueError as e:
+        # Handle specific ValueError exceptions from EphemerisDataFactory
+        write_request_to_log(40, request, e)
+        return JSONResponse(
+            content={
+                "status": "ERROR",
+                "message": str(e),
+            },
+            status_code=400,
+        )
+    
+    except Exception as e:
         write_request_to_log(40, request, e)
         return InternalServerErrorJsonResponse
