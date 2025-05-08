@@ -133,7 +133,7 @@ async def birth_data(birth_data_request: BirthDataRequestModel, request: Request
     Retrieve astrological data for a specific birth date. Does not include the chart nor the aspects.
     """
 
-    write_request_to_log(20, request, f"Getting birth chart for: {request}")
+    write_request_to_log(20, request, f"Birth data request")
 
     subject = birth_data_request.subject
 
@@ -185,7 +185,7 @@ async def birth_chart(request_body: BirthChartRequestModel, request: Request):
     Retrieve an astrological birth chart for a specific birth date. Includes the data for the subject and the aspects.
     """
 
-    write_request_to_log(20, request, f"Getting birth chart for: {request}")
+    write_request_to_log(20, request, f"Birth chart request")
 
     subject = request_body.subject
 
@@ -257,7 +257,7 @@ async def synastry_chart(synastry_chart_request: SynastryChartRequestModel, requ
     Retrieve a synastry chart between two subjects. Includes the data for the subjects and the aspects.
     """
 
-    write_request_to_log(20, request, f"Getting birth chart for: {request}")
+    write_request_to_log(20, request, f"Synastry chart request")
 
     first_subject = synastry_chart_request.first_subject
     second_subject = synastry_chart_request.second_subject
@@ -352,7 +352,7 @@ async def transit_chart(transit_chart_request: TransitChartRequestModel, request
     Retrieve a transit chart for a specific subject. Includes the data for the subject and the aspects.
     """
 
-    write_request_to_log(20, request, f"Getting birth chart for: {request}")
+    write_request_to_log(20, request, f"Transit chart request")
 
     first_subject = transit_chart_request.first_subject
     second_subject = transit_chart_request.transit_subject
@@ -447,7 +447,7 @@ async def transit_aspects_data(transit_chart_request: TransitChartRequestModel, 
     Retrieve transit aspects and data for a specific subject. Does not include the chart.
     """
 
-    write_request_to_log(20, request, f"Getting birth chart for: {request}")
+    write_request_to_log(20, request, f"Transit aspects data request")
 
     first_subject = transit_chart_request.first_subject
     second_subject = transit_chart_request.transit_subject
@@ -533,7 +533,7 @@ async def synastry_aspects_data(aspects_request_content: SynastryAspectsRequestM
     Retrieve synastry aspects between two subjects. Does not include the chart.
     """
 
-    write_request_to_log(20, request, f"Getting birth chart for: {request}")
+    write_request_to_log(20, request, f"Synastry aspects data request")
 
     first_subject = aspects_request_content.first_subject
     second_subject = aspects_request_content.second_subject
@@ -619,7 +619,7 @@ async def natal_aspects_data(aspects_request_content: NatalAspectsRequestModel, 
     Retrieve natal aspects and data for a specific subject. Does not include the chart.
     """
 
-    write_request_to_log(20, request, f"Getting birth chart for: {request}")
+    write_request_to_log(20, request, f"Natal aspects data request")
 
     subject = aspects_request_content.subject
 
