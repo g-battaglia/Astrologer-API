@@ -10,19 +10,19 @@ import logging
 class SecretKeyCheckerMiddleware:
     def __init__(self, app: ASGIApp, secret_key_name: str, secret_keys: list = []) -> None:
         self.app = app
-        self.allowed_hosts = list(secret_keys)
+        self.secret_key_values = list(secret_keys)
         self.secret_key_name = secret_key_name
 
-        if self.secret_key_name or not self.allowed_hosts:
-            logging.critical("Secret key name or allowed hosts not set. The middleware will let all requests pass through!")
+        if not self.secret_key_name or not self.secret_key_values:
+            logging.critical("Secret key name or secret key values not set. The middleware will let all requests pass through!")
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
         headers = Headers(scope=scope)
-        host = headers.get(self.secret_key_name, "").split(":")[0]
+        header_key = headers.get(self.secret_key_name, "").split(":")[0]
         is_valid_key = False
 
-        for key in self.allowed_hosts:
-            if host == key:
+        for key in self.secret_key_values:
+            if header_key == key:
                 is_valid_key = True
                 break
 
