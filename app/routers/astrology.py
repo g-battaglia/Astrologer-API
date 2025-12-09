@@ -16,6 +16,8 @@ from ..logic.astrology.utils import filtrateAndGetDict
 from ..utils.write_response_to_log import get_write_response_to_log
 from ..utils.internal_server_error_json_response import InternalServerErrorJsonResponse
 
+DEPRECATION_WARNING = "API v3 is deprecated and will be discontinued. Please migrate to the latest version."
+
 logger = getLogger(__name__)
 write_response_to_log = get_write_response_to_log(logger)
 
@@ -51,7 +53,7 @@ async def get_now(request: Request) -> JSONResponse:
             geonames_username="g.battaglia"
         )
 
-        response_dict = {"status": "OK", "data": filtrateAndGetDict(kr_object)}
+        response_dict = {"status": "OK", "warning": DEPRECATION_WARNING, "data": filtrateAndGetDict(kr_object)}
 
         return JSONResponse(content=response_dict, status_code=200)
 
@@ -99,6 +101,7 @@ async def birth_chart(subject: SubjectModel, request: Request):
 
         object = user.get_birth_chart()
         object["status"] = "OK"
+        object["warning"] = DEPRECATION_WARNING
 
         return JSONResponse(content=object, status_code=200)
 
@@ -129,6 +132,7 @@ async def birth_data(subject: SubjectModel, request: Request) -> JSONResponse:
 
         object = user.get_birth_data()
         object["status"] = "OK"
+        object["warning"] = DEPRECATION_WARNING
 
         write_response_to_log(20, request, f"Birth data for {subject} retrieved successfully")
 
@@ -180,6 +184,7 @@ async def composite_chart(first_subject: SubjectModel, second_subject: SubjectMo
         )
 
         object["status"] = "OK"
+        object["warning"] = DEPRECATION_WARNING
 
         return JSONResponse(content=object, status_code=200)
 
@@ -226,6 +231,7 @@ async def discepolo_score(first_subject: SubjectModel, second_subject: SubjectMo
         )
 
         object["status"] = "OK"
+        object["warning"] = DEPRECATION_WARNING
 
         return JSONResponse(content=object, status_code=200)
 
@@ -242,4 +248,4 @@ async def transit_chart(subject: SubjectModel, transit: TransitModel, request: R
 
     write_response_to_log(20, request, f"Getting transit chart for: {subject}")
 
-    return JSONResponse(content={"status": "OK"}, status_code=200)
+    return JSONResponse(content={"status": "OK", "warning": DEPRECATION_WARNING}, status_code=200)
