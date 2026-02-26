@@ -7,9 +7,6 @@ description: 'JSON example of real-time moon phase data at Greenwich Observatory
 
 Endpoint: `/api/v5/moon-phase/now-utc`
 
-This example shows the current moon phase at Greenwich Observatory using the default empty request body.
-Since this endpoint uses the current UTC time, the actual values in your response will differ from those shown here.
-
 ## Request Body
 ```json
 {}
@@ -20,48 +17,48 @@ Since this endpoint uses the current UTC time, the actual values in your respons
 {
   "status": "OK",
   "moon_phase_overview": {
-    "timestamp": 1717245000,
-    "datestamp": "Sat, 01 Jun 2024 12:30:00 +0000",
+    "timestamp": 1772140847,
+    "datestamp": "Thu, 26 Feb 2026 21:20:47 +0000",
     "sun": {
-      "sunrise": 1717213706,
-      "sunrise_timestamp": "03:48",
-      "sunset": 1717272482,
-      "sunset_timestamp": "20:08",
-      "solar_noon": "11:58",
-      "day_length": "16:20",
+      "sunrise": 1772088701,
+      "sunrise_timestamp": "06:51",
+      "sunset": 1772127292,
+      "sunset_timestamp": "17:34",
+      "solar_noon": "12:13",
+      "day_length": "10:43",
       "position": {
-        "altitude": 60.03,
-        "azimuth": 194.99,
-        "distance": 151708222.77
+        "altitude": -34.44819401379985,
+        "azimuth": 305.1105015529729,
+        "distance": 148135276.1566846
       },
       "next_solar_eclipse": {
-        "timestamp": 1727894704,
-        "datestamp": "Wed, 02 Oct 2024 18:45:04 +0000",
-        "type": "Annular Solar Eclipse",
+        "timestamp": 1786556757,
+        "datestamp": "Wed, 12 Aug 2026 17:45:57 +0000",
+        "type": "Total Solar Eclipse",
         "visibility_regions": null
       }
     },
     "moon": {
-      "phase": 0.816,
-      "phase_name": "Waning Crescent",
-      "major_phase": "Last Quarter",
-      "stage": "waning",
-      "illumination": "30%",
-      "age_days": 9,
-      "lunar_cycle": "81.627%",
-      "emoji": "🌘",
+      "phase": 0.3368001069667679,
+      "phase_name": "Waxing Gibbous",
+      "major_phase": "First Quarter",
+      "stage": "waxing",
+      "illumination": "76%",
+      "age_days": 25,
+      "lunar_cycle": "33.68%",
+      "emoji": "\ud83c\udf14",
       "zodiac": {
-        "sun_sign": "Gem",
-        "moon_sign": "Ari"
+        "sun_sign": "Pis",
+        "moon_sign": "Can"
       },
       "moonrise": null,
       "moonrise_timestamp": null,
       "moonset": null,
       "moonset_timestamp": null,
       "next_lunar_eclipse": {
-        "timestamp": 1726627457,
-        "datestamp": "Wed, 18 Sep 2024 02:44:17 +0000",
-        "type": "Partial Lunar Eclipse",
+        "timestamp": 1772537622,
+        "datestamp": "Tue, 03 Mar 2026 11:33:42 +0000",
+        "type": "Total Lunar Eclipse",
         "visibility_regions": null
       },
       "detailed": {
@@ -70,99 +67,92 @@ Since this endpoint uses the current UTC time, the actual values in your respons
         "upcoming_phases": {
           "new_moon": {
             "last": {
-              "timestamp": 1716472388,
-              "datestamp": "Thu, 23 May 2024 13:53:08 +0000",
-              "days_ago": 9,
+              "timestamp": 1769983755,
+              "datestamp": "Sun, 01 Feb 2026 22:09:15 +0000",
+              "days_ago": 25,
               "days_ahead": null,
               "name": null,
               "description": null
             },
             "next": {
-              "timestamp": 1717677462,
-              "datestamp": "Thu, 06 Jun 2024 12:37:42 +0000",
+              "timestamp": 1773883409,
+              "datestamp": "Thu, 19 Mar 2026 01:23:29 +0000",
               "days_ago": null,
-              "days_ahead": 5,
+              "days_ahead": 20,
               "name": null,
               "description": null
             }
           },
           "first_quarter": {
             "last": {
-              "timestamp": 1717089160,
-              "datestamp": "Thu, 30 May 2024 17:12:40 +0000",
-              "days_ago": 2,
-              "days_ahead": null,
-              "name": null,
-              "description": null
-            },
-            "next": {
-              "timestamp": 1718342307,
-              "datestamp": "Fri, 14 Jun 2024 05:18:27 +0000",
-              "days_ago": null,
-              "days_ahead": 13,
-              "name": null,
-              "description": null
-            }
-          },
-          "full_moon": {
-            "last": {
-              "timestamp": 1715138518,
-              "datestamp": "Wed, 08 May 2024 03:21:58 +0000",
-              "days_ago": 24,
-              "days_ahead": null,
-              "name": null,
-              "description": null
-            },
-            "next": {
-              "timestamp": 1719018473,
-              "datestamp": "Sat, 22 Jun 2024 01:07:53 +0000",
-              "days_ago": null,
-              "days_ahead": 21,
-              "name": null,
-              "description": null
-            }
-          },
-          "last_quarter": {
-            "last": {
-              "timestamp": 1715773680,
-              "datestamp": "Wed, 15 May 2024 11:48:00 +0000",
+              "timestamp": 1770640988,
+              "datestamp": "Mon, 09 Feb 2026 12:43:08 +0000",
               "days_ago": 17,
               "days_ahead": null,
               "name": null,
               "description": null
             },
             "next": {
-              "timestamp": 1719611604,
-              "datestamp": "Fri, 28 Jun 2024 21:53:24 +0000",
+              "timestamp": 1774466262,
+              "datestamp": "Wed, 25 Mar 2026 19:17:42 +0000",
               "days_ago": null,
               "days_ahead": 27,
+              "name": null,
+              "description": null
+            }
+          },
+          "full_moon": {
+            "last": {
+              "timestamp": 1771329669,
+              "datestamp": "Tue, 17 Feb 2026 12:01:09 +0000",
+              "days_ago": 9,
+              "days_ahead": null,
+              "name": null,
+              "description": null
+            },
+            "next": {
+              "timestamp": 1772537875,
+              "datestamp": "Tue, 03 Mar 2026 11:37:55 +0000",
+              "days_ago": null,
+              "days_ahead": 5,
+              "name": null,
+              "description": null
+            }
+          },
+          "last_quarter": {
+            "last": {
+              "timestamp": 1771936056,
+              "datestamp": "Tue, 24 Feb 2026 12:27:36 +0000",
+              "days_ago": 2,
+              "days_ahead": null,
+              "name": null,
+              "description": null
+            },
+            "next": {
+              "timestamp": 1773221910,
+              "datestamp": "Wed, 11 Mar 2026 09:38:30 +0000",
+              "days_ago": null,
+              "days_ahead": 13,
               "name": null,
               "description": null
             }
           }
         },
         "illumination_details": {
-          "percentage": 30.0,
-          "visible_fraction": 0.2978,
-          "phase_angle": 293.86
+          "percentage": 76.0,
+          "visible_fraction": 0.7593719951910303,
+          "phase_angle": 121.24803850803644
         }
       },
       "events": null
     },
-        "location": {
-            "latitude": "51",
-            "longitude": "0",
-            "precision": 0,
-            "using_default_location": true,
-            "note": null
-        }
+    "location": {
+      "latitude": "51",
+      "longitude": "0",
+      "precision": 0,
+      "using_default_location": true,
+      "note": null
+    }
   }
 }
 ```
-
-### Notes
-
-- **`location.latitude` / `location.longitude`**: Rounded to the number of decimal places specified by `location_precision` (default `0`, so integer strings). The actual coordinates used for calculation are Greenwich Observatory (51.4779°N, 0.0015°W). Set `location_precision` to a higher value (e.g., `4`) to see more decimal places.
-- **`sunrise_timestamp` / `sunset_timestamp`**: Local time strings (HH:MM format), while `sunrise` / `sunset` are Unix timestamps (integers). The `_timestamp` suffix refers to the human-readable format, not a Unix timestamp.
-- **Null fields** (`moonrise`, `moonset`, `position`, `visibility`, `events`, `name`, `description`, `visibility_regions`, `note`): These fields are reserved for future expansion or are only populated under specific conditions. Their presence in the response is guaranteed but their values may be `null`.
-- **All times are in UTC** since this endpoint uses `Etc/UTC` as the timezone.

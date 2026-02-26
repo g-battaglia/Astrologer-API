@@ -7,106 +7,153 @@ description: 'Complete JSON example of current moon phase data with AI-optimized
 
 Endpoint: `/api/v5/moon-phase/now-utc/context`
 
-This example shows the current moon phase context at **Greenwich Observatory**. The response includes both AI-optimized XML context and full JSON moon phase data.
-
 ## Request Body
 ```json
 {}
 ```
 
 ## Response Body
-
-> The exact values will vary depending on the current UTC time. This example uses a frozen time of June 1, 2024 12:30 UTC.
-
 ```json
 {
-    "status": "OK",
-    "context": "<moon_phase_overview timestamp=\"1717245000\" datestamp=\"Sat, 01 Jun 2024 12:30:00 +0000\">\n  <moon>\n    <phase>0.816</phase>\n    <phase_name>Waning Crescent</phase_name>\n    ...\n  </moon>\n  <sun>...</sun>\n  <location latitude=\"51\" longitude=\"0\" precision=\"0\" using_default_location=\"true\" />\n</moon_phase_overview>",
-    "moon_phase_overview": {
-        "timestamp": 1717245000,
-        "datestamp": "Sat, 01 Jun 2024 12:30:00 +0000",
-        "sun": {
-            "sunrise": 1717213706,
-            "sunrise_timestamp": "03:48",
-            "sunset": 1717272482,
-            "sunset_timestamp": "20:08",
-            "solar_noon": "11:58",
-            "day_length": "16:20",
-            "position": {
-                "altitude": 60.03,
-                "azimuth": 194.99,
-                "distance": 151708222.77
+  "status": "OK",
+  "context": "<moon_phase_overview timestamp=\"1772140847\" datestamp=\"Thu, 26 Feb 2026 21:20:47 +0000\">\n  <moon>\n    <phase>0.337</phase>\n    <phase_name>Waxing Gibbous</phase_name>\n    <major_phase>First Quarter</major_phase>\n    <stage>waxing</stage>\n    <illumination>76%</illumination>\n    <age_days>25</age_days>\n    <lunar_cycle>33.68%</lunar_cycle>\n    <emoji>\ud83c\udf14</emoji>\n    <zodiac sun_sign=\"Pis\" moon_sign=\"Can\" />\n    <next_lunar_eclipse timestamp=\"1772537622\" datestamp=\"Tue, 03 Mar 2026 11:33:42 +0000\" type=\"Total Lunar Eclipse\" />\n    <detailed>\n      <upcoming_phases>\n        <new_moon>\n          <last timestamp=\"1769983755\" datestamp=\"Sun, 01 Feb 2026 22:09:15 +0000\" days_ago=\"25\" />\n          <next timestamp=\"1773883409\" datestamp=\"Thu, 19 Mar 2026 01:23:29 +0000\" days_ahead=\"20\" />\n        </new_moon>\n        <first_quarter>\n          <last timestamp=\"1770640988\" datestamp=\"Mon, 09 Feb 2026 12:43:08 +0000\" days_ago=\"17\" />\n          <next timestamp=\"1774466262\" datestamp=\"Wed, 25 Mar 2026 19:17:42 +0000\" days_ahead=\"27\" />\n        </first_quarter>\n        <full_moon>\n          <last timestamp=\"1771329669\" datestamp=\"Tue, 17 Feb 2026 12:01:09 +0000\" days_ago=\"9\" />\n          <next timestamp=\"1772537875\" datestamp=\"Tue, 03 Mar 2026 11:37:55 +0000\" days_ahead=\"5\" />\n        </full_moon>\n        <last_quarter>\n          <last timestamp=\"1771936056\" datestamp=\"Tue, 24 Feb 2026 12:27:36 +0000\" days_ago=\"2\" />\n          <next timestamp=\"1773221910\" datestamp=\"Wed, 11 Mar 2026 09:38:30 +0000\" days_ahead=\"13\" />\n        </last_quarter>\n      </upcoming_phases>\n      <illumination_details percentage=\"76.0\" visible_fraction=\"0.7594\" phase_angle=\"121.25\" />\n    </detailed>\n  </moon>\n  <sun>\n    <sunrise>1772088701</sunrise>\n    <sunrise_timestamp>06:51</sunrise_timestamp>\n    <sunset>1772127292</sunset>\n    <sunset_timestamp>17:34</sunset_timestamp>\n    <solar_noon>12:13</solar_noon>\n    <day_length>10:43</day_length>\n    <position altitude=\"-34.45\" azimuth=\"305.11\" distance=\"148135276.16\" />\n    <next_solar_eclipse timestamp=\"1786556757\" datestamp=\"Wed, 12 Aug 2026 17:45:57 +0000\" type=\"Total Solar Eclipse\" />\n  </sun>\n  <location latitude=\"51.477928\" longitude=\"-0.001545\" precision=\"0\" using_default_location=\"true\" />\n</moon_phase_overview>",
+  "moon_phase_overview": {
+    "timestamp": 1772140847,
+    "datestamp": "Thu, 26 Feb 2026 21:20:47 +0000",
+    "sun": {
+      "sunrise": 1772088701,
+      "sunrise_timestamp": "06:51",
+      "sunset": 1772127292,
+      "sunset_timestamp": "17:34",
+      "solar_noon": "12:13",
+      "day_length": "10:43",
+      "position": {
+        "altitude": -34.44819401379985,
+        "azimuth": 305.1105015529729,
+        "distance": 148135276.1566846
+      },
+      "next_solar_eclipse": {
+        "timestamp": 1786556757,
+        "datestamp": "Wed, 12 Aug 2026 17:45:57 +0000",
+        "type": "Total Solar Eclipse",
+        "visibility_regions": null
+      }
+    },
+    "moon": {
+      "phase": 0.3368001069667679,
+      "phase_name": "Waxing Gibbous",
+      "major_phase": "First Quarter",
+      "stage": "waxing",
+      "illumination": "76%",
+      "age_days": 25,
+      "lunar_cycle": "33.68%",
+      "emoji": "\ud83c\udf14",
+      "zodiac": {
+        "sun_sign": "Pis",
+        "moon_sign": "Can"
+      },
+      "moonrise": null,
+      "moonrise_timestamp": null,
+      "moonset": null,
+      "moonset_timestamp": null,
+      "next_lunar_eclipse": {
+        "timestamp": 1772537622,
+        "datestamp": "Tue, 03 Mar 2026 11:33:42 +0000",
+        "type": "Total Lunar Eclipse",
+        "visibility_regions": null
+      },
+      "detailed": {
+        "position": null,
+        "visibility": null,
+        "upcoming_phases": {
+          "new_moon": {
+            "last": {
+              "timestamp": 1769983755,
+              "datestamp": "Sun, 01 Feb 2026 22:09:15 +0000",
+              "days_ago": 25,
+              "days_ahead": null,
+              "name": null,
+              "description": null
             },
-            "next_solar_eclipse": {
-                "timestamp": 1727894704,
-                "datestamp": "Wed, 02 Oct 2024 18:45:04 +0000",
-                "type": "Annular Solar Eclipse",
-                "visibility_regions": null
+            "next": {
+              "timestamp": 1773883409,
+              "datestamp": "Thu, 19 Mar 2026 01:23:29 +0000",
+              "days_ago": null,
+              "days_ahead": 20,
+              "name": null,
+              "description": null
             }
+          },
+          "first_quarter": {
+            "last": {
+              "timestamp": 1770640988,
+              "datestamp": "Mon, 09 Feb 2026 12:43:08 +0000",
+              "days_ago": 17,
+              "days_ahead": null,
+              "name": null,
+              "description": null
+            },
+            "next": {
+              "timestamp": 1774466262,
+              "datestamp": "Wed, 25 Mar 2026 19:17:42 +0000",
+              "days_ago": null,
+              "days_ahead": 27,
+              "name": null,
+              "description": null
+            }
+          },
+          "full_moon": {
+            "last": {
+              "timestamp": 1771329669,
+              "datestamp": "Tue, 17 Feb 2026 12:01:09 +0000",
+              "days_ago": 9,
+              "days_ahead": null,
+              "name": null,
+              "description": null
+            },
+            "next": {
+              "timestamp": 1772537875,
+              "datestamp": "Tue, 03 Mar 2026 11:37:55 +0000",
+              "days_ago": null,
+              "days_ahead": 5,
+              "name": null,
+              "description": null
+            }
+          },
+          "last_quarter": {
+            "last": {
+              "timestamp": 1771936056,
+              "datestamp": "Tue, 24 Feb 2026 12:27:36 +0000",
+              "days_ago": 2,
+              "days_ahead": null,
+              "name": null,
+              "description": null
+            },
+            "next": {
+              "timestamp": 1773221910,
+              "datestamp": "Wed, 11 Mar 2026 09:38:30 +0000",
+              "days_ago": null,
+              "days_ahead": 13,
+              "name": null,
+              "description": null
+            }
+          }
         },
-        "moon": {
-            "phase": 0.816,
-            "phase_name": "Waning Crescent",
-            "major_phase": "Last Quarter",
-            "stage": "waning",
-            "illumination": "30%",
-            "age_days": 9,
-            "lunar_cycle": "81.627%",
-            "emoji": "\ud83c\udf18",
-            "zodiac": {
-                "sun_sign": "Gem",
-                "moon_sign": "Ari"
-            },
-            "moonrise": null,
-            "moonrise_timestamp": null,
-            "moonset": null,
-            "moonset_timestamp": null,
-            "next_lunar_eclipse": {
-                "timestamp": 1726627457,
-                "datestamp": "Wed, 18 Sep 2024 02:44:17 +0000",
-                "type": "Partial Lunar Eclipse",
-                "visibility_regions": null
-            },
-            "detailed": {
-                "position": null,
-                "visibility": null,
-                "upcoming_phases": {
-                    "new_moon": {
-                        "last": { "timestamp": 1716472388, "datestamp": "Thu, 23 May 2024 13:53:08 +0000", "days_ago": 9, "days_ahead": null, "name": null, "description": null },
-                        "next": { "timestamp": 1717677462, "datestamp": "Thu, 06 Jun 2024 12:37:42 +0000", "days_ago": null, "days_ahead": 5, "name": null, "description": null }
-                    },
-                    "first_quarter": {
-                        "last": { "timestamp": 1717089160, "datestamp": "Thu, 30 May 2024 17:12:40 +0000", "days_ago": 2, "days_ahead": null, "name": null, "description": null },
-                        "next": { "timestamp": 1718342307, "datestamp": "Fri, 14 Jun 2024 05:18:27 +0000", "days_ago": null, "days_ahead": 13, "name": null, "description": null }
-                    },
-                    "full_moon": {
-                        "last": { "timestamp": 1715138518, "datestamp": "Wed, 08 May 2024 03:21:58 +0000", "days_ago": 24, "days_ahead": null, "name": null, "description": null },
-                        "next": { "timestamp": 1719018473, "datestamp": "Sat, 22 Jun 2024 01:07:53 +0000", "days_ago": null, "days_ahead": 21, "name": null, "description": null }
-                    },
-                    "last_quarter": {
-                        "last": { "timestamp": 1715773680, "datestamp": "Wed, 15 May 2024 11:48:00 +0000", "days_ago": 17, "days_ahead": null, "name": null, "description": null },
-                        "next": { "timestamp": 1719611604, "datestamp": "Fri, 28 Jun 2024 21:53:24 +0000", "days_ago": null, "days_ahead": 27, "name": null, "description": null }
-                    }
-                },
-                "illumination_details": {
-                    "percentage": 30.0,
-                    "visible_fraction": 0.2978,
-                    "phase_angle": 293.86
-                }
-            },
-            "events": null
-        },
-        "location": {
-            "latitude": "51",
-            "longitude": "0",
-            "precision": 0,
-            "using_default_location": true,
-            "note": null
+        "illumination_details": {
+          "percentage": 76.0,
+          "visible_fraction": 0.7593719951910303,
+          "phase_angle": 121.24803850803644
         }
+      },
+      "events": null
+    },
+    "location": {
+      "latitude": "51",
+      "longitude": "0",
+      "precision": 0,
+      "using_default_location": true,
+      "note": null
     }
+  }
 }
 ```
-
-The `context` field contains an XML representation of the moon phase overview, optimized for AI/LLM consumption. The response structure is always the same as `/api/v5/moon-phase/context`.
-
-`location.latitude`/`location.longitude` are displayed as rounded strings because the default `location_precision` is `0`. Set it to a higher value (e.g., `4`) to see more decimal places.

@@ -2,10 +2,12 @@ import json
 import sys
 import os
 from pathlib import Path
-from unittest.mock import patch
 
 # Add project root to sys.path
 sys.path.append(str(Path(__file__).parent.parent))
+
+# Use test config to bypass auth middleware (debug=true skips SecretKeyCheckerMiddleware)
+os.environ["ENV_TYPE"] = "test"
 
 from fastapi.testclient import TestClient
 from app.main import app

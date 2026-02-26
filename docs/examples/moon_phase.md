@@ -7,22 +7,18 @@ description: 'Complete JSON example of detailed moon phase data including illumi
 
 Endpoint: `/api/v5/moon-phase`
 
-This example shows the moon phase for **London on October 10, 1993 at 12:12 UTC** — a Waning Crescent phase with 32% illumination. The moon is in Leo and the sun is in Libra.
-
 ## Request Body
 ```json
 {
-    "year": 1993,
-    "month": 10,
-    "day": 10,
-    "hour": 12,
-    "minute": 12,
-    "second": 0,
-    "latitude": 51.5074,
-    "longitude": -0.1276,
-    "timezone": "Europe/London",
-    "using_default_location": false,
-    "location_precision": 4
+  "year": 1993,
+  "month": 10,
+  "day": 10,
+  "hour": 12,
+  "minute": 12,
+  "second": 0,
+  "latitude": 51.5074,
+  "longitude": -0.1278,
+  "timezone": "Europe/London"
 }
 ```
 
@@ -41,8 +37,8 @@ This example shows the moon phase for **London on October 10, 1993 at 12:12 UTC*
       "solar_noon": "12:47",
       "day_length": "11:02",
       "position": {
-        "altitude": 31.253598810766498,
-        "azimuth": 169.66711708015123,
+        "altitude": 31.25357648244777,
+        "azimuth": 169.66688621906792,
         "distance": 149364727.19422686
       },
       "next_solar_eclipse": {
@@ -60,7 +56,7 @@ This example shows the moon phase for **London on October 10, 1993 at 12:12 UTC*
       "illumination": "32%",
       "age_days": 10,
       "lunar_cycle": "80.736%",
-      "emoji": "🌘",
+      "emoji": "\ud83c\udf18",
       "zodiac": {
         "sun_sign": "Lib",
         "moon_sign": "Leo"
@@ -161,20 +157,12 @@ This example shows the moon phase for **London on October 10, 1993 at 12:12 UTC*
       "events": null
     },
     "location": {
-      "latitude": "51.5074",
-      "longitude": "-0.1276",
-      "precision": 4,
+      "latitude": "52",
+      "longitude": "0",
+      "precision": 0,
       "using_default_location": false,
       "note": null
     }
   }
 }
 ```
-
-### Notes
-
-- **`sunrise` / `sunset`**: Unix timestamps (integers). **`sunrise_timestamp` / `sunset_timestamp`**: Human-readable local time strings (HH:MM). The `_timestamp` suffix refers to the formatted time, not a Unix timestamp.
-- **`phase`**: A fraction from 0.0 to 1.0 representing position in the lunar cycle (0.0 = New Moon, ~0.5 = Full Moon, 1.0 = next New Moon).
-- **`phase_name`**: One of 8 phases: "New Moon", "Waxing Crescent", "First Quarter", "Waxing Gibbous", "Full Moon", "Waning Gibbous", "Last Quarter", "Waning Crescent".
-- **`location_precision`**: Controls the number of decimal places for coordinates in the response. Set to `4` in this example, so `location.latitude` = `"51.5074"` and `location.longitude` = `"-0.1276"`. With default `0`, they would be `"52"` and `"0"` respectively. This is display rounding only — calculations always use the full-precision input coordinates.
-- **Null fields** (`moonrise`, `moonset`, `position`, `visibility`, `events`, `name`, `description`, `visibility_regions`, `note`): These fields are reserved for future expansion or are only populated under specific conditions. Their presence in the response schema is guaranteed but values may be `null`.
