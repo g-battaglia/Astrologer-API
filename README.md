@@ -238,7 +238,7 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v5/chart/transit' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{
         "first_subject": { /* natal subject */ },
-        "transit_subject": { "year": 2025, "month": 1, "day": 1, "hour": 0, "minute": 0, "longitude": 0, "latitude": 51.48, "timezone": "Europe/London" }
+        "transit_subject": { "name": "Transit", "year": 2025, "month": 1, "day": 1, "hour": 0, "minute": 0, "city": "London", "nation": "GB", "longitude": 0, "latitude": 51.48, "timezone": "Europe/London" }
     }'
 ```
 
@@ -349,13 +349,14 @@ There are two kinds of options:
     -   custom_distribution_weights: override weights selectively
 
 -   Rendering options (only for /charts/\* endpoints):
-    -   theme: light, dark, dark-high-contrast, classic
+    -   theme: light, dark, dark-high-contrast, classic, strawberry, black-and-white
     -   language: EN, FR, PT, ES, TR, RU, IT, CN, DE, HI
     -   split_chart: true to receive wheel and grid separately
     -   transparent_background: true for transparent SVG background
     -   show_house_position_comparison: false hides the house comparison table and widens the SVG layout
     -   show_cusp_position_comparison: false hides cusp comparison grids on dual charts (Synastry, Transit dual wheels, DualReturnChart)
     -   show_degree_indicators: false hides radial lines and degree numbers around the wheel (single and dual charts)
+    -   show_aspect_icons: false hides aspect icons on aspect lines
     -   custom_title: short (≤40 chars) override for the title printed on the chart
 
 Quick example with custom weights:
@@ -604,7 +605,7 @@ This also applies to other administrative divisions:
 
 ### Other Common Issues
 
--   **422 Unprocessable Entity**: Double‑check required fields (subject.year/month/day/hour/minute and location). `/chart-data/*` endpoints reject rendering options such as theme, language, split_chart, transparent_background, show_house_position_comparison, show_cusp_position_comparison, show_degree_indicators, custom_title.
+-   **422 Unprocessable Entity**: Double‑check required fields (subject.year/month/day/hour/minute and location). `/chart-data/*` endpoints reject rendering options such as theme, language, split_chart, transparent_background, show_house_position_comparison, show_cusp_position_comparison, show_degree_indicators, show_aspect_icons, custom_title.
 -   **Timezone errors**: Use a valid tz database name (e.g. "Europe/Rome").
 -   **Empty SVG or missing wheel/grid**: Use `/chart/*` endpoints for rendering. `/chart-data/*` never return SVG.
 

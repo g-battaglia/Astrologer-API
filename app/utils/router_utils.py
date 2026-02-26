@@ -20,6 +20,8 @@ from kerykeion.settings.config_constants import (
     DEFAULT_ACTIVE_POINTS,
 )
 
+from kerykeion.schemas.kr_models import MoonPhaseOverviewModel
+
 from ..types.request_models import (
     BirthChartDataRequestModel,
     BirthChartRequestModel,
@@ -71,7 +73,7 @@ def normalize_coordinate(value: Optional[float]) -> Optional[float]:
     return value
 
 
-def dump(value):
+def dump(value: object) -> object:
     """
     Recursively dump Pydantic models to dictionaries.
 
@@ -558,7 +560,7 @@ def calculate_return_chart_data(
 
 def create_natal_chart_data(
     request_body: Union[BirthChartRequestModel, BirthChartDataRequestModel],
-):
+) -> SingleChartDataModel:
     """
     Create natal chart data from request.
 
@@ -583,7 +585,7 @@ def create_natal_chart_data(
 
 def create_synastry_chart_data(
     request_body: Union[SynastryChartRequestModel, SynastryChartDataRequestModel],
-):
+) -> DualChartDataModel:
     """
     Create synastry chart data from request.
 
@@ -616,7 +618,7 @@ def create_synastry_chart_data(
 
 def create_transit_chart_data(
     request_body: Union[TransitChartRequestModel, TransitChartDataRequestModel],
-):
+) -> DualChartDataModel:
     """
     Create transit chart data from request.
 
@@ -650,7 +652,7 @@ def create_transit_chart_data(
 
 def create_composite_chart_data(
     request_body: Union[CompositeChartRequestModel, CompositeChartDataRequestModel],
-):
+) -> SingleChartDataModel:
     """
     Create composite chart data from request.
 
@@ -681,7 +683,9 @@ def create_composite_chart_data(
     return chart_data
 
 
-def create_moon_phase_overview(request_body: "MoonPhaseRequestModel") -> object:
+def create_moon_phase_overview(
+    request_body: MoonPhaseRequestModel,
+) -> MoonPhaseOverviewModel:
     """
     Build a minimal AstrologicalSubject from flat moon phase request fields
     and compute a detailed moon phase overview.

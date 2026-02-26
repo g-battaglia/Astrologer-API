@@ -4855,6 +4855,11 @@
             "title": "Status",
             "description": "The status of the response."
           },
+          "context": {
+            "type": "string",
+            "title": "Context",
+            "description": "AI-optimized context string for the chart data."
+          },
           "chart_data": {
             "anyOf": [
               {
@@ -4866,18 +4871,13 @@
             ],
             "title": "Chart Data",
             "description": "Serialized chart data payload."
-          },
-          "context": {
-            "type": "string",
-            "title": "Context",
-            "description": "AI-optimized context string for the chart data."
           }
         },
         "type": "object",
         "required": [
           "status",
-          "chart_data",
-          "context"
+          "context",
+          "chart_data"
         ],
         "title": "ContextResponseModel",
         "description": "Response payload returning chart data with AI-optimized context."
@@ -5418,21 +5418,21 @@
             "title": "Status",
             "description": "The status of the response."
           },
-          "moon_phase_overview": {
-            "$ref": "#/components/schemas/MoonPhaseOverviewModel",
-            "description": "Detailed moon phase overview including illumination, upcoming phases, eclipses, and sun info."
-          },
           "context": {
             "type": "string",
             "title": "Context",
             "description": "AI-optimized XML context string for the moon phase overview."
+          },
+          "moon_phase_overview": {
+            "$ref": "#/components/schemas/MoonPhaseOverviewModel",
+            "description": "Detailed moon phase overview including illumination, upcoming phases, eclipses, and sun info."
           }
         },
         "type": "object",
         "required": [
           "status",
-          "moon_phase_overview",
-          "context"
+          "context",
+          "moon_phase_overview"
         ],
         "title": "MoonPhaseContextResponseModel",
         "description": "Response payload for moon phase details with AI-optimized context."
@@ -9006,6 +9006,11 @@
             "title": "Status",
             "description": "The status of the response."
           },
+          "context": {
+            "type": "string",
+            "title": "Context",
+            "description": "AI-optimized context string for the chart data."
+          },
           "chart_data": {
             "anyOf": [
               {
@@ -9017,11 +9022,6 @@
             ],
             "title": "Chart Data",
             "description": "Serialized chart data payload."
-          },
-          "context": {
-            "type": "string",
-            "title": "Context",
-            "description": "AI-optimized context string for the chart data."
           },
           "return_type": {
             "type": "string",
@@ -9045,8 +9045,8 @@
         "type": "object",
         "required": [
           "status",
-          "chart_data",
           "context",
+          "chart_data",
           "return_type",
           "wheel_type"
         ],
@@ -9311,21 +9311,21 @@
             "title": "Status",
             "description": "The status of the response."
           },
-          "subject": {
-            "$ref": "#/components/schemas/AstrologicalSubjectModel",
-            "description": "Computed astrological subject."
-          },
           "subject_context": {
             "type": "string",
             "title": "Subject Context",
             "description": "AI-optimized context string for the subject."
+          },
+          "subject": {
+            "$ref": "#/components/schemas/AstrologicalSubjectModel",
+            "description": "Computed astrological subject."
           }
         },
         "type": "object",
         "required": [
           "status",
-          "subject",
-          "subject_context"
+          "subject_context",
+          "subject"
         ],
         "title": "SubjectContextResponseModel",
         "description": "Response payload containing a single astrological subject with AI context."

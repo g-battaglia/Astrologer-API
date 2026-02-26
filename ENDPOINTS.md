@@ -81,7 +81,7 @@ Available for **all** chart endpoints (both `/chart-data/*` and `/chart/*`):
 
 ### Health Check
 
-**GET** `/api/v5/health`
+**GET** `/health`
 
 Returns API health status.
 

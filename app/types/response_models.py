@@ -97,18 +97,24 @@ class CompatibilityScoreResponseModel(StatusResponseModel):
     )
 
 
-class SubjectContextResponseModel(SubjectResponseModel):
+class SubjectContextResponseModel(StatusResponseModel):
     """Response payload containing a single astrological subject with AI context."""
 
     subject_context: str = Field(
         description="AI-optimized context string for the subject."
     )
+    subject: AstrologicalSubjectModel = Field(
+        description="Computed astrological subject."
+    )
 
 
-class ContextResponseModel(ChartDataResponseModel):
+class ContextResponseModel(StatusResponseModel):
     """Response payload returning chart data with AI-optimized context."""
 
     context: str = Field(description="AI-optimized context string for the chart data.")
+    chart_data: Union[SingleChartDataModel, DualChartDataModel] = Field(
+        description="Serialized chart data payload."
+    )
 
 
 class MoonPhaseResponseModel(StatusResponseModel):
@@ -119,14 +125,16 @@ class MoonPhaseResponseModel(StatusResponseModel):
     )
 
 
-
-
-class MoonPhaseContextResponseModel(MoonPhaseResponseModel):
+class MoonPhaseContextResponseModel(StatusResponseModel):
     """Response payload for moon phase details with AI-optimized context."""
 
     context: str = Field(
         description="AI-optimized XML context string for the moon phase overview."
     )
+    moon_phase_overview: MoonPhaseOverviewModel = Field(
+        description="Detailed moon phase overview including illumination, upcoming phases, eclipses, and sun info."
+    )
+
 
 class ReturnContextResponseModel(ContextResponseModel):
     """Response payload for solar and lunar return context requests."""

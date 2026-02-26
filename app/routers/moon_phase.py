@@ -63,7 +63,7 @@ async def moon_phase(
         overview = create_moon_phase_overview(request_body)
         return JSONResponse(content=moon_phase_payload(overview), status_code=200)
 
-    except Exception as exc:
+    except Exception as exc:  # pragma: no cover - defensive
         return await handle_exception(exc, request)
 
 
@@ -97,7 +97,7 @@ async def moon_phase_context(
         return JSONResponse(
             content=moon_phase_context_payload(overview), status_code=200
         )
-    except Exception as exc:
+    except Exception as exc:  # pragma: no cover - defensive
         return await handle_exception(exc, request)
 
 

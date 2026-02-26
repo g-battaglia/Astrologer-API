@@ -369,10 +369,6 @@ class ChartRenderingMixin(ChartDataConfigurationMixin):
         return trimmed or None
 
 
-# Deprecated alias for backward compatibility
-ChartConfigurationMixin = ChartRenderingMixin
-
-
 class BirthChartRequestModel(ChartRenderingMixin):
     """Request payload for the birth chart endpoint (with SVG rendering)."""
 
@@ -524,88 +520,6 @@ class BirthDataRequestModel(ChartDataConfigurationMixin):
     subject: SubjectModel = Field(
         description="Subject used for the birth data calculation."
     )
-
-
-class RelationshipScoreRequestModel(BaseModel):
-    """Request payload for the relationship score endpoint."""
-
-    model_config = {"extra": "forbid"}
-
-    first_subject: SubjectModel = Field(
-        description="Primary subject for the relationship score."
-    )
-    second_subject: SubjectModel = Field(
-        description="Secondary subject for the relationship score."
-    )
-    active_points: Optional[list[Union[Planet, AxialCusps]]] = Field(
-        default=None,
-        description="Override active points used for the score calculation.",
-        examples=[DEFAULT_ACTIVE_POINTS],
-    )
-    active_aspects: Optional[list[ActiveAspect]] = Field(
-        default=None,
-        description="Override active aspects and their orbs.",
-        examples=[DEFAULT_ACTIVE_ASPECTS],
-    )
-
-    @field_validator("active_points", mode="before")
-    @classmethod
-    def normalize_active_points(cls, value: Optional[list]) -> Optional[list]:
-        """Normalize point names to canonical format."""
-        return _normalize_active_points(value)
-
-
-class SynastryAspectsRequestModel(BaseModel):
-    """Request payload for synastry aspects without chart rendering."""
-
-    model_config = {"extra": "forbid"}
-
-    first_subject: SubjectModel = Field(
-        description="Primary subject for synastry aspects."
-    )
-    second_subject: SubjectModel = Field(
-        description="Secondary subject for synastry aspects."
-    )
-    active_points: Optional[list[Union[Planet, AxialCusps]]] = Field(
-        default=None,
-        description="Override active points used for the synastry aspects.",
-        examples=[DEFAULT_ACTIVE_POINTS],
-    )
-    active_aspects: Optional[list[ActiveAspect]] = Field(
-        default=None,
-        description="Override active aspects and their orbs.",
-        examples=[DEFAULT_ACTIVE_ASPECTS],
-    )
-
-    @field_validator("active_points", mode="before")
-    @classmethod
-    def normalize_active_points(cls, value: Optional[list]) -> Optional[list]:
-        """Normalize point names to canonical format."""
-        return _normalize_active_points(value)
-
-
-class NatalAspectsRequestModel(BaseModel):
-    """Request payload for natal aspects without chart rendering."""
-
-    model_config = {"extra": "forbid"}
-
-    subject: SubjectModel = Field(description="Subject used for natal aspects.")
-    active_points: Optional[list[Union[Planet, AxialCusps]]] = Field(
-        default=None,
-        description="Override active points used for the natal aspects.",
-        examples=[DEFAULT_ACTIVE_POINTS],
-    )
-    active_aspects: Optional[list[ActiveAspect]] = Field(
-        default=None,
-        description="Override active aspects and their orbs.",
-        examples=[DEFAULT_ACTIVE_ASPECTS],
-    )
-
-    @field_validator("active_points", mode="before")
-    @classmethod
-    def normalize_active_points(cls, value: Optional[list]) -> Optional[list]:
-        """Normalize point names to canonical format."""
-        return _normalize_active_points(value)
 
 
 class CompositeChartRequestModel(ChartRenderingMixin):
