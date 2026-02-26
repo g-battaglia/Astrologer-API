@@ -18,7 +18,10 @@ from kerykeion.schemas import (
     SiderealMode,
     ZodiacType,
 )
-from kerykeion.settings.config_constants import DEFAULT_ACTIVE_ASPECTS, DEFAULT_ACTIVE_POINTS
+from kerykeion.settings.config_constants import (
+    DEFAULT_ACTIVE_ASPECTS,
+    DEFAULT_ACTIVE_POINTS,
+)
 
 logger = getLogger(__name__)
 
@@ -76,11 +79,24 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
 
     model_config = {"extra": "forbid"}
 
-    year: int = Field(description="Year component of the event. Supports historical dates from 1 CE to 3000 CE.", ge=1, le=3000, examples=[1980])
-    month: int = Field(description="Month component of the event.", ge=1, le=12, examples=[12])
-    day: int = Field(description="Day component of the event.", ge=1, le=31, examples=[12])
-    hour: int = Field(description="Hour component of the event (0-23).", ge=0, le=23, examples=[12])
-    minute: int = Field(description="Minute component of the event (0-59).", ge=0, le=59, examples=[12])
+    year: int = Field(
+        description="Year component of the event. Supports historical dates from 1 CE to 3000 CE.",
+        ge=1,
+        le=3000,
+        examples=[1980],
+    )
+    month: int = Field(
+        description="Month component of the event.", ge=1, le=12, examples=[12]
+    )
+    day: int = Field(
+        description="Day component of the event.", ge=1, le=31, examples=[12]
+    )
+    hour: int = Field(
+        description="Hour component of the event (0-23).", ge=0, le=23, examples=[12]
+    )
+    minute: int = Field(
+        description="Minute component of the event (0-59).", ge=0, le=59, examples=[12]
+    )
     second: Optional[int] = Field(
         default=0,
         description="Seconds component of the event (0-59).",
@@ -107,7 +123,9 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
         description="Altitude above sea level in meters.",
         examples=[35.0],
     )
-    city: str = Field(description="City name associated with the event.", examples=["London"])
+    city: str = Field(
+        description="City name associated with the event.", examples=["London"]
+    )
     nation: Optional[str] = Field(
         default=None,
         description="Two-letter ISO 3166-1 alpha-2 nation code.",
@@ -132,7 +150,9 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
     @classmethod
     def validate_timezone(cls, value: Optional[str]) -> Optional[str]:
         if value and value not in all_timezones:
-            raise ValueError(f"Invalid timezone '{value}'. Please use a valid timezone from the IANA database.")
+            raise ValueError(
+                f"Invalid timezone '{value}'. Please use a valid timezone from the IANA database."
+            )
         return value
 
     @field_validator("nation")
@@ -141,7 +161,9 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
         if not value or value.lower() == "null":
             return "null"
         if len(value) != 2 or not value.isalpha():
-            raise ValueError(f"Invalid nation code: '{value}'. It must be a 2-letter country code (ISO 3166-1 alpha-2).")
+            raise ValueError(
+                f"Invalid nation code: '{value}'. It must be a 2-letter country code (ISO 3166-1 alpha-2)."
+            )
         return value.upper()
 
     @model_validator(mode="after")
@@ -154,10 +176,14 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
         missing_coordinates = sum(field is None for field in (lat, lng, tz))
 
         if missing_coordinates == 3 and not geonames:
-            raise ValueError("Provide latitude, longitude, timezone or specify geonames_username.")
+            raise ValueError(
+                "Provide latitude, longitude, timezone or specify geonames_username."
+            )
 
         if 0 < missing_coordinates < 3 and not geonames:
-            raise ValueError("Provide all location fields (latitude, longitude, timezone) or geonames_username.")
+            raise ValueError(
+                "Provide all location fields (latitude, longitude, timezone) or geonames_username."
+            )
 
         if geonames and (lat is not None or lng is not None or tz is not None):
             self.latitude = None
@@ -172,7 +198,9 @@ class SubjectModel(AbstractBaseSubjectModel):
 
     model_config = {"extra": "forbid"}
 
-    name: str = Field(description="Display name for the subject.", examples=["John Doe"])
+    name: str = Field(
+        description="Display name for the subject.", examples=["John Doe"]
+    )
     zodiac_type: Optional[ZodiacType] = Field(
         default="Tropical",
         description="Zodiac type used for the calculation.",
@@ -196,15 +224,21 @@ class SubjectModel(AbstractBaseSubjectModel):
 
     @field_validator("zodiac_type")
     @classmethod
-    def validate_zodiac_type(cls, value: Optional[ZodiacType], info) -> Optional[ZodiacType]:
+    def validate_zodiac_type(
+        cls, value: Optional[ZodiacType], info
+    ) -> Optional[ZodiacType]:
         sidereal_mode = info.data.get("sidereal_mode")
         if sidereal_mode and value != "Sidereal":
-            raise ValueError("Set zodiac_type='Sidereal' when sidereal_mode is provided.")
+            raise ValueError(
+                "Set zodiac_type='Sidereal' when sidereal_mode is provided."
+            )
         return value
 
     @field_validator("sidereal_mode")
     @classmethod
-    def validate_sidereal_mode(cls, value: Optional[SiderealMode], info) -> Optional[SiderealMode]:
+    def validate_sidereal_mode(
+        cls, value: Optional[SiderealMode], info
+    ) -> Optional[SiderealMode]:
         zodiac_type = info.data.get("zodiac_type")
         if value and zodiac_type != "Sidereal":
             raise ValueError("sidereal_mode requires zodiac_type='Sidereal'.")
@@ -212,12 +246,16 @@ class SubjectModel(AbstractBaseSubjectModel):
 
     @field_validator("perspective_type", mode="before")
     @classmethod
-    def default_perspective_type(cls, value: Optional[PerspectiveType]) -> PerspectiveType:
+    def default_perspective_type(
+        cls, value: Optional[PerspectiveType]
+    ) -> PerspectiveType:
         return value or "Apparent Geocentric"
 
     @field_validator("houses_system_identifier", mode="before")
     @classmethod
-    def default_house_system(cls, value: Optional[HousesSystemIdentifier]) -> HousesSystemIdentifier:
+    def default_house_system(
+        cls, value: Optional[HousesSystemIdentifier]
+    ) -> HousesSystemIdentifier:
         return value or "P"
 
 
@@ -226,7 +264,9 @@ class TransitSubjectModel(AbstractBaseSubjectModel):
 
     model_config = {"extra": "forbid"}
 
-    name: Optional[str] = Field(default="Transit", description="Label used for the transit subject.")
+    name: Optional[str] = Field(
+        default="Transit", description="Label used for the transit subject."
+    )
 
 
 class ChartDataConfigurationMixin(BaseModel):
@@ -336,13 +376,17 @@ ChartConfigurationMixin = ChartRenderingMixin
 class BirthChartRequestModel(ChartRenderingMixin):
     """Request payload for the birth chart endpoint (with SVG rendering)."""
 
-    subject: SubjectModel = Field(description="Subject used for the birth chart calculation.")
+    subject: SubjectModel = Field(
+        description="Subject used for the birth chart calculation."
+    )
 
 
 class BirthChartDataRequestModel(ChartDataConfigurationMixin):
     """Request payload for the birth chart data endpoint (data only, no SVG)."""
 
-    subject: SubjectModel = Field(description="Subject used for the birth chart calculation.")
+    subject: SubjectModel = Field(
+        description="Subject used for the birth chart calculation."
+    )
 
 
 class SynastryChartRequestModel(ChartRenderingMixin):
@@ -378,7 +422,9 @@ class SynastryChartDataRequestModel(ChartDataConfigurationMixin):
 class TransitChartRequestModel(ChartRenderingMixin):
     """Request payload for the transit chart endpoint (with SVG rendering)."""
 
-    first_subject: SubjectModel = Field(description="Natal subject used for the transit calculation.")
+    first_subject: SubjectModel = Field(
+        description="Natal subject used for the transit calculation."
+    )
     transit_subject: TransitSubjectModel = Field(description="Transit moment data.")
     include_house_comparison: bool = Field(
         default=True,
@@ -389,7 +435,9 @@ class TransitChartRequestModel(ChartRenderingMixin):
 class TransitChartDataRequestModel(ChartDataConfigurationMixin):
     """Request payload for the transit chart data endpoint (data only, no SVG)."""
 
-    first_subject: SubjectModel = Field(description="Natal subject used for the transit calculation.")
+    first_subject: SubjectModel = Field(
+        description="Natal subject used for the transit calculation."
+    )
     transit_subject: TransitSubjectModel = Field(description="Transit moment data.")
     include_house_comparison: bool = Field(
         default=True,
@@ -430,7 +478,9 @@ class NowSubjectDefinitionModel(BaseModel):
         sidereal_mode = self.sidereal_mode
 
         if sidereal_mode and zodiac_type != "Sidereal":
-            raise ValueError("Set zodiac_type='Sidereal' when sidereal_mode is provided.")
+            raise ValueError(
+                "Set zodiac_type='Sidereal' when sidereal_mode is provided."
+            )
 
         if zodiac_type == "Sidereal" and not sidereal_mode:
             # Optional: enforce sidereal_mode if zodiac_type is Sidereal,
@@ -443,12 +493,16 @@ class NowSubjectDefinitionModel(BaseModel):
 
     @field_validator("perspective_type", mode="before")
     @classmethod
-    def default_perspective_type(cls, value: Optional[PerspectiveType]) -> PerspectiveType:
+    def default_perspective_type(
+        cls, value: Optional[PerspectiveType]
+    ) -> PerspectiveType:
         return value or "Apparent Geocentric"
 
     @field_validator("houses_system_identifier", mode="before")
     @classmethod
-    def default_house_system(cls, value: Optional[HousesSystemIdentifier]) -> HousesSystemIdentifier:
+    def default_house_system(
+        cls, value: Optional[HousesSystemIdentifier]
+    ) -> HousesSystemIdentifier:
         return value or "P"
 
 
@@ -467,7 +521,9 @@ class NowSubjectRequestModel(NowSubjectDefinitionModel):
 class BirthDataRequestModel(ChartDataConfigurationMixin):
     """Request payload for retrieving subject data without charts."""
 
-    subject: SubjectModel = Field(description="Subject used for the birth data calculation.")
+    subject: SubjectModel = Field(
+        description="Subject used for the birth data calculation."
+    )
 
 
 class RelationshipScoreRequestModel(BaseModel):
@@ -475,8 +531,12 @@ class RelationshipScoreRequestModel(BaseModel):
 
     model_config = {"extra": "forbid"}
 
-    first_subject: SubjectModel = Field(description="Primary subject for the relationship score.")
-    second_subject: SubjectModel = Field(description="Secondary subject for the relationship score.")
+    first_subject: SubjectModel = Field(
+        description="Primary subject for the relationship score."
+    )
+    second_subject: SubjectModel = Field(
+        description="Secondary subject for the relationship score."
+    )
     active_points: Optional[list[Union[Planet, AxialCusps]]] = Field(
         default=None,
         description="Override active points used for the score calculation.",
@@ -500,8 +560,12 @@ class SynastryAspectsRequestModel(BaseModel):
 
     model_config = {"extra": "forbid"}
 
-    first_subject: SubjectModel = Field(description="Primary subject for synastry aspects.")
-    second_subject: SubjectModel = Field(description="Secondary subject for synastry aspects.")
+    first_subject: SubjectModel = Field(
+        description="Primary subject for synastry aspects."
+    )
+    second_subject: SubjectModel = Field(
+        description="Secondary subject for synastry aspects."
+    )
     active_points: Optional[list[Union[Planet, AxialCusps]]] = Field(
         default=None,
         description="Override active points used for the synastry aspects.",
@@ -547,15 +611,23 @@ class NatalAspectsRequestModel(BaseModel):
 class CompositeChartRequestModel(ChartRenderingMixin):
     """Request payload for composite chart calculations (with SVG rendering)."""
 
-    first_subject: SubjectModel = Field(description="Primary subject used for the composite chart.")
-    second_subject: SubjectModel = Field(description="Secondary subject used for the composite chart.")
+    first_subject: SubjectModel = Field(
+        description="Primary subject used for the composite chart."
+    )
+    second_subject: SubjectModel = Field(
+        description="Secondary subject used for the composite chart."
+    )
 
 
 class CompositeChartDataRequestModel(ChartDataConfigurationMixin):
     """Request payload for composite chart data calculations (data only, no SVG)."""
 
-    first_subject: SubjectModel = Field(description="Primary subject used for the composite chart.")
-    second_subject: SubjectModel = Field(description="Secondary subject used for the composite chart.")
+    first_subject: SubjectModel = Field(
+        description="Primary subject used for the composite chart."
+    )
+    second_subject: SubjectModel = Field(
+        description="Secondary subject used for the composite chart."
+    )
 
 
 class ReturnLocationModel(BaseModel):
@@ -563,7 +635,9 @@ class ReturnLocationModel(BaseModel):
 
     model_config = {"extra": "forbid"}
 
-    city: Optional[str] = Field(default=None, description="Target city for the return chart.")
+    city: Optional[str] = Field(
+        default=None, description="Target city for the return chart."
+    )
     nation: Optional[str] = Field(
         default=None,
         description="Two-letter ISO nation code.",
@@ -599,7 +673,9 @@ class ReturnLocationModel(BaseModel):
     @classmethod
     def validate_timezone(cls, value: Optional[str]) -> Optional[str]:
         if value and value not in all_timezones:
-            raise ValueError(f"Invalid timezone '{value}'. Please use a valid timezone from the IANA database.")
+            raise ValueError(
+                f"Invalid timezone '{value}'. Please use a valid timezone from the IANA database."
+            )
         return value
 
     @field_validator("nation")
@@ -608,7 +684,9 @@ class ReturnLocationModel(BaseModel):
         if value is None:
             return value
         if len(value) != 2 or not value.isalpha():
-            raise ValueError(f"Invalid nation code: '{value}'. It must be a 2-letter country code (ISO 3166-1 alpha-2).")
+            raise ValueError(
+                f"Invalid nation code: '{value}'. It must be a 2-letter country code (ISO 3166-1 alpha-2)."
+            )
         return value.upper()
 
     @model_validator(mode="after")
@@ -620,15 +698,29 @@ class ReturnLocationModel(BaseModel):
 
         missing_coordinates = sum(field is None for field in (lat, lng, tz))
 
-        if missing_coordinates == 3 and not geonames and not (self.city and self.nation):
-            raise ValueError("Provide latitude, longitude, timezone, or supply geonames_username with city and nation.")
+        if (
+            missing_coordinates == 3
+            and not geonames
+            and not (self.city and self.nation)
+        ):
+            raise ValueError(
+                "Provide latitude, longitude, timezone, or supply geonames_username with city and nation."
+            )
 
         if 0 < missing_coordinates < 3 and not geonames:
-            raise ValueError("Provide all location fields (latitude, longitude, timezone) or geonames_username.")
+            raise ValueError(
+                "Provide all location fields (latitude, longitude, timezone) or geonames_username."
+            )
 
         # If complete coordinates are provided, they take priority; clear geonames_username
         if missing_coordinates == 0 and geonames:
-            logger.info("Complete coordinates provided (lat=%.4f, lng=%.4f, tz=%s), ignoring geonames_username '%s'", lat, lng, tz, geonames)
+            logger.info(
+                "Complete coordinates provided (lat=%.4f, lng=%.4f, tz=%s), ignoring geonames_username '%s'",
+                lat,
+                lng,
+                tz,
+                geonames,
+            )
             self.geonames_username = None
 
         return self
@@ -637,7 +729,9 @@ class ReturnLocationModel(BaseModel):
 class PlanetaryReturnRequestModel(ChartRenderingMixin):
     """Shared payload for solar and lunar return endpoints (with SVG rendering)."""
 
-    subject: SubjectModel = Field(description="Natal subject used for the return calculation.")
+    subject: SubjectModel = Field(
+        description="Natal subject used for the return calculation."
+    )
     year: Optional[int] = Field(
         default=None,
         description="Calendar year to search for the next return.",
@@ -677,7 +771,9 @@ class PlanetaryReturnRequestModel(ChartRenderingMixin):
     @model_validator(mode="after")
     def validate_search_parameters(self) -> "PlanetaryReturnRequestModel":
         if not any([self.year, self.iso_datetime]):
-            raise ValueError("Provide either 'iso_datetime' or 'year' (with optional month and day) to locate the return.")
+            raise ValueError(
+                "Provide either 'iso_datetime' or 'year' (with optional month and day) to locate the return."
+            )
 
         if self.month and not self.year:
             raise ValueError("Month can only be provided together with a year.")
@@ -691,10 +787,87 @@ class PlanetaryReturnRequestModel(ChartRenderingMixin):
         return self
 
 
+class MoonPhaseRequestModel(BaseModel):
+    """Request payload for moon phase details at a specific date/time and location."""
+
+    model_config = {"extra": "forbid"}
+
+    year: int = Field(description="Year of the event.", ge=1, le=3000, examples=[1993])
+    month: int = Field(description="Month of the event.", ge=1, le=12, examples=[10])
+    day: int = Field(description="Day of the event.", ge=1, le=31, examples=[10])
+    hour: int = Field(
+        description="Hour of the event (0-23).", ge=0, le=23, examples=[12]
+    )
+    minute: int = Field(
+        description="Minute of the event (0-59).", ge=0, le=59, examples=[12]
+    )
+    second: int = Field(
+        default=0,
+        description="Seconds of the event (0-59).",
+        ge=0,
+        le=59,
+        examples=[0],
+    )
+    latitude: float = Field(
+        description="Latitude of the location (-90 to 90).",
+        ge=-90,
+        le=90,
+        examples=[51.5074],
+    )
+    longitude: float = Field(
+        description="Longitude of the location (-180 to 180).",
+        ge=-180,
+        le=180,
+        examples=[-0.1276],
+    )
+    timezone: str = Field(
+        description="IANA timezone identifier for the event.",
+        examples=["Europe/London"],
+    )
+    using_default_location: bool = Field(
+        default=False,
+        description="Flag indicating whether the location is a default fallback.",
+    )
+    location_precision: int = Field(
+        default=0,
+        description="Number of decimal places used to round latitude and longitude in the response.",
+        ge=0,
+        le=10,
+    )
+
+    @field_validator("timezone")
+    @classmethod
+    def validate_timezone(cls, value: str) -> str:
+        if value not in all_timezones:
+            raise ValueError(
+                f"Invalid timezone '{value}'. Please use a valid timezone from the IANA database."
+            )
+        return value
+
+
+class NowMoonPhaseRequestModel(BaseModel):
+    """Request payload for the 'now' moon phase endpoint. All fields are optional."""
+
+    model_config = {"extra": "forbid"}
+
+    using_default_location: bool = Field(
+        default=True,
+        description="Flag indicating whether the location is a default fallback.",
+    )
+    location_precision: int = Field(
+        default=0,
+        description="Number of decimal places used to round latitude and longitude in the response.",
+        ge=0,
+        le=10,
+    )
+
+
 class PlanetaryReturnDataRequestModel(ChartDataConfigurationMixin):
     """Shared payload for solar and lunar return data endpoints (data only, no SVG)."""
 
-    subject: SubjectModel = Field(description="Natal subject used for the return calculation.")
+    subject: SubjectModel = Field(
+        description="Natal subject used for the return calculation."
+    )
     year: Optional[int] = Field(
         default=None,
         description="Calendar year to search for the next return.",
@@ -734,7 +907,9 @@ class PlanetaryReturnDataRequestModel(ChartDataConfigurationMixin):
     @model_validator(mode="after")
     def validate_search_parameters(self) -> "PlanetaryReturnDataRequestModel":
         if not any([self.year, self.iso_datetime]):
-            raise ValueError("Provide either 'iso_datetime' or 'year' (with optional month and day) to locate the return.")
+            raise ValueError(
+                "Provide either 'iso_datetime' or 'year' (with optional month and day) to locate the return."
+            )
 
         if self.month and not self.year:
             raise ValueError("Month can only be provided together with a year.")

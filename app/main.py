@@ -10,7 +10,7 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 
-from .routers import misc, charts, data, context
+from .routers import misc, charts, data, context, moon_phase
 from .config.settings import settings
 from .middleware.secret_key_checker_middleware import SecretKeyCheckerMiddleware
 from .utils.validation_helpers import format_extra_field_error
@@ -43,6 +43,7 @@ app = FastAPI(
 app.include_router(charts.router, tags=["Charts"])
 app.include_router(data.router, tags=["Chart Data"])
 app.include_router(context.router, tags=["AI Context"])
+app.include_router(moon_phase.router, tags=["Moon Phase"])
 app.include_router(misc.router, tags=["Miscellaneous"])
 
 

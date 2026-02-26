@@ -10,17 +10,22 @@ from kerykeion import (
     ChartDataFactory,
     ChartDrawer,
     CompositeSubjectFactory,
+    MoonPhaseDetailsFactory,
     to_context,
 )
 from kerykeion.planetary_return_factory import PlanetaryReturnFactory
 from kerykeion.schemas import ActiveAspect, KerykeionException
-from kerykeion.settings.config_constants import DEFAULT_ACTIVE_ASPECTS, DEFAULT_ACTIVE_POINTS
+from kerykeion.settings.config_constants import (
+    DEFAULT_ACTIVE_ASPECTS,
+    DEFAULT_ACTIVE_POINTS,
+)
 
 from ..types.request_models import (
     BirthChartDataRequestModel,
     BirthChartRequestModel,
     CompositeChartDataRequestModel,
     CompositeChartRequestModel,
+    MoonPhaseRequestModel,
     PlanetaryReturnDataRequestModel,
     PlanetaryReturnRequestModel,
     SubjectModel,
@@ -130,7 +135,9 @@ def resolve_active_aspects(aspects: Optional[Sequence[ActiveAspect]]) -> list[di
     return [dict(item) for item in DEFAULT_ACTIVE_ASPECTS]
 
 
-def build_subject(subject_request: SubjectModel, *, active_points: Optional[Sequence[str]] = None) -> object:
+def build_subject(
+    subject_request: SubjectModel, *, active_points: Optional[Sequence[str]] = None
+) -> object:
     """
     Build an AstrologicalSubject instance from a request model.
 
@@ -170,7 +177,9 @@ def build_subject(subject_request: SubjectModel, *, active_points: Optional[Sequ
     )
 
 
-def build_transit_subject(transit_request, reference_subject, *, active_points: Optional[Sequence[str]] = None) -> object:
+def build_transit_subject(
+    transit_request, reference_subject, *, active_points: Optional[Sequence[str]] = None
+) -> object:
     """
     Build a Transit Subject instance, inheriting settings from a reference subject.
 
@@ -376,9 +385,14 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     try:
         body = await request.body()
         body_str = body.decode("utf-8") if body else "Empty body"
-        logger.error(f"{request.url}: {message} | Request body: {body_str}", exc_info=True)
+        logger.error(
+            f"{request.url}: {message} | Request body: {body_str}", exc_info=True
+        )
     except Exception as body_exc:
-        logger.error(f"{request.url}: {message} | Failed to read request body: {body_exc}", exc_info=True)
+        logger.error(
+            f"{request.url}: {message} | Failed to read request body: {body_exc}",
+            exc_info=True,
+        )
 
     if any(keyword in message for keyword in GEONAMES_ERROR_KEYWORDS):
         return JSONResponse(
@@ -400,7 +414,10 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     )
 
 
-def build_return_factory(natal_subject, request_body: Union[PlanetaryReturnRequestModel, PlanetaryReturnDataRequestModel]) -> PlanetaryReturnFactory:
+def build_return_factory(
+    natal_subject,
+    request_body: Union[PlanetaryReturnRequestModel, PlanetaryReturnDataRequestModel],
+) -> PlanetaryReturnFactory:
     """
     Build a PlanetaryReturnFactory based on request parameters.
 
@@ -416,8 +433,17 @@ def build_return_factory(natal_subject, request_body: Union[PlanetaryReturnReque
     if location:
         nation = resolve_nation(location.nation) or natal_subject.nation
 
-        if location.geonames_username or location.latitude is None or location.longitude is None or location.timezone is None:
-            logger.info("Building return factory with GeoNames (online mode) for location: %s, %s", location.city or natal_subject.city, nation)
+        if (
+            location.geonames_username
+            or location.latitude is None
+            or location.longitude is None
+            or location.timezone is None
+        ):
+            logger.info(
+                "Building return factory with GeoNames (online mode) for location: %s, %s",
+                location.city or natal_subject.city,
+                nation,
+            )
             return PlanetaryReturnFactory(
                 natal_subject,
                 city=location.city or natal_subject.city,
@@ -446,7 +472,11 @@ def build_return_factory(natal_subject, request_body: Union[PlanetaryReturnReque
             altitude=location.altitude,
         )
 
-    logger.info("Building return factory using natal subject location (offline mode): %s, %s", natal_subject.city, natal_subject.nation)
+    logger.info(
+        "Building return factory using natal subject location (offline mode): %s, %s",
+        natal_subject.city,
+        natal_subject.nation,
+    )
     return PlanetaryReturnFactory(
         natal_subject,
         city=natal_subject.city,
@@ -483,15 +513,26 @@ def calculate_return_chart_data(
     return_factory = build_return_factory(natal_subject, request_body)
 
     if request_body.iso_datetime:
-        return_subject = return_factory.next_return_from_iso_formatted_time(request_body.iso_datetime, return_type)  # type: ignore[arg-type]
+        return_subject = return_factory.next_return_from_iso_formatted_time(
+            request_body.iso_datetime, return_type
+        )  # type: ignore[arg-type]
     elif request_body.month:
         if request_body.year is None:
             raise KerykeionException("Year must be provided when month is specified.")
-        return_subject = return_factory.next_return_from_date(request_body.year, request_body.month, request_body.day or 1, return_type=return_type)
+        return_subject = return_factory.next_return_from_date(
+            request_body.year,
+            request_body.month,
+            request_body.day or 1,
+            return_type=return_type,
+        )
     else:
         if request_body.year is None:
-            raise KerykeionException("Year must be provided when iso_datetime is not set.")
-        return_subject = return_factory.next_return_from_date(request_body.year, 1, 1, return_type=return_type)
+            raise KerykeionException(
+                "Year must be provided when iso_datetime is not set."
+            )
+        return_subject = return_factory.next_return_from_date(
+            request_body.year, 1, 1, return_type=return_type
+        )
 
     if request_body.wheel_type == "dual":
         chart_data = ChartDataFactory.create_return_chart_data(
@@ -515,7 +556,9 @@ def calculate_return_chart_data(
     return chart_data
 
 
-def create_natal_chart_data(request_body: Union[BirthChartRequestModel, BirthChartDataRequestModel]):
+def create_natal_chart_data(
+    request_body: Union[BirthChartRequestModel, BirthChartDataRequestModel],
+):
     """
     Create natal chart data from request.
 
@@ -538,7 +581,9 @@ def create_natal_chart_data(request_body: Union[BirthChartRequestModel, BirthCha
     return chart_data
 
 
-def create_synastry_chart_data(request_body: Union[SynastryChartRequestModel, SynastryChartDataRequestModel]):
+def create_synastry_chart_data(
+    request_body: Union[SynastryChartRequestModel, SynastryChartDataRequestModel],
+):
     """
     Create synastry chart data from request.
 
@@ -550,8 +595,12 @@ def create_synastry_chart_data(request_body: Union[SynastryChartRequestModel, Sy
     """
     active_points = resolve_active_points(request_body.active_points)
     active_aspects = resolve_active_aspects(request_body.active_aspects)
-    first_subject = build_subject(request_body.first_subject, active_points=active_points)
-    second_subject = build_subject(request_body.second_subject, active_points=active_points)
+    first_subject = build_subject(
+        request_body.first_subject, active_points=active_points
+    )
+    second_subject = build_subject(
+        request_body.second_subject, active_points=active_points
+    )
     chart_data = ChartDataFactory.create_synastry_chart_data(
         first_subject,
         second_subject,
@@ -565,7 +614,9 @@ def create_synastry_chart_data(request_body: Union[SynastryChartRequestModel, Sy
     return chart_data
 
 
-def create_transit_chart_data(request_body: Union[TransitChartRequestModel, TransitChartDataRequestModel]):
+def create_transit_chart_data(
+    request_body: Union[TransitChartRequestModel, TransitChartDataRequestModel],
+):
     """
     Create transit chart data from request.
 
@@ -577,7 +628,9 @@ def create_transit_chart_data(request_body: Union[TransitChartRequestModel, Tran
     """
     active_points = resolve_active_points(request_body.active_points)
     active_aspects = resolve_active_aspects(request_body.active_aspects)
-    natal_subject = build_subject(request_body.first_subject, active_points=active_points)
+    natal_subject = build_subject(
+        request_body.first_subject, active_points=active_points
+    )
     transit_subject = build_transit_subject(
         request_body.transit_subject,
         reference_subject=natal_subject,
@@ -595,7 +648,9 @@ def create_transit_chart_data(request_body: Union[TransitChartRequestModel, Tran
     return chart_data
 
 
-def create_composite_chart_data(request_body: Union[CompositeChartRequestModel, CompositeChartDataRequestModel]):
+def create_composite_chart_data(
+    request_body: Union[CompositeChartRequestModel, CompositeChartDataRequestModel],
+):
     """
     Create composite chart data from request.
 
@@ -607,9 +662,15 @@ def create_composite_chart_data(request_body: Union[CompositeChartRequestModel, 
     """
     active_points = resolve_active_points(request_body.active_points)
     active_aspects = resolve_active_aspects(request_body.active_aspects)
-    first_subject = build_subject(request_body.first_subject, active_points=active_points)
-    second_subject = build_subject(request_body.second_subject, active_points=active_points)
-    composite_subject = CompositeSubjectFactory(first_subject, second_subject).get_midpoint_composite_subject_model()
+    first_subject = build_subject(
+        request_body.first_subject, active_points=active_points
+    )
+    second_subject = build_subject(
+        request_body.second_subject, active_points=active_points
+    )
+    composite_subject = CompositeSubjectFactory(
+        first_subject, second_subject
+    ).get_midpoint_composite_subject_model()
     chart_data = ChartDataFactory.create_composite_chart_data(
         composite_subject,
         active_points=active_points,
@@ -618,3 +679,92 @@ def create_composite_chart_data(request_body: Union[CompositeChartRequestModel, 
         custom_distribution_weights=request_body.custom_distribution_weights,
     )
     return chart_data
+
+
+def create_moon_phase_overview(request_body: "MoonPhaseRequestModel") -> object:
+    """
+    Build a minimal AstrologicalSubject from flat moon phase request fields
+    and compute a detailed moon phase overview.
+
+    Args:
+        request_body: The request body containing date/time and location fields.
+
+    Returns:
+        MoonPhaseOverviewModel: The detailed moon phase overview.
+    """
+    subject = AstrologicalSubjectFactory.from_birth_data(
+        name="Moon Phase",
+        year=request_body.year,
+        month=request_body.month,
+        day=request_body.day,
+        hour=request_body.hour,
+        minute=request_body.minute,
+        seconds=request_body.second,
+        city="",
+        nation="GB",
+        lng=request_body.longitude,
+        lat=request_body.latitude,
+        tz_str=request_body.timezone,
+        online=False,
+        active_points=resolve_active_points(None),
+        suppress_geonames_warning=True,
+    )
+
+    return MoonPhaseDetailsFactory.from_subject(
+        subject,
+        using_default_location=request_body.using_default_location,
+        location_precision=request_body.location_precision,
+    )
+
+
+def _format_coordinate(value: str, precision: int) -> str:
+    """
+    Round a coordinate string to the given number of decimal places.
+
+    Handles edge cases like ``-0`` by normalising the sign.
+
+    Args:
+        value: The coordinate as a string (e.g. ``"51.477928"``).
+        precision: Number of decimal places (0 = integer).
+
+    Returns:
+        The rounded coordinate as a string.
+    """
+    rounded = round(float(value), precision)
+
+    # Normalise negative zero (e.g. round(-0.001, 0) → -0.0)
+    if rounded == 0.0:
+        rounded = 0.0
+
+    if precision == 0:
+        return str(int(rounded))
+
+    return f"{rounded:.{precision}f}"
+
+
+def moon_phase_payload(overview) -> dict:
+    """
+    Wrap a moon phase overview in a standard response payload.
+
+    Post-processes ``location.latitude`` and ``location.longitude`` so they
+    are rounded to ``location.precision`` decimal places, making the
+    ``location_precision`` request parameter effective.
+
+    Args:
+        overview: The MoonPhaseOverviewModel instance.
+
+    Returns:
+        dict: The response payload containing status and dumped overview.
+    """
+    data = dump(overview)
+
+    location = data.get("location")
+    if location:
+        precision = location.get("precision", 0)
+        location["latitude"] = _format_coordinate(location["latitude"], precision)
+        location["longitude"] = _format_coordinate(location["longitude"], precision)
+
+    return {
+        "status": "OK",
+        "moon_phase_overview": data,
+    }

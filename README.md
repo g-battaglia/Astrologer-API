@@ -93,6 +93,13 @@ Use these endpoints when you only need structured astrological data without rend
 -   `/api/v5/now/subject` (POST) - Current UTC subject data
 -   `/api/v5/compatibility-score` (POST) - Ciro Discepolo compatibility score + summary
 
+### Moon Phase Endpoints
+
+Dedicated endpoints for detailed lunar phase analysis. These use a simplified request model (no `subject` wrapper — just date/time and coordinates).
+
+-   `/api/v5/moon-phase` (POST) - Detailed moon phase for a specific date/time and location
+-   `/api/v5/moon-phase/now-utc` (POST) - Current moon phase at Greenwich (UTC)
+
 ### Context Endpoints (AI/LLM Integration)
 
 The API provides AI-optimized context endpoints that return structured textual descriptions instead of SVG charts. These are designed for LLM integration and AI applications:
@@ -246,6 +253,46 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v5/chart/solar-return' \
         "wheel_type": "dual",
         "return_location": { "longitude": -74.0060, "latitude": 40.7128, "timezone": "America/New_York" }
     }'
+```
+
+### 5) Moon phase
+
+Get detailed lunar phase info (no `subject` wrapper needed):
+
+```bash
+curl -X POST 'https://astrologer.p.rapidapi.com/api/v5/moon-phase' \
+    -H 'Content-Type: application/json' \
+    -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
+    -H 'X-RapidAPI-Key: YOUR_API_KEY' \
+    -d '{
+        "year": 1993, "month": 10, "day": 10, "hour": 12, "minute": 12,
+        "latitude": 51.5074, "longitude": -0.1276, "timezone": "Europe/London"
+    }'
+```
+
+Response (shape):
+
+```json
+{
+    "status": "OK",
+    "moon_phase_overview": {
+        "timestamp": 750251520,
+        "datestamp": "Sun, 10 Oct 1993 11:12:00 +0000",
+        "sun": { "sunrise_timestamp": "07:15", "sunset_timestamp": "18:18", "solar_noon": "12:47", "..." : "..." },
+        "moon": { "phase": 0.807, "phase_name": "Waning Crescent", "illumination": "32%", "emoji": "🌘", "..." : "..." },
+        "location": { "latitude": "52", "longitude": "0", "precision": 0 }
+    }
+}
+```
+
+Current moon phase (empty body):
+
+```bash
+curl -X POST 'https://astrologer.p.rapidapi.com/api/v5/moon-phase/now-utc' \
+    -H 'Content-Type: application/json' \
+    -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
+    -H 'X-RapidAPI-Key: YOUR_API_KEY' \
+    -d '{}'
 ```
 
 ## Options at a glance

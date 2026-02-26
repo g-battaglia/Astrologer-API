@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field
 from kerykeion.schemas.kr_models import (
     AstrologicalSubjectModel,
     DualChartDataModel,
+    MoonPhaseOverviewModel,
     RelationshipScoreAspectModel,
     SingleChartDataModel,
     ScoreBreakdownItemModel,
@@ -27,13 +28,17 @@ class ApiStatusResponseModel(StatusResponseModel):
 class SubjectResponseModel(StatusResponseModel):
     """Response payload containing a single astrological subject."""
 
-    subject: AstrologicalSubjectModel = Field(description="Computed astrological subject.")
+    subject: AstrologicalSubjectModel = Field(
+        description="Computed astrological subject."
+    )
 
 
 class ChartDataResponseModel(StatusResponseModel):
     """Response payload returning serialized chart data."""
 
-    chart_data: Union[SingleChartDataModel, DualChartDataModel] = Field(description="Serialized chart data payload.")
+    chart_data: Union[SingleChartDataModel, DualChartDataModel] = Field(
+        description="Serialized chart data payload."
+    )
 
 
 class ChartResponseModel(ChartDataResponseModel):
@@ -56,8 +61,12 @@ class ChartResponseModel(ChartDataResponseModel):
 class ReturnChartResponseModel(ChartResponseModel):
     """Response payload for solar and lunar return chart requests."""
 
-    return_type: Literal["Solar", "Lunar"] = Field(description="Type of planetary return.")
-    wheel_type: Literal["dual", "single"] = Field(description="Rendered wheel configuration.")
+    return_type: Literal["Solar", "Lunar"] = Field(
+        description="Type of planetary return."
+    )
+    wheel_type: Literal["dual", "single"] = Field(
+        description="Rendered wheel configuration."
+    )
 
 
 class CompatibilityScoreResponseModel(StatusResponseModel):
@@ -83,13 +92,17 @@ class CompatibilityScoreResponseModel(StatusResponseModel):
         default_factory=list,
         description="Breakdown of the scoring rules and points contributing to the total score.",
     )
-    chart_data: DualChartDataModel = Field(description="Underlying chart data used to compute the score.")
+    chart_data: DualChartDataModel = Field(
+        description="Underlying chart data used to compute the score."
+    )
 
 
 class SubjectContextResponseModel(SubjectResponseModel):
     """Response payload containing a single astrological subject with AI context."""
 
-    subject_context: str = Field(description="AI-optimized context string for the subject.")
+    subject_context: str = Field(
+        description="AI-optimized context string for the subject."
+    )
 
 
 class ContextResponseModel(ChartDataResponseModel):
@@ -98,8 +111,20 @@ class ContextResponseModel(ChartDataResponseModel):
     context: str = Field(description="AI-optimized context string for the chart data.")
 
 
+class MoonPhaseResponseModel(StatusResponseModel):
+    """Response payload for moon phase details."""
+
+    moon_phase_overview: MoonPhaseOverviewModel = Field(
+        description="Detailed moon phase overview including illumination, upcoming phases, eclipses, and sun info."
+    )
+
+
 class ReturnContextResponseModel(ContextResponseModel):
     """Response payload for solar and lunar return context requests."""
 
-    return_type: Literal["Solar", "Lunar"] = Field(description="Type of planetary return.")
-    wheel_type: Literal["dual", "single"] = Field(description="Rendered wheel configuration.")
+    return_type: Literal["Solar", "Lunar"] = Field(
+        description="Type of planetary return."
+    )
+    wheel_type: Literal["dual", "single"] = Field(
+        description="Rendered wheel configuration."
+    )

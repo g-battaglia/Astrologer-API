@@ -67,6 +67,13 @@ Endpoints that return raw calculated data (JSON) without visual charts. Ideal fo
     -   [Solar Return Data](data/chart_data_solar_return.md) ([Example](examples/solar_return_chart_data.md))
     -   [Lunar Return Data](data/chart_data_lunar_return.md) ([Example](examples/lunar_return_chart_data.md))
 
+### 🌙 Moon Phase Endpoints
+
+Dedicated endpoints for detailed lunar phase analysis, using a simplified request model (no `subject` wrapper).
+
+-   [**Moon Phase**](data/moon_phase.md) ([Example](examples/moon_phase.md)): Detailed moon phase for a specific date/time and location.
+-   [**Moon Phase Now (UTC)**](data/moon_phase_now_utc.md) ([Example](examples/moon_phase_now_utc.md)): Current moon phase at Greenwich.
+
 ### 🎨 Chart Endpoints (SVG)
 
 Endpoints that return rendered SVG charts along with the calculation data.

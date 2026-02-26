@@ -1623,11 +1623,177 @@
           }
         ]
       }
+    },
+    "/api/v5/moon-phase": {
+      "post": {
+        "tags": [
+          "Moon Phase"
+        ],
+        "summary": "Moon Phase",
+        "description": "**POST** `/api/v5/moon-phase`\n\nReturns detailed moon phase information for a specific date/time and location.\n\nIncludes: phase name, illumination, stage (waxing/waning), age, upcoming major phases,\nnext lunar/solar eclipses, sunrise/sunset, sun position, and zodiac signs.\n\n**Parameters:**\n- `year`, `month`, `day`, `hour`, `minute`: Date and time of the event (required).\n- `second`: Seconds (optional, default 0).\n- `latitude`, `longitude`, `timezone`: Geographic location (required).\n- `using_default_location`: Metadata flag (optional, default false).\n- `location_precision`: Decimal precision for coordinates in response (optional, default 0).\n\n**Returns:**\n- `status`: \"OK\"\n- `moon_phase_overview`: MoonPhaseOverviewModel",
+        "operationId": "moon_phase_api_v5_moon_phase_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoonPhaseRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MoonPhaseResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v5/moon-phase/now-utc": {
+      "post": {
+        "tags": [
+          "Moon Phase"
+        ],
+        "summary": "Moon Phase Now Utc",
+        "description": "**POST** `/api/v5/moon-phase/now-utc`\n\nReturns detailed moon phase information for the current UTC moment at Greenwich.\n\nUses the current UTC time and Greenwich Observatory coordinates (51.4779 N, 0.0015 W).\n\n**Parameters:**\n- `using_default_location`: Metadata flag (optional, default true).\n- `location_precision`: Decimal precision for coordinates in response (optional, default 0).\n\n**Returns:**\n- `status`: \"OK\"\n- `moon_phase_overview`: MoonPhaseOverviewModel",
+        "operationId": "moon_phase_now_utc_api_v5_moon_phase_now_utc_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NowMoonPhaseRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MoonPhaseResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
     }
   },
   "components": {
     "schemas": {
-      "ActiveAspect": {
+      "ActiveAspect-Input": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "conjunction",
+              "semi-sextile",
+              "semi-square",
+              "sextile",
+              "quintile",
+              "square",
+              "trine",
+              "sesquiquadrate",
+              "biquintile",
+              "quincunx",
+              "opposition"
+            ],
+            "title": "Name"
+          },
+          "orb": {
+            "type": "integer",
+            "title": "Orb"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "orb"
+        ],
+        "title": "ActiveAspect"
+      },
+      "ActiveAspect-Output": {
         "properties": {
           "name": {
             "type": "string",
@@ -1747,7 +1913,8 @@
           "p2",
           "aspect_movement"
         ],
-        "title": "AspectModel"
+        "title": "AspectModel",
+        "description": "Model representing an astrological aspect between two celestial points.\n\nAn aspect is an angular relationship between two planets or points,\nmeasured along the ecliptic. Major aspects include conjunction (0\u00b0),\nopposition (180\u00b0), trine (120\u00b0), square (90\u00b0), and sextile (60\u00b0).\n\nAttributes:\n    p1_name: Name of the first point (e.g., 'Sun').\n    p1_owner: Owner/chart of the first point (e.g., 'John').\n    p1_abs_pos: Absolute zodiacal position of first point (0-360\u00b0).\n    p2_name: Name of the second point.\n    p2_owner: Owner/chart of the second point.\n    p2_abs_pos: Absolute zodiacal position of second point.\n    aspect: Name of the aspect (e.g., 'conjunction', 'trine').\n    orbit: Orb (deviation from exact aspect) in degrees.\n    aspect_degrees: Exact degrees of the aspect type.\n    diff: Angular difference between the points.\n    p1: Numeric ID of first point.\n    p2: Numeric ID of second point.\n    p1_speed: Daily motion speed of first point in degrees.\n    p2_speed: Daily motion speed of second point in degrees.\n    aspect_movement: Whether aspect is applying, separating, or static."
       },
       "AstrologicalSubjectModel": {
         "properties": {
@@ -2435,6 +2602,10 @@
           "minute": {
             "type": "integer",
             "title": "Minute"
+          },
+          "is_diurnal": {
+            "type": "boolean",
+            "title": "Is Diurnal"
           }
         },
         "type": "object",
@@ -2472,10 +2643,11 @@
           "month",
           "day",
           "hour",
-          "minute"
+          "minute",
+          "is_diurnal"
         ],
         "title": "AstrologicalSubjectModel",
-        "description": "Pydantic Model for Astrological Subject"
+        "description": "Complete astrological subject model for individual birth or event charts.\n\nThis model represents a fully-specified astrological chart with all required\nlocation and time data. It extends AstrologicalBaseModel by making location\nand time fields mandatory.\n\nUsed for:\n    - Natal (birth) charts\n    - Event charts\n    - Horary charts\n\nAttributes:\n    year: Birth/event year.\n    month: Birth/event month (1-12).\n    day: Birth/event day of month.\n    hour: Birth/event hour (0-23).\n    minute: Birth/event minute (0-59).\n    city: City name (required).\n    nation: Country code (required).\n    lat: Latitude coordinate (required).\n    lng: Longitude coordinate (required).\n    tz_str: Timezone string e.g. 'Europe/Rome' (required)."
       },
       "BirthChartDataRequestModel": {
         "properties": {
@@ -2564,7 +2736,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -2741,7 +2913,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -3036,7 +3208,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -3377,7 +3549,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -3559,7 +3731,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -4540,7 +4712,7 @@
           "composite_chart_type"
         ],
         "title": "CompositeSubjectModel",
-        "description": "Pydantic Model for Composite Subject"
+        "description": "Composite chart model for relationship analysis.\n\nA composite chart is created by calculating the midpoint between\ncorresponding planets/points of two individual charts. It represents\nthe relationship as a separate entity.\n\nAttributes:\n    first_subject: First person's astrological data.\n    second_subject: Second person's astrological data.\n    composite_chart_type: Type identifier for the composite calculation method."
       },
       "ContextResponseModel": {
         "properties": {
@@ -4698,7 +4870,7 @@
           },
           "active_aspects": {
             "items": {
-              "$ref": "#/components/schemas/ActiveAspect"
+              "$ref": "#/components/schemas/ActiveAspect-Output"
             },
             "type": "array",
             "title": "Active Aspects"
@@ -5105,6 +5277,1262 @@
         "title": "LunarPhaseModel",
         "description": "Model representing lunar phase information.\n\nAttributes:\n    degrees_between_s_m: Angular separation between Sun and Moon in degrees.\n    moon_phase: Numerical phase identifier for the Moon.\n    moon_emoji: Emoji representation of the lunar phase.\n    moon_phase_name: Text name of the lunar phase."
       },
+      "MoonPhaseEclipseModel": {
+        "properties": {
+          "timestamp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timestamp"
+          },
+          "datestamp": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Datestamp"
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Type"
+          },
+          "visibility_regions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Visibility Regions"
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseEclipseModel",
+        "description": "Information about a lunar eclipse event relative to the current moment."
+      },
+      "MoonPhaseEventMomentModel": {
+        "properties": {
+          "timestamp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timestamp"
+          },
+          "datestamp": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Datestamp"
+          },
+          "days_ago": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Days Ago"
+          },
+          "days_ahead": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Days Ahead"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseEventMomentModel",
+        "description": "Generic representation of a key lunar event (e.g. last / next Full Moon)."
+      },
+      "MoonPhaseEventsModel": {
+        "properties": {
+          "moonrise_visible": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Moonrise Visible"
+          },
+          "moonset_visible": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Moonset Visible"
+          },
+          "optimal_viewing_period": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseOptimalViewingPeriodModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseEventsModel",
+        "description": "Convenience container for event-style lunar information."
+      },
+      "MoonPhaseIlluminationDetailsModel": {
+        "properties": {
+          "percentage": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Percentage"
+          },
+          "visible_fraction": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Visible Fraction"
+          },
+          "phase_angle": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phase Angle"
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseIlluminationDetailsModel",
+        "description": "Numeric illumination details for the Moon at the given moment."
+      },
+      "MoonPhaseLocationModel": {
+        "properties": {
+          "latitude": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latitude"
+          },
+          "longitude": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Longitude"
+          },
+          "precision": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Precision"
+          },
+          "using_default_location": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Using Default Location"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseLocationModel",
+        "description": "Location metadata for lunar phase context."
+      },
+      "MoonPhaseMajorPhaseWindowModel": {
+        "properties": {
+          "last": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseEventMomentModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "next": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseEventMomentModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseMajorPhaseWindowModel",
+        "description": "Container for the last and next occurrence of a major lunar phase."
+      },
+      "MoonPhaseMoonDetailedModel": {
+        "properties": {
+          "position": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseMoonPositionModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "visibility": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseVisibilityModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "upcoming_phases": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseUpcomingPhasesModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "illumination_details": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseIlluminationDetailsModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseMoonDetailedModel",
+        "description": "Detailed Moon information grouped under a single node."
+      },
+      "MoonPhaseMoonPositionModel": {
+        "properties": {
+          "altitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Altitude"
+          },
+          "azimuth": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Azimuth"
+          },
+          "distance": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Distance"
+          },
+          "parallactic_angle": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parallactic Angle"
+          },
+          "phase_angle": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phase Angle"
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseMoonPositionModel",
+        "description": "Apparent lunar position details for a given moment.\n\nAttributes:\n    altitude: Moon altitude above the horizon in degrees.\n    azimuth: Moon azimuth angle in degrees.\n    distance: Distance from Earth to Moon (kilometers).\n    parallactic_angle: Parallactic angle in degrees.\n    phase_angle: Phase angle Sun\u2013Moon in degrees."
+      },
+      "MoonPhaseMoonSummaryModel": {
+        "properties": {
+          "phase": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phase"
+          },
+          "phase_name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "New Moon",
+                  "Waxing Crescent",
+                  "First Quarter",
+                  "Waxing Gibbous",
+                  "Full Moon",
+                  "Waning Gibbous",
+                  "Last Quarter",
+                  "Waning Crescent"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phase Name"
+          },
+          "major_phase": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Major Phase"
+          },
+          "stage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stage"
+          },
+          "illumination": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Illumination"
+          },
+          "age_days": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Age Days"
+          },
+          "lunar_cycle": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lunar Cycle"
+          },
+          "emoji": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "\ud83c\udf11",
+                  "\ud83c\udf12",
+                  "\ud83c\udf13",
+                  "\ud83c\udf14",
+                  "\ud83c\udf15",
+                  "\ud83c\udf16",
+                  "\ud83c\udf17",
+                  "\ud83c\udf18"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Emoji"
+          },
+          "zodiac": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseZodiacModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "moonrise": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Moonrise"
+          },
+          "moonrise_timestamp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Moonrise Timestamp"
+          },
+          "moonset": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Moonset"
+          },
+          "moonset_timestamp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Moonset Timestamp"
+          },
+          "next_lunar_eclipse": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseEclipseModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "detailed": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseMoonDetailedModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "events": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseEventsModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseMoonSummaryModel",
+        "description": "High-level summary of the current lunar phase and basic context.\n\nThis model mirrors the structure used by web APIs for moon phase\ninformation and is designed to be populated by MoonPhaseDetailsFactory."
+      },
+      "MoonPhaseOptimalViewingPeriodModel": {
+        "properties": {
+          "start_time": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Time"
+          },
+          "end_time": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Time"
+          },
+          "duration_hours": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration Hours"
+          },
+          "viewing_quality": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Viewing Quality"
+          },
+          "recommendations": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recommendations"
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseOptimalViewingPeriodModel",
+        "description": "Suggested optimal viewing window for the Moon."
+      },
+      "MoonPhaseOverviewModel": {
+        "properties": {
+          "timestamp": {
+            "type": "integer",
+            "title": "Timestamp"
+          },
+          "datestamp": {
+            "type": "string",
+            "title": "Datestamp"
+          },
+          "sun": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseSunInfoModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "moon": {
+            "$ref": "#/components/schemas/MoonPhaseMoonSummaryModel"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseLocationModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "timestamp",
+          "datestamp",
+          "moon"
+        ],
+        "title": "MoonPhaseOverviewModel",
+        "description": "Top-level lunar phase context model.\n\nThis model groups together timestamp information, Sun summary, Moon summary,\nand basic location data into a single structure suitable for API responses\nor serialization."
+      },
+      "MoonPhaseRequestModel": {
+        "properties": {
+          "year": {
+            "type": "integer",
+            "maximum": 3000.0,
+            "minimum": 1.0,
+            "title": "Year",
+            "description": "Year of the event.",
+            "examples": [
+              1993
+            ]
+          },
+          "month": {
+            "type": "integer",
+            "maximum": 12.0,
+            "minimum": 1.0,
+            "title": "Month",
+            "description": "Month of the event.",
+            "examples": [
+              10
+            ]
+          },
+          "day": {
+            "type": "integer",
+            "maximum": 31.0,
+            "minimum": 1.0,
+            "title": "Day",
+            "description": "Day of the event.",
+            "examples": [
+              10
+            ]
+          },
+          "hour": {
+            "type": "integer",
+            "maximum": 23.0,
+            "minimum": 0.0,
+            "title": "Hour",
+            "description": "Hour of the event (0-23).",
+            "examples": [
+              12
+            ]
+          },
+          "minute": {
+            "type": "integer",
+            "maximum": 59.0,
+            "minimum": 0.0,
+            "title": "Minute",
+            "description": "Minute of the event (0-59).",
+            "examples": [
+              12
+            ]
+          },
+          "second": {
+            "type": "integer",
+            "maximum": 59.0,
+            "minimum": 0.0,
+            "title": "Second",
+            "description": "Seconds of the event (0-59).",
+            "default": 0,
+            "examples": [
+              0
+            ]
+          },
+          "latitude": {
+            "type": "number",
+            "maximum": 90.0,
+            "minimum": -90.0,
+            "title": "Latitude",
+            "description": "Latitude of the location (-90 to 90).",
+            "examples": [
+              51.5074
+            ]
+          },
+          "longitude": {
+            "type": "number",
+            "maximum": 180.0,
+            "minimum": -180.0,
+            "title": "Longitude",
+            "description": "Longitude of the location (-180 to 180).",
+            "examples": [
+              -0.1276
+            ]
+          },
+          "timezone": {
+            "type": "string",
+            "title": "Timezone",
+            "description": "IANA timezone identifier for the event.",
+            "examples": [
+              "Europe/London"
+            ]
+          },
+          "using_default_location": {
+            "type": "boolean",
+            "title": "Using Default Location",
+            "description": "Flag indicating whether the location is a default fallback.",
+            "default": false
+          },
+          "location_precision": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 0.0,
+            "title": "Location Precision",
+            "description": "Number of decimal places used to round latitude and longitude in the response.",
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "year",
+          "month",
+          "day",
+          "hour",
+          "minute",
+          "latitude",
+          "longitude",
+          "timezone"
+        ],
+        "title": "MoonPhaseRequestModel",
+        "description": "Request payload for moon phase details at a specific date/time and location."
+      },
+      "MoonPhaseResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the response."
+          },
+          "moon_phase_overview": {
+            "$ref": "#/components/schemas/MoonPhaseOverviewModel",
+            "description": "Detailed moon phase overview including illumination, upcoming phases, eclipses, and sun info."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "moon_phase_overview"
+        ],
+        "title": "MoonPhaseResponseModel",
+        "description": "Response payload for moon phase details."
+      },
+      "MoonPhaseSolarEclipseModel": {
+        "properties": {
+          "timestamp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timestamp"
+          },
+          "datestamp": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Datestamp"
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Type"
+          },
+          "visibility_regions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Visibility Regions"
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseSolarEclipseModel",
+        "description": "Information about a solar eclipse event relative to the current moment.\n\nThis model is intentionally generic so it can be populated either by\ninternal calculations or external services."
+      },
+      "MoonPhaseSunInfoModel": {
+        "properties": {
+          "sunrise": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sunrise"
+          },
+          "sunrise_timestamp": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sunrise Timestamp"
+          },
+          "sunset": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sunset"
+          },
+          "sunset_timestamp": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sunset Timestamp"
+          },
+          "solar_noon": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Solar Noon"
+          },
+          "day_length": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Day Length"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseSunPositionModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "next_solar_eclipse": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseSolarEclipseModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseSunInfoModel",
+        "description": "Summary information about the Sun for the lunar phase context.\n\nAll fields are optional and can be incrementally populated as more\nadvanced calculations become available."
+      },
+      "MoonPhaseSunPositionModel": {
+        "properties": {
+          "altitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Altitude"
+          },
+          "azimuth": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Azimuth"
+          },
+          "distance": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Distance"
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseSunPositionModel",
+        "description": "Apparent solar position details for a given moment.\n\nAttributes:\n    altitude: Sun altitude above the horizon in degrees.\n    azimuth: Sun azimuth angle in degrees.\n    distance: Distance from Earth to Sun in kilometers."
+      },
+      "MoonPhaseUpcomingPhasesModel": {
+        "properties": {
+          "new_moon": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseMajorPhaseWindowModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "first_quarter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseMajorPhaseWindowModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "full_moon": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseMajorPhaseWindowModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "last_quarter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseMajorPhaseWindowModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseUpcomingPhasesModel",
+        "description": "Overview of surrounding major lunar phases (new, first quarter, full, last quarter)."
+      },
+      "MoonPhaseViewingConditionsModel": {
+        "properties": {
+          "phase_quality": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phase Quality"
+          },
+          "recommended_equipment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseViewingEquipmentModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseViewingConditionsModel",
+        "description": "Qualitative viewing conditions and equipment recommendations."
+      },
+      "MoonPhaseViewingEquipmentModel": {
+        "properties": {
+          "filters": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filters"
+          },
+          "telescope": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Telescope"
+          },
+          "best_magnification": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Best Magnification"
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseViewingEquipmentModel",
+        "description": "Recommended observing equipment for the current lunar phase."
+      },
+      "MoonPhaseVisibilityModel": {
+        "properties": {
+          "visible_hours": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Visible Hours"
+          },
+          "best_viewing_time": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Best Viewing Time"
+          },
+          "visibility_rating": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Visibility Rating"
+          },
+          "illumination": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Illumination"
+          },
+          "viewing_conditions": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MoonPhaseViewingConditionsModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "MoonPhaseVisibilityModel",
+        "description": "Visibility information for the current Moon."
+      },
+      "MoonPhaseZodiacModel": {
+        "properties": {
+          "sun_sign": {
+            "type": "string",
+            "enum": [
+              "Ari",
+              "Tau",
+              "Gem",
+              "Can",
+              "Leo",
+              "Vir",
+              "Lib",
+              "Sco",
+              "Sag",
+              "Cap",
+              "Aqu",
+              "Pis"
+            ],
+            "title": "Sun Sign"
+          },
+          "moon_sign": {
+            "type": "string",
+            "enum": [
+              "Ari",
+              "Tau",
+              "Gem",
+              "Can",
+              "Leo",
+              "Vir",
+              "Lib",
+              "Sco",
+              "Sag",
+              "Cap",
+              "Aqu",
+              "Pis"
+            ],
+            "title": "Moon Sign"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sun_sign",
+          "moon_sign"
+        ],
+        "title": "MoonPhaseZodiacModel",
+        "description": "Simple zodiac snapshot for the current Sun\u2013Moon configuration.\n\nAttributes:\n    sun_sign: Zodiac sign of the Sun.\n    moon_sign: Zodiac sign of the Moon."
+      },
       "NowChartRequestModel": {
         "properties": {
           "active_points": {
@@ -5192,7 +6620,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -5544,6 +6972,28 @@
         "type": "object",
         "title": "NowChartRequestModel",
         "description": "Request payload for the 'now' chart endpoint (with SVG rendering)."
+      },
+      "NowMoonPhaseRequestModel": {
+        "properties": {
+          "using_default_location": {
+            "type": "boolean",
+            "title": "Using Default Location",
+            "description": "Flag indicating whether the location is a default fallback.",
+            "default": true
+          },
+          "location_precision": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 0.0,
+            "title": "Location Precision",
+            "description": "Number of decimal places used to round latitude and longitude in the response.",
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "NowMoonPhaseRequestModel",
+        "description": "Request payload for the 'now' moon phase endpoint. All fields are optional."
       },
       "NowSubjectRequestModel": {
         "properties": {
@@ -6470,7 +7920,7 @@
           "return_type"
         ],
         "title": "PlanetReturnModel",
-        "description": "Pydantic Model for Planet Return"
+        "description": "Planetary return chart model.\n\nA planetary return occurs when a transiting planet returns to the exact\nposition it held in the natal chart. Solar returns (yearly) and lunar\nreturns (monthly) are the most commonly used.\n\nAttributes:\n    return_type: Type of return - 'Solar' or 'Lunar'."
       },
       "PlanetaryReturnDataRequestModel": {
         "properties": {
@@ -6559,7 +8009,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -6821,7 +8271,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -7247,7 +8697,8 @@
           "aspect",
           "orbit"
         ],
-        "title": "RelationshipScoreAspectModel"
+        "title": "RelationshipScoreAspectModel",
+        "description": "Simplified aspect model for relationship scoring.\n\nUsed in synastry analysis to track which aspects contribute\nto the compatibility score.\n\nAttributes:\n    p1_name: First point name.\n    p2_name: Second point name.\n    aspect: Aspect type name.\n    orbit: Orb in degrees."
       },
       "RelationshipScoreModel": {
         "properties": {
@@ -7674,7 +9125,7 @@
           },
           "active_aspects": {
             "items": {
-              "$ref": "#/components/schemas/ActiveAspect"
+              "$ref": "#/components/schemas/ActiveAspect-Output"
             },
             "type": "array",
             "title": "Active Aspects"
@@ -8179,7 +9630,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -8373,7 +9824,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -8685,7 +10136,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
@@ -8873,7 +10324,7 @@
             "anyOf": [
               {
                 "items": {
-                  "$ref": "#/components/schemas/ActiveAspect"
+                  "$ref": "#/components/schemas/ActiveAspect-Input"
                 },
                 "type": "array"
               },
