@@ -49,7 +49,9 @@ SECOND_SUBJECT: Dict[str, object] = {
 
 def test_subject_context(client: TestClient):
     """Test /api/v5/context/subject endpoint."""
-    resp = client.post("/api/v5/context/subject", json={"subject": deepcopy(BASE_SUBJECT)})
+    resp = client.post(
+        "/api/v5/context/subject", json={"subject": deepcopy(BASE_SUBJECT)}
+    )
     assert resp.status_code == 200
 
     body = resp.json()
@@ -59,7 +61,7 @@ def test_subject_context(client: TestClient):
     assert "subject_context" in body
     assert isinstance(body["subject_context"], str)
     assert len(body["subject_context"]) > 0
-    assert "Chart for" in body["subject_context"]
+    assert "<chart " in body["subject_context"]
 
     # Verifica presenza subject
     assert "subject" in body
@@ -116,7 +118,9 @@ def test_now_context(client: TestClient):
 
 def test_natal_context(client: TestClient):
     """Test /api/v5/context/birth-chart endpoint."""
-    resp = client.post("/api/v5/context/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+    resp = client.post(
+        "/api/v5/context/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+    )
     assert resp.status_code == 200
 
     body = resp.json()
@@ -126,7 +130,7 @@ def test_natal_context(client: TestClient):
     assert "context" in body
     assert isinstance(body["context"], str)
     assert len(body["context"]) > 0
-    assert "Natal Chart Analysis" in body["context"] or "Chart for" in body["context"]
+    assert 'type="Natal"' in body["context"]
 
     # Verifica presenza chart_data
     assert "chart_data" in body
@@ -319,14 +323,16 @@ def test_lunar_return_context(client: TestClient):
 
 def test_context_content_quality(client: TestClient):
     """Test che il context contenga informazioni astrologiche rilevanti."""
-    resp = client.post("/api/v5/context/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+    resp = client.post(
+        "/api/v5/context/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+    )
     assert resp.status_code == 200
 
     context = resp.json()["context"]
 
     # Verifica che il context contenga elementi chiave
-    assert "Chart for" in context or "Natal" in context
-    assert "Birth data" in context or "1990" in context
+    assert "<chart_analysis" in context or "Natal" in context
+    assert "1990" in context or "birth_data" in context
 
     # Verifica che contenga almeno alcuni pianeti
     planet_found = False
@@ -338,7 +344,20 @@ def test_context_content_quality(client: TestClient):
 
     # Verifica che contenga informazioni su segni zodiacali
     sign_found = False
-    for sign in ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]:
+    for sign in [
+        "Aries",
+        "Taurus",
+        "Gemini",
+        "Cancer",
+        "Leo",
+        "Virgo",
+        "Libra",
+        "Scorpio",
+        "Sagittarius",
+        "Capricorn",
+        "Aquarius",
+        "Pisces",
+    ]:
         if sign in context:
             sign_found = True
             break
@@ -347,7 +366,9 @@ def test_context_content_quality(client: TestClient):
 
 def test_context_vs_chart_data_consistency(client: TestClient):
     """Test che i dati nel context siano coerenti con chart_data."""
-    resp = client.post("/api/v5/context/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+    resp = client.post(
+        "/api/v5/context/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+    )
     assert resp.status_code == 200
 
     body = resp.json()

@@ -7,7 +7,7 @@ Synastry Chart - AI Context
 
 ## Description
 
-Returns a structured text analysis of a synastry chart (relationship), optimized for AI/LLMs. Includes inter-chart aspects and house overlays.
+Returns a structured XML analysis of a synastry chart (relationship), optimized for AI/LLMs. Includes inter-chart aspects and house overlays.
 
 ### Parameters
 
@@ -57,7 +57,7 @@ Returns a structured text analysis of a synastry chart (relationship), optimized
 ```json
 {
     "status": "OK",
-    "context": "Synastry Chart Analysis\n==================================================\n\nFirst Subject: Partner A\nSecond Subject: Partner B\n...",
+    "context": "<chart_analysis type=\"Synastry\">\n  <chart name=\"Partner A\">...</chart>\n  <chart name=\"Partner B\">...</chart>\n</chart_analysis>",
     "chart_data": {
         "chart_type": "Synastry"
     }

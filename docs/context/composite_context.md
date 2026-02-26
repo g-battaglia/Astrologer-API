@@ -84,7 +84,7 @@ Generates an AI-powered interpretation of a composite chart. A composite chart i
 ### Response Body
 
 -   **`status`** (string): "OK" on success.
--   **`context`** (string): The generated AI text interpretation of the composite chart.
+-   **`context`** (string): The generated AI XML context string for the composite chart.
 -   **`chart_data`** (object): The complete calculated composite chart data.
 
 #### Complete Response Example
@@ -92,7 +92,7 @@ Generates an AI-powered interpretation of a composite chart. A composite chart i
 ```json
 {
   "status": "OK",
-  "context": "Composite Chart Analysis...\nThe relationship has a Sun in the 7th House...",
+  "context": "<chart_analysis type=\"Composite\"><subject>Composite</subject>...</chart_analysis>",
   "chart_data": {
     "subject": { ... }, // Composite subject
     "aspects_list": [ ... ]

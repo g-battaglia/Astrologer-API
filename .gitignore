@@ -132,3 +132,4 @@ cache/kerykeion_geonames_cache.sqlite
 site-docs
 .DS_Store
 rapidapi.json
+.opencode/plans

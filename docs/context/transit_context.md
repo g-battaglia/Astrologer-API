@@ -84,7 +84,7 @@ Generates an AI-powered interpretation of a transit chart. This endpoint analyze
 ### Response Body
 
 -   **`status`** (string): "OK" on success.
--   **`context`** (string): The generated AI text interpretation of the transits.
+-   **`context`** (string): The generated AI XML context string for the transits.
 -   **`chart_data`** (object): The complete calculated transit chart data.
 
 #### Complete Response Example
@@ -92,7 +92,7 @@ Generates an AI-powered interpretation of a transit chart. This endpoint analyze
 ```json
 {
   "status": "OK",
-  "context": "Transit Analysis for Natal Subject...\nTransiting Jupiter is conjunct Natal Sun...",
+  "context": "<chart_analysis type=\"Transit\"><first_subject>Natal Subject</first_subject>...</chart_analysis>",
   "chart_data": {
     "first_subject": { ... },
     "second_subject": { ... }, // Transit subject

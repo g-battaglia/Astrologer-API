@@ -7,7 +7,7 @@ Composite Chart - AI Context
 
 ## Description
 
-Returns a structured text analysis of a composite chart (midpoint chart), optimized for AI/LLMs.
+Returns a structured XML analysis of a composite chart (midpoint chart), optimized for AI/LLMs.
 
 ### Parameters
 
@@ -55,7 +55,7 @@ Returns a structured text analysis of a composite chart (midpoint chart), optimi
 ```json
 {
     "status": "OK",
-    "context": "Composite Chart Analysis\n==================================================\n\nChart for \"Composite\"\n...",
+    "context": "<chart_analysis type=\"Composite\">\n  <chart name=\"Composite\">...</chart>\n</chart_analysis>",
     "chart_data": {
         "chart_type": "Composite"
     }

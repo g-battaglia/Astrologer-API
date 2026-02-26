@@ -10,7 +10,7 @@ order: 2
 
 > **📘 [View Complete Example](../examples/now_context.md)**
 
-Generates an AI-powered astrological interpretation for the **current moment** (UTC). This is ideal for "Daily Horoscope", "Current Sky", or "Astrological Weather" features, providing a real-time textual snapshot of the planetary atmosphere.
+Generates an AI-powered astrological interpretation for the **current moment** (UTC). This is ideal for "Daily Horoscope", "Current Sky", or "Astrological Weather" features, providing a real-time XML-structured snapshot of the planetary atmosphere.
 
 It automatically calculates the positions of celestial bodies for "now" and generates a descriptive context.
 
@@ -33,7 +33,7 @@ It automatically calculates the positions of celestial bodies for "now" and gene
 ### Response Body
 
 -   **`status`** (string): "OK" on success.
--   **`subject_context`** (string): The generated AI text interpretation of the current sky.
+-   **`subject_context`** (string): The generated AI XML context string of the current sky.
 -   **`subject`** (object): The calculated subject data for the current moment.
 
 #### Complete Response Example
@@ -41,7 +41,7 @@ It automatically calculates the positions of celestial bodies for "now" and gene
 ```json
 {
   "status": "OK",
-  "subject_context": "Current Atmosphere (Now): The Sun is in Scorpio...",
+  "subject_context": "<chart name=\"Current Atmosphere\">...</chart>",
   "subject": {
     "name": "Current Atmosphere",
     "year": 2023,

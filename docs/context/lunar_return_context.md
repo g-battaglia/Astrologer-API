@@ -62,7 +62,7 @@ Generates an AI-powered interpretation of a Lunar Return chart. The Lunar Return
 ### Response Body
 
 -   **`status`** (string): "OK" on success.
--   **`context`** (string): The generated AI text interpretation of the lunar return.
+-   **`context`** (string): The generated AI XML context string for the lunar return.
 -   **`chart_data`** (object): The complete calculated lunar return chart data.
 
 #### Complete Response Example
@@ -70,7 +70,7 @@ Generates an AI-powered interpretation of a Lunar Return chart. The Lunar Return
 ```json
 {
   "status": "OK",
-  "context": "Lunar Return Analysis for May 2024...\nThe Moon is in the 4th House...",
+  "context": "<chart_analysis type=\"Lunar Return\"><subject>John Doe</subject>...</chart_analysis>",
   "chart_data": {
     "natal_subject": { ... },
     "return_subject": { ... },

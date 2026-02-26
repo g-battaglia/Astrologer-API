@@ -10,7 +10,7 @@ order: 1
 
 > **📘 [View Complete Example](../examples/subject_context.md)**
 
-Generates an AI-powered astrological interpretation based on a subject's birth data. This endpoint provides a textual analysis of the subject's key astrological placements, suitable for generating horoscopes, personality insights, or character descriptions.
+Generates an AI-powered astrological interpretation based on a subject's birth data. This endpoint provides an XML-structured analysis of the subject's key astrological placements, suitable for generating horoscopes, personality insights, or character descriptions.
 
 It uses a Large Language Model (LLM) to synthesize the astrological data into a coherent, human-readable narrative.
 
@@ -56,7 +56,7 @@ It uses a Large Language Model (LLM) to synthesize the astrological data into a 
 ### Response Body
 
 -   **`status`** (string): "OK" on success.
--   **`subject_context`** (string): The generated AI text interpretation.
+-   **`subject_context`** (string): The generated AI XML context string.
 -   **`subject`** (object): The calculated subject data used for the interpretation.
 
 #### Complete Response Example
@@ -64,7 +64,7 @@ It uses a Large Language Model (LLM) to synthesize the astrological data into a 
 ```json
 {
   "status": "OK",
-  "subject_context": "Subject Name was born on ... The Sun is in Capricorn in the 10th House...",
+  "subject_context": "<chart name=\"Subject Name\">...</chart>",
   "subject": {
     "name": "Subject Name",
     "year": 1990,

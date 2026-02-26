@@ -44,7 +44,9 @@ router = APIRouter()
 
 
 @router.post("/api/v5/context/subject", response_model=SubjectContextResponseModel)
-async def subject_context(birth_data_request: BirthDataRequestModel, request: Request) -> JSONResponse:
+async def subject_context(
+    birth_data_request: BirthDataRequestModel, request: Request
+) -> JSONResponse:
     """
     **POST** `/api/v5/context/subject`
 
@@ -58,7 +60,9 @@ async def subject_context(birth_data_request: BirthDataRequestModel, request: Re
     - `subject_context`: AI-optimized context string
     - `subject`: AstrologicalSubjectModel (serialized)
     """
-    log_request_with_body(logger, request, "Subject context request", birth_data_request.model_dump_json())
+    log_request_with_body(
+        logger, request, "Subject context request", birth_data_request.model_dump_json()
+    )
 
     try:
         active_points = resolve_active_points(birth_data_request.active_points)
@@ -70,7 +74,9 @@ async def subject_context(birth_data_request: BirthDataRequestModel, request: Re
 
 
 @router.post("/api/v5/context/birth-chart", response_model=ContextResponseModel)
-async def natal_context(request_body: BirthChartDataRequestModel, request: Request) -> JSONResponse:
+async def natal_context(
+    request_body: BirthChartDataRequestModel, request: Request
+) -> JSONResponse:
     """
     **POST** `/api/v5/context/birth-chart`
 
@@ -86,7 +92,9 @@ async def natal_context(request_body: BirthChartDataRequestModel, request: Reque
     - `context`: AI-optimized context string
     - `chart_data`: ChartDataModel
     """
-    log_request_with_body(logger, request, "Natal context request", request_body.model_dump_json())
+    log_request_with_body(
+        logger, request, "Natal context request", request_body.model_dump_json()
+    )
 
     try:
         chart_data = create_natal_chart_data(request_body)
@@ -96,7 +104,9 @@ async def natal_context(request_body: BirthChartDataRequestModel, request: Reque
 
 
 @router.post("/api/v5/context/synastry", response_model=ContextResponseModel)
-async def synastry_context(request_body: SynastryChartDataRequestModel, request: Request) -> JSONResponse:
+async def synastry_context(
+    request_body: SynastryChartDataRequestModel, request: Request
+) -> JSONResponse:
     """
     **POST** `/api/v5/context/synastry`
 
@@ -112,7 +122,9 @@ async def synastry_context(request_body: SynastryChartDataRequestModel, request:
     - `context`: AI-optimized context string
     - `chart_data`: ChartDataModel
     """
-    log_request_with_body(logger, request, "Synastry context request", request_body.model_dump_json())
+    log_request_with_body(
+        logger, request, "Synastry context request", request_body.model_dump_json()
+    )
 
     try:
         chart_data = create_synastry_chart_data(request_body)
@@ -122,7 +134,9 @@ async def synastry_context(request_body: SynastryChartDataRequestModel, request:
 
 
 @router.post("/api/v5/context/composite", response_model=ContextResponseModel)
-async def composite_context(request_body: CompositeChartDataRequestModel, request: Request) -> JSONResponse:
+async def composite_context(
+    request_body: CompositeChartDataRequestModel, request: Request
+) -> JSONResponse:
     """
     **POST** `/api/v5/context/composite`
 
@@ -137,7 +151,9 @@ async def composite_context(request_body: CompositeChartDataRequestModel, reques
     - `context`: AI-optimized context string
     - `chart_data`: ChartDataModel
     """
-    log_request_with_body(logger, request, "Composite context request", request_body.model_dump_json())
+    log_request_with_body(
+        logger, request, "Composite context request", request_body.model_dump_json()
+    )
 
     try:
         chart_data = create_composite_chart_data(request_body)
@@ -147,7 +163,9 @@ async def composite_context(request_body: CompositeChartDataRequestModel, reques
 
 
 @router.post("/api/v5/context/transit", response_model=ContextResponseModel)
-async def transit_context(request_body: TransitChartDataRequestModel, request: Request) -> JSONResponse:
+async def transit_context(
+    request_body: TransitChartDataRequestModel, request: Request
+) -> JSONResponse:
     """
     **POST** `/api/v5/context/transit`
 
@@ -163,7 +181,9 @@ async def transit_context(request_body: TransitChartDataRequestModel, request: R
     - `context`: AI-optimized context string
     - `chart_data`: ChartDataModel
     """
-    log_request_with_body(logger, request, "Transit context request", request_body.model_dump_json())
+    log_request_with_body(
+        logger, request, "Transit context request", request_body.model_dump_json()
+    )
 
     try:
         chart_data = create_transit_chart_data(request_body)
@@ -173,7 +193,9 @@ async def transit_context(request_body: TransitChartDataRequestModel, request: R
 
 
 @router.post("/api/v5/context/solar-return", response_model=ReturnContextResponseModel)
-async def solar_return_context(request_body: PlanetaryReturnDataRequestModel, request: Request) -> JSONResponse:
+async def solar_return_context(
+    request_body: PlanetaryReturnDataRequestModel, request: Request
+) -> JSONResponse:
     """
     **POST** `/api/v5/context/solar-return`
 
@@ -191,7 +213,9 @@ async def solar_return_context(request_body: PlanetaryReturnDataRequestModel, re
     - `return_type`: "Solar"
     - `wheel_type`: "dual" | "single"
     """
-    log_request_with_body(logger, request, "Solar return context request", request_body.model_dump_json())
+    log_request_with_body(
+        logger, request, "Solar return context request", request_body.model_dump_json()
+    )
 
     try:
         chart_data = calculate_return_chart_data(request_body, "Solar")
@@ -204,7 +228,9 @@ async def solar_return_context(request_body: PlanetaryReturnDataRequestModel, re
 
 
 @router.post("/api/v5/context/lunar-return", response_model=ReturnContextResponseModel)
-async def lunar_return_context(request_body: PlanetaryReturnDataRequestModel, request: Request) -> JSONResponse:
+async def lunar_return_context(
+    request_body: PlanetaryReturnDataRequestModel, request: Request
+) -> JSONResponse:
     """
     **POST** `/api/v5/context/lunar-return`
 
@@ -220,7 +246,9 @@ async def lunar_return_context(request_body: PlanetaryReturnDataRequestModel, re
     - `return_type`: "Lunar"
     - `wheel_type`: "dual" | "single"
     """
-    log_request_with_body(logger, request, "Lunar return context request", request_body.model_dump_json())
+    log_request_with_body(
+        logger, request, "Lunar return context request", request_body.model_dump_json()
+    )
 
     try:
         chart_data = calculate_return_chart_data(request_body, "Lunar")
@@ -233,7 +261,9 @@ async def lunar_return_context(request_body: PlanetaryReturnDataRequestModel, re
 
 
 @router.post("/api/v5/now/context", response_model=SubjectContextResponseModel)
-async def now_context(request_body: NowSubjectRequestModel, request: Request) -> JSONResponse:
+async def now_context(
+    request_body: NowSubjectRequestModel, request: Request
+) -> JSONResponse:
     """
     **POST** `/api/v5/now/context`
 
@@ -247,7 +277,9 @@ async def now_context(request_body: NowSubjectRequestModel, request: Request) ->
     - `subject_context`: AI-optimized context string
     - `subject`: AstrologicalSubjectModel (serialized)
     """
-    log_request_with_body(logger, request, "Current context request", request_body.model_dump_json())
+    log_request_with_body(
+        logger, request, "Current context request", request_body.model_dump_json()
+    )
 
     try:
         try:

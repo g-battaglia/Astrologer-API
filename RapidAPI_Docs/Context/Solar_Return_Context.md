@@ -8,7 +8,7 @@ Solar Return - AI Context
 
 ## Description
 
-Returns a structured text analysis of a Solar Return chart, optimized for AI/LLMs.
+Returns a structured XML analysis of a Solar Return chart, optimized for AI/LLMs.
 
 ### Parameters
 
@@ -59,7 +59,7 @@ Returns a structured text analysis of a Solar Return chart, optimized for AI/LLM
 ```json
 {
     "status": "OK",
-    "context": "DualReturnChart Chart Analysis\n==================================================\n\nFirst Subject: John Doe\nSecond Subject: Solar Return 2024\n...",
+    "context": "<chart_analysis type=\"DualReturnChart\">\n  <chart name=\"John Doe\">...</chart>\n  <chart name=\"Solar Return 2024\">...</chart>\n</chart_analysis>",
     "chart_data": {
         "chart_type": "DualReturnChart",
         "return_type": "Solar"

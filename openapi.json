@@ -1691,6 +1691,73 @@
         ]
       }
     },
+    "/api/v5/moon-phase/context": {
+      "post": {
+        "tags": [
+          "Moon Phase"
+        ],
+        "summary": "Moon Phase Context",
+        "description": "**POST** `/api/v5/moon-phase/context`\n\nReturns detailed moon phase information with AI-optimized XML context.\n\n**Parameters:**\n- `year`, `month`, `day`, `hour`, `minute`: Date and time of the event (required).\n- `second`: Seconds (optional, default 0).\n- `latitude`, `longitude`, `timezone`: Geographic location (required).\n- `using_default_location`: Metadata flag (optional, default false).\n- `location_precision`: Decimal precision for coordinates in response (optional, default 0).\n\n**Returns:**\n- `status`: \"OK\"\n- `context`: AI-optimized XML context string\n- `moon_phase_overview`: MoonPhaseOverviewModel",
+        "operationId": "moon_phase_context_api_v5_moon_phase_context_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoonPhaseRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MoonPhaseContextResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
     "/api/v5/moon-phase/now-utc": {
       "post": {
         "tags": [
@@ -1716,6 +1783,73 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MoonPhaseResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "RapidAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "x-rapidapi-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "<YOUR_RAPIDAPI_KEY>"
+            }
+          },
+          {
+            "name": "x-rapidapi-host",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "astrologer.p.rapidapi.com"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v5/moon-phase/now-utc/context": {
+      "post": {
+        "tags": [
+          "Moon Phase"
+        ],
+        "summary": "Moon Phase Now Utc Context",
+        "description": "**POST** `/api/v5/moon-phase/now-utc/context`\n\nReturns detailed moon phase information for the current UTC moment at Greenwich\nwith AI-optimized XML context.\n\n**Parameters:**\n- `using_default_location`: Metadata flag (optional, default true).\n- `location_precision`: Decimal precision for coordinates in response (optional, default 0).\n\n**Returns:**\n- `status`: \"OK\"\n- `context`: AI-optimized XML context string\n- `moon_phase_overview`: MoonPhaseOverviewModel",
+        "operationId": "moon_phase_now_utc_context_api_v5_moon_phase_now_utc_context_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NowMoonPhaseRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MoonPhaseContextResponseModel"
                 }
               }
             }
@@ -5276,6 +5410,32 @@
         ],
         "title": "LunarPhaseModel",
         "description": "Model representing lunar phase information.\n\nAttributes:\n    degrees_between_s_m: Angular separation between Sun and Moon in degrees.\n    moon_phase: Numerical phase identifier for the Moon.\n    moon_emoji: Emoji representation of the lunar phase.\n    moon_phase_name: Text name of the lunar phase."
+      },
+      "MoonPhaseContextResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the response."
+          },
+          "moon_phase_overview": {
+            "$ref": "#/components/schemas/MoonPhaseOverviewModel",
+            "description": "Detailed moon phase overview including illumination, upcoming phases, eclipses, and sun info."
+          },
+          "context": {
+            "type": "string",
+            "title": "Context",
+            "description": "AI-optimized XML context string for the moon phase overview."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "moon_phase_overview",
+          "context"
+        ],
+        "title": "MoonPhaseContextResponseModel",
+        "description": "Response payload for moon phase details with AI-optimized context."
       },
       "MoonPhaseEclipseModel": {
         "properties": {

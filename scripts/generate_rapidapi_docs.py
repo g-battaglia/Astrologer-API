@@ -130,7 +130,9 @@ def extract_request_body_example(content: str) -> dict | None:
         { ... }
         ```
     """
-    match = re.search(r"## Request Body Example\s*\n```json\s*\n(.*?)\n```", content, re.DOTALL)
+    match = re.search(
+        r"## Request Body Example\s*\n```json\s*\n(.*?)\n```", content, re.DOTALL
+    )
     if match:
         json_str = match.group(1).strip()
         try:
@@ -151,7 +153,9 @@ def extract_response_body_example(content: str) -> dict | None:
         { ... }
         ```
     """
-    match = re.search(r"## Response Body Example\s*\n```json\s*\n(.*?)\n```", content, re.DOTALL)
+    match = re.search(
+        r"## Response Body Example\s*\n```json\s*\n(.*?)\n```", content, re.DOTALL
+    )
     if match:
         json_str = match.group(1).strip()
         try:
@@ -392,6 +396,11 @@ ENDPOINT_ORDER = [
     "/api/v5/subject",
     "/api/v5/now/subject",
     "/api/v5/compatibility-score",
+    # Moon Phase
+    "/api/v5/moon-phase",
+    "/api/v5/moon-phase/context",
+    "/api/v5/moon-phase/now-utc",
+    "/api/v5/moon-phase/now-utc/context",
     # AI Context
     "/api/v5/context/birth-chart",
     "/api/v5/context/synastry",
@@ -465,8 +474,15 @@ def main() -> None:
     6. Write rapidapi.json
     """
     # Parse command line arguments
-    parser = argparse.ArgumentParser(description="Generate RapidAPI OpenAPI Spec from markdown documentation.")
-    parser.add_argument("-u", "--url", type=str, help="Override the server URL in the OpenAPI spec (e.g., https://astrologer-api.example.com)")
+    parser = argparse.ArgumentParser(
+        description="Generate RapidAPI OpenAPI Spec from markdown documentation."
+    )
+    parser.add_argument(
+        "-u",
+        "--url",
+        type=str,
+        help="Override the server URL in the OpenAPI spec (e.g., https://astrologer-api.example.com)",
+    )
     args = parser.parse_args()
 
     print("=" * 60)

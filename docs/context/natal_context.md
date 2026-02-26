@@ -55,7 +55,7 @@ Generates an AI-powered interpretation of a full natal chart. Unlike the simple 
 ### Response Body
 
 -   **`status`** (string): "OK" on success.
--   **`context`** (string): The generated AI text interpretation of the natal chart.
+-   **`context`** (string): The generated AI XML context string for the natal chart.
 -   **`chart_data`** (object): The complete calculated chart data.
 
 #### Complete Response Example
@@ -63,7 +63,7 @@ Generates an AI-powered interpretation of a full natal chart. Unlike the simple 
 ```json
 {
   "status": "OK",
-  "context": "Natal Chart Analysis for Subject Name...\nThe Sun is in Capricorn...",
+  "context": "<chart_analysis type=\"Natal\"><subject>Subject Name</subject>...</chart_analysis>",
   "chart_data": {
     "subject": { ... },
     "houses_list": [ ... ],

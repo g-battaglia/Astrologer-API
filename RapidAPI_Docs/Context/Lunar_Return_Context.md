@@ -8,7 +8,7 @@ Lunar Return - AI Context
 
 ## Description
 
-Returns a structured text description of a Lunar Return chart data, optimized for AI/LLMs.
+Returns a structured XML description of a Lunar Return chart data, optimized for AI/LLMs.
 
 ### Parameters
 
@@ -59,7 +59,7 @@ Returns a structured text description of a Lunar Return chart data, optimized fo
 ```json
 {
     "status": "OK",
-    "context": "DualReturnChart Chart Analysis\n==================================================\n\nFirst Subject: John Doe\nSecond Subject: Lunar Return Nov 2024\n...",
+    "context": "<chart_analysis type=\"DualReturnChart\">\n  <chart name=\"John Doe\">...</chart>\n  <chart name=\"Lunar Return Nov 2024\">...</chart>\n</chart_analysis>",
     "chart_data": {
         "chart_type": "DualReturnChart",
         "return_type": "Lunar"

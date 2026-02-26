@@ -62,7 +62,7 @@ Generates an AI-powered interpretation of a Solar Return chart. The Solar Return
 ### Response Body
 
 -   **`status`** (string): "OK" on success.
--   **`context`** (string): The generated AI text interpretation of the solar return.
+-   **`context`** (string): The generated AI XML context string for the solar return.
 -   **`chart_data`** (object): The complete calculated solar return chart data.
 
 #### Complete Response Example
@@ -70,7 +70,7 @@ Generates an AI-powered interpretation of a Solar Return chart. The Solar Return
 ```json
 {
   "status": "OK",
-  "context": "Solar Return Analysis for 2024...\nThe Ascendant of the return chart is in...",
+  "context": "<chart_analysis type=\"Solar Return\"><subject>John Doe</subject>...</chart_analysis>",
   "chart_data": {
     "natal_subject": { ... },
     "return_subject": { ... },

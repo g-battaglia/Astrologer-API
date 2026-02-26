@@ -119,6 +119,15 @@ class MoonPhaseResponseModel(StatusResponseModel):
     )
 
 
+
+
+class MoonPhaseContextResponseModel(MoonPhaseResponseModel):
+    """Response payload for moon phase details with AI-optimized context."""
+
+    context: str = Field(
+        description="AI-optimized XML context string for the moon phase overview."
+    )
+
 class ReturnContextResponseModel(ContextResponseModel):
     """Response payload for solar and lunar return context requests."""
 

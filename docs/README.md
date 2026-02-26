@@ -13,7 +13,7 @@ The API provides three main capabilities:
 
 1.  **Ephemeris Calculations**: Computes accurate positions of planets, house cusps, and other celestial points using the Swiss Ephemeris (via the Kerykeion library).
 2.  **SVG Chart Generation**: Generates high-quality, ready-to-display SVG charts for various astrological techniques (Natal, Synastry, Composite, Transits).
-3.  **AI Context**: Leverages Generative AI to provide textual explanations, syntheses, and personalized interpretations based on the calculated astrological data.
+3.  **AI Context**: Leverages Generative AI to provide XML-structured explanations, syntheses, and personalized interpretations based on the calculated astrological data.
 
 ## Core Concepts
 
@@ -78,6 +78,8 @@ Dedicated endpoints for detailed lunar phase analysis, using a simplified reques
 
 -   [**Moon Phase**](data/moon_phase.md) ([Example](examples/moon_phase.md)): Detailed moon phase for a specific date/time and location.
 -   [**Moon Phase Now (UTC)**](data/moon_phase_now_utc.md) ([Example](examples/moon_phase_now_utc.md)): Current moon phase at Greenwich.
+-   [**Moon Phase Context**](context/moon_phase_context.md) ([Example](examples/moon_phase_context.md)): Moon phase with AI-optimized XML context.
+-   [**Moon Phase Now Context (UTC)**](context/moon_phase_now_utc_context.md) ([Example](examples/moon_phase_now_utc_context.md)): Current moon phase with AI-optimized XML context.
 
 ### 🎨 Chart Endpoints (SVG)
 
@@ -93,7 +95,7 @@ Endpoints that return rendered SVG charts along with the calculation data.
 
 ### 🧠 Context Endpoints (AI)
 
-Endpoints that return AI-optimized textual interpretations and context.
+Endpoints that return AI-optimized XML interpretations and context.
 
 -   [**Subject Context**](context/subject_context.md) ([Example](examples/subject_context.md))
 -   [**Now Context**](context/now_context.md) ([Example](examples/now_context.md))

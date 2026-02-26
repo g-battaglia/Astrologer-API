@@ -7,7 +7,7 @@ Transit Chart - AI Context
 
 ## Description
 
-Returns a structured text analysis of a transit chart (current planets vs natal chart), optimized for AI/LLMs.
+Returns a structured XML analysis of a transit chart (current planets vs natal chart), optimized for AI/LLMs.
 
 ### Parameters
 
@@ -56,7 +56,7 @@ Returns a structured text analysis of a transit chart (current planets vs natal 
 ```json
 {
     "status": "OK",
-    "context": "Transit Chart Analysis\n==================================================\n\nFirst Subject: John Doe\nSecond Subject: Now\n...",
+    "context": "<chart_analysis type=\"Transit\">\n  <chart name=\"John Doe\">...</chart>\n  <chart name=\"Now\">...</chart>\n</chart_analysis>",
     "chart_data": {
         "chart_type": "Transit"
     }

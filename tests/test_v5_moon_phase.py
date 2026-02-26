@@ -322,6 +322,100 @@ def test_now_utc_moon_phase_default_precision(client: TestClient):
     assert location["longitude"] == "0"
 
 
+# ---- Context endpoints ----
+
+
+def test_moon_phase_context(client: TestClient):
+    """Test /api/v5/moon-phase/context endpoint."""
+    payload = {
+        "year": 1993,
+        "month": 10,
+        "day": 10,
+        "hour": 12,
+        "minute": 12,
+        "latitude": 51.5074,
+        "longitude": -0.1276,
+        "timezone": "Europe/London",
+    }
+    resp = client.post("/api/v5/moon-phase/context", json=payload)
+    assert resp.status_code == 200
+
+    body = resp.json()
+    assert body["status"] == "OK"
+
+    # Verifica presenza context (XML format)
+    assert "context" in body
+    assert isinstance(body["context"], str)
+    assert len(body["context"]) > 0
+    assert "<moon_phase_overview" in body["context"]
+
+    # Verifica presenza moon_phase_overview
+    assert "moon_phase_overview" in body
+    overview = body["moon_phase_overview"]
+    assert "moon" in overview
+    assert "sun" in overview
+    assert "location" in overview
+
+    # Verifica ordine campi (context prima di moon_phase_overview)
+    keys = list(body.keys())
+    assert keys.index("context") < keys.index("moon_phase_overview")
+
+    # Verifica coerenza dati
+    assert overview["moon"]["phase_name"] == "Waning Crescent"
+
+
+def test_moon_phase_now_utc_context(client: TestClient):
+    """Test /api/v5/moon-phase/now-utc/context endpoint."""
+    resp = client.post("/api/v5/moon-phase/now-utc/context", json={})
+    assert resp.status_code == 200
+
+    body = resp.json()
+    assert body["status"] == "OK"
+
+    # Verifica presenza context (XML format)
+    assert "context" in body
+    assert isinstance(body["context"], str)
+    assert len(body["context"]) > 0
+    assert "<moon_phase_overview" in body["context"]
+
+    # Verifica presenza moon_phase_overview
+    assert "moon_phase_overview" in body
+    overview = body["moon_phase_overview"]
+    assert "moon" in overview
+    assert "sun" in overview
+
+    # Deve usare le coordinate di Greenwich
+    location = overview["location"]
+    assert location["using_default_location"] is True
+
+    # Verifica ordine campi
+    keys = list(body.keys())
+    assert keys.index("context") < keys.index("moon_phase_overview")
+
+
+def test_moon_phase_context_with_precision(client: TestClient):
+    """Test che location_precision venga rispettato anche nell'endpoint context."""
+    payload = {
+        "year": 1993,
+        "month": 10,
+        "day": 10,
+        "hour": 12,
+        "minute": 12,
+        "latitude": 51.5074,
+        "longitude": -0.1276,
+        "timezone": "Europe/London",
+        "location_precision": 4,
+    }
+    resp = client.post("/api/v5/moon-phase/context", json=payload)
+    assert resp.status_code == 200
+
+    body = resp.json()
+    location = body["moon_phase_overview"]["location"]
+    assert location["precision"] == 4
+    assert location["latitude"] == "51.5074"
+    assert location["longitude"] == "-0.1276"
+
+
 # ---- Validazione errori ----
 
 

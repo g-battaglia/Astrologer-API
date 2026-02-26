@@ -6,7 +6,7 @@ UTC Current Date Time Birth - AI Context
 
 ## Description
 
-Returns a structured text analysis of the current moment (Now) at Greenwich, optimized for AI/LLMs.
+Returns a structured XML analysis of the current moment (Now) at Greenwich, optimized for AI/LLMs.
 
 ### Parameters
 
@@ -30,7 +30,7 @@ Returns a structured text analysis of the current moment (Now) at Greenwich, opt
 ```json
 {
     "status": "OK",
-    "subject_context": "Chart for \"Now\"\n...",
+    "subject_context": "<chart name=\"Now\">...</chart>",
     "subject": {
         "name": "Now"
     }

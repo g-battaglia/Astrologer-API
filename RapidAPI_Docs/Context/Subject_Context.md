@@ -6,7 +6,7 @@ Astrological Subject - AI Context
 
 ## Description
 
-Returns a structured text analysis of a subject (planets, houses), optimized for AI/LLMs.
+Returns a structured XML analysis of a subject (planets, houses), optimized for AI/LLMs.
 
 ### Parameters
 
@@ -37,7 +37,7 @@ Returns a structured text analysis of a subject (planets, houses), optimized for
 ```json
 {
     "status": "OK",
-    "subject_context": "Chart for \"John Doe\"\n...",
+    "subject_context": "<chart name=\"John Doe\">...</chart>",
     "subject": {
         "name": "John Doe"
     }

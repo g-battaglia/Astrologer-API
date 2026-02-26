@@ -1,7 +1,7 @@
 # Astrologer API
 
 Astrologer API lets you add **professional-grade astrology features** to any app — fast.  
-It delivers both **plug-and-play SVG charts** and **rich astrological data** for natal, synastry, transits, composites, and returns.
+It delivers **plug-and-play SVG charts**, **rich astrological data**, and **AI-optimized XML context** for natal, synastry, transits, composites, returns, and moon phases.
 
 -   NASA-grade astronomical accuracy
 -   Production-ready JSON + beautiful SVGs
@@ -99,10 +99,12 @@ Dedicated endpoints for detailed lunar phase analysis. These use a simplified re
 
 -   `/api/v5/moon-phase` (POST) - Detailed moon phase for a specific date/time and location
 -   `/api/v5/moon-phase/now-utc` (POST) - Current moon phase at Greenwich (UTC)
+-   `/api/v5/moon-phase/context` (POST) - Moon phase data with AI-optimized XML context
+-   `/api/v5/moon-phase/now-utc/context` (POST) - Current moon phase with AI-optimized XML context
 
 ### Context Endpoints (AI/LLM Integration)
 
-The API provides AI-optimized context endpoints that return structured textual descriptions instead of SVG charts. These are designed for LLM integration and AI applications:
+The API provides AI-optimized context endpoints that return structured XML descriptions instead of SVG charts. These are designed for LLM integration and AI applications:
 
 -   `/api/v5/context/subject` (POST) - Subject data with AI context
 -   `/api/v5/context/birth-chart` (POST) - Natal chart data with AI context
@@ -113,7 +115,7 @@ The API provides AI-optimized context endpoints that return structured textual d
 -   `/api/v5/context/lunar-return` (POST) - Lunar return data with AI context
 -   `/api/v5/now/context` (POST) - Current moment with AI context
 
-These endpoints accept the same parameters as their corresponding chart-data endpoints but return `context` (AI-optimized text) instead of SVG charts.
+These endpoints accept the same parameters as their corresponding chart-data endpoints but return `context` (AI-optimized XML context string) instead of SVG charts.
 
 ## Documentation
 
@@ -294,6 +296,47 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v5/moon-phase/now-utc' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{}'
 ```
+
+Moon phase with AI context (same request, XML context added):
+
+```bash
+curl -X POST 'https://astrologer.p.rapidapi.com/api/v5/moon-phase/context' \
+    -H 'Content-Type: application/json' \
+    -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
+    -H 'X-RapidAPI-Key: YOUR_API_KEY' \
+    -d '{
+        "year": 1993, "month": 10, "day": 10, "hour": 12, "minute": 12,
+        "latitude": 51.5074, "longitude": -0.1276, "timezone": "Europe/London"
+    }'
+```
+
+### 6) AI Context (for LLM integration)
+
+Every chart type has a matching `/context/` endpoint that returns an XML context string instead of SVG. Use it to feed astrological data directly into an LLM prompt:
+
+```bash
+curl -X POST 'https://astrologer.p.rapidapi.com/api/v5/context/birth-chart' \
+    -H 'Content-Type: application/json' \
+    -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
+    -H 'X-RapidAPI-Key: YOUR_API_KEY' \
+    -d '{
+        "subject": { "name": "Ada", "year": 1990, "month": 5, "day": 1, "hour": 10, "minute": 0, "longitude": 12.4964, "latitude": 41.9028, "timezone": "Europe/Rome" }
+    }'
+```
+
+Response (shape):
+
+```json
+{
+    "status": "OK",
+    "context": "<chart_analysis type=\"Natal\">...\n</chart_analysis>",
+    "chart_data": {
+        /* same structure as /chart-data/birth-chart */
+    }
+}
+```
+
+The `context` string is structured XML with planetary positions, aspects, houses, and distributions — ready to inject into any AI prompt. Available for all chart types, subject, now, and moon phase.
 
 ## Options at a glance
 

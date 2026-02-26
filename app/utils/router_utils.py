@@ -768,3 +768,24 @@ def moon_phase_payload(overview) -> dict:
         "status": "OK",
         "moon_phase_overview": data,
     }
+
+
+def moon_phase_context_payload(overview) -> dict:
+    """
+    Wrap a moon phase overview with AI-optimized context in a standard response payload.
+
+    The returned dict places *context* before *moon_phase_overview* so that
+    the field ordering is consistent with the other context endpoints.
+
+    Args:
+        overview: The MoonPhaseOverviewModel instance.
+
+    Returns:
+        dict: The response payload containing status, context, and moon_phase_overview.
+    """
+    data_payload = moon_phase_payload(overview)
+    return {
+        "status": data_payload["status"],
+        "context": to_context(overview),
+        "moon_phase_overview": data_payload["moon_phase_overview"],
+    }

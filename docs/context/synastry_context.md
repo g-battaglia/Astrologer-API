@@ -84,7 +84,7 @@ Generates an AI-powered interpretation of a synastry (relationship) chart. This 
 ### Response Body
 
 -   **`status`** (string): "OK" on success.
--   **`context`** (string): The generated AI text interpretation of the relationship.
+-   **`context`** (string): The generated AI XML context string for the relationship.
 -   **`chart_data`** (object): The complete calculated synastry chart data.
 
 #### Complete Response Example
@@ -92,7 +92,7 @@ Generates an AI-powered interpretation of a synastry (relationship) chart. This 
 ```json
 {
   "status": "OK",
-  "context": "Synastry Analysis between Partner A and Partner B...\nPartner A's Sun is conjunct Partner B's Moon...",
+  "context": "<chart_analysis type=\"Synastry\"><first_subject>Partner A</first_subject><second_subject>Partner B</second_subject>...</chart_analysis>",
   "chart_data": {
     "first_subject": { ... },
     "second_subject": { ... },

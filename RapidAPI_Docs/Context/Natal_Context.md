@@ -6,7 +6,7 @@ Birth Chart - AI Context
 
 ## Description
 
-Returns a structured text analysis of a natal chart, optimized for use with AI/LLMs. Includes planetary positions, aspects, and distributions in a format that is easy for language models to parse and interpret.
+Returns a structured XML analysis of a natal chart, optimized for use with AI/LLMs. Includes planetary positions, aspects, and distributions in a format that is easy for language models to parse and interpret.
 
 ### Parameters
 
@@ -41,7 +41,7 @@ Returns a structured text analysis of a natal chart, optimized for use with AI/L
 ```json
 {
     "status": "OK",
-    "context": "Natal Chart Analysis\n==================================================\n\nChart for \"John Doe\"\n...",
+    "context": "<chart_analysis type=\"Natal\">\n  <chart name=\"John Doe\">...</chart>\n</chart_analysis>",
     "chart_data": {
         "chart_type": "Natal",
         "subject": { "name": "John Doe" }
