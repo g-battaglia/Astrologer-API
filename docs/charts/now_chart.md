@@ -1,5 +1,6 @@
 ---
 title: 'Now Chart'
+description: 'View the current global sky with the "Now" Chart endpoint. Instant SVG rendering of real-time planetary positions for universal reference.'
 order: 2
 ---
 

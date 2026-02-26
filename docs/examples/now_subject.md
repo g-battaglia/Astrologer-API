@@ -1,3 +1,8 @@
+---
+title: 'Now Subject JSON Example'
+description: 'Example JSON output for real-time subject data. Demonstrates the structure of "Astrological Weather" data calculated for the current moment.'
+---
+
 # Now Subject Example
 
 Endpoint: `/api/v5/now/subject`

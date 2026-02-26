@@ -1,3 +1,8 @@
+---
+title: 'Solar Return JSON Data Example'
+description: 'JSON example for Solar Return data. Structure of calculations for the exact moment of the annual solar return for predictive astrology.'
+---
+
 # Solar Return Chart Data Example
 
 Endpoint: `/api/v5/chart-data/solar-return`

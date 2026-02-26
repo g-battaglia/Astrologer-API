@@ -1,5 +1,6 @@
 ---
 title: 'Composite Chart'
+description: 'Visualize the unified essence of a partnership with SVG Composite charts. Midpoint-based single-wheel rendering for deep relationship analysis.'
 order: 4
 ---
 

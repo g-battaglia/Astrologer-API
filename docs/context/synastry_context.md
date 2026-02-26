@@ -1,5 +1,6 @@
 ---
 title: 'Synastry Context'
+description: 'Retrieve formatted synastry data and relationship summaries to serve as context for AI interpretation. Optimized for relationship compatibility analysis using LLMs.'
 order: 4
 ---
 

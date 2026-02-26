@@ -1,3 +1,8 @@
+---
+title: 'Subject Context JSON Example'
+description: 'Sample JSON output showing structured astrological context for AI personality insights. Formatted for use as a baseline for LLM-generated readings.'
+---
+
 # Subject Context Example
 
 Endpoint: `/api/v5/context/subject`

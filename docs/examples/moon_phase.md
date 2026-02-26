@@ -1,3 +1,8 @@
+---
+title: 'Moon Phase JSON Example'
+description: 'Complete JSON example of detailed moon phase data including illumination, upcoming phases, eclipses, and sun position.'
+---
+
 # Moon Phase Example
 
 Endpoint: `/api/v5/moon-phase`

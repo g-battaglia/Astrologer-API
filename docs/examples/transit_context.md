@@ -1,3 +1,8 @@
+---
+title: 'Transit Context JSON Example'
+description: 'Example JSON output for transit context designed for AI narratives. Highlights how current planetary influences are summarized for LLM analysis.'
+---
+
 # Transit Context Example
 
 Endpoint: `/api/v5/context/transit`

@@ -1,5 +1,6 @@
 ---
 title: 'Compatibility Score'
+description: 'Calculate numerical relationship compatibility scores using the Ciro Discepolo method. Includes qualitative descriptions and "Destiny Signs" analysis.'
 order: 3
 ---
 

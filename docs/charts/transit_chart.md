@@ -1,5 +1,6 @@
 ---
 title: 'Transit Chart'
+description: 'Monitor the "cosmic weather" with SVG transit charts. Compare current planetary positions against a natal foundation for precise predictive visualization.'
 order: 5
 ---
 

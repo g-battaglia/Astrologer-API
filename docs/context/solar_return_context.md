@@ -1,5 +1,6 @@
 ---
 title: 'Solar Return Context'
+description: 'Obtain formatted Solar Return data and yearly summaries to power AI astrological forecasts. Ideal context for LLMs to interpret birthday chart themes.'
 order: 7
 ---
 

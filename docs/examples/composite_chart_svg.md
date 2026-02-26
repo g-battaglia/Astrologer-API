@@ -1,3 +1,8 @@
+---
+title: 'Composite Chart SVG Example'
+description: 'See a sample SVG composite chart. Visual representation of the relationship as a single entity based on planetary midpoints between partners.'
+---
+
 # Composite Chart SVG Example
 
 Endpoint: `/api/v5/chart/composite`

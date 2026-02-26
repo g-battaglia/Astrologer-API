@@ -1,3 +1,8 @@
+---
+title: 'Lunar Return Context JSON Example'
+description: 'Sample JSON response for Lunar Return context optimized for AI cycles. Provides structured emotional themes for LLM monthly outlooks.'
+---
+
 # Lunar Return Context Example
 
 Endpoint: `/api/v5/context/lunar-return`

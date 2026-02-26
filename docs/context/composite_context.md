@@ -1,5 +1,6 @@
 ---
 title: 'Composite Context'
+description: 'Get formatted composite chart data and relationship summaries for AI interpretation. Provides the relational context for LLMs to generate partnership insights.'
 order: 5
 ---
 

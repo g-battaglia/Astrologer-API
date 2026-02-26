@@ -1,5 +1,6 @@
 ---
 title: 'Solar Return Chart Data'
+description: 'Retrieve raw Solar Return data. Precise calculations for the astrological birthday to forecast themes and events for the year ahead.'
 order: 8
 ---
 

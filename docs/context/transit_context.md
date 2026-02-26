@@ -1,5 +1,6 @@
 ---
 title: 'Transit Context'
+description: 'Get structured planetary transit data and summaries for AI-driven predictive astrology. Provides the essential context for LLMs to interpret current life themes.'
 order: 6
 ---
 

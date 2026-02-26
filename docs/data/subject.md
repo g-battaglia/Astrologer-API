@@ -1,5 +1,6 @@
 ---
 title: 'Subject Data'
+description: 'Generate an astrological subject from raw birth data. Perform high-precision ephemeris calculations for planets, houses, and axes in machine-readable JSON.'
 order: 1
 ---
 

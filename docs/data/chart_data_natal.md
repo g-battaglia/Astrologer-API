@@ -1,5 +1,6 @@
 ---
 title: 'Natal Chart Data'
+description: 'Access complete natal chart calculations in JSON. High-precision positions for planets, house cusps, and astrological points based on birth data.'
 order: 4
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 'Solar Return Chart'
+description: 'Map out the solar year with SVG Solar Return charts. Professional dual-wheel and relocation support for accurate annual birthday forecasting.'
 order: 6
 ---
 

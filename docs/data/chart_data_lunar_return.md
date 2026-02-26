@@ -1,5 +1,6 @@
 ---
 title: 'Lunar Return Chart Data'
+description: 'Retrieve raw Lunar Return data in JSON. High-precision calculations for the Moon''s monthly return to its natal position for emotional forecasting.'
 order: 9
 ---
 

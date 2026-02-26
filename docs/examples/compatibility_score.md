@@ -1,3 +1,8 @@
+---
+title: 'Compatibility Score JSON Example'
+description: 'Example response for the Compatibility Score endpoint. Shows numerical scores, qualitative descriptions, and inter-aspect data for synastry.'
+---
+
 # Compatibility Score Example
 
 Endpoint: `/api/v5/compatibility-score`

@@ -1,5 +1,6 @@
 ---
 title: 'Now Context'
+description: 'Obtain a real-time astrological context snapshot for AI-driven "Daily Horoscope" or "Weather" features. Formatted for immediate use with LLMs.'
 order: 2
 ---
 

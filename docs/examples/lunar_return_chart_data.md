@@ -1,3 +1,8 @@
+---
+title: 'Lunar Return JSON Data Example'
+description: 'JSON example for Lunar Return data. Shows the calculated positions for the natal subject and the return moment for monthly forecasting.'
+---
+
 # Lunar Return Chart Data Example
 
 Endpoint: `/api/v5/chart-data/lunar-return`

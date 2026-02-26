@@ -1,3 +1,8 @@
+---
+title: 'Synastry Context JSON Example'
+description: 'JSON example of relationship context optimized for AI interpretation. Shows synthesized synastry data ready for LLM processing.'
+---
+
 # Synastry Context Example
 
 Endpoint: `/api/v5/context/synastry`

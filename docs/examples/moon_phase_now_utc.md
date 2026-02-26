@@ -1,3 +1,8 @@
+---
+title: 'Moon Phase Now (UTC) JSON Example'
+description: 'JSON example of real-time moon phase data at Greenwich Observatory. Shows the response structure for the current lunar state.'
+---
+
 # Moon Phase Now (UTC) Example
 
 Endpoint: `/api/v5/moon-phase/now-utc`

@@ -1,5 +1,6 @@
 ---
 title: 'Composite Chart Data'
+description: 'Retrieve raw composite chart data in JSON format. Calculate midpoints between two subjects to analyze the unique purpose and destiny of a union.'
 order: 6
 ---
 

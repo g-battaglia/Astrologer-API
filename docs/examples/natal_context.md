@@ -1,3 +1,8 @@
+---
+title: 'Natal Context JSON Example'
+description: 'Complete JSON example for AI-ready natal chart context. Demonstrates how chart dynamics are summarized for Large Language Models (LLMs).'
+---
+
 # Natal Chart Context Example
 
 Endpoint: `/api/v5/context/birth-chart`

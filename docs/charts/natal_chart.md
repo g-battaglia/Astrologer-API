@@ -1,5 +1,6 @@
 ---
 title: 'Natal Chart'
+description: 'Generate professional SVG natal charts with the Birth Chart endpoint. Customizable themes, language support, and machine-readable astrological data.'
 order: 1
 ---
 

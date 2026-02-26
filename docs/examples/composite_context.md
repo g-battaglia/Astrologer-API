@@ -1,3 +1,8 @@
+---
+title: 'Composite Context JSON Example'
+description: 'Sample composite chart context in JSON format. Provides the structural entity context required for AI-powered relationship destiny insights.'
+---
+
 # Composite Context Example
 
 Endpoint: `/api/v5/context/composite`

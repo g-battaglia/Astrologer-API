@@ -1,3 +1,8 @@
+---
+title: 'Composite Chart JSON Data Example'
+description: 'JSON example for Composite Chart data. Structure of midpoint calculations representing the unique essence of a partnership.'
+---
+
 # Composite Chart Data Example
 
 Endpoint: `/api/v5/chart-data/composite`

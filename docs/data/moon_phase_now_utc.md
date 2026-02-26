@@ -1,5 +1,6 @@
 ---
 title: 'Moon Phase Now (UTC)'
+description: 'Get the current moon phase at Greenwich Observatory in real time. Instant lunar data with no required parameters for "Moon right now" features.'
 order: 11
 ---
 

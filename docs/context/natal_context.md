@@ -1,5 +1,6 @@
 ---
 title: 'Natal Chart Context'
+description: 'Get structured astrological data and summaries to provide context for AI-driven birth chart interpretations. Optimized for Large Language Models (LLMs).'
 order: 3
 ---
 

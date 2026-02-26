@@ -1,5 +1,6 @@
 ---
 title: 'Lunar Return Context'
+description: 'Acquire structured Lunar Return data and monthly emotional summaries for AI-powered forecasting. Optimized context for LLM interpretations of lunar cycles.'
 order: 8
 ---
 

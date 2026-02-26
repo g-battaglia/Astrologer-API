@@ -1,3 +1,8 @@
+---
+title: 'Now Context JSON Example'
+description: 'Example JSON response providing real-time astrological context for AI models. Optimized for "Current Sky" or "Vibe Check" interpretations.'
+---
+
 # Now Context Example
 
 Endpoint: `/api/v5/now/context`

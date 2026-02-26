@@ -1,5 +1,6 @@
 ---
 title: 'Synastry Chart'
+description: 'Visualize relationship compatibility with dual-wheel synastry charts. High-quality SVG rendering with house overlays and inter-aspect analysis.'
 order: 3
 ---
 

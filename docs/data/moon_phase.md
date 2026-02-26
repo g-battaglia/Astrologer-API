@@ -1,5 +1,6 @@
 ---
 title: 'Moon Phase'
+description: 'Get detailed lunar phase data for any date, time, and location. Includes illumination, upcoming phases, eclipses, sunrise/sunset, and zodiac signs.'
 order: 10
 ---
 

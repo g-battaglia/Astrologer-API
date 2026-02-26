@@ -1,3 +1,8 @@
+---
+title: 'Solar Return Context JSON Example'
+description: 'Formatted JSON example of Solar Return context for AI forecasting. Provides the thematic summaries for LLM predictive readings.'
+---
+
 # Solar Return Context Example
 
 Endpoint: `/api/v5/context/solar-return`

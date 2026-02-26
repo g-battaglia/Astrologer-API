@@ -1,3 +1,8 @@
+---
+title: 'Now Chart SVG Example'
+description: 'View a sample "Now" chart SVG. Real-time visualization of the current global planetary positions rendered as a professional chart wheel.'
+---
+
 # Now Chart SVG Example
 
 Endpoint: `/api/v5/now/chart`

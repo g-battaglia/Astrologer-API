@@ -1,5 +1,6 @@
 ---
 title: 'Lunar Return Chart'
+description: 'Track monthly emotional cycles with SVG Lunar Return charts. High-precision rendering of the Moon''s monthly return for short-term forecasting.'
 order: 7
 ---
 

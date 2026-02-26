@@ -1,3 +1,8 @@
+---
+title: 'Transit Chart JSON Data Example'
+description: 'Example JSON response for Transit Chart Data. Highlights the structure of transit-to-natal aspect calculations and planetary positions.'
+---
+
 # Transit Chart Data Example
 
 Endpoint: `/api/v5/chart-data/transit`

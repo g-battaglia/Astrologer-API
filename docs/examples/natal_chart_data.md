@@ -1,3 +1,8 @@
+---
+title: 'Natal Chart JSON Data Example'
+description: 'Example JSON response for full natal calculations. Structure of machine-readable data for planets, houses, and aspects in a birth chart.'
+---
+
 # Natal Chart Data Example
 
 Endpoint: `/api/v5/chart-data/birth-chart`

@@ -1,3 +1,8 @@
+---
+title: 'Subject JSON Data Example'
+description: 'JSON example of a calculated astrological subject. Shows the result of raw birth data processed through high-precision ephemeris engines.'
+---
+
 # Subject Data Example
 
 Endpoint: `/api/v5/subject`

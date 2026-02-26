@@ -1,3 +1,8 @@
+---
+title: 'Synastry Chart SVG Example'
+description: 'View a sample SVG output for the Synastry Chart endpoint. Professional dual-wheel visualization of relationship compatibility and inter-aspects.'
+---
+
 # Synastry Chart SVG Example
 
 Endpoint: `/api/v5/chart/synastry`

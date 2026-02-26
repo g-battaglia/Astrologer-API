@@ -1,5 +1,6 @@
 ---
 title: 'Synastry Chart Data'
+description: 'Access comprehensive synastry data in JSON. High-precision inter-aspect calculations between two subjects for deep relationship compatibility analysis.'
 order: 5
 ---
 

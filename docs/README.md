@@ -1,3 +1,8 @@
+---
+title: 'Astrologer API Documentation'
+description: 'Explore the Astrologer API v5 documentation. A comprehensive engine for high-precision astrological calculations, SVG chart rendering, and AI-driven interpretations.'
+---
+
 # Astrologer API v5 Documentation
 
 ## Overview

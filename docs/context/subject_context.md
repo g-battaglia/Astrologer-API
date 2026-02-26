@@ -1,5 +1,6 @@
 ---
 title: 'Subject Context'
+description: 'Get structured birth data summaries to serve as context for AI-generated personality insights. Optimized for automated personal horoscopes with LLMs.'
 order: 1
 ---
 

@@ -1,3 +1,8 @@
+---
+title: 'Transit Chart SVG Example'
+description: 'SVG example for the Transit Chart endpoint. Professional dual-wheel visualization comparing current planetary movements to a natal foundation.'
+---
+
 # Transit Chart SVG Example
 
 Endpoint: `/api/v5/chart/transit`

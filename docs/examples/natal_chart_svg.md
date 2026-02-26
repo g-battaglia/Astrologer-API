@@ -1,3 +1,8 @@
+---
+title: 'Natal Chart SVG Example'
+description: 'Sample SVG output for a professional birth chart. High-quality visualization of natal planetary placements, houses, and aspect patterns.'
+---
+
 # Natal Chart SVG Example
 
 Endpoint: `/api/v5/chart/birth-chart`

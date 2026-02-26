@@ -1,5 +1,6 @@
 ---
 title: 'Transit Chart Data'
+description: 'Get machine-readable transit data. Compare current planetary positions against a natal chart to identify active life themes and predictive trends.'
 order: 7
 ---
 

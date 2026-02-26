@@ -1,3 +1,8 @@
+---
+title: 'Synastry Chart JSON Data Example'
+description: 'Example JSON response for relationship compatibility calculations. Highlights inter-axial and inter-planetary aspects between two subjects.'
+---
+
 # Synastry Chart Data Example
 
 Endpoint: `/api/v5/chart-data/synastry`

@@ -1,5 +1,6 @@
 ---
 title: 'Now Subject'
+description: 'Get real-time astrological data for the current moment. Automatic UTC calculation of planetary positions for "Astrological Weather" and live features.'
 order: 2
 ---
 

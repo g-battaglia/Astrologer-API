@@ -1,3 +1,8 @@
+---
+title: 'Solar Return Chart SVG Example'
+description: 'Sample SVG output for a Solar Return. Professional dual-wheel visualization for annual birthday forecasting and year-ahead planning.'
+---
+
 # Solar Return Chart SVG Example
 
 Endpoint: `/api/v5/chart/solar-return`
