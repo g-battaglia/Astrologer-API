@@ -87,14 +87,10 @@ def log_request(logger: Logger, request: Request, description: str) -> None:
     """
     client_ip = get_client_ip(request)
     origin = get_origin_domain(request)
-    logger.info(
-        f"{request.method} {request.url.path} | IP: {client_ip} | Origin: {origin} | {description}"
-    )
+    logger.info(f"{request.method} {request.url.path} | IP: {client_ip} | Origin: {origin} | {description}")
 
 
-def log_request_with_body(
-    logger: Logger, request: Request, description: str, body_json: str
-) -> None:
+def log_request_with_body(logger: Logger, request: Request, description: str, body_json: str) -> None:
     """
     Log request with standardized format at INFO and DEBUG levels, including body.
 
@@ -109,7 +105,5 @@ def log_request_with_body(
     """
     client_ip = get_client_ip(request)
     origin = get_origin_domain(request)
-    logger.info(
-        f"{request.method} {request.url.path} | IP: {client_ip} | Origin: {origin} | {description}"
-    )
+    logger.info(f"{request.method} {request.url.path} | IP: {client_ip} | Origin: {origin} | {description}")
     logger.debug(f"Request body: {body_json}")

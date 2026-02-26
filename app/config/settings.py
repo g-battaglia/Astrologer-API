@@ -39,30 +39,22 @@ ENV_TYPE = getenv("ENV_TYPE", False)
 # Open config file
 if ENV_TYPE == "production":
     logger.info("Loading production config")
-    with open(
-        pathlib.Path(__file__).parent.absolute() / "config.prod.toml", "rb"
-    ) as config_file:
+    with open(pathlib.Path(__file__).parent.absolute() / "config.prod.toml", "rb") as config_file:
         config = load_toml(config_file)
 
 elif ENV_TYPE == "test":
     logger.info("Loading test config")
-    with open(
-        pathlib.Path(__file__).parent.absolute() / "config.test.toml", "rb"
-    ) as config_file:
+    with open(pathlib.Path(__file__).parent.absolute() / "config.test.toml", "rb") as config_file:
         config = load_toml(config_file)
 
 elif ENV_TYPE == "dev":
     logger.info("Loading development config")
-    with open(
-        pathlib.Path(__file__).parent.absolute() / "config.dev.toml", "rb"
-    ) as config_file:
+    with open(pathlib.Path(__file__).parent.absolute() / "config.dev.toml", "rb") as config_file:
         config = load_toml(config_file)
 
 else:
     logger.info("No ENV_TYPE set, loading production config")
-    with open(
-        pathlib.Path(__file__).parent.absolute() / "config.prod.toml", "rb"
-    ) as config_file:
+    with open(pathlib.Path(__file__).parent.absolute() / "config.prod.toml", "rb") as config_file:
         config = load_toml(config_file)
 
 
@@ -87,9 +79,7 @@ class Settings(BaseSettings):
     debug: bool = config["debug"]
     docs_url: str | None = config["docs_url"]
     redoc_url: str | None = config["redoc_url"]
-    secret_key_names: str | list[str] = config.get(
-        "secret_key_names", config.get("secret_key_name", "")
-    )
+    secret_key_names: str | list[str] = config.get("secret_key_names", config.get("secret_key_name", ""))
 
     @property
     def log_level_int(self) -> int:
