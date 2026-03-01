@@ -668,12 +668,10 @@ The SVGs are responsive by default. You can control their size via the container
 
 ## Subscription and support
 
-Subscribe: https://rapidapi.com/gbattaglia/api/astrologer/pricing
 Subscribe: <a href="https://rapidapi.com/gbattaglia/api/astrologer/pricing" target="_blank">https://rapidapi.com/gbattaglia/api/astrologer/pricing</a>
 
 If you need higher quotas or a custom plan beyond the default tiers, reach out via [kerykeion.astrology@gmail.com](mailto:kerykeion.astrology@gmail.com) to discuss tailored options.
 
 Licensing note: Astrologer API is open source (AGPLv3). Using the hosted API via RapidAPI is allowed in any app, including closed‑source since is a third-party service.
 
-[Astrologer-API Source Code](https://gitlab.com/g-battaglia/Astrologer-API)
 <a href="https://github.com/g-battaglia/Astrologer-API" target="_blank">Astrologer-API Source Code</a>
