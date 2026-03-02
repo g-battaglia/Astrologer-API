@@ -8,7 +8,7 @@ It delivers **plug-and-play SVG charts**, **rich astrological data**, and **AI-o
 -   Used in astrology apps, compatibility/dating systems, dashboards and SaaS tools
 
 Birth chart example (dark theme):
-![Birth chart example](https://gitlab.com/g-battaglia/kerykeion/-/raw/main/tests/charts/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart.svg)
+![Birth chart example](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart.svg)
 
 👉 Ready to use it? Subscribe on RapidAPI: <a href="https://www.kerykeion.net/astrologer-api/subscribe" target="_blank">https://www.kerykeion.net/astrologer-api/subscribe</a>
 
