@@ -1,0 +1,141 @@
+{
+  "moon_phase_overview": {
+    "datestamp": "Sat, 01 Jun 2024 12:30:00 +0000",
+    "location": {
+      "latitude": "51",
+      "longitude": "0",
+      "note": null,
+      "precision": 0,
+      "using_default_location": true
+    },
+    "moon": {
+      "age_days": 9,
+      "detailed": {
+        "illumination_details": {
+          "percentage": 30.0,
+          "phase_angle": 293.8562883446584,
+          "visible_fraction": 0.2977780133250811
+        },
+        "position": null,
+        "upcoming_phases": {
+          "first_quarter": {
+            "last": {
+              "datestamp": "Thu, 30 May 2024 17:12:40 +0000",
+              "days_ago": 2,
+              "days_ahead": null,
+              "description": null,
+              "name": null,
+              "timestamp": 1717089160
+            },
+            "next": {
+              "datestamp": "Fri, 14 Jun 2024 05:18:27 +0000",
+              "days_ago": null,
+              "days_ahead": 13,
+              "description": null,
+              "name": null,
+              "timestamp": 1718342307
+            }
+          },
+          "full_moon": {
+            "last": {
+              "datestamp": "Wed, 08 May 2024 03:21:58 +0000",
+              "days_ago": 24,
+              "days_ahead": null,
+              "description": null,
+              "name": null,
+              "timestamp": 1715138518
+            },
+            "next": {
+              "datestamp": "Sat, 22 Jun 2024 01:07:53 +0000",
+              "days_ago": null,
+              "days_ahead": 21,
+              "description": null,
+              "name": null,
+              "timestamp": 1719018473
+            }
+          },
+          "last_quarter": {
+            "last": {
+              "datestamp": "Wed, 15 May 2024 11:48:00 +0000",
+              "days_ago": 17,
+              "days_ahead": null,
+              "description": null,
+              "name": null,
+              "timestamp": 1715773680
+            },
+            "next": {
+              "datestamp": "Fri, 28 Jun 2024 21:53:24 +0000",
+              "days_ago": null,
+              "days_ahead": 27,
+              "description": null,
+              "name": null,
+              "timestamp": 1719611604
+            }
+          },
+          "new_moon": {
+            "last": {
+              "datestamp": "Thu, 23 May 2024 13:53:08 +0000",
+              "days_ago": 9,
+              "days_ahead": null,
+              "description": null,
+              "name": null,
+              "timestamp": 1716472388
+            },
+            "next": {
+              "datestamp": "Thu, 06 Jun 2024 12:37:42 +0000",
+              "days_ago": null,
+              "days_ahead": 5,
+              "description": null,
+              "name": null,
+              "timestamp": 1717677462
+            }
+          }
+        },
+        "visibility": null
+      },
+      "emoji": "🌘",
+      "events": null,
+      "illumination": "30%",
+      "lunar_cycle": "81.627%",
+      "major_phase": "Last Quarter",
+      "moonrise": null,
+      "moonrise_timestamp": null,
+      "moonset": null,
+      "moonset_timestamp": null,
+      "next_lunar_eclipse": {
+        "datestamp": "Wed, 18 Sep 2024 02:44:17 +0000",
+        "timestamp": 1726627457,
+        "type": "Partial Lunar Eclipse",
+        "visibility_regions": null
+      },
+      "phase": 0.8162674676240512,
+      "phase_name": "Waning Crescent",
+      "stage": "waning",
+      "zodiac": {
+        "moon_sign": "Ari",
+        "sun_sign": "Gem"
+      }
+    },
+    "sun": {
+      "day_length": "16:20",
+      "next_solar_eclipse": {
+        "datestamp": "Wed, 02 Oct 2024 18:45:04 +0000",
+        "timestamp": 1727894704,
+        "type": "Annular Solar Eclipse",
+        "visibility_regions": null
+      },
+      "position": {
+        "altitude": 60.02968259936088,
+        "azimuth": 194.98776816080004,
+        "distance": 151708222.7694045
+      },
+      "solar_noon": "11:58",
+      "sunrise": 1717213706,
+      "sunrise_timestamp": "03:48",
+      "sunset": 1717272482,
+      "sunset_timestamp": "20:08"
+    },
+    "timestamp": 1717245000
+  },
+  "status": "OK"
+}

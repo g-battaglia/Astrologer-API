@@ -4,6 +4,7 @@ Configurazione test condivisa e minimale.
 Obiettivi:
 - Esporre un `client` FastAPI riutilizzabile.
 - Congelare il tempo usato dagli endpoint `now/*` per risultati deterministici.
+- Supportare il flag --update-baselines per rigenerare i file di snapshot.
 
 Nota: manteniamo tutto molto esplicito e commentato. Nessuna astrazione non necessaria.
 """
@@ -34,10 +35,43 @@ pytestmark = pytest.mark.filterwarnings("ignore:datetime.datetime.utcnow")
 FREEZE_TIME = datetime(2024, 6, 1, 12, 30, 0, tzinfo=timezone.utc)
 
 
+# ---------------------------------------------------------------------------
+# Opzioni CLI custom per pytest
+# ---------------------------------------------------------------------------
+
+
+def pytest_addoption(parser: pytest.Parser) -> None:
+    parser.addoption(
+        "--update-baselines",
+        action="store_true",
+        default=False,
+        help="Rigenera i file baseline in tests/baselines/ invece di confrontarli.",
+    )
+
+
+# ---------------------------------------------------------------------------
+# Fixtures
+# ---------------------------------------------------------------------------
+
+
 @pytest.fixture(scope="session")
 def client() -> TestClient:
     """Client FastAPI riutilizzabile per i test di integrazione sugli endpoint."""
     return TestClient(app)
+
+
+@pytest.fixture(scope="session")
+def update_baselines(request: pytest.FixtureRequest) -> bool:
+    """True quando pytest viene lanciato con --update-baselines."""
+    return request.config.getoption("--update-baselines")
+
+
+@pytest.fixture(scope="session")
+def baselines_dir() -> Path:
+    """Directory dove risiedono i file baseline JSON."""
+    d = Path(__file__).parent / "baselines"
+    d.mkdir(exist_ok=True)
+    return d
 
 
 @pytest.fixture(autouse=True)

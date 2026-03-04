@@ -39,6 +39,7 @@ format = "black . --line-length 200"
 test-cov = "pytest --cov=app --cov-report=term-missing"
 test-cov-xml = "pytest --cov=app --cov-report=xml:coverage.xml"
 test-cov-html = "pytest --cov=app --cov-report=html:coverage_html"
+update-baselines = "pytest tests/test_baselines.py --update-baselines -v"
 
 [tool.coverage.run]
 branch = true
