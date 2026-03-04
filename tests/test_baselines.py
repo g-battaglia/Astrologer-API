@@ -4,6 +4,10 @@ Baseline snapshot tests — confronto 1:1 degli output API.
 Ogni scenario chiama un endpoint con input fisso e confronta l'intero output
 JSON con un file salvato in tests/baselines/<id>.json.
 
+Per gli endpoint chart (che restituiscono SVG), il contenuto SVG viene estratto
+in un file .svg separato (tests/baselines/<id>.svg) per consentire l'ispezione
+visiva diretta e diff più leggibili. Il campo "chart" viene rimosso dal .json.
+
 Uso:
     pytest tests/test_baselines.py -v              # Verifica contro i baseline esistenti
     pytest tests/test_baselines.py --update-baselines -v   # Rigenera tutti i baseline
@@ -493,11 +497,24 @@ def test_baseline(
 
     actual = resp.json()
     baseline_path = baselines_dir / f"{scenario['id']}.json"
+    svg_path = baselines_dir / f"{scenario['id']}.svg"
+
+    # Separa l'SVG (se presente) dal resto del JSON
+    actual_svg: str | None = None
+    actual_json = actual
+    if "chart" in actual and isinstance(actual["chart"], str):
+        actual_svg = actual["chart"]
+        actual_json = {k: v for k, v in actual.items() if k != "chart"}
 
     # -- Modalità aggiornamento: scrivi e salta --
     if update_baselines:
-        baseline_path.write_text(_pretty_json(actual), encoding="utf-8")
-        pytest.skip(f"Baseline scritto: {baseline_path.name}")
+        baseline_path.write_text(_pretty_json(actual_json), encoding="utf-8")
+        if actual_svg is not None:
+            svg_path.write_text(actual_svg, encoding="utf-8")
+        written = [baseline_path.name]
+        if actual_svg is not None:
+            written.append(svg_path.name)
+        pytest.skip(f"Baseline scritto: {', '.join(written)}")
         return
 
     # -- Modalità verifica: confronta con il file esistente --
@@ -506,15 +523,57 @@ def test_baseline(
         f"Esegui: pytest tests/test_baselines.py --update-baselines -v"
     )
 
-    expected = json.loads(baseline_path.read_text(encoding="utf-8"))
+    expected_json = json.loads(baseline_path.read_text(encoding="utf-8"))
 
-    if actual != expected:
-        diff_lines = _diff_summary(expected, actual)
+    # Confronto SVG separato (se il baseline SVG esiste)
+    errors: List[str] = []
+    if svg_path.exists():
+        expected_svg = svg_path.read_text(encoding="utf-8")
+        if actual_svg is None:
+            errors.append(
+                f"Il baseline ha un file SVG ({svg_path.name}) ma la risposta "
+                f"non contiene il campo 'chart'."
+            )
+        elif actual_svg != expected_svg:
+            # Mostra le prime differenze testuali per orientarsi
+            import difflib
+
+            svg_diff = list(
+                difflib.unified_diff(
+                    expected_svg.splitlines(keepends=True),
+                    actual_svg.splitlines(keepends=True),
+                    fromfile=f"baseline/{svg_path.name}",
+                    tofile="actual/chart",
+                    n=1,
+                )
+            )
+            preview = "".join(svg_diff[:30])
+            errors.append(
+                f"SVG diverge dal baseline '{svg_path.name}'.\n"
+                f"Anteprima diff (prime 30 righe):\n{preview}"
+            )
+    elif actual_svg is not None:
+        errors.append(
+            f"La risposta contiene un campo 'chart' (SVG) ma non esiste "
+            f"il baseline {svg_path.name}.\n"
+            f"Esegui --update-baselines per generarlo."
+        )
+
+    # Confronto JSON (senza il campo chart)
+    if actual_json != expected_json:
+        diff_lines = _diff_summary(expected_json, actual_json)
         diff_text = "\n".join(diff_lines)
+        errors.append(
+            f"JSON diverge dal baseline '{baseline_path.name}'.\n"
+            f"Differenze:\n{diff_text}"
+        )
+
+    if errors:
+        full_report = "\n\n".join(errors)
         pytest.fail(
-            f"Output diverge dal baseline '{scenario['id']}'.\n"
-            f"\nDifferenze:\n{diff_text}\n"
-            f"\nSe il cambiamento è intenzionale, rigenera con:\n"
+            f"Output diverge dal baseline '{scenario['id']}'.\n\n"
+            f"{full_report}\n\n"
+            f"Se il cambiamento è intenzionale, rigenera con:\n"
             f"  pytest tests/test_baselines.py --update-baselines -v\n"
             f"  # oppure: poe update-baselines"
         )
