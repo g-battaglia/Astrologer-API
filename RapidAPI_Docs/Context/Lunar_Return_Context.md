@@ -14,7 +14,7 @@ Returns a structured XML description of a Lunar Return chart data, optimized for
 
 -   `subject` (JSON object, required): The subject's natal birth data.
 -   `year` (integer, required): The year for the return.
--   `month` (integer, required): The month for the return.
+-   `month` (integer, optional): The month for the return.
 -   `day` (integer, optional): Day (1-31) to start the search from. Defaults to 1.
 -   `return_location` (JSON object, optional): The location where the subject is for the Lunar Return.
 -   `wheel_type` (string, optional): "single" or "dual".

@@ -34,7 +34,7 @@ Generates an AI-powered interpretation of a Solar Return chart. The Solar Return
 -   **`month`** (integer, optional): Month (1-12) to start the search from.
 -   **`day`** (integer, optional): Day (1-31) to start the search from. Defaults to 1.
 -   **`return_location`** (object, optional): Location where the subject spends their birthday (relocation).
--   **Computation options**: `active_points`, `active_aspects`, `distribution_method`, `custom_distribution_weights` (identical to `/api/v5/chart-data/solar-return`). Rendering options such as `theme`, `language`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `custom_title` are **not** accepted here.
+-   **Computation options**: `active_points`, `active_aspects`, `distribution_method`, `custom_distribution_weights` (identical to `/api/v5/chart-data/solar-return`). Rendering options such as `theme`, `language`, `style`, `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `custom_title` are **not** accepted here.
 
 #### Complete Request Example
 
@@ -49,9 +49,9 @@ Generates an AI-powered interpretation of a Solar Return chart. The Solar Return
         "minute": 0,
         "city": "London",
         "nation": "GB",
-        "lng": -0.1278,
-        "lat": 51.5074,
-        "tz_str": "Europe/London"
+        "longitude": -0.1278,
+        "latitude": 51.5074,
+        "timezone": "Europe/London"
     },
     "year": 2024,
     "month": 1,

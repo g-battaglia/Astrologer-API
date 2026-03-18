@@ -28,6 +28,8 @@ Generates a natal chart (birth chart) for a specific person and time. Returns bo
     -   `sidereal_mode` (string, optional): Sidereal mode if zodiac_type is Sidereal (e.g., "LAHIRI").
     -   `perspective_type` (string, optional): "Apparent Geocentric" (default) or "Heliocentric".
     -   `houses_system_identifier` (string, optional): House system code (default "P" for Placidus).
+    -   `custom_ayanamsa_t0` (float, optional): Julian Day number for the reference epoch (USER sidereal mode only).
+    -   `custom_ayanamsa_ayan_t0` (float, optional): Ayanamsa degrees at the reference epoch (USER sidereal mode only).
 -   `theme` (string, optional): Visual theme for the chart (e.g., "classic", "dark", "light", "strawberry").
 -   `language` (string, optional): Language code for chart labels (e.g., "EN", "IT", "ES").
 -   `split_chart` (boolean, optional): If true, returns separate SVG strings for the wheel and the grid.
@@ -37,6 +39,9 @@ Generates a natal chart (birth chart) for a specific person and time. Returns bo
 -   `active_points` (array of strings, optional): List of planets/points to include (e.g., ["Sun", "Moon"]).
 -   `active_aspects` (array of objects, optional): Configuration for aspects to include.
 -   `show_aspect_icons` (boolean, optional): Display aspect icons on aspect lines (default: true).
+-   `style` (string, optional): Chart wheel layout — "classic" (default) or "modern".
+-   `show_zodiac_background_ring` (boolean, optional): Show colored zodiac wedges behind the wheel, modern style only (default: true).
+-   `show_degree_indicators` (boolean, optional): Display radial lines and degree numbers for planet positions on the chart wheel (default: true).
 -   `distribution_method` (string, optional): Method for calculating element/quality distribution ("weighted" or "pure_count").
 -   `custom_distribution_weights` (JSON object, optional): Custom weights for the distribution calculation.
 
@@ -109,7 +114,8 @@ Generates a natal chart (birth chart) for a specific person and time. Returns bo
             "longitude": -0.1278,
             "latitude": 51.5074,
             "timezone": "Europe/London",
-            "zodiac_type": "Tropical"
+            "zodiac_type": "Tropical",
+            "ayanamsa_value": null
         },
         "aspects": [
             {

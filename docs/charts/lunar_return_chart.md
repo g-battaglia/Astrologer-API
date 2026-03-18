@@ -68,10 +68,13 @@ This chart type is especially valued by astrologers who work with clients on an 
     }
     ```
 -   **`year`** (integer, required): Year.
--   **`month`** (integer, required): Month (1-12) to start the search from.
+-   **`month`** (integer, optional): Month (1-12) to start the search from.
 -   **`day`** (integer, optional): Day (1-31) to start the search from. Defaults to 1. Useful for finding the second Lunar Return in a month.
 -   **`wheel_type`** (string, optional): "dual" or "single".
 -   **`theme`**, **`language`**, **`split_chart`** (rendering options).
+-   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
+-   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
+-   **`double_chart_aspect_grid_type`** (string, optional): Aspect display for dual charts — "list" (default) or "table". Default: "list".
 -   **`show_house_position_comparison`** (bool, optional): Show or hide the house/points comparison table (default: true).
 -   **`show_cusp_position_comparison`** (bool, optional): Show or hide the cusp comparison table for dual charts (default: true).
 -   **`show_degree_indicators`** (bool, optional): Display radial lines and degree numbers for planet positions on the wheel (default: true).
@@ -90,15 +93,18 @@ This chart type is especially valued by astrologers who work with clients on an 
         "minute": 0,
         "city": "London",
         "nation": "GB",
-        "lng": -0.1278,
-        "lat": 51.5074,
-        "tz_str": "Europe/London"
+        "longitude": -0.1278,
+        "latitude": 51.5074,
+        "timezone": "Europe/London"
     },
     "year": 2024,
     "month": 5,
     "day": 1,
     "wheel_type": "single",
-    "theme": "light"
+    "theme": "light",
+    "style": "modern",
+    "show_zodiac_background_ring": true,
+    "double_chart_aspect_grid_type": "list"
 }
 ```
 

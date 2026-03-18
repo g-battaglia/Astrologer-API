@@ -27,6 +27,8 @@ Returns complete natal chart data (planetary positions, aspects, distributions) 
     -   `sidereal_mode` (string, optional)
     -   `perspective_type` (string, optional)
     -   `houses_system_identifier` (string, optional)
+    -   `custom_ayanamsa_t0` (float, optional): Julian Day number for the reference epoch (USER sidereal mode only).
+    -   `custom_ayanamsa_ayan_t0` (float, optional): Ayanamsa degrees at the reference epoch (USER sidereal mode only).
 -   `active_points` (array, optional): Points to include.
 -   `active_aspects` (array, optional): Aspects to include.
 -   `distribution_method` (string, optional): Distribution calculation method.
@@ -70,7 +72,20 @@ Returns complete natal chart data (planetary positions, aspects, distributions) 
             "month": 6,
             "day": 15,
             "city": "London",
-            "nation": "GB"
+            "nation": "GB",
+            "ayanamsa_value": null
+        },
+        "planets": {
+            "Sun": {
+                "name": "Sun",
+                "sign": "Gem",
+                "abs_pos": 84.123,
+                "house": 9,
+                "retrograde": false,
+                "speed": 1.0145,
+                "declination": 23.12,
+                "magnitude": null
+            }
         },
         "aspects": [
             {

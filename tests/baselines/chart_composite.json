@@ -935,6 +935,7 @@
       "mutable_percentage": 65
     },
     "subject": {
+      "achernar": null,
       "active_points": [
         "Sun",
         "Moon",
@@ -955,13 +956,23 @@
         "Descendant",
         "Imum_Coeli"
       ],
+      "alcyone": null,
+      "aldebaran": null,
+      "algol": null,
+      "algorab": null,
+      "alkaid": null,
+      "alphecca": null,
+      "altair": null,
+      "antares": null,
       "anti_vertex": null,
+      "arcturus": null,
       "ascendant": {
         "abs_pos": 63.41551969601717,
         "declination": null,
         "element": "Air",
         "emoji": "♊️",
         "house": "First_House",
+        "magnitude": null,
         "name": "Ascendant",
         "point_type": "AstrologicalPoint",
         "position": 3.4155196960171708,
@@ -971,6 +982,10 @@
         "sign_num": 2,
         "speed": null
       },
+      "ayanamsa_value": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "capella": null,
       "ceres": null,
       "chiron": {
         "abs_pos": 119.57590379553064,
@@ -978,6 +993,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": "Second_House",
+        "magnitude": null,
         "name": "Chiron",
         "point_type": "AstrologicalPoint",
         "position": 29.575903795530635,
@@ -990,12 +1006,15 @@
       "city": null,
       "composite_chart_type": "Midpoint",
       "day_of_week": null,
+      "deneb": null,
+      "deneb_algedi": null,
       "descendant": {
         "abs_pos": 243.41551969601716,
         "declination": null,
         "element": "Fire",
         "emoji": "♐️",
         "house": "Seventh_House",
+        "magnitude": null,
         "name": "Descendant",
         "point_type": "AstrologicalPoint",
         "position": 3.4155196960171565,
@@ -1012,6 +1031,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": null,
+        "magnitude": null,
         "name": "Eighth_House",
         "point_type": "House",
         "position": 10.707804702771853,
@@ -1027,6 +1047,7 @@
         "element": "Fire",
         "emoji": "♈️",
         "house": null,
+        "magnitude": null,
         "name": "Eleventh_House",
         "point_type": "House",
         "position": 0.04319364388323126,
@@ -1043,6 +1064,7 @@
         "element": "Air",
         "emoji": "♎️",
         "house": null,
+        "magnitude": null,
         "name": "Fifth_House",
         "point_type": "House",
         "position": 0.04319364388325653,
@@ -1058,6 +1080,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": null,
+        "magnitude": null,
         "name": "First_House",
         "point_type": "House",
         "position": 3.4155196960171708,
@@ -1068,6 +1091,7 @@
         "speed": null
       },
       "first_subject": {
+        "achernar": null,
         "active_points": [
           "Sun",
           "Moon",
@@ -1088,13 +1112,23 @@
           "Descendant",
           "Imum_Coeli"
         ],
+        "alcyone": null,
+        "aldebaran": null,
+        "algol": null,
+        "algorab": null,
+        "alkaid": null,
+        "alphecca": null,
+        "altair": null,
+        "antares": null,
         "anti_vertex": null,
+        "arcturus": null,
         "ascendant": {
           "abs_pos": 346.58934205236494,
           "declination": null,
           "element": "Water",
           "emoji": "♓️",
           "house": "First_House",
+          "magnitude": null,
           "name": "Ascendant",
           "point_type": "AstrologicalPoint",
           "position": 16.58934205236494,
@@ -1102,8 +1136,12 @@
           "retrograde": false,
           "sign": "Pis",
           "sign_num": 11,
-          "speed": 360.0
+          "speed": 840.353085961436
         },
+        "ayanamsa_value": null,
+        "betelgeuse": null,
+        "canopus": null,
+        "capella": null,
         "ceres": null,
         "chiron": {
           "abs_pos": 44.23135609230419,
@@ -1111,6 +1149,7 @@
           "element": "Earth",
           "emoji": "♉️",
           "house": "Second_House",
+          "magnitude": null,
           "name": "Chiron",
           "point_type": "AstrologicalPoint",
           "position": 14.231356092304189,
@@ -1123,12 +1162,15 @@
         "city": "London",
         "day": 12,
         "day_of_week": "Friday",
+        "deneb": null,
+        "deneb_algedi": null,
         "descendant": {
           "abs_pos": 166.58934205236494,
           "declination": null,
           "element": "Earth",
           "emoji": "♍️",
           "house": "Seventh_House",
+          "magnitude": null,
           "name": "Descendant",
           "point_type": "AstrologicalPoint",
           "position": 16.58934205236494,
@@ -1136,7 +1178,7 @@
           "retrograde": false,
           "sign": "Vir",
           "sign_num": 5,
-          "speed": 360.0
+          "speed": 840.353085961436
         },
         "earth": null,
         "eighth_house": {
@@ -1145,6 +1187,7 @@
           "element": "Water",
           "emoji": "♏️",
           "house": null,
+          "magnitude": null,
           "name": "Eighth_House",
           "point_type": "House",
           "position": 9.549459443302538,
@@ -1152,7 +1195,7 @@
           "retrograde": null,
           "sign": "Sco",
           "sign_num": 7,
-          "speed": null
+          "speed": 525.9849911452186
         },
         "eleventh_house": {
           "abs_pos": 282.6017087179659,
@@ -1160,6 +1203,7 @@
           "element": "Earth",
           "emoji": "♑️",
           "house": null,
+          "magnitude": null,
           "name": "Eleventh_House",
           "point_type": "House",
           "position": 12.601708717965892,
@@ -1167,7 +1211,7 @@
           "retrograde": null,
           "sign": "Cap",
           "sign_num": 9,
-          "speed": null
+          "speed": 350.20890312460494
         },
         "eris": null,
         "fifth_house": {
@@ -1176,6 +1220,7 @@
           "element": "Water",
           "emoji": "♋️",
           "house": null,
+          "magnitude": null,
           "name": "Fifth_House",
           "point_type": "House",
           "position": 12.601708717965892,
@@ -1183,7 +1228,7 @@
           "retrograde": null,
           "sign": "Can",
           "sign_num": 3,
-          "speed": null
+          "speed": 350.20890312460494
         },
         "first_house": {
           "abs_pos": 346.58934205236494,
@@ -1191,6 +1236,7 @@
           "element": "Water",
           "emoji": "♓️",
           "house": null,
+          "magnitude": null,
           "name": "First_House",
           "point_type": "House",
           "position": 16.58934205236494,
@@ -1198,14 +1244,16 @@
           "retrograde": null,
           "sign": "Pis",
           "sign_num": 11,
-          "speed": null
+          "speed": 840.353085961436
         },
+        "fomalhaut": null,
         "fourth_house": {
           "abs_pos": 84.80948438505635,
           "declination": null,
           "element": "Air",
           "emoji": "♊️",
           "house": null,
+          "magnitude": null,
           "name": "Fourth_House",
           "point_type": "House",
           "position": 24.80948438505635,
@@ -1213,7 +1261,7 @@
           "retrograde": null,
           "sign": "Gem",
           "sign_num": 2,
-          "speed": null
+          "speed": 331.7060177564032
         },
         "haumea": null,
         "hour": 12,
@@ -1239,6 +1287,7 @@
           "element": "Air",
           "emoji": "♊️",
           "house": "Fourth_House",
+          "magnitude": null,
           "name": "Imum_Coeli",
           "point_type": "AstrologicalPoint",
           "position": 24.80948438505635,
@@ -1246,7 +1295,7 @@
           "retrograde": false,
           "sign": "Gem",
           "sign_num": 2,
-          "speed": 360.0
+          "speed": 331.7060177564032
         },
         "is_diurnal": true,
         "iso_formatted_local_datetime": "1980-12-12T12:12:00+00:00",
@@ -1260,6 +1309,7 @@
           "element": "Air",
           "emoji": "♎️",
           "house": "Seventh_House",
+          "magnitude": null,
           "name": "Jupiter",
           "point_type": "AstrologicalPoint",
           "position": 7.58556593450416,
@@ -1284,6 +1334,7 @@
           "element": "Earth",
           "emoji": "♑️",
           "house": "Eleventh_House",
+          "magnitude": null,
           "name": "Mars",
           "point_type": "AstrologicalPoint",
           "position": 15.643864333453394,
@@ -1299,6 +1350,7 @@
           "element": "Air",
           "emoji": "♎️",
           "house": "Seventh_House",
+          "magnitude": null,
           "name": "Mean_Lilith",
           "point_type": "AstrologicalPoint",
           "position": 28.033637854826594,
@@ -1316,6 +1368,7 @@
           "element": "Fire",
           "emoji": "♐️",
           "house": "Tenth_House",
+          "magnitude": null,
           "name": "Medium_Coeli",
           "point_type": "AstrologicalPoint",
           "position": 24.80948438505635,
@@ -1323,7 +1376,7 @@
           "retrograde": false,
           "sign": "Sag",
           "sign_num": 8,
-          "speed": 360.0
+          "speed": 331.7060177564032
         },
         "mercury": {
           "abs_pos": 250.23504493019652,
@@ -1331,6 +1384,7 @@
           "element": "Fire",
           "emoji": "♐️",
           "house": "Ninth_House",
+          "magnitude": null,
           "name": "Mercury",
           "point_type": "AstrologicalPoint",
           "position": 10.235044930196523,
@@ -1348,6 +1402,7 @@
           "element": "Air",
           "emoji": "♒️",
           "house": "Twelfth_House",
+          "magnitude": null,
           "name": "Moon",
           "point_type": "AstrologicalPoint",
           "position": 18.37722142390163,
@@ -1365,6 +1420,7 @@
           "element": "Fire",
           "emoji": "♐️",
           "house": "Ninth_House",
+          "magnitude": null,
           "name": "Neptune",
           "point_type": "AstrologicalPoint",
           "position": 22.323942081130895,
@@ -1380,6 +1436,7 @@
           "element": "Fire",
           "emoji": "♐️",
           "house": null,
+          "magnitude": null,
           "name": "Ninth_House",
           "point_type": "House",
           "position": 6.0138981666318045,
@@ -1387,7 +1444,7 @@
           "retrograde": null,
           "sign": "Sag",
           "sign_num": 8,
-          "speed": null
+          "speed": 372.64504249303315
         },
         "orcus": null,
         "pallas": null,
@@ -1403,6 +1460,7 @@
           "element": "Air",
           "emoji": "♎️",
           "house": "Seventh_House",
+          "magnitude": null,
           "name": "Pluto",
           "point_type": "AstrologicalPoint",
           "position": 23.75030678855819,
@@ -1412,14 +1470,18 @@
           "sign_num": 6,
           "speed": 0.025467846461915758
         },
+        "pollux": null,
+        "procyon": null,
         "quaoar": null,
         "regulus": null,
+        "rigel": null,
         "saturn": {
           "abs_pos": 188.56749125616366,
           "declination": -1.3140939974595882,
           "element": "Air",
           "emoji": "♎️",
           "house": "Seventh_House",
+          "magnitude": null,
           "name": "Saturn",
           "point_type": "AstrologicalPoint",
           "position": 8.567491256163663,
@@ -1435,6 +1497,7 @@
           "element": "Earth",
           "emoji": "♉️",
           "house": null,
+          "magnitude": null,
           "name": "Second_House",
           "point_type": "House",
           "position": 9.549459443302538,
@@ -1442,7 +1505,7 @@
           "retrograde": null,
           "sign": "Tau",
           "sign_num": 1,
-          "speed": null
+          "speed": 525.9849911452186
         },
         "sedna": null,
         "seventh_house": {
@@ -1451,6 +1514,7 @@
           "element": "Earth",
           "emoji": "♍️",
           "house": null,
+          "magnitude": null,
           "name": "Seventh_House",
           "point_type": "House",
           "position": 16.58934205236494,
@@ -1458,15 +1522,17 @@
           "retrograde": null,
           "sign": "Vir",
           "sign_num": 5,
-          "speed": null
+          "speed": 840.353085961436
         },
         "sidereal_mode": null,
+        "sirius": null,
         "sixth_house": {
           "abs_pos": 124.85660859424513,
           "declination": null,
           "element": "Fire",
           "emoji": "♌️",
           "house": null,
+          "magnitude": null,
           "name": "Sixth_House",
           "point_type": "House",
           "position": 4.856608594245131,
@@ -1474,7 +1540,7 @@
           "retrograde": null,
           "sign": "Leo",
           "sign_num": 4,
-          "speed": null
+          "speed": 459.01108902453984
         },
         "spica": null,
         "sun": {
@@ -1483,6 +1549,7 @@
           "element": "Fire",
           "emoji": "♐️",
           "house": "Ninth_House",
+          "magnitude": null,
           "name": "Sun",
           "point_type": "AstrologicalPoint",
           "position": 20.64097985687181,
@@ -1498,6 +1565,7 @@
           "element": "Fire",
           "emoji": "♐️",
           "house": null,
+          "magnitude": null,
           "name": "Tenth_House",
           "point_type": "House",
           "position": 24.80948438505635,
@@ -1505,7 +1573,7 @@
           "retrograde": null,
           "sign": "Sag",
           "sign_num": 8,
-          "speed": null
+          "speed": 331.7060177564032
         },
         "third_house": {
           "abs_pos": 66.01389816663179,
@@ -1513,6 +1581,7 @@
           "element": "Air",
           "emoji": "♊️",
           "house": null,
+          "magnitude": null,
           "name": "Third_House",
           "point_type": "House",
           "position": 6.01389816663179,
@@ -1520,7 +1589,7 @@
           "retrograde": null,
           "sign": "Gem",
           "sign_num": 2,
-          "speed": null
+          "speed": 372.64504249303315
         },
         "true_lilith": null,
         "true_north_lunar_node": {
@@ -1529,6 +1598,7 @@
           "element": "Fire",
           "emoji": "♌️",
           "house": "Sixth_House",
+          "magnitude": null,
           "name": "True_North_Lunar_Node",
           "point_type": "AstrologicalPoint",
           "position": 12.012867859752845,
@@ -1544,6 +1614,7 @@
           "element": "Air",
           "emoji": "♒️",
           "house": "Twelfth_House",
+          "magnitude": null,
           "name": "True_South_Lunar_Node",
           "point_type": "AstrologicalPoint",
           "position": 12.012867859752873,
@@ -1559,6 +1630,7 @@
           "element": "Air",
           "emoji": "♒️",
           "house": null,
+          "magnitude": null,
           "name": "Twelfth_House",
           "point_type": "House",
           "position": 4.856608594245131,
@@ -1566,7 +1638,7 @@
           "retrograde": null,
           "sign": "Aqu",
           "sign_num": 10,
-          "speed": null
+          "speed": 459.01108902453984
         },
         "tz_str": "Europe/London",
         "uranus": {
@@ -1575,6 +1647,7 @@
           "element": "Water",
           "emoji": "♏️",
           "house": "Eighth_House",
+          "magnitude": null,
           "name": "Uranus",
           "point_type": "AstrologicalPoint",
           "position": 27.34829234853578,
@@ -1584,12 +1657,14 @@
           "sign_num": 7,
           "speed": 0.05834707517879185
         },
+        "vega": null,
         "venus": {
           "abs_pos": 232.83632885220607,
           "declination": -16.998146957047016,
           "element": "Water",
           "emoji": "♏️",
           "house": "Eighth_House",
+          "magnitude": null,
           "name": "Venus",
           "point_type": "AstrologicalPoint",
           "position": 22.836328852206066,
@@ -1604,12 +1679,14 @@
         "year": 1980,
         "zodiac_type": "Tropical"
       },
+      "fomalhaut": null,
       "fourth_house": {
         "abs_pos": 153.11641771969343,
         "declination": null,
         "element": "Earth",
         "emoji": "♍️",
         "house": null,
+        "magnitude": null,
         "name": "Fourth_House",
         "point_type": "House",
         "position": 3.1164177196934304,
@@ -1642,6 +1719,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Imum_Coeli",
         "point_type": "AstrologicalPoint",
         "position": 3.1164177196934304,
@@ -1662,6 +1740,7 @@
         "element": "Air",
         "emoji": "♎️",
         "house": "Fifth_House",
+        "magnitude": null,
         "name": "Jupiter",
         "point_type": "AstrologicalPoint",
         "position": 12.520679735071951,
@@ -1686,6 +1765,7 @@
         "element": "Water",
         "emoji": "♏️",
         "house": "Sixth_House",
+        "magnitude": null,
         "name": "Mars",
         "point_type": "AstrologicalPoint",
         "position": 6.690826949171083,
@@ -1701,6 +1781,7 @@
         "element": "Water",
         "emoji": "♏️",
         "house": "Sixth_House",
+        "magnitude": null,
         "name": "Mean_Lilith",
         "point_type": "AstrologicalPoint",
         "position": 16.352083522851217,
@@ -1718,6 +1799,7 @@
         "element": "Water",
         "emoji": "♓️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Medium_Coeli",
         "point_type": "AstrologicalPoint",
         "position": 3.116417719693402,
@@ -1733,6 +1815,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Mercury",
         "point_type": "AstrologicalPoint",
         "position": 26.124421437779773,
@@ -1748,6 +1831,7 @@
         "element": "Air",
         "emoji": "♒️",
         "house": "Eighth_House",
+        "magnitude": null,
         "name": "Moon",
         "point_type": "AstrologicalPoint",
         "position": 0.05439601212526668,
@@ -1765,6 +1849,7 @@
         "element": "Water",
         "emoji": "♏️",
         "house": "Sixth_House",
+        "magnitude": null,
         "name": "Neptune",
         "point_type": "AstrologicalPoint",
         "position": 14.082059510954224,
@@ -1780,6 +1865,7 @@
         "element": "Air",
         "emoji": "♒️",
         "house": null,
+        "magnitude": null,
         "name": "Ninth_House",
         "point_type": "House",
         "position": 7.339937510227173,
@@ -1803,6 +1889,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Pluto",
         "point_type": "AstrologicalPoint",
         "position": 16.91495714697922,
@@ -1812,14 +1899,18 @@
         "sign_num": 5,
         "speed": null
       },
+      "pollux": null,
+      "procyon": null,
       "quaoar": null,
       "regulus": null,
+      "rigel": null,
       "saturn": {
         "abs_pos": 151.2928894472295,
         "declination": null,
         "element": "Earth",
         "emoji": "♍️",
         "house": "Third_House",
+        "magnitude": null,
         "name": "Saturn",
         "point_type": "AstrologicalPoint",
         "position": 1.2928894472294985,
@@ -1835,6 +1926,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": null,
+        "magnitude": null,
         "name": "Second_House",
         "point_type": "House",
         "position": 10.707804702771838,
@@ -1845,6 +1937,7 @@
         "speed": null
       },
       "second_subject": {
+        "achernar": null,
         "active_points": [
           "Sun",
           "Moon",
@@ -1865,13 +1958,23 @@
           "Descendant",
           "Imum_Coeli"
         ],
+        "alcyone": null,
+        "aldebaran": null,
+        "algol": null,
+        "algorab": null,
+        "alkaid": null,
+        "alphecca": null,
+        "altair": null,
+        "antares": null,
         "anti_vertex": null,
+        "arcturus": null,
         "ascendant": {
           "abs_pos": 140.24169733966937,
           "declination": null,
           "element": "Fire",
           "emoji": "♌️",
           "house": "First_House",
+          "magnitude": null,
           "name": "Ascendant",
           "point_type": "AstrologicalPoint",
           "position": 20.241697339669372,
@@ -1879,8 +1982,12 @@
           "retrograde": false,
           "sign": "Leo",
           "sign_num": 4,
-          "speed": 360.0
+          "speed": 279.12896354550725
         },
+        "ayanamsa_value": null,
+        "betelgeuse": null,
+        "canopus": null,
+        "capella": null,
         "ceres": null,
         "chiron": {
           "abs_pos": 194.9204514987571,
@@ -1888,6 +1995,7 @@
           "element": "Air",
           "emoji": "♎️",
           "house": "Third_House",
+          "magnitude": null,
           "name": "Chiron",
           "point_type": "AstrologicalPoint",
           "position": 14.920451498757103,
@@ -1900,12 +2008,15 @@
         "city": "Roma",
         "day": 16,
         "day_of_week": "Sunday",
+        "deneb": null,
+        "deneb_algedi": null,
         "descendant": {
           "abs_pos": 320.2416973396694,
           "declination": null,
           "element": "Air",
           "emoji": "♒️",
           "house": "Seventh_House",
+          "magnitude": null,
           "name": "Descendant",
           "point_type": "AstrologicalPoint",
           "position": 20.241697339669372,
@@ -1913,7 +2024,7 @@
           "retrograde": false,
           "sign": "Aqu",
           "sign_num": 10,
-          "speed": 360.0
+          "speed": 279.12896354550725
         },
         "earth": null,
         "eighth_house": {
@@ -1922,6 +2033,7 @@
           "element": "Water",
           "emoji": "♓️",
           "house": null,
+          "magnitude": null,
           "name": "Eighth_House",
           "point_type": "House",
           "position": 11.866149962241138,
@@ -1929,7 +2041,7 @@
           "retrograde": null,
           "sign": "Pis",
           "sign_num": 11,
-          "speed": null
+          "speed": 310.0842646679214
         },
         "eleventh_house": {
           "abs_pos": 77.48467856980056,
@@ -1937,6 +2049,7 @@
           "element": "Air",
           "emoji": "♊️",
           "house": null,
+          "magnitude": null,
           "name": "Eleventh_House",
           "point_type": "House",
           "position": 17.484678569800565,
@@ -1944,7 +2057,7 @@
           "retrograde": null,
           "sign": "Gem",
           "sign_num": 2,
-          "speed": null
+          "speed": 344.9579811169658
         },
         "eris": null,
         "fifth_house": {
@@ -1953,6 +2066,7 @@
           "element": "Fire",
           "emoji": "♐️",
           "house": null,
+          "magnitude": null,
           "name": "Fifth_House",
           "point_type": "House",
           "position": 17.484678569800565,
@@ -1960,7 +2074,7 @@
           "retrograde": null,
           "sign": "Sag",
           "sign_num": 8,
-          "speed": null
+          "speed": 344.9579811169658
         },
         "first_house": {
           "abs_pos": 140.24169733966937,
@@ -1968,6 +2082,7 @@
           "element": "Fire",
           "emoji": "♌️",
           "house": null,
+          "magnitude": null,
           "name": "First_House",
           "point_type": "House",
           "position": 20.241697339669372,
@@ -1975,14 +2090,16 @@
           "retrograde": null,
           "sign": "Leo",
           "sign_num": 4,
-          "speed": null
+          "speed": 279.12896354550725
         },
+        "fomalhaut": null,
         "fourth_house": {
           "abs_pos": 221.4233510543305,
           "declination": null,
           "element": "Water",
           "emoji": "♏️",
           "house": null,
+          "magnitude": null,
           "name": "Fourth_House",
           "point_type": "House",
           "position": 11.42335105433051,
@@ -1990,7 +2107,7 @@
           "retrograde": null,
           "sign": "Sco",
           "sign_num": 7,
-          "speed": null
+          "speed": 366.2054762238694
         },
         "haumea": null,
         "hour": 10,
@@ -2016,6 +2133,7 @@
           "element": "Water",
           "emoji": "♏️",
           "house": "Fourth_House",
+          "magnitude": null,
           "name": "Imum_Coeli",
           "point_type": "AstrologicalPoint",
           "position": 11.42335105433051,
@@ -2023,7 +2141,7 @@
           "retrograde": false,
           "sign": "Sco",
           "sign_num": 7,
-          "speed": 360.0
+          "speed": 366.2054762238694
         },
         "is_diurnal": true,
         "iso_formatted_local_datetime": "1946-06-16T10:10:00+02:00",
@@ -2037,6 +2155,7 @@
           "element": "Air",
           "emoji": "♎️",
           "house": "Third_House",
+          "magnitude": null,
           "name": "Jupiter",
           "point_type": "AstrologicalPoint",
           "position": 17.4557935356398,
@@ -2061,6 +2180,7 @@
           "element": "Fire",
           "emoji": "♌️",
           "house": "First_House",
+          "magnitude": null,
           "name": "Mars",
           "point_type": "AstrologicalPoint",
           "position": 27.737789564888857,
@@ -2076,6 +2196,7 @@
           "element": "Fire",
           "emoji": "♐️",
           "house": "Fourth_House",
+          "magnitude": null,
           "name": "Mean_Lilith",
           "point_type": "AstrologicalPoint",
           "position": 4.67052919087584,
@@ -2093,6 +2214,7 @@
           "element": "Earth",
           "emoji": "♉️",
           "house": "Tenth_House",
+          "magnitude": null,
           "name": "Medium_Coeli",
           "point_type": "AstrologicalPoint",
           "position": 11.423351054330496,
@@ -2100,7 +2222,7 @@
           "retrograde": false,
           "sign": "Tau",
           "sign_num": 1,
-          "speed": 360.0
+          "speed": 366.2054762238694
         },
         "mercury": {
           "abs_pos": 102.01379794536304,
@@ -2108,6 +2230,7 @@
           "element": "Water",
           "emoji": "♋️",
           "house": "Eleventh_House",
+          "magnitude": null,
           "name": "Mercury",
           "point_type": "AstrologicalPoint",
           "position": 12.013797945363038,
@@ -2125,6 +2248,7 @@
           "element": "Earth",
           "emoji": "♑️",
           "house": "Fifth_House",
+          "magnitude": null,
           "name": "Moon",
           "point_type": "AstrologicalPoint",
           "position": 11.731570600348903,
@@ -2142,6 +2266,7 @@
           "element": "Air",
           "emoji": "♎️",
           "house": "Second_House",
+          "magnitude": null,
           "name": "Neptune",
           "point_type": "AstrologicalPoint",
           "position": 5.840176940777582,
@@ -2157,6 +2282,7 @@
           "element": "Fire",
           "emoji": "♈️",
           "house": null,
+          "magnitude": null,
           "name": "Ninth_House",
           "point_type": "House",
           "position": 8.665976853822485,
@@ -2164,7 +2290,7 @@
           "retrograde": null,
           "sign": "Ari",
           "sign_num": 0,
-          "speed": null
+          "speed": 347.40074385448963
         },
         "orcus": null,
         "pallas": null,
@@ -2180,6 +2306,7 @@
           "element": "Fire",
           "emoji": "♌️",
           "house": "Twelfth_House",
+          "magnitude": null,
           "name": "Pluto",
           "point_type": "AstrologicalPoint",
           "position": 10.079607505400247,
@@ -2189,14 +2316,18 @@
           "sign_num": 4,
           "speed": 0.022023256372725918
         },
+        "pollux": null,
+        "procyon": null,
         "quaoar": null,
         "regulus": null,
+        "rigel": null,
         "saturn": {
           "abs_pos": 114.01828763829532,
           "declination": 21.467372117406867,
           "element": "Water",
           "emoji": "♋️",
           "house": "Twelfth_House",
+          "magnitude": null,
           "name": "Saturn",
           "point_type": "AstrologicalPoint",
           "position": 24.01828763829532,
@@ -2212,6 +2343,7 @@
           "element": "Earth",
           "emoji": "♍️",
           "house": null,
+          "magnitude": null,
           "name": "Second_House",
           "point_type": "House",
           "position": 11.866149962241138,
@@ -2219,7 +2351,7 @@
           "retrograde": null,
           "sign": "Vir",
           "sign_num": 5,
-          "speed": null
+          "speed": 310.0842646679214
         },
         "sedna": null,
         "seventh_house": {
@@ -2228,6 +2360,7 @@
           "element": "Air",
           "emoji": "♒️",
           "house": null,
+          "magnitude": null,
           "name": "Seventh_House",
           "point_type": "House",
           "position": 20.241697339669372,
@@ -2235,15 +2368,17 @@
           "retrograde": null,
           "sign": "Aqu",
           "sign_num": 10,
-          "speed": null
+          "speed": 279.12896354550725
         },
         "sidereal_mode": null,
+        "sirius": null,
         "sixth_house": {
           "abs_pos": 291.2641762041176,
           "declination": null,
           "element": "Earth",
           "emoji": "♑️",
           "house": null,
+          "magnitude": null,
           "name": "Sixth_House",
           "point_type": "House",
           "position": 21.264176204117575,
@@ -2251,7 +2386,7 @@
           "retrograde": null,
           "sign": "Cap",
           "sign_num": 9,
-          "speed": null
+          "speed": 306.921666476144
         },
         "spica": null,
         "sun": {
@@ -2260,6 +2395,7 @@
           "element": "Air",
           "emoji": "♊️",
           "house": "Eleventh_House",
+          "magnitude": null,
           "name": "Sun",
           "point_type": "AstrologicalPoint",
           "position": 24.569916154241298,
@@ -2275,6 +2411,7 @@
           "element": "Earth",
           "emoji": "♉️",
           "house": null,
+          "magnitude": null,
           "name": "Tenth_House",
           "point_type": "House",
           "position": 11.423351054330496,
@@ -2282,7 +2419,7 @@
           "retrograde": null,
           "sign": "Tau",
           "sign_num": 1,
-          "speed": null
+          "speed": 366.2054762238694
         },
         "third_house": {
           "abs_pos": 188.66597685382249,
@@ -2290,6 +2427,7 @@
           "element": "Air",
           "emoji": "♎️",
           "house": null,
+          "magnitude": null,
           "name": "Third_House",
           "point_type": "House",
           "position": 8.665976853822485,
@@ -2297,7 +2435,7 @@
           "retrograde": null,
           "sign": "Lib",
           "sign_num": 6,
-          "speed": null
+          "speed": 347.40074385448963
         },
         "true_lilith": null,
         "true_north_lunar_node": {
@@ -2306,6 +2444,7 @@
           "element": "Air",
           "emoji": "♊️",
           "house": "Eleventh_House",
+          "magnitude": null,
           "name": "True_North_Lunar_Node",
           "point_type": "AstrologicalPoint",
           "position": 20.79405982966385,
@@ -2321,6 +2460,7 @@
           "element": "Fire",
           "emoji": "♐️",
           "house": "Fifth_House",
+          "magnitude": null,
           "name": "True_South_Lunar_Node",
           "point_type": "AstrologicalPoint",
           "position": 20.794059829663865,
@@ -2336,6 +2476,7 @@
           "element": "Water",
           "emoji": "♋️",
           "house": null,
+          "magnitude": null,
           "name": "Twelfth_House",
           "point_type": "House",
           "position": 21.264176204117547,
@@ -2343,7 +2484,7 @@
           "retrograde": null,
           "sign": "Can",
           "sign_num": 3,
-          "speed": null
+          "speed": 306.921666476144
         },
         "tz_str": "Europe/Rome",
         "uranus": {
@@ -2352,6 +2493,7 @@
           "element": "Air",
           "emoji": "♊️",
           "house": "Eleventh_House",
+          "magnitude": null,
           "name": "Uranus",
           "point_type": "AstrologicalPoint",
           "position": 17.994450684952,
@@ -2361,12 +2503,14 @@
           "sign_num": 2,
           "speed": 0.05894372346088937
         },
+        "vega": null,
         "venus": {
           "abs_pos": 117.78226866944021,
           "declination": 22.442964693994742,
           "element": "Water",
           "emoji": "♋️",
           "house": "Twelfth_House",
+          "magnitude": null,
           "name": "Venus",
           "point_type": "AstrologicalPoint",
           "position": 27.782268669440214,
@@ -2388,6 +2532,7 @@
         "element": "Fire",
         "emoji": "♐️",
         "house": null,
+        "magnitude": null,
         "name": "Seventh_House",
         "point_type": "House",
         "position": 3.4155196960171565,
@@ -2398,12 +2543,14 @@
         "speed": null
       },
       "sidereal_mode": null,
+      "sirius": null,
       "sixth_house": {
         "abs_pos": 208.06039239918132,
         "declination": null,
         "element": "Air",
         "emoji": "♎️",
         "house": null,
+        "magnitude": null,
         "name": "Sixth_House",
         "point_type": "House",
         "position": 28.060392399181325,
@@ -2420,6 +2567,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Sun",
         "point_type": "AstrologicalPoint",
         "position": 22.60544800555661,
@@ -2435,6 +2583,7 @@
         "element": "Water",
         "emoji": "♓️",
         "house": null,
+        "magnitude": null,
         "name": "Tenth_House",
         "point_type": "House",
         "position": 3.116417719693402,
@@ -2450,6 +2599,7 @@
         "element": "Fire",
         "emoji": "♌️",
         "house": null,
+        "magnitude": null,
         "name": "Third_House",
         "point_type": "House",
         "position": 7.339937510227145,
@@ -2466,6 +2616,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": "Second_House",
+        "magnitude": null,
         "name": "True_North_Lunar_Node",
         "point_type": "AstrologicalPoint",
         "position": 16.403463844708355,
@@ -2481,6 +2632,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": "Eighth_House",
+        "magnitude": null,
         "name": "True_South_Lunar_Node",
         "point_type": "AstrologicalPoint",
         "position": 16.40346384470837,
@@ -2496,6 +2648,7 @@
         "element": "Fire",
         "emoji": "♈️",
         "house": null,
+        "magnitude": null,
         "name": "Twelfth_House",
         "point_type": "House",
         "position": 28.060392399181357,
@@ -2512,6 +2665,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Uranus",
         "point_type": "AstrologicalPoint",
         "position": 7.671371516743903,
@@ -2521,12 +2675,14 @@
         "sign_num": 5,
         "speed": null
       },
+      "vega": null,
       "venus": {
         "abs_pos": 175.30929876082314,
         "declination": null,
         "element": "Earth",
         "emoji": "♍️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Venus",
         "point_type": "AstrologicalPoint",
         "position": 25.30929876082314,

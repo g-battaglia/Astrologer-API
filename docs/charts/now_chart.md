@@ -29,6 +29,8 @@ This endpoint is perfect for applications that need to display the "cosmic now" 
 -   **`name`** (string, optional): Custom name for the chart title (default: "Now").
 -   **`zodiac_type`**, **`sidereal_mode`**, **`houses_system_identifier`** (optional configuration).
 -   **`theme`**, **`language`**, **`split_chart`**, `transparent_background`, `show_house_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `custom_title` (rendering options).
+-   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
+-   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
 
 #### Complete Request Example
 
@@ -37,6 +39,8 @@ This endpoint is perfect for applications that need to display the "cosmic now" 
     "name": "Current Sky",
     "theme": "light",
     "language": "IT",
+    "style": "modern",
+    "show_zodiac_background_ring": true,
     "houses_system_identifier": "W"
 }
 ```

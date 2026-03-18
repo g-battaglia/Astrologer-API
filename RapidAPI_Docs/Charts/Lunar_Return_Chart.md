@@ -14,7 +14,7 @@ Generates a Lunar Return chart for the return happening on or after the specifie
 
 -   `subject` (JSON object, required): The subject's natal birth data.
 -   `year` (integer, required): The year for the return.
--   `month` (integer, required): The month for the return.
+-   `month` (integer, optional): The month for the return.
 -   `day` (integer, optional): Day (1-31) to start the search from. Defaults to 1. Useful for finding later returns in the same month.
 -   `return_location` (JSON object, optional): The location where the subject is for the Lunar Return.
     -   `city` (string, optional)
@@ -32,6 +32,11 @@ Generates a Lunar Return chart for the return happening on or after the specifie
 -   `active_points` (array, optional): Points to include.
 -   `active_aspects` (array, optional): Aspects to include.
 -   `show_aspect_icons` (boolean, optional): Display aspect icons on aspect lines (default: true).
+-   `style` (string, optional): Chart wheel layout — "classic" (default) or "modern".
+-   `show_zodiac_background_ring` (boolean, optional): Show colored zodiac wedges behind the wheel, modern style only (default: true).
+-   `double_chart_aspect_grid_type` (string, optional): Aspect display for dual charts — "list" (default) or "table".
+-   `show_degree_indicators` (boolean, optional): Display radial lines and degree numbers for planet positions on the chart wheel (default: true).
+-   `show_cusp_position_comparison` (boolean, optional): Include the cusp position comparison table for dual charts (default: true).
 
 ## Request Body Example
 

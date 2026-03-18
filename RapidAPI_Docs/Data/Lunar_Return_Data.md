@@ -14,7 +14,7 @@ Calculates Lunar Return chart data for the return happening on or after the spec
 
 -   `subject` (JSON object, required): The subject's natal birth data.
 -   `year` (integer, required): The year for the return.
--   `month` (integer, required): The month for the return.
+-   `month` (integer, optional): The month for the return.
 -   `day` (integer, optional): Day (1-31) to start the search from. Defaults to 1. Useful for finding later returns in the same month.
 -   `return_location` (JSON object, optional): The location where the subject is for the Lunar Return.
 -   `wheel_type` (string, optional): "single" or "dual".

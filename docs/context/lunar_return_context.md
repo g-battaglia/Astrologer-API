@@ -31,10 +31,10 @@ Generates an AI-powered interpretation of a Lunar Return chart. The Lunar Return
     }
     ```
 -   **`year`** (integer, required): The year of the return.
--   **`month`** (integer, required): The month of the return.
+-   **`month`** (integer, optional): The month of the return.
 -   **`day`** (integer, optional): Day (1-31) to start the search from. Defaults to 1. Useful for finding the second Lunar Return in a month.
 -   **`return_location`** (object, optional): Relocation for the return.
--   **Computation options**: `active_points`, `active_aspects`, `distribution_method`, `custom_distribution_weights` (identical to `/api/v5/chart-data/lunar-return`). Rendering options such as `theme`, `language`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `custom_title` are **not** accepted here.
+-   **Computation options**: `active_points`, `active_aspects`, `distribution_method`, `custom_distribution_weights` (identical to `/api/v5/chart-data/lunar-return`). Rendering options such as `theme`, `language`, `style`, `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `custom_title` are **not** accepted here.
 
 #### Complete Request Example
 
@@ -49,9 +49,9 @@ Generates an AI-powered interpretation of a Lunar Return chart. The Lunar Return
         "minute": 0,
         "city": "London",
         "nation": "GB",
-        "lng": -0.1278,
-        "lat": 51.5074,
-        "tz_str": "Europe/London"
+        "longitude": -0.1278,
+        "latitude": 51.5074,
+        "timezone": "Europe/London"
     },
     "year": 2024,
     "month": 5,

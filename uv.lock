@@ -65,7 +65,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi" },
-    { name = "kerykeion", specifier = "==5.10.0" },
+    { name = "kerykeion", directory = "../kerykeion" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "pyjwt", specifier = ">=2.10.1" },
@@ -414,8 +414,8 @@ wheels = [
 
 [[package]]
 name = "kerykeion"
-version = "5.10.0"
-source = { registry = "https://pypi.org/simple" }
+version = "5.12.0"
+source = { directory = "../kerykeion" }
 dependencies = [
     { name = "pydantic" },
     { name = "pyswisseph" },
@@ -426,9 +426,32 @@ dependencies = [
     { name = "simple-ascii-tables" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a3/63/548e7f14bb077fc56ab6f1cb7839cedffcf51ee73bb218133e6a1525255a/kerykeion-5.10.0.tar.gz", hash = "sha256:95d4a41aae4be631f70c8034bb9726ef494d74a9a5b6d983ac8bbcb3791d6601", size = 678058, upload-time = "2026-02-26T16:13:27.218Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/f7/9f/fdebbbbf1182e7eb4b5f23956172613d9f976d4dbbace4869d37eda34069/kerykeion-5.10.0-py3-none-any.whl", hash = "sha256:ecc6f7ad04bd764291e2f7cef34d26c9c2e894afec83e79d4e4f046dc0a28bd1", size = 692649, upload-time = "2026-02-26T16:13:28.749Z" },
+
+[package.metadata]
+requires-dist = [
+    { name = "pydantic", specifier = ">=2.5" },
+    { name = "pyswisseph", specifier = ">=2.10.3.1" },
+    { name = "pytz", specifier = ">=2024.2" },
+    { name = "requests", specifier = ">=2.32.3" },
+    { name = "requests-cache", specifier = ">=1.2.1" },
+    { name = "scour", specifier = ">=0.38.2" },
+    { name = "simple-ascii-tables", specifier = ">=1.0.0" },
+    { name = "typing-extensions", specifier = ">=4.12.2" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "coverage", specifier = ">=7.6.0" },
+    { name = "mypy", specifier = ">=1.17.1" },
+    { name = "pdoc", specifier = ">=15.0.4" },
+    { name = "poethepoet", specifier = ">=0.36.0" },
+    { name = "pyright", specifier = ">=1.1.408" },
+    { name = "pytest", specifier = ">=8.4.1" },
+    { name = "pytest-cov", specifier = ">=6.0.0" },
+    { name = "pytest-xdist", specifier = ">=3.5.0" },
+    { name = "ruff", specifier = ">=0.12.9" },
+    { name = "types-pytz", specifier = ">=2025.2.0.20250516" },
+    { name = "types-requests", specifier = ">=2.32.4.20250611" },
 ]
 
 [[package]]

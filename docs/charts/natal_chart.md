@@ -51,6 +51,8 @@ The endpoint combines the power of precise astronomical calculations with beauti
 -   **`show_aspect_icons`** (boolean, optional): Display aspect icons on aspect lines (default: true).
 -   **`theme`** (string, optional): Color theme for the chart (e.g., "classic", "dark", "high_contrast"). Default: "classic".
 -   **`language`** (string, optional): Language for chart labels (e.g., "EN", "IT", "ES"). Default: "EN".
+-   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
+-   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
 -   **`split_chart`** (bool, optional): If true, returns the chart wheel and aspect grid as separate SVG strings. Default: false.
 -   **`transparent_background`** (bool, optional): If true, the chart background will be transparent. Default: false.
 -   **`show_house_position_comparison`** (bool, optional): Show or hide the houses/points comparison table next to the wheel. Default: true.
@@ -76,6 +78,8 @@ The endpoint combines the power of precise astronomical calculations with beauti
     },
     "theme": "dark",
     "language": "EN",
+    "style": "modern",
+    "show_zodiac_background_ring": true,
     "split_chart": false,
     "transparent_background": true
 }

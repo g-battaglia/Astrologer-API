@@ -66,12 +66,15 @@ This is one of the most practically useful chart types, essential for anyone ser
         "minute": 0,
         "city": "London",
         "nation": "GB",
-        "lng": -0.1278,
-        "lat": 51.5074,
-        "tz_str": "Europe/London"
+        "longitude": -0.1278,
+        "latitude": 51.5074,
+        "timezone": "Europe/London"
     }
     ```
 -   **`theme`**, **`language`**, **`split_chart`** (rendering options).
+-   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
+-   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
+-   **`double_chart_aspect_grid_type`** (string, optional): Aspect display for dual charts — "list" (default) or "table". Default: "list".
 -   **`show_house_position_comparison`** (bool, optional): Display the house comparison table for natal vs transit (default: true).
 -   **`show_cusp_position_comparison`** (bool, optional): Display cusp comparison grids for natal vs transit houses (default: true).
 -   **`show_degree_indicators`** (bool, optional): Display radial lines and degree numbers for planet positions on the wheels (default: true).
@@ -90,9 +93,9 @@ This is one of the most practically useful chart types, essential for anyone ser
         "minute": 0,
         "city": "London",
         "nation": "GB",
-        "lng": -0.1278,
-        "lat": 51.5074,
-        "tz_str": "Europe/London"
+        "longitude": -0.1278,
+        "latitude": 51.5074,
+        "timezone": "Europe/London"
     },
     "transit_subject": {
         "name": "Transit Moment",
@@ -103,11 +106,14 @@ This is one of the most practically useful chart types, essential for anyone ser
         "minute": 0,
         "city": "London",
         "nation": "GB",
-        "lng": -0.1278,
-        "lat": 51.5074,
-        "tz_str": "Europe/London"
+        "longitude": -0.1278,
+        "latitude": 51.5074,
+        "timezone": "Europe/London"
     },
-    "theme": "classic"
+    "theme": "classic",
+    "style": "modern",
+    "show_zodiac_background_ring": true,
+    "double_chart_aspect_grid_type": "list"
 }
 ```
 

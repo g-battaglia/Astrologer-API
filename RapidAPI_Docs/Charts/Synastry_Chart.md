@@ -36,6 +36,11 @@ Generates a synastry chart (relationship chart) comparing two subjects. Returns 
 -   `active_points` (array, optional): Points to include.
 -   `active_aspects` (array, optional): Aspects to include.
 -   `show_aspect_icons` (boolean, optional): Display aspect icons on aspect lines (default: true).
+-   `style` (string, optional): Chart wheel layout — "classic" (default) or "modern".
+-   `show_zodiac_background_ring` (boolean, optional): Show colored zodiac wedges behind the wheel, modern style only (default: true).
+-   `double_chart_aspect_grid_type` (string, optional): Aspect display for dual charts — "list" (default) or "table".
+-   `show_degree_indicators` (boolean, optional): Display radial lines and degree numbers for planet positions on the chart wheel (default: true).
+-   `show_cusp_position_comparison` (boolean, optional): Include the cusp position comparison table for dual charts (default: true).
 -   `distribution_method` (string, optional): Distribution calculation method.
 
 ## Request Body Example
@@ -105,7 +110,7 @@ Generates a synastry chart (relationship chart) comparing two subjects. Returns 
         },
         "relationship_score": {
             "score_value": 25,
-            "score_description": "Very Good",
+            "score_description": "Exceptional",
             "is_destiny_sign": false
         }
     },

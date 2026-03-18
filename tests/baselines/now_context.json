@@ -1,6 +1,7 @@
 {
   "status": "OK",
   "subject": {
+    "achernar": null,
     "active_points": [
       "Sun",
       "Moon",
@@ -21,13 +22,23 @@
       "Descendant",
       "Imum_Coeli"
     ],
+    "alcyone": null,
+    "aldebaran": null,
+    "algol": null,
+    "algorab": null,
+    "alkaid": null,
+    "alphecca": null,
+    "altair": null,
+    "antares": null,
     "anti_vertex": null,
+    "arcturus": null,
     "ascendant": {
       "abs_pos": 171.52265989648168,
       "declination": null,
       "element": "Earth",
       "emoji": "♍️",
       "house": "First_House",
+      "magnitude": null,
       "name": "Ascendant",
       "point_type": "AstrologicalPoint",
       "position": 21.522659896481684,
@@ -35,8 +46,12 @@
       "retrograde": false,
       "sign": "Vir",
       "sign_num": 5,
-      "speed": 360.0
+      "speed": 254.4347931272628
     },
+    "ayanamsa_value": null,
+    "betelgeuse": null,
+    "canopus": null,
+    "capella": null,
     "ceres": null,
     "chiron": {
       "abs_pos": 22.284378814852026,
@@ -44,6 +59,7 @@
       "element": "Fire",
       "emoji": "♈️",
       "house": "Eighth_House",
+      "magnitude": null,
       "name": "Chiron",
       "point_type": "AstrologicalPoint",
       "position": 22.284378814852026,
@@ -56,12 +72,15 @@
     "city": "Greenwich",
     "day": 1,
     "day_of_week": "Saturday",
+    "deneb": null,
+    "deneb_algedi": null,
     "descendant": {
       "abs_pos": 351.5226598964817,
       "declination": null,
       "element": "Water",
       "emoji": "♓️",
       "house": "Seventh_House",
+      "magnitude": null,
       "name": "Descendant",
       "point_type": "AstrologicalPoint",
       "position": 21.522659896481684,
@@ -69,7 +88,7 @@
       "retrograde": false,
       "sign": "Pis",
       "sign_num": 11,
-      "speed": 360.0
+      "speed": 254.4347931272628
     },
     "earth": null,
     "eighth_house": {
@@ -78,6 +97,7 @@
       "element": "Fire",
       "emoji": "♈️",
       "house": null,
+      "magnitude": null,
       "name": "Eighth_House",
       "point_type": "House",
       "position": 14.355312777344807,
@@ -85,7 +105,7 @@
       "retrograde": null,
       "sign": "Ari",
       "sign_num": 0,
-      "speed": null
+      "speed": 287.5041867563858
     },
     "eleventh_house": {
       "abs_pos": 115.62535698058184,
@@ -93,6 +113,7 @@
       "element": "Water",
       "emoji": "♋️",
       "house": null,
+      "magnitude": null,
       "name": "Eleventh_House",
       "point_type": "House",
       "position": 25.62535698058184,
@@ -100,7 +121,7 @@
       "retrograde": null,
       "sign": "Can",
       "sign_num": 3,
-      "speed": null
+      "speed": 314.93880462968593
     },
     "eris": null,
     "fifth_house": {
@@ -109,6 +130,7 @@
       "element": "Earth",
       "emoji": "♑️",
       "house": null,
+      "magnitude": null,
       "name": "Fifth_House",
       "point_type": "House",
       "position": 25.62535698058184,
@@ -116,7 +138,7 @@
       "retrograde": null,
       "sign": "Cap",
       "sign_num": 9,
-      "speed": null
+      "speed": 314.93880462968593
     },
     "first_house": {
       "abs_pos": 171.52265989648168,
@@ -124,6 +146,7 @@
       "element": "Earth",
       "emoji": "♍️",
       "house": null,
+      "magnitude": null,
       "name": "First_House",
       "point_type": "House",
       "position": 21.522659896481684,
@@ -131,14 +154,16 @@
       "retrograde": null,
       "sign": "Vir",
       "sign_num": 5,
-      "speed": null
+      "speed": 254.4347931272628
     },
+    "fomalhaut": null,
     "fourth_house": {
       "abs_pos": 258.9478819714442,
       "declination": null,
       "element": "Fire",
       "emoji": "♐️",
       "house": null,
+      "magnitude": null,
       "name": "Fourth_House",
       "point_type": "House",
       "position": 18.94788197144419,
@@ -146,7 +171,7 @@
       "retrograde": null,
       "sign": "Sag",
       "sign_num": 8,
-      "speed": null
+      "speed": 333.487553490183
     },
     "haumea": null,
     "hour": 12,
@@ -172,6 +197,7 @@
       "element": "Fire",
       "emoji": "♐️",
       "house": "Fourth_House",
+      "magnitude": null,
       "name": "Imum_Coeli",
       "point_type": "AstrologicalPoint",
       "position": 18.94788197144419,
@@ -179,7 +205,7 @@
       "retrograde": false,
       "sign": "Sag",
       "sign_num": 8,
-      "speed": 360.0
+      "speed": 333.487553490183
     },
     "is_diurnal": true,
     "iso_formatted_local_datetime": "2024-06-01T12:30:00+00:00",
@@ -193,6 +219,7 @@
       "element": "Air",
       "emoji": "♊️",
       "house": "Ninth_House",
+      "magnitude": null,
       "name": "Jupiter",
       "point_type": "AstrologicalPoint",
       "position": 1.5367769395397488,
@@ -217,6 +244,7 @@
       "element": "Fire",
       "emoji": "♈️",
       "house": "Eighth_House",
+      "magnitude": null,
       "name": "Mars",
       "point_type": "AstrologicalPoint",
       "position": 24.27138755702402,
@@ -232,6 +260,7 @@
       "element": "Earth",
       "emoji": "♍️",
       "house": "First_House",
+      "magnitude": null,
       "name": "Mean_Lilith",
       "point_type": "AstrologicalPoint",
       "position": 26.911415010892227,
@@ -249,6 +278,7 @@
       "element": "Air",
       "emoji": "♊️",
       "house": "Tenth_House",
+      "magnitude": null,
       "name": "Medium_Coeli",
       "point_type": "AstrologicalPoint",
       "position": 18.947881971444218,
@@ -256,7 +286,7 @@
       "retrograde": false,
       "sign": "Gem",
       "sign_num": 2,
-      "speed": 360.0
+      "speed": 333.487553490183
     },
     "mercury": {
       "abs_pos": 56.52513050923933,
@@ -264,6 +294,7 @@
       "element": "Earth",
       "emoji": "♉️",
       "house": "Ninth_House",
+      "magnitude": null,
       "name": "Mercury",
       "point_type": "AstrologicalPoint",
       "position": 26.525130509239332,
@@ -281,6 +312,7 @@
       "element": "Fire",
       "emoji": "♈️",
       "house": "Seventh_House",
+      "magnitude": null,
       "name": "Moon",
       "point_type": "AstrologicalPoint",
       "position": 5.356688834345711,
@@ -298,6 +330,7 @@
       "element": "Water",
       "emoji": "♓️",
       "house": "Seventh_House",
+      "magnitude": null,
       "name": "Neptune",
       "point_type": "AstrologicalPoint",
       "position": 29.674422536049747,
@@ -313,6 +346,7 @@
       "element": "Earth",
       "emoji": "♉️",
       "house": null,
+      "magnitude": null,
       "name": "Ninth_House",
       "point_type": "House",
       "position": 13.458037440068551,
@@ -320,7 +354,7 @@
       "retrograde": null,
       "sign": "Tau",
       "sign_num": 1,
-      "speed": null
+      "speed": 319.0763139786134
     },
     "orcus": null,
     "pallas": null,
@@ -336,6 +370,7 @@
       "element": "Air",
       "emoji": "♒️",
       "house": "Fifth_House",
+      "magnitude": null,
       "name": "Pluto",
       "point_type": "AstrologicalPoint",
       "position": 1.9038299054836898,
@@ -345,14 +380,18 @@
       "sign_num": 10,
       "speed": -0.0130081509419941
     },
+    "pollux": null,
+    "procyon": null,
     "quaoar": null,
     "regulus": null,
+    "rigel": null,
     "saturn": {
       "abs_pos": 348.77114846280057,
       "declination": -6.153308397704834,
       "element": "Water",
       "emoji": "♓️",
       "house": "Sixth_House",
+      "magnitude": null,
       "name": "Saturn",
       "point_type": "AstrologicalPoint",
       "position": 18.771148462800568,
@@ -368,6 +407,7 @@
       "element": "Air",
       "emoji": "♎️",
       "house": null,
+      "magnitude": null,
       "name": "Second_House",
       "point_type": "House",
       "position": 14.355312777344778,
@@ -375,7 +415,7 @@
       "retrograde": null,
       "sign": "Lib",
       "sign_num": 6,
-      "speed": null
+      "speed": 287.5041867563858
     },
     "sedna": null,
     "seventh_house": {
@@ -384,6 +424,7 @@
       "element": "Water",
       "emoji": "♓️",
       "house": null,
+      "magnitude": null,
       "name": "Seventh_House",
       "point_type": "House",
       "position": 21.522659896481684,
@@ -391,15 +432,17 @@
       "retrograde": null,
       "sign": "Pis",
       "sign_num": 11,
-      "speed": null
+      "speed": 254.4347931272628
     },
     "sidereal_mode": null,
+    "sirius": null,
     "sixth_house": {
       "abs_pos": 326.6548849217632,
       "declination": null,
       "element": "Air",
       "emoji": "♒️",
       "house": null,
+      "magnitude": null,
       "name": "Sixth_House",
       "point_type": "House",
       "position": 26.6548849217632,
@@ -407,7 +450,7 @@
       "retrograde": null,
       "sign": "Aqu",
       "sign_num": 10,
-      "speed": null
+      "speed": 284.0494573209297
     },
     "spica": null,
     "sun": {
@@ -416,6 +459,7 @@
       "element": "Air",
       "emoji": "♊️",
       "house": "Ninth_House",
+      "magnitude": null,
       "name": "Sun",
       "point_type": "AstrologicalPoint",
       "position": 11.500400489687252,
@@ -431,6 +475,7 @@
       "element": "Air",
       "emoji": "♊️",
       "house": null,
+      "magnitude": null,
       "name": "Tenth_House",
       "point_type": "House",
       "position": 18.947881971444218,
@@ -438,7 +483,7 @@
       "retrograde": null,
       "sign": "Gem",
       "sign_num": 2,
-      "speed": null
+      "speed": 333.487553490183
     },
     "third_house": {
       "abs_pos": 223.45803744006858,
@@ -446,6 +491,7 @@
       "element": "Water",
       "emoji": "♏️",
       "house": null,
+      "magnitude": null,
       "name": "Third_House",
       "point_type": "House",
       "position": 13.45803744006858,
@@ -453,7 +499,7 @@
       "retrograde": null,
       "sign": "Sco",
       "sign_num": 7,
-      "speed": null
+      "speed": 319.0763139786134
     },
     "true_lilith": null,
     "true_north_lunar_node": {
@@ -462,6 +508,7 @@
       "element": "Fire",
       "emoji": "♈️",
       "house": "Seventh_House",
+      "magnitude": null,
       "name": "True_North_Lunar_Node",
       "point_type": "AstrologicalPoint",
       "position": 14.049868020472106,
@@ -477,6 +524,7 @@
       "element": "Air",
       "emoji": "♎️",
       "house": "First_House",
+      "magnitude": null,
       "name": "True_South_Lunar_Node",
       "point_type": "AstrologicalPoint",
       "position": 14.049868020472104,
@@ -492,6 +540,7 @@
       "element": "Fire",
       "emoji": "♌️",
       "house": null,
+      "magnitude": null,
       "name": "Twelfth_House",
       "point_type": "House",
       "position": 26.6548849217632,
@@ -499,7 +548,7 @@
       "retrograde": null,
       "sign": "Leo",
       "sign_num": 4,
-      "speed": null
+      "speed": 284.0494573209297
     },
     "tz_str": "Etc/UTC",
     "uranus": {
@@ -508,6 +557,7 @@
       "element": "Earth",
       "emoji": "♉️",
       "house": "Ninth_House",
+      "magnitude": null,
       "name": "Uranus",
       "point_type": "AstrologicalPoint",
       "position": 24.202427023413073,
@@ -517,12 +567,14 @@
       "sign_num": 1,
       "speed": 0.05607202877203386
     },
+    "vega": null,
     "venus": {
       "abs_pos": 70.65289144271841,
       "declination": 21.86207096074546,
       "element": "Air",
       "emoji": "♊️",
       "house": "Ninth_House",
+      "magnitude": null,
       "name": "Venus",
       "point_type": "AstrologicalPoint",
       "position": 10.652891442718413,
@@ -537,5 +589,5 @@
     "year": 2024,
     "zodiac_type": "Tropical"
   },
-  "subject_context": "<chart name=\"Now Context Baseline\">\n  <birth_data date=\"2024-06-01 12:30\" city=\"Greenwich\" nation=\"GB\" lat=\"51.48\" lng=\"-0.00\" lng_dir=\"W\" tz=\"Etc/UTC\" />\n  <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n  <planets>\n    <point name=\"Sun\" position=\"11.50\" sign=\"Gemini\" abs_pos=\"71.50\" quality=\"Mutable\" element=\"Air\" house=\"Ninth House\" motion=\"direct\" speed=\"0.9584\" declination=\"22.16\" />\n    <point name=\"Moon\" position=\"5.36\" sign=\"Aries\" abs_pos=\"5.36\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"14.2502\" declination=\"1.42\" />\n    <point name=\"Mercury\" position=\"26.53\" sign=\"Taurus\" abs_pos=\"56.53\" quality=\"Fixed\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"1.9017\" declination=\"18.08\" />\n    <point name=\"Venus\" position=\"10.65\" sign=\"Gemini\" abs_pos=\"70.65\" quality=\"Mutable\" element=\"Air\" house=\"Ninth House\" motion=\"direct\" speed=\"1.2291\" declination=\"21.86\" />\n    <point name=\"Mars\" position=\"24.27\" sign=\"Aries\" abs_pos=\"24.27\" quality=\"Cardinal\" element=\"Fire\" house=\"Eighth House\" motion=\"direct\" speed=\"0.7503\" declination=\"8.32\" />\n    <point name=\"Jupiter\" position=\"1.54\" sign=\"Gemini\" abs_pos=\"61.54\" quality=\"Mutable\" element=\"Air\" house=\"Ninth House\" motion=\"direct\" speed=\"0.2337\" declination=\"19.77\" />\n    <point name=\"Saturn\" position=\"18.77\" sign=\"Pisces\" abs_pos=\"348.77\" quality=\"Mutable\" element=\"Water\" house=\"Sixth House\" motion=\"direct\" speed=\"0.0458\" declination=\"-6.15\" />\n    <point name=\"Uranus\" position=\"24.20\" sign=\"Taurus\" abs_pos=\"54.20\" quality=\"Fixed\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0561\" declination=\"18.57\" />\n    <point name=\"Neptune\" position=\"29.67\" sign=\"Pisces\" abs_pos=\"359.67\" quality=\"Mutable\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0164\" declination=\"-1.28\" />\n    <point name=\"Pluto\" position=\"1.90\" sign=\"Aquarius\" abs_pos=\"301.90\" quality=\"Fixed\" element=\"Air\" house=\"Fifth House\" motion=\"retrograde\" speed=\"-0.0130\" declination=\"-22.77\" />\n    <point name=\"Chiron\" position=\"22.28\" sign=\"Aries\" abs_pos=\"22.28\" quality=\"Cardinal\" element=\"Fire\" house=\"Eighth House\" motion=\"direct\" speed=\"0.0427\" declination=\"9.73\" />\n    <point name=\"Mean_Lilith\" position=\"26.91\" sign=\"Virgo\" abs_pos=\"176.91\" quality=\"Mutable\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"0.1108\" declination=\"2.52\" />\n  </planets>\n  <axes>\n    <point name=\"Ascendant\" position=\"21.52\" sign=\"Virgo\" abs_pos=\"171.52\" quality=\"Mutable\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"360.0000\" />\n    <point name=\"Descendant\" position=\"21.52\" sign=\"Pisces\" abs_pos=\"351.52\" quality=\"Mutable\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"360.0000\" />\n    <point name=\"Medium_Coeli\" position=\"18.95\" sign=\"Gemini\" abs_pos=\"78.95\" quality=\"Mutable\" element=\"Air\" house=\"Tenth House\" motion=\"direct\" speed=\"360.0000\" />\n    <point name=\"Imum_Coeli\" position=\"18.95\" sign=\"Sagittarius\" abs_pos=\"258.95\" quality=\"Mutable\" element=\"Fire\" house=\"Fourth House\" motion=\"direct\" speed=\"360.0000\" />\n    <point name=\"True_North_Lunar_Node\" position=\"14.05\" sign=\"Aries\" abs_pos=\"14.05\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0104\" declination=\"5.54\" />\n    <point name=\"True_South_Lunar_Node\" position=\"14.05\" sign=\"Libra\" abs_pos=\"194.05\" quality=\"Cardinal\" element=\"Air\" house=\"First House\" motion=\"direct\" speed=\"-0.0104\" declination=\"-5.54\" />\n  </axes>\n  <houses>\n    <house name=\"First_House\" cusp=\"21.52\" sign=\"Virgo\" />\n    <house name=\"Second_House\" cusp=\"14.36\" sign=\"Libra\" />\n    <house name=\"Third_House\" cusp=\"13.46\" sign=\"Scorpio\" />\n    <house name=\"Fourth_House\" cusp=\"18.95\" sign=\"Sagittarius\" />\n    <house name=\"Fifth_House\" cusp=\"25.63\" sign=\"Capricorn\" />\n    <house name=\"Sixth_House\" cusp=\"26.65\" sign=\"Aquarius\" />\n    <house name=\"Seventh_House\" cusp=\"21.52\" sign=\"Pisces\" />\n    <house name=\"Eighth_House\" cusp=\"14.36\" sign=\"Aries\" />\n    <house name=\"Ninth_House\" cusp=\"13.46\" sign=\"Taurus\" />\n    <house name=\"Tenth_House\" cusp=\"18.95\" sign=\"Gemini\" />\n    <house name=\"Eleventh_House\" cusp=\"25.63\" sign=\"Cancer\" />\n    <house name=\"Twelfth_House\" cusp=\"26.65\" sign=\"Leo\" />\n  </houses>\n  <lunar_phase name=\"Waning Crescent\" phase=\"23\" degrees_between=\"293.86\" emoji=\"🌘\" />\n</chart>"
+  "subject_context": "<chart name=\"Now Context Baseline\">\n  <birth_data date=\"2024-06-01 12:30\" city=\"Greenwich\" nation=\"GB\" lat=\"51.48\" lng=\"-0.00\" lng_dir=\"W\" tz=\"Etc/UTC\" />\n  <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n  <planets>\n    <point name=\"Sun\" position=\"11.50\" sign=\"Gemini\" abs_pos=\"71.50\" quality=\"Mutable\" element=\"Air\" house=\"Ninth House\" motion=\"direct\" speed=\"0.9584\" declination=\"22.16\" />\n    <point name=\"Moon\" position=\"5.36\" sign=\"Aries\" abs_pos=\"5.36\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"14.2502\" declination=\"1.42\" />\n    <point name=\"Mercury\" position=\"26.53\" sign=\"Taurus\" abs_pos=\"56.53\" quality=\"Fixed\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"1.9017\" declination=\"18.08\" />\n    <point name=\"Venus\" position=\"10.65\" sign=\"Gemini\" abs_pos=\"70.65\" quality=\"Mutable\" element=\"Air\" house=\"Ninth House\" motion=\"direct\" speed=\"1.2291\" declination=\"21.86\" />\n    <point name=\"Mars\" position=\"24.27\" sign=\"Aries\" abs_pos=\"24.27\" quality=\"Cardinal\" element=\"Fire\" house=\"Eighth House\" motion=\"direct\" speed=\"0.7503\" declination=\"8.32\" />\n    <point name=\"Jupiter\" position=\"1.54\" sign=\"Gemini\" abs_pos=\"61.54\" quality=\"Mutable\" element=\"Air\" house=\"Ninth House\" motion=\"direct\" speed=\"0.2337\" declination=\"19.77\" />\n    <point name=\"Saturn\" position=\"18.77\" sign=\"Pisces\" abs_pos=\"348.77\" quality=\"Mutable\" element=\"Water\" house=\"Sixth House\" motion=\"direct\" speed=\"0.0458\" declination=\"-6.15\" />\n    <point name=\"Uranus\" position=\"24.20\" sign=\"Taurus\" abs_pos=\"54.20\" quality=\"Fixed\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0561\" declination=\"18.57\" />\n    <point name=\"Neptune\" position=\"29.67\" sign=\"Pisces\" abs_pos=\"359.67\" quality=\"Mutable\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0164\" declination=\"-1.28\" />\n    <point name=\"Pluto\" position=\"1.90\" sign=\"Aquarius\" abs_pos=\"301.90\" quality=\"Fixed\" element=\"Air\" house=\"Fifth House\" motion=\"retrograde\" speed=\"-0.0130\" declination=\"-22.77\" />\n    <point name=\"Chiron\" position=\"22.28\" sign=\"Aries\" abs_pos=\"22.28\" quality=\"Cardinal\" element=\"Fire\" house=\"Eighth House\" motion=\"direct\" speed=\"0.0427\" declination=\"9.73\" />\n    <point name=\"Mean_Lilith\" position=\"26.91\" sign=\"Virgo\" abs_pos=\"176.91\" quality=\"Mutable\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"0.1108\" declination=\"2.52\" />\n  </planets>\n  <axes>\n    <point name=\"Ascendant\" position=\"21.52\" sign=\"Virgo\" abs_pos=\"171.52\" quality=\"Mutable\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"254.4348\" />\n    <point name=\"Descendant\" position=\"21.52\" sign=\"Pisces\" abs_pos=\"351.52\" quality=\"Mutable\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"254.4348\" />\n    <point name=\"Medium_Coeli\" position=\"18.95\" sign=\"Gemini\" abs_pos=\"78.95\" quality=\"Mutable\" element=\"Air\" house=\"Tenth House\" motion=\"direct\" speed=\"333.4876\" />\n    <point name=\"Imum_Coeli\" position=\"18.95\" sign=\"Sagittarius\" abs_pos=\"258.95\" quality=\"Mutable\" element=\"Fire\" house=\"Fourth House\" motion=\"direct\" speed=\"333.4876\" />\n    <point name=\"True_North_Lunar_Node\" position=\"14.05\" sign=\"Aries\" abs_pos=\"14.05\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0104\" declination=\"5.54\" />\n    <point name=\"True_South_Lunar_Node\" position=\"14.05\" sign=\"Libra\" abs_pos=\"194.05\" quality=\"Cardinal\" element=\"Air\" house=\"First House\" motion=\"direct\" speed=\"-0.0104\" declination=\"-5.54\" />\n  </axes>\n  <houses>\n    <house name=\"First_House\" cusp=\"21.52\" sign=\"Virgo\" />\n    <house name=\"Second_House\" cusp=\"14.36\" sign=\"Libra\" />\n    <house name=\"Third_House\" cusp=\"13.46\" sign=\"Scorpio\" />\n    <house name=\"Fourth_House\" cusp=\"18.95\" sign=\"Sagittarius\" />\n    <house name=\"Fifth_House\" cusp=\"25.63\" sign=\"Capricorn\" />\n    <house name=\"Sixth_House\" cusp=\"26.65\" sign=\"Aquarius\" />\n    <house name=\"Seventh_House\" cusp=\"21.52\" sign=\"Pisces\" />\n    <house name=\"Eighth_House\" cusp=\"14.36\" sign=\"Aries\" />\n    <house name=\"Ninth_House\" cusp=\"13.46\" sign=\"Taurus\" />\n    <house name=\"Tenth_House\" cusp=\"18.95\" sign=\"Gemini\" />\n    <house name=\"Eleventh_House\" cusp=\"25.63\" sign=\"Cancer\" />\n    <house name=\"Twelfth_House\" cusp=\"26.65\" sign=\"Leo\" />\n  </houses>\n  <lunar_phase name=\"Waning Crescent\" phase=\"23\" degrees_between=\"293.86\" emoji=\"🌘\" />\n</chart>"
 }

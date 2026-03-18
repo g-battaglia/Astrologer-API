@@ -113,7 +113,7 @@
         "p2_abs_pos": 166.7365015095487,
         "p2_name": "Ascendant",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 254.02821441179742
       },
       {
         "aspect": "square",
@@ -164,7 +164,7 @@
         "p2_abs_pos": 72.64059198360613,
         "p2_name": "Medium_Coeli",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 336.74160833072284
       },
       {
         "aspect": "sextile",
@@ -181,7 +181,7 @@
         "p2_abs_pos": 252.64059198360613,
         "p2_name": "Imum_Coeli",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 336.74160833072284
       },
       {
         "aspect": "trine",
@@ -266,7 +266,7 @@
         "p2_abs_pos": 166.7365015095487,
         "p2_name": "Ascendant",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 254.02821441179742
       },
       {
         "aspect": "trine",
@@ -283,7 +283,7 @@
         "p2_abs_pos": 346.7365015095487,
         "p2_name": "Descendant",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 254.02821441179742
       },
       {
         "aspect": "quintile",
@@ -351,7 +351,7 @@
         "p2_abs_pos": 346.7365015095487,
         "p2_name": "Descendant",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 254.02821441179742
       },
       {
         "aspect": "square",
@@ -385,7 +385,7 @@
         "p2_abs_pos": 166.7365015095487,
         "p2_name": "Ascendant",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 254.02821441179742
       },
       {
         "aspect": "sextile",
@@ -402,7 +402,7 @@
         "p2_abs_pos": 346.7365015095487,
         "p2_name": "Descendant",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 254.02821441179742
       },
       {
         "aspect": "trine",
@@ -453,7 +453,7 @@
         "p2_abs_pos": 72.64059198360613,
         "p2_name": "Medium_Coeli",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 336.74160833072284
       },
       {
         "aspect": "opposition",
@@ -470,7 +470,7 @@
         "p2_abs_pos": 252.64059198360613,
         "p2_name": "Imum_Coeli",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 336.74160833072284
       },
       {
         "aspect": "trine",
@@ -521,7 +521,7 @@
         "p2_abs_pos": 166.7365015095487,
         "p2_name": "Ascendant",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 254.02821441179742
       },
       {
         "aspect": "conjunction",
@@ -538,7 +538,7 @@
         "p2_abs_pos": 346.7365015095487,
         "p2_name": "Descendant",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 254.02821441179742
       },
       {
         "aspect": "sextile",
@@ -623,7 +623,7 @@
         "p2_abs_pos": 72.64059198360613,
         "p2_name": "Medium_Coeli",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 336.74160833072284
       },
       {
         "aspect": "opposition",
@@ -674,7 +674,7 @@
         "p2_abs_pos": 72.64059198360613,
         "p2_name": "Medium_Coeli",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 336.74160833072284
       },
       {
         "aspect": "trine",
@@ -691,7 +691,7 @@
         "p2_abs_pos": 252.64059198360613,
         "p2_name": "Imum_Coeli",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 336.74160833072284
       },
       {
         "aspect": "square",
@@ -703,12 +703,12 @@
         "p1_abs_pos": 166.7365015095487,
         "p1_name": "Ascendant",
         "p1_owner": "Baseline Test London Lunar Return",
-        "p1_speed": 360.0,
+        "p1_speed": 254.02821441179742,
         "p2": 14,
         "p2_abs_pos": 72.64059198360613,
         "p2_name": "Medium_Coeli",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 336.74160833072284
       },
       {
         "aspect": "square",
@@ -720,12 +720,12 @@
         "p1_abs_pos": 166.7365015095487,
         "p1_name": "Ascendant",
         "p1_owner": "Baseline Test London Lunar Return",
-        "p1_speed": 360.0,
+        "p1_speed": 254.02821441179742,
         "p2": 16,
         "p2_abs_pos": 252.64059198360613,
         "p2_name": "Imum_Coeli",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 336.74160833072284
       },
       {
         "aspect": "square",
@@ -737,12 +737,12 @@
         "p1_abs_pos": 72.64059198360613,
         "p1_name": "Medium_Coeli",
         "p1_owner": "Baseline Test London Lunar Return",
-        "p1_speed": 360.0,
+        "p1_speed": 336.74160833072284,
         "p2": 15,
         "p2_abs_pos": 346.7365015095487,
         "p2_name": "Descendant",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 254.02821441179742
       },
       {
         "aspect": "trine",
@@ -754,7 +754,7 @@
         "p1_abs_pos": 72.64059198360613,
         "p1_name": "Medium_Coeli",
         "p1_owner": "Baseline Test London Lunar Return",
-        "p1_speed": 360.0,
+        "p1_speed": 336.74160833072284,
         "p2": 19,
         "p2_abs_pos": 191.66201049946628,
         "p2_name": "True_South_Lunar_Node",
@@ -771,12 +771,12 @@
         "p1_abs_pos": 346.7365015095487,
         "p1_name": "Descendant",
         "p1_owner": "Baseline Test London Lunar Return",
-        "p1_speed": 360.0,
+        "p1_speed": 254.02821441179742,
         "p2": 16,
         "p2_abs_pos": 252.64059198360613,
         "p2_name": "Imum_Coeli",
         "p2_owner": "Baseline Test London Lunar Return",
-        "p2_speed": 360.0
+        "p2_speed": 336.74160833072284
       },
       {
         "aspect": "sextile",
@@ -788,7 +788,7 @@
         "p1_abs_pos": 252.64059198360613,
         "p1_name": "Imum_Coeli",
         "p1_owner": "Baseline Test London Lunar Return",
-        "p1_speed": 360.0,
+        "p1_speed": 336.74160833072284,
         "p2": 19,
         "p2_abs_pos": 191.66201049946628,
         "p2_name": "True_South_Lunar_Node",
@@ -816,6 +816,7 @@
       "mutable_percentage": 46
     },
     "subject": {
+      "achernar": null,
       "active_points": [
         "Sun",
         "Moon",
@@ -836,13 +837,23 @@
         "Descendant",
         "Imum_Coeli"
       ],
+      "alcyone": null,
+      "aldebaran": null,
+      "algol": null,
+      "algorab": null,
+      "alkaid": null,
+      "alphecca": null,
+      "altair": null,
+      "antares": null,
       "anti_vertex": null,
+      "arcturus": null,
       "ascendant": {
         "abs_pos": 166.7365015095487,
         "declination": null,
         "element": "Earth",
         "emoji": "♍️",
         "house": "First_House",
+        "magnitude": null,
         "name": "Ascendant",
         "point_type": "AstrologicalPoint",
         "position": 16.736501509548702,
@@ -850,8 +861,12 @@
         "retrograde": false,
         "sign": "Vir",
         "sign_num": 5,
-        "speed": 360.0
+        "speed": 254.02821441179742
       },
+      "ayanamsa_value": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "capella": null,
       "ceres": null,
       "chiron": {
         "abs_pos": 23.117231808641343,
@@ -859,6 +874,7 @@
         "element": "Fire",
         "emoji": "♈️",
         "house": "Eighth_House",
+        "magnitude": null,
         "name": "Chiron",
         "point_type": "AstrologicalPoint",
         "position": 23.117231808641343,
@@ -870,12 +886,15 @@
       },
       "city": "London",
       "day_of_week": "Tuesday",
+      "deneb": null,
+      "deneb_algedi": null,
       "descendant": {
         "abs_pos": 346.7365015095487,
         "declination": null,
         "element": "Water",
         "emoji": "♓️",
         "house": "Seventh_House",
+        "magnitude": null,
         "name": "Descendant",
         "point_type": "AstrologicalPoint",
         "position": 16.736501509548702,
@@ -883,7 +902,7 @@
         "retrograde": false,
         "sign": "Pis",
         "sign_num": 11,
-        "speed": 360.0
+        "speed": 254.02821441179742
       },
       "earth": null,
       "eighth_house": {
@@ -892,6 +911,7 @@
         "element": "Fire",
         "emoji": "♈️",
         "house": null,
+        "magnitude": null,
         "name": "Eighth_House",
         "point_type": "House",
         "position": 8.937796914054616,
@@ -899,7 +919,7 @@
         "retrograde": null,
         "sign": "Ari",
         "sign_num": 0,
-        "speed": null
+        "speed": 288.1775134043042
       },
       "eleventh_house": {
         "abs_pos": 109.72685534332574,
@@ -907,6 +927,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": null,
+        "magnitude": null,
         "name": "Eleventh_House",
         "point_type": "House",
         "position": 19.726855343325738,
@@ -914,7 +935,7 @@
         "retrograde": null,
         "sign": "Can",
         "sign_num": 3,
-        "speed": null
+        "speed": 316.14552066331447
       },
       "eris": null,
       "fifth_house": {
@@ -923,6 +944,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": null,
+        "magnitude": null,
         "name": "Fifth_House",
         "point_type": "House",
         "position": 19.726855343325724,
@@ -930,7 +952,7 @@
         "retrograde": null,
         "sign": "Cap",
         "sign_num": 9,
-        "speed": null
+        "speed": 316.14552066331447
       },
       "first_house": {
         "abs_pos": 166.7365015095487,
@@ -938,6 +960,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": null,
+        "magnitude": null,
         "name": "First_House",
         "point_type": "House",
         "position": 16.736501509548702,
@@ -945,14 +968,16 @@
         "retrograde": null,
         "sign": "Vir",
         "sign_num": 5,
-        "speed": null
+        "speed": 254.02821441179742
       },
+      "fomalhaut": null,
       "fourth_house": {
         "abs_pos": 252.64059198360613,
         "declination": null,
         "element": "Fire",
         "emoji": "♐️",
         "house": null,
+        "magnitude": null,
         "name": "Fourth_House",
         "point_type": "House",
         "position": 12.640591983606129,
@@ -960,7 +985,7 @@
         "retrograde": null,
         "sign": "Sag",
         "sign_num": 8,
-        "speed": null
+        "speed": 336.74160833072284
       },
       "haumea": null,
       "houses_names_list": [
@@ -985,6 +1010,7 @@
         "element": "Fire",
         "emoji": "♐️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Imum_Coeli",
         "point_type": "AstrologicalPoint",
         "position": 12.640591983606129,
@@ -992,7 +1018,7 @@
         "retrograde": false,
         "sign": "Sag",
         "sign_num": 8,
-        "speed": 360.0
+        "speed": 336.74160833072284
       },
       "iso_formatted_local_datetime": "2024-06-25T11:28:31+01:00",
       "iso_formatted_utc_datetime": "2024-06-25T10:28:31+00:00",
@@ -1005,6 +1031,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": "Ninth_House",
+        "magnitude": null,
         "name": "Jupiter",
         "point_type": "AstrologicalPoint",
         "position": 6.9986257794019195,
@@ -1029,6 +1056,7 @@
         "element": "Earth",
         "emoji": "♉️",
         "house": "Ninth_House",
+        "magnitude": null,
         "name": "Mars",
         "point_type": "AstrologicalPoint",
         "position": 11.938538745729382,
@@ -1044,6 +1072,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": "First_House",
+        "magnitude": null,
         "name": "Mean_Lilith",
         "point_type": "AstrologicalPoint",
         "position": 29.562143963049323,
@@ -1061,6 +1090,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Medium_Coeli",
         "point_type": "AstrologicalPoint",
         "position": 12.640591983606129,
@@ -1068,7 +1098,7 @@
         "retrograde": false,
         "sign": "Gem",
         "sign_num": 2,
-        "speed": 360.0
+        "speed": 336.74160833072284
       },
       "mercury": {
         "abs_pos": 106.84125460369165,
@@ -1076,6 +1106,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Mercury",
         "point_type": "AstrologicalPoint",
         "position": 16.841254603691652,
@@ -1091,6 +1122,7 @@
         "element": "Air",
         "emoji": "♒️",
         "house": "Fifth_House",
+        "magnitude": null,
         "name": "Moon",
         "point_type": "AstrologicalPoint",
         "position": 18.377083066330613,
@@ -1108,6 +1140,7 @@
         "element": "Water",
         "emoji": "♓️",
         "house": "Seventh_House",
+        "magnitude": null,
         "name": "Neptune",
         "point_type": "AstrologicalPoint",
         "position": 29.91863642722069,
@@ -1123,6 +1156,7 @@
         "element": "Earth",
         "emoji": "♉️",
         "house": null,
+        "magnitude": null,
         "name": "Ninth_House",
         "point_type": "House",
         "position": 7.453764640174654,
@@ -1130,7 +1164,7 @@
         "retrograde": null,
         "sign": "Tau",
         "sign_num": 1,
-        "speed": null
+        "speed": 321.64900498912965
       },
       "orcus": null,
       "pallas": null,
@@ -1146,6 +1180,7 @@
         "element": "Air",
         "emoji": "♒️",
         "house": "Fifth_House",
+        "magnitude": null,
         "name": "Pluto",
         "point_type": "AstrologicalPoint",
         "position": 1.497613420032451,
@@ -1155,15 +1190,19 @@
         "sign_num": 10,
         "speed": -0.020378942499002045
       },
+      "pollux": null,
+      "procyon": null,
       "quaoar": null,
       "regulus": null,
       "return_type": "Lunar",
+      "rigel": null,
       "saturn": {
         "abs_pos": 349.4122161694033,
         "declination": -5.993256523206836,
         "element": "Water",
         "emoji": "♓️",
         "house": "Seventh_House",
+        "magnitude": null,
         "name": "Saturn",
         "point_type": "AstrologicalPoint",
         "position": 19.41221616940328,
@@ -1179,6 +1218,7 @@
         "element": "Air",
         "emoji": "♎️",
         "house": null,
+        "magnitude": null,
         "name": "Second_House",
         "point_type": "House",
         "position": 8.937796914054644,
@@ -1186,7 +1226,7 @@
         "retrograde": null,
         "sign": "Lib",
         "sign_num": 6,
-        "speed": null
+        "speed": 288.1775134043042
       },
       "sedna": null,
       "seventh_house": {
@@ -1195,6 +1235,7 @@
         "element": "Water",
         "emoji": "♓️",
         "house": null,
+        "magnitude": null,
         "name": "Seventh_House",
         "point_type": "House",
         "position": 16.736501509548702,
@@ -1202,15 +1243,17 @@
         "retrograde": null,
         "sign": "Pis",
         "sign_num": 11,
-        "speed": null
+        "speed": 254.02821441179742
       },
       "sidereal_mode": null,
+      "sirius": null,
       "sixth_house": {
         "abs_pos": 321.3386880456526,
         "declination": null,
         "element": "Air",
         "emoji": "♒️",
         "house": null,
+        "magnitude": null,
         "name": "Sixth_House",
         "point_type": "House",
         "position": 21.33868804565259,
@@ -1218,7 +1261,7 @@
         "retrograde": null,
         "sign": "Aqu",
         "sign_num": 10,
-        "speed": null
+        "speed": 283.3343245954141
       },
       "spica": null,
       "sun": {
@@ -1227,6 +1270,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Sun",
         "point_type": "AstrologicalPoint",
         "position": 4.356344250088256,
@@ -1242,6 +1286,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": null,
+        "magnitude": null,
         "name": "Tenth_House",
         "point_type": "House",
         "position": 12.640591983606129,
@@ -1249,7 +1294,7 @@
         "retrograde": null,
         "sign": "Gem",
         "sign_num": 2,
-        "speed": null
+        "speed": 336.74160833072284
       },
       "third_house": {
         "abs_pos": 217.45376464017468,
@@ -1257,6 +1302,7 @@
         "element": "Water",
         "emoji": "♏️",
         "house": null,
+        "magnitude": null,
         "name": "Third_House",
         "point_type": "House",
         "position": 7.453764640174683,
@@ -1264,7 +1310,7 @@
         "retrograde": null,
         "sign": "Sco",
         "sign_num": 7,
-        "speed": null
+        "speed": 321.64900498912965
       },
       "true_lilith": null,
       "true_north_lunar_node": {
@@ -1273,6 +1319,7 @@
         "element": "Fire",
         "emoji": "♈️",
         "house": "Eighth_House",
+        "magnitude": null,
         "name": "True_North_Lunar_Node",
         "point_type": "AstrologicalPoint",
         "position": 11.662010499466282,
@@ -1288,6 +1335,7 @@
         "element": "Air",
         "emoji": "♎️",
         "house": "Second_House",
+        "magnitude": null,
         "name": "True_South_Lunar_Node",
         "point_type": "AstrologicalPoint",
         "position": 11.662010499466277,
@@ -1303,6 +1351,7 @@
         "element": "Fire",
         "emoji": "♌️",
         "house": null,
+        "magnitude": null,
         "name": "Twelfth_House",
         "point_type": "House",
         "position": 21.338688045652617,
@@ -1310,7 +1359,7 @@
         "retrograde": null,
         "sign": "Leo",
         "sign_num": 4,
-        "speed": null
+        "speed": 283.3343245954141
       },
       "tz_str": "Europe/London",
       "uranus": {
@@ -1319,6 +1368,7 @@
         "element": "Earth",
         "emoji": "♉️",
         "house": "Ninth_House",
+        "magnitude": null,
         "name": "Uranus",
         "point_type": "AstrologicalPoint",
         "position": 25.46003558573888,
@@ -1328,12 +1378,14 @@
         "sign_num": 1,
         "speed": 0.04809152333056977
       },
+      "vega": null,
       "venus": {
         "abs_pos": 100.0397253677009,
         "declination": 23.790655705138445,
         "element": "Water",
         "emoji": "♋️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Venus",
         "point_type": "AstrologicalPoint",
         "position": 10.039725367700896,
@@ -1348,7 +1400,7 @@
       "zodiac_type": "Tropical"
     }
   },
-  "context": "<chart_analysis type=\"SingleReturnChart\">\n  <chart name=\"Baseline Test London Lunar Return\">\n    <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n    <return_info type=\"Lunar\" />\n    <planets>\n      <point name=\"Sun\" position=\"4.36\" sign=\"Cancer\" abs_pos=\"94.36\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"0.9535\" declination=\"23.37\" />\n      <point name=\"Moon\" position=\"18.38\" sign=\"Aquarius\" abs_pos=\"318.38\" quality=\"Fixed\" element=\"Air\" house=\"Fifth House\" motion=\"direct\" speed=\"14.1779\" declination=\"-19.15\" />\n      <point name=\"Mercury\" position=\"16.84\" sign=\"Cancer\" abs_pos=\"106.84\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"1.9755\" declination=\"24.26\" />\n      <point name=\"Venus\" position=\"10.04\" sign=\"Cancer\" abs_pos=\"100.04\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"1.2285\" declination=\"23.79\" />\n      <point name=\"Mars\" position=\"11.94\" sign=\"Taurus\" abs_pos=\"41.94\" quality=\"Fixed\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.7263\" declination=\"14.46\" />\n      <point name=\"Jupiter\" position=\"7.00\" sign=\"Gemini\" abs_pos=\"67.00\" quality=\"Mutable\" element=\"Air\" house=\"Ninth House\" motion=\"direct\" speed=\"0.2212\" declination=\"20.79\" />\n      <point name=\"Saturn\" position=\"19.41\" sign=\"Pisces\" abs_pos=\"349.41\" quality=\"Mutable\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0073\" declination=\"-5.99\" />\n      <point name=\"Uranus\" position=\"25.46\" sign=\"Taurus\" abs_pos=\"55.46\" quality=\"Fixed\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0481\" declination=\"18.87\" />\n      <point name=\"Neptune\" position=\"29.92\" sign=\"Pisces\" abs_pos=\"359.92\" quality=\"Mutable\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0038\" declination=\"-1.20\" />\n      <point name=\"Pluto\" position=\"1.50\" sign=\"Aquarius\" abs_pos=\"301.50\" quality=\"Fixed\" element=\"Air\" house=\"Fifth House\" motion=\"retrograde\" speed=\"-0.0204\" declination=\"-22.92\" />\n      <point name=\"Chiron\" position=\"23.12\" sign=\"Aries\" abs_pos=\"23.12\" quality=\"Cardinal\" element=\"Fire\" house=\"Eighth House\" motion=\"direct\" speed=\"0.0262\" declination=\"10.03\" />\n      <point name=\"Mean_Lilith\" position=\"29.56\" sign=\"Virgo\" abs_pos=\"179.56\" quality=\"Mutable\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"0.1108\" declination=\"1.16\" />\n    </planets>\n    <axes>\n      <point name=\"Ascendant\" position=\"16.74\" sign=\"Virgo\" abs_pos=\"166.74\" quality=\"Mutable\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"360.0000\" />\n      <point name=\"Descendant\" position=\"16.74\" sign=\"Pisces\" abs_pos=\"346.74\" quality=\"Mutable\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"360.0000\" />\n      <point name=\"Medium_Coeli\" position=\"12.64\" sign=\"Gemini\" abs_pos=\"72.64\" quality=\"Mutable\" element=\"Air\" house=\"Tenth House\" motion=\"direct\" speed=\"360.0000\" />\n      <point name=\"Imum_Coeli\" position=\"12.64\" sign=\"Sagittarius\" abs_pos=\"252.64\" quality=\"Mutable\" element=\"Fire\" house=\"Fourth House\" motion=\"direct\" speed=\"360.0000\" />\n      <point name=\"True_North_Lunar_Node\" position=\"11.66\" sign=\"Aries\" abs_pos=\"11.66\" quality=\"Cardinal\" element=\"Fire\" house=\"Eighth House\" motion=\"retrograde\" speed=\"-0.1074\" declination=\"4.61\" />\n      <point name=\"True_South_Lunar_Node\" position=\"11.66\" sign=\"Libra\" abs_pos=\"191.66\" quality=\"Cardinal\" element=\"Air\" house=\"Second House\" motion=\"retrograde\" speed=\"0.1074\" declination=\"-4.61\" />\n    </axes>\n    <houses>\n      <house name=\"First_House\" cusp=\"16.74\" sign=\"Virgo\" />\n      <house name=\"Second_House\" cusp=\"8.94\" sign=\"Libra\" />\n      <house name=\"Third_House\" cusp=\"7.45\" sign=\"Scorpio\" />\n      <house name=\"Fourth_House\" cusp=\"12.64\" sign=\"Sagittarius\" />\n      <house name=\"Fifth_House\" cusp=\"19.73\" sign=\"Capricorn\" />\n      <house name=\"Sixth_House\" cusp=\"21.34\" sign=\"Aquarius\" />\n      <house name=\"Seventh_House\" cusp=\"16.74\" sign=\"Pisces\" />\n      <house name=\"Eighth_House\" cusp=\"8.94\" sign=\"Aries\" />\n      <house name=\"Ninth_House\" cusp=\"7.45\" sign=\"Taurus\" />\n      <house name=\"Tenth_House\" cusp=\"12.64\" sign=\"Gemini\" />\n      <house name=\"Eleventh_House\" cusp=\"19.73\" sign=\"Cancer\" />\n      <house name=\"Twelfth_House\" cusp=\"21.34\" sign=\"Leo\" />\n    </houses>\n    <lunar_phase name=\"Waning Gibbous\" phase=\"18\" degrees_between=\"224.02\" emoji=\"🌖\" />\n  </chart>\n  <element_distribution fire=\"12%\" earth=\"22%\" air=\"27%\" water=\"39%\" />\n  <quality_distribution cardinal=\"32%\" fixed=\"22%\" mutable=\"46%\" />\n  <aspects count=\"44\">\n    <aspect type=\"conjunction\" p1=\"Sun\" p2=\"Venus\" orb=\"5.68\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Sun\" p2=\"Neptune\" orb=\"4.44\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"quintile\" p1=\"Sun\" p2=\"Chiron\" orb=\"0.76\" angle=\"72\" movement=\"applying\" />\n    <aspect type=\"quintile\" p1=\"Sun\" p2=\"Ascendant\" orb=\"0.38\" angle=\"72\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Sun\" p2=\"Mean_Lilith\" orb=\"4.79\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Moon\" p2=\"Chiron\" orb=\"4.74\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Moon\" p2=\"Medium_Coeli\" orb=\"5.74\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Moon\" p2=\"Imum_Coeli\" orb=\"5.74\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Moon\" p2=\"True_South_Lunar_Node\" orb=\"6.72\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Mercury\" p2=\"Venus\" orb=\"6.80\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Mercury\" p2=\"Mars\" orb=\"4.90\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Mercury\" p2=\"Saturn\" orb=\"2.57\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Mercury\" p2=\"Ascendant\" orb=\"0.10\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Mercury\" p2=\"Descendant\" orb=\"0.10\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"quintile\" p1=\"Mercury\" p2=\"Mean_Lilith\" orb=\"0.72\" angle=\"72\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Venus\" p2=\"Mars\" orb=\"1.90\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"square\" p1=\"Venus\" p2=\"True_North_Lunar_Node\" orb=\"1.62\" angle=\"90\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Venus\" p2=\"Descendant\" orb=\"6.70\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Venus\" p2=\"True_South_Lunar_Node\" orb=\"1.62\" angle=\"90\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Mars\" p2=\"Ascendant\" orb=\"4.80\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Mars\" p2=\"Descendant\" orb=\"4.80\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Jupiter\" p2=\"Pluto\" orb=\"5.50\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Jupiter\" p2=\"True_North_Lunar_Node\" orb=\"4.66\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Jupiter\" p2=\"Medium_Coeli\" orb=\"5.64\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"opposition\" p1=\"Jupiter\" p2=\"Imum_Coeli\" orb=\"5.64\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Jupiter\" p2=\"Mean_Lilith\" orb=\"7.44\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Jupiter\" p2=\"True_South_Lunar_Node\" orb=\"4.66\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Saturn\" p2=\"Ascendant\" orb=\"2.68\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Saturn\" p2=\"Descendant\" orb=\"2.68\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Uranus\" p2=\"Neptune\" orb=\"4.46\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Uranus\" p2=\"Pluto\" orb=\"6.04\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Uranus\" p2=\"Mean_Lilith\" orb=\"4.10\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Neptune\" p2=\"Pluto\" orb=\"1.58\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"quintile\" p1=\"Neptune\" p2=\"Medium_Coeli\" orb=\"0.72\" angle=\"72\" movement=\"separating\" />\n    <aspect type=\"opposition\" p1=\"Neptune\" p2=\"Mean_Lilith\" orb=\"0.36\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Pluto\" p2=\"Mean_Lilith\" orb=\"1.94\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"True_North_Lunar_Node\" p2=\"Medium_Coeli\" orb=\"0.98\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"True_North_Lunar_Node\" p2=\"Imum_Coeli\" orb=\"0.98\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Ascendant\" p2=\"Medium_Coeli\" orb=\"4.10\" angle=\"90\" movement=\"static\" />\n    <aspect type=\"square\" p1=\"Ascendant\" p2=\"Imum_Coeli\" orb=\"4.10\" angle=\"90\" movement=\"static\" />\n    <aspect type=\"square\" p1=\"Medium_Coeli\" p2=\"Descendant\" orb=\"4.10\" angle=\"90\" movement=\"static\" />\n    <aspect type=\"trine\" p1=\"Medium_Coeli\" p2=\"True_South_Lunar_Node\" orb=\"0.98\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Descendant\" p2=\"Imum_Coeli\" orb=\"4.10\" angle=\"90\" movement=\"static\" />\n    <aspect type=\"sextile\" p1=\"Imum_Coeli\" p2=\"True_South_Lunar_Node\" orb=\"0.98\" angle=\"60\" movement=\"separating\" />\n  </aspects>\n  <active_points>Ascendant, Chiron, Descendant, Imum_Coeli, Jupiter, Mars, Mean_Lilith, Medium_Coeli, Mercury, Moon, Neptune, Pluto, Saturn, Sun, True_North_Lunar_Node, True_South_Lunar_Node, Uranus, Venus</active_points>\n  <active_aspects>conjunction (10), opposition (10), trine (8), sextile (6), square (5), quintile (1)</active_aspects>\n</chart_analysis>",
+  "context": "<chart_analysis type=\"SingleReturnChart\">\n  <chart name=\"Baseline Test London Lunar Return\">\n    <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n    <return_info type=\"Lunar\" />\n    <planets>\n      <point name=\"Sun\" position=\"4.36\" sign=\"Cancer\" abs_pos=\"94.36\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"0.9535\" declination=\"23.37\" />\n      <point name=\"Moon\" position=\"18.38\" sign=\"Aquarius\" abs_pos=\"318.38\" quality=\"Fixed\" element=\"Air\" house=\"Fifth House\" motion=\"direct\" speed=\"14.1779\" declination=\"-19.15\" />\n      <point name=\"Mercury\" position=\"16.84\" sign=\"Cancer\" abs_pos=\"106.84\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"1.9755\" declination=\"24.26\" />\n      <point name=\"Venus\" position=\"10.04\" sign=\"Cancer\" abs_pos=\"100.04\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"1.2285\" declination=\"23.79\" />\n      <point name=\"Mars\" position=\"11.94\" sign=\"Taurus\" abs_pos=\"41.94\" quality=\"Fixed\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.7263\" declination=\"14.46\" />\n      <point name=\"Jupiter\" position=\"7.00\" sign=\"Gemini\" abs_pos=\"67.00\" quality=\"Mutable\" element=\"Air\" house=\"Ninth House\" motion=\"direct\" speed=\"0.2212\" declination=\"20.79\" />\n      <point name=\"Saturn\" position=\"19.41\" sign=\"Pisces\" abs_pos=\"349.41\" quality=\"Mutable\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0073\" declination=\"-5.99\" />\n      <point name=\"Uranus\" position=\"25.46\" sign=\"Taurus\" abs_pos=\"55.46\" quality=\"Fixed\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0481\" declination=\"18.87\" />\n      <point name=\"Neptune\" position=\"29.92\" sign=\"Pisces\" abs_pos=\"359.92\" quality=\"Mutable\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0038\" declination=\"-1.20\" />\n      <point name=\"Pluto\" position=\"1.50\" sign=\"Aquarius\" abs_pos=\"301.50\" quality=\"Fixed\" element=\"Air\" house=\"Fifth House\" motion=\"retrograde\" speed=\"-0.0204\" declination=\"-22.92\" />\n      <point name=\"Chiron\" position=\"23.12\" sign=\"Aries\" abs_pos=\"23.12\" quality=\"Cardinal\" element=\"Fire\" house=\"Eighth House\" motion=\"direct\" speed=\"0.0262\" declination=\"10.03\" />\n      <point name=\"Mean_Lilith\" position=\"29.56\" sign=\"Virgo\" abs_pos=\"179.56\" quality=\"Mutable\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"0.1108\" declination=\"1.16\" />\n    </planets>\n    <axes>\n      <point name=\"Ascendant\" position=\"16.74\" sign=\"Virgo\" abs_pos=\"166.74\" quality=\"Mutable\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"254.0282\" />\n      <point name=\"Descendant\" position=\"16.74\" sign=\"Pisces\" abs_pos=\"346.74\" quality=\"Mutable\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"254.0282\" />\n      <point name=\"Medium_Coeli\" position=\"12.64\" sign=\"Gemini\" abs_pos=\"72.64\" quality=\"Mutable\" element=\"Air\" house=\"Tenth House\" motion=\"direct\" speed=\"336.7416\" />\n      <point name=\"Imum_Coeli\" position=\"12.64\" sign=\"Sagittarius\" abs_pos=\"252.64\" quality=\"Mutable\" element=\"Fire\" house=\"Fourth House\" motion=\"direct\" speed=\"336.7416\" />\n      <point name=\"True_North_Lunar_Node\" position=\"11.66\" sign=\"Aries\" abs_pos=\"11.66\" quality=\"Cardinal\" element=\"Fire\" house=\"Eighth House\" motion=\"retrograde\" speed=\"-0.1074\" declination=\"4.61\" />\n      <point name=\"True_South_Lunar_Node\" position=\"11.66\" sign=\"Libra\" abs_pos=\"191.66\" quality=\"Cardinal\" element=\"Air\" house=\"Second House\" motion=\"retrograde\" speed=\"0.1074\" declination=\"-4.61\" />\n    </axes>\n    <houses>\n      <house name=\"First_House\" cusp=\"16.74\" sign=\"Virgo\" />\n      <house name=\"Second_House\" cusp=\"8.94\" sign=\"Libra\" />\n      <house name=\"Third_House\" cusp=\"7.45\" sign=\"Scorpio\" />\n      <house name=\"Fourth_House\" cusp=\"12.64\" sign=\"Sagittarius\" />\n      <house name=\"Fifth_House\" cusp=\"19.73\" sign=\"Capricorn\" />\n      <house name=\"Sixth_House\" cusp=\"21.34\" sign=\"Aquarius\" />\n      <house name=\"Seventh_House\" cusp=\"16.74\" sign=\"Pisces\" />\n      <house name=\"Eighth_House\" cusp=\"8.94\" sign=\"Aries\" />\n      <house name=\"Ninth_House\" cusp=\"7.45\" sign=\"Taurus\" />\n      <house name=\"Tenth_House\" cusp=\"12.64\" sign=\"Gemini\" />\n      <house name=\"Eleventh_House\" cusp=\"19.73\" sign=\"Cancer\" />\n      <house name=\"Twelfth_House\" cusp=\"21.34\" sign=\"Leo\" />\n    </houses>\n    <lunar_phase name=\"Waning Gibbous\" phase=\"18\" degrees_between=\"224.02\" emoji=\"🌖\" />\n  </chart>\n  <element_distribution fire=\"12%\" earth=\"22%\" air=\"27%\" water=\"39%\" />\n  <quality_distribution cardinal=\"32%\" fixed=\"22%\" mutable=\"46%\" />\n  <aspects count=\"44\">\n    <aspect type=\"conjunction\" p1=\"Sun\" p2=\"Venus\" orb=\"5.68\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Sun\" p2=\"Neptune\" orb=\"4.44\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"quintile\" p1=\"Sun\" p2=\"Chiron\" orb=\"0.76\" angle=\"72\" movement=\"applying\" />\n    <aspect type=\"quintile\" p1=\"Sun\" p2=\"Ascendant\" orb=\"0.38\" angle=\"72\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Sun\" p2=\"Mean_Lilith\" orb=\"4.79\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Moon\" p2=\"Chiron\" orb=\"4.74\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Moon\" p2=\"Medium_Coeli\" orb=\"5.74\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Moon\" p2=\"Imum_Coeli\" orb=\"5.74\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Moon\" p2=\"True_South_Lunar_Node\" orb=\"6.72\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Mercury\" p2=\"Venus\" orb=\"6.80\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Mercury\" p2=\"Mars\" orb=\"4.90\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Mercury\" p2=\"Saturn\" orb=\"2.57\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Mercury\" p2=\"Ascendant\" orb=\"0.10\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Mercury\" p2=\"Descendant\" orb=\"0.10\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"quintile\" p1=\"Mercury\" p2=\"Mean_Lilith\" orb=\"0.72\" angle=\"72\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Venus\" p2=\"Mars\" orb=\"1.90\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"square\" p1=\"Venus\" p2=\"True_North_Lunar_Node\" orb=\"1.62\" angle=\"90\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Venus\" p2=\"Descendant\" orb=\"6.70\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Venus\" p2=\"True_South_Lunar_Node\" orb=\"1.62\" angle=\"90\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Mars\" p2=\"Ascendant\" orb=\"4.80\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Mars\" p2=\"Descendant\" orb=\"4.80\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Jupiter\" p2=\"Pluto\" orb=\"5.50\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Jupiter\" p2=\"True_North_Lunar_Node\" orb=\"4.66\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Jupiter\" p2=\"Medium_Coeli\" orb=\"5.64\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"opposition\" p1=\"Jupiter\" p2=\"Imum_Coeli\" orb=\"5.64\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Jupiter\" p2=\"Mean_Lilith\" orb=\"7.44\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Jupiter\" p2=\"True_South_Lunar_Node\" orb=\"4.66\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Saturn\" p2=\"Ascendant\" orb=\"2.68\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Saturn\" p2=\"Descendant\" orb=\"2.68\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Uranus\" p2=\"Neptune\" orb=\"4.46\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Uranus\" p2=\"Pluto\" orb=\"6.04\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Uranus\" p2=\"Mean_Lilith\" orb=\"4.10\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Neptune\" p2=\"Pluto\" orb=\"1.58\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"quintile\" p1=\"Neptune\" p2=\"Medium_Coeli\" orb=\"0.72\" angle=\"72\" movement=\"separating\" />\n    <aspect type=\"opposition\" p1=\"Neptune\" p2=\"Mean_Lilith\" orb=\"0.36\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Pluto\" p2=\"Mean_Lilith\" orb=\"1.94\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"True_North_Lunar_Node\" p2=\"Medium_Coeli\" orb=\"0.98\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"True_North_Lunar_Node\" p2=\"Imum_Coeli\" orb=\"0.98\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Ascendant\" p2=\"Medium_Coeli\" orb=\"4.10\" angle=\"90\" movement=\"static\" />\n    <aspect type=\"square\" p1=\"Ascendant\" p2=\"Imum_Coeli\" orb=\"4.10\" angle=\"90\" movement=\"static\" />\n    <aspect type=\"square\" p1=\"Medium_Coeli\" p2=\"Descendant\" orb=\"4.10\" angle=\"90\" movement=\"static\" />\n    <aspect type=\"trine\" p1=\"Medium_Coeli\" p2=\"True_South_Lunar_Node\" orb=\"0.98\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Descendant\" p2=\"Imum_Coeli\" orb=\"4.10\" angle=\"90\" movement=\"static\" />\n    <aspect type=\"sextile\" p1=\"Imum_Coeli\" p2=\"True_South_Lunar_Node\" orb=\"0.98\" angle=\"60\" movement=\"separating\" />\n  </aspects>\n  <active_points>Ascendant, Chiron, Descendant, Imum_Coeli, Jupiter, Mars, Mean_Lilith, Medium_Coeli, Mercury, Moon, Neptune, Pluto, Saturn, Sun, True_North_Lunar_Node, True_South_Lunar_Node, Uranus, Venus</active_points>\n  <active_aspects>conjunction (10), opposition (10), trine (8), sextile (6), square (5), quintile (1)</active_aspects>\n</chart_analysis>",
   "return_type": "Lunar",
   "status": "OK",
   "wheel_type": "single"

@@ -26,6 +26,9 @@ Generates a chart for the current moment (Now) at Greenwich (UTC). Useful for ge
 -   `active_points` (array, optional): Points to include.
 -   `active_aspects` (array, optional): Aspects to include.
 -   `show_aspect_icons` (boolean, optional): Display aspect icons on aspect lines (default: true).
+-   `style` (string, optional): Chart wheel layout — "classic" (default) or "modern".
+-   `show_zodiac_background_ring` (boolean, optional): Show colored zodiac wedges behind the wheel, modern style only (default: true).
+-   `show_degree_indicators` (boolean, optional): Display radial lines and degree numbers for planet positions on the chart wheel (default: true).
 
 ## Request Body Example
 

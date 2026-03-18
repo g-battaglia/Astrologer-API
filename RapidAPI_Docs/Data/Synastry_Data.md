@@ -78,7 +78,7 @@ Returns synastry comparison data between two subjects, including aspects between
         },
         "relationship_score": {
             "score_value": 11,
-            "score_description": "Very Good",
+            "score_description": "Very Important",
             "is_destiny_sign": false,
             "score_breakdown": [
                 {

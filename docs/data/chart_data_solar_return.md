@@ -51,9 +51,9 @@ Calculates the Solar Return chart for the return happening on or after the speci
         "minute": 0,
         "city": "London",
         "nation": "GB",
-        "lng": -0.1278,
-        "lat": 51.5074,
-        "tz_str": "Europe/London"
+        "longitude": -0.1278,
+        "latitude": 51.5074,
+        "timezone": "Europe/London"
     },
     "year": 2024,
     "month": 1,

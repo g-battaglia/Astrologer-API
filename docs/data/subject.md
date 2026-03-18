@@ -33,9 +33,13 @@ The request body must contain a `subject` object with the following fields:
         "latitude": 51.5074,
         "timezone": "Europe/London",
         "zodiac_type": "Tropical",
-        "houses_system_identifier": "P"
+        "houses_system_identifier": "P",
+        "custom_ayanamsa_t0": 2451545.0,
+        "custom_ayanamsa_ayan_t0": 22.46
     }
     ```
+
+    > `custom_ayanamsa_t0` and `custom_ayanamsa_ayan_t0` are optional and only used when `zodiac_type` is `"Sidereal"` with `sidereal_mode` set to `"USER"`.
 
 #### Complete Request Example
 
@@ -86,6 +90,7 @@ The response contains the status and the fully calculated subject object.
         "lng": -0.1278,
         "lat": 51.5074,
         "tz_str": "Europe/London",
+        "ayanamsa_value": null,
         "sun": {
             "name": "Sun",
             "quality": "Cardinal",
@@ -96,7 +101,10 @@ The response contains the status and the fully calculated subject object.
             "abs_pos": 280.5,
             "emoji": "♑",
             "house": "10th House",
-            "retrograde": false
+            "retrograde": false,
+            "speed": 1.0189,
+            "declination": -23.01,
+            "magnitude": null
         },
         "moon": {
             "name": "Moon",
@@ -108,7 +116,10 @@ The response contains the status and the fully calculated subject object.
             "abs_pos": 315.2,
             "emoji": "♒",
             "house": "11th House",
-            "retrograde": false
+            "retrograde": false,
+            "speed": 12.174,
+            "declination": -14.55,
+            "magnitude": null
         },
         "first_house": {
             "name": "1st House",

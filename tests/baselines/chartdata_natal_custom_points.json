@@ -89,6 +89,7 @@
       "mutable_percentage": 59
     },
     "subject": {
+      "achernar": null,
       "active_points": [
         "Sun",
         "Moon",
@@ -96,13 +97,23 @@
         "Spica",
         "Ascendant"
       ],
+      "alcyone": null,
+      "aldebaran": null,
+      "algol": null,
+      "algorab": null,
+      "alkaid": null,
+      "alphecca": null,
+      "altair": null,
+      "antares": null,
       "anti_vertex": null,
+      "arcturus": null,
       "ascendant": {
         "abs_pos": 190.60828815878577,
         "declination": null,
         "element": "Air",
         "emoji": "♎️",
         "house": "First_House",
+        "magnitude": null,
         "name": "Ascendant",
         "point_type": "AstrologicalPoint",
         "position": 10.608288158785768,
@@ -110,8 +121,12 @@
         "retrograde": false,
         "sign": "Lib",
         "sign_num": 6,
-        "speed": 360.0
+        "speed": 282.7044520155118
       },
+      "ayanamsa_value": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "capella": null,
       "ceres": null,
       "chiron": {
         "abs_pos": 106.06263028916405,
@@ -119,6 +134,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Chiron",
         "point_type": "AstrologicalPoint",
         "position": 16.062630289164048,
@@ -131,6 +147,8 @@
       "city": "Rome",
       "day": 15,
       "day_of_week": "Friday",
+      "deneb": null,
+      "deneb_algedi": null,
       "descendant": null,
       "earth": null,
       "eighth_house": {
@@ -139,6 +157,7 @@
         "element": "Earth",
         "emoji": "♉️",
         "house": null,
+        "magnitude": null,
         "name": "Eighth_House",
         "point_type": "House",
         "position": 7.293049951131877,
@@ -146,7 +165,7 @@
         "retrograde": null,
         "sign": "Tau",
         "sign_num": 1,
-        "speed": null
+        "speed": 304.7579444702677
       },
       "eleventh_house": {
         "abs_pos": 136.048699929613,
@@ -154,6 +173,7 @@
         "element": "Fire",
         "emoji": "♌️",
         "house": null,
+        "magnitude": null,
         "name": "Eleventh_House",
         "point_type": "House",
         "position": 16.048699929613008,
@@ -161,7 +181,7 @@
         "retrograde": null,
         "sign": "Leo",
         "sign_num": 4,
-        "speed": null
+        "speed": 330.87191549149696
       },
       "eris": null,
       "fifth_house": {
@@ -170,6 +190,7 @@
         "element": "Air",
         "emoji": "♒️",
         "house": null,
+        "magnitude": null,
         "name": "Fifth_House",
         "point_type": "House",
         "position": 16.048699929613008,
@@ -177,7 +198,7 @@
         "retrograde": null,
         "sign": "Aqu",
         "sign_num": 10,
-        "speed": null
+        "speed": 330.87191549149696
       },
       "first_house": {
         "abs_pos": 190.60828815878577,
@@ -185,6 +206,7 @@
         "element": "Air",
         "emoji": "♎️",
         "house": null,
+        "magnitude": null,
         "name": "First_House",
         "point_type": "House",
         "position": 10.608288158785768,
@@ -192,14 +214,16 @@
         "retrograde": null,
         "sign": "Lib",
         "sign_num": 6,
-        "speed": null
+        "speed": 282.7044520155118
       },
+      "fomalhaut": null,
       "fourth_house": {
         "abs_pos": 282.44815772060167,
         "declination": null,
         "element": "Earth",
         "emoji": "♑️",
         "house": null,
+        "magnitude": null,
         "name": "Fourth_House",
         "point_type": "House",
         "position": 12.448157720601671,
@@ -207,7 +231,7 @@
         "retrograde": null,
         "sign": "Cap",
         "sign_num": 9,
-        "speed": null
+        "speed": 334.0843019351966
       },
       "haumea": null,
       "hour": 14,
@@ -258,6 +282,7 @@
         "element": "Water",
         "emoji": "♓️",
         "house": "Fifth_House",
+        "magnitude": null,
         "name": "Moon",
         "point_type": "AstrologicalPoint",
         "position": 15.636387264717484,
@@ -276,6 +301,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": null,
+        "magnitude": null,
         "name": "Ninth_House",
         "point_type": "House",
         "position": 8.305310856256483,
@@ -283,7 +309,7 @@
         "retrograde": null,
         "sign": "Gem",
         "sign_num": 2,
-        "speed": null
+        "speed": 322.594586974792
       },
       "orcus": null,
       "pallas": null,
@@ -294,8 +320,11 @@
       "perspective_type": "Apparent Geocentric",
       "pholus": null,
       "pluto": null,
+      "pollux": null,
+      "procyon": null,
       "quaoar": null,
       "regulus": null,
+      "rigel": null,
       "saturn": null,
       "second_house": {
         "abs_pos": 217.29304995113188,
@@ -303,6 +332,7 @@
         "element": "Water",
         "emoji": "♏️",
         "house": null,
+        "magnitude": null,
         "name": "Second_House",
         "point_type": "House",
         "position": 7.293049951131877,
@@ -310,7 +340,7 @@
         "retrograde": null,
         "sign": "Sco",
         "sign_num": 7,
-        "speed": null
+        "speed": 304.7579444702677
       },
       "sedna": null,
       "seventh_house": {
@@ -319,6 +349,7 @@
         "element": "Fire",
         "emoji": "♈️",
         "house": null,
+        "magnitude": null,
         "name": "Seventh_House",
         "point_type": "House",
         "position": 10.60828815878574,
@@ -326,15 +357,17 @@
         "retrograde": null,
         "sign": "Ari",
         "sign_num": 0,
-        "speed": null
+        "speed": 282.7044520155118
       },
       "sidereal_mode": null,
+      "sirius": null,
       "sixth_house": {
         "abs_pos": 345.76873582436275,
         "declination": null,
         "element": "Water",
         "emoji": "♓️",
         "house": null,
+        "magnitude": null,
         "name": "Sixth_House",
         "point_type": "House",
         "position": 15.76873582436275,
@@ -342,7 +375,7 @@
         "retrograde": null,
         "sign": "Pis",
         "sign_num": 11,
-        "speed": null
+        "speed": 310.945005651588
       },
       "spica": {
         "abs_pos": 203.71446990257257,
@@ -350,6 +383,7 @@
         "element": "Air",
         "emoji": "♎️",
         "house": "First_House",
+        "magnitude": 0.97,
         "name": "Spica",
         "point_type": "AstrologicalPoint",
         "position": 23.714469902572574,
@@ -365,6 +399,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": "Ninth_House",
+        "magnitude": null,
         "name": "Sun",
         "point_type": "AstrologicalPoint",
         "position": 24.149464803789243,
@@ -380,6 +415,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": null,
+        "magnitude": null,
         "name": "Tenth_House",
         "point_type": "House",
         "position": 12.448157720601642,
@@ -387,7 +423,7 @@
         "retrograde": null,
         "sign": "Can",
         "sign_num": 3,
-        "speed": null
+        "speed": 334.0843019351966
       },
       "third_house": {
         "abs_pos": 248.30531085625648,
@@ -395,6 +431,7 @@
         "element": "Fire",
         "emoji": "♐️",
         "house": null,
+        "magnitude": null,
         "name": "Third_House",
         "point_type": "House",
         "position": 8.305310856256483,
@@ -402,7 +439,7 @@
         "retrograde": null,
         "sign": "Sag",
         "sign_num": 8,
-        "speed": null
+        "speed": 322.594586974792
       },
       "true_lilith": null,
       "true_north_lunar_node": null,
@@ -413,6 +450,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": null,
+        "magnitude": null,
         "name": "Twelfth_House",
         "point_type": "House",
         "position": 15.76873582436275,
@@ -420,10 +458,11 @@
         "retrograde": null,
         "sign": "Vir",
         "sign_num": 5,
-        "speed": null
+        "speed": 310.945005651588
       },
       "tz_str": "Europe/Rome",
       "uranus": null,
+      "vega": null,
       "venus": null,
       "vertex": null,
       "vesta": null,

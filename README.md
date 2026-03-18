@@ -351,6 +351,9 @@ There are two kinds of options:
 -   Rendering options (only for /charts/\* endpoints):
     -   theme: light, dark, dark-high-contrast, classic, strawberry, black-and-white
     -   language: EN, FR, PT, ES, TR, RU, IT, CN, DE, HI
+    -   style: "classic" (default) or "modern" — selects the chart wheel layout
+    -   show_zodiac_background_ring: true (default) — colored zodiac wedges behind the wheel (modern style only)
+    -   double_chart_aspect_grid_type: "list" (default) or "table" — aspect display format for dual charts
     -   split_chart: true to receive wheel and grid separately
     -   transparent_background: true for transparent SVG background
     -   show_house_position_comparison: false hides the house comparison table and widens the SVG layout
@@ -456,6 +459,39 @@ Provide a short (`<= 40` chars) `custom_title` to override the text rendered abo
 }
 ```
 
+## Chart style (Classic vs Modern)
+
+Choose between two chart wheel layouts using the `style` parameter (default: `"classic"`):
+
+- `"classic"` — traditional concentric wheel with houses and planets
+- `"modern"` — concentric ring layout with a contemporary aesthetic
+
+When using `"modern"`, you can also control the colored zodiac wedges behind the wheel with `show_zodiac_background_ring` (default: `true`).
+
+For dual charts (synastry, transit, composite, returns), you can choose how aspects are displayed with `double_chart_aspect_grid_type`:
+
+- `"list"` (default) — vertical list of aspects
+- `"table"` — grid/matrix table of aspects
+
+```json
+{
+    "subject": { /* ... */ },
+    "style": "modern",
+    "show_zodiac_background_ring": true,
+    "theme": "dark"
+}
+```
+
+Dual chart with table aspect grid:
+
+```json
+{
+    "first_subject": { /* ... */ },
+    "second_subject": { /* ... */ },
+    "double_chart_aspect_grid_type": "table"
+}
+```
+
 ## Zodiac types (Tropical vs Sidereal)
 
 Choose the zodiac in the subject object:
@@ -463,11 +499,14 @@ Choose the zodiac in the subject object:
 -   zodiac_type: "Tropical" (default) or "Sidereal"
 -   If "Sidereal", also set sidereal_mode (ayanamsha)
 
-Supported sidereal_mode values include:
+Supported sidereal_mode values (47 named modes + USER, 48 total):
 
--   FAGAN_BRADLEY, LAHIRI, DELUCE, RAMAN, USHASHASHI, KRISHNAMURTI, DJWHAL_KHUL, YUKTESHWAR, JN_BHASIN,
--   BABYL_KUGLER1, BABYL_KUGLER2, BABYL_KUGLER3, BABYL_HUBER, BABYL_ETPSC,
--   ALDEBARAN_15TAU, HIPPARCHOS, SASSANIAN, J2000, J1900, B1950
+-   **Indian / Vedic:** FAGAN_BRADLEY, LAHIRI, LAHIRI_1940, LAHIRI_ICRC, LAHIRI_VP285, DELUCE, RAMAN, USHASHASHI, KRISHNAMURTI, KRISHNAMURTI_VP291, DJWHAL_KHUL, YUKTESHWAR, JN_BHASIN, ARYABHATA, ARYABHATA_522, ARYABHATA_MSUN, SURYASIDDHANTA, SURYASIDDHANTA_MSUN, SS_CITRA, SS_REVATI
+-   **Galactic center / equator:** GALCENT_0SAG, GALCENT_COCHRANE, GALCENT_MULA_WILHELM, GALCENT_RGILBRAND, GALEQU_FIORENZA, GALEQU_IAU1958, GALEQU_MULA, GALEQU_TRUE, GALALIGN_MARDYKS
+-   **True star / nakshatra:** TRUE_CITRA, TRUE_MULA, TRUE_PUSHYA, TRUE_REVATI, TRUE_SHEORAN, ALDEBARAN_15TAU, HIPPARCHOS, SASSANIAN, VALENS_MOON
+-   **Babylonian:** BABYL_KUGLER1, BABYL_KUGLER2, BABYL_KUGLER3, BABYL_HUBER, BABYL_ETPSC, BABYL_BRITTON
+-   **Epoch-based:** J2000, J1900, B1950
+-   **Custom:** USER (requires `custom_ayanamsa_t0` and `custom_ayanamsa_ayan_t0` on the subject)
 
 Example (Sidereal):
 
@@ -488,6 +527,67 @@ Example (Sidereal):
     }
 }
 ```
+
+### Custom ayanamsa (USER mode)
+
+When using `sidereal_mode: "USER"`, you must also provide two custom ayanamsa parameters on the subject:
+
+- `custom_ayanamsa_t0`: Julian Day number for the reference epoch (e.g., `2451545.0` for J2000.0)
+- `custom_ayanamsa_ayan_t0`: Ayanamsa offset in degrees at the reference epoch (e.g., `23.5`)
+
+Both fields are required when `sidereal_mode` is `"USER"` and are ignored for all other modes.
+
+```json
+{
+    "subject": {
+        "name": "Custom Sidereal",
+        "year": 1990,
+        "month": 6,
+        "day": 15,
+        "hour": 14,
+        "minute": 30,
+        "longitude": 12.4964,
+        "latitude": 41.9028,
+        "timezone": "Europe/Rome",
+        "zodiac_type": "Sidereal",
+        "sidereal_mode": "USER",
+        "custom_ayanamsa_t0": 2451545.0,
+        "custom_ayanamsa_ayan_t0": 23.5
+    }
+}
+```
+
+## Fixed stars
+
+The API supports 23 fixed stars as active points. Include them in the `active_points` array to add them to chart calculations and rendering:
+
+**Original (v5.10):** Regulus, Spica
+
+**New in v5.12:** Sirius, Canopus, Arcturus, Vega, Capella, Rigel, Procyon, Betelgeuse, Altair, Aldebaran, Antares, Pollux, Fomalhaut, Deneb, Algol, Achernar, Alcyone, Alphecca, Algorab, Deneb_Algedi, Alkaid
+
+```json
+{
+    "subject": { /* ... */ },
+    "active_points": ["Sun", "Moon", "Ascendant", "Sirius", "Vega", "Spica", "Regulus", "Aldebaran"]
+}
+```
+
+Fixed stars include `magnitude` (visual magnitude) and `speed` (always 0.0) in the response.
+
+## Response fields
+
+All data endpoints return enriched point data with these fields (added in the kerykeion v5.12 engine):
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `speed` | `float` | Daily speed in degrees (planets, house cusps) |
+| `declination` | `float` | Ecliptic declination in degrees |
+| `magnitude` | `float \| null` | Visual magnitude (fixed stars only, `null` for planets) |
+| `ayanamsa_value` | `float \| null` | Ayanamsa offset in degrees (sidereal charts only, `null` for tropical) |
+
+House cusp speeds are now computed via Swiss Ephemeris `houses_ex2()` instead of returning `null` or `360.0`.
+
+These fields are always present in the response — no request parameters needed.
 
 ## House systems
 

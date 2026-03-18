@@ -31,7 +31,7 @@ Calculates the Lunar Return chart for the return happening on or after the speci
     }
     ```
 -   **`year`** (integer, required): Year to search.
--   **`month`** (integer, required): Month to search.
+-   **`month`** (integer, optional): Month to search.
 -   **`day`** (integer, optional): Day (1-31) to start the search from. Defaults to 1. Useful for finding later returns in the same month.
 -   **`return_location`** (object, optional): Relocation for the return.
 -   **`wheel_type`** (string, optional): "dual" or "single".
@@ -49,9 +49,9 @@ Calculates the Lunar Return chart for the return happening on or after the speci
         "minute": 0,
         "city": "London",
         "nation": "GB",
-        "lng": -0.1278,
-        "lat": 51.5074,
-        "tz_str": "Europe/London"
+        "longitude": -0.1278,
+        "latitude": 51.5074,
+        "timezone": "Europe/London"
     },
     "year": 2024,
     "month": 5,

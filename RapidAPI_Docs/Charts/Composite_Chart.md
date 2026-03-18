@@ -23,6 +23,10 @@ Generates a midpoint composite chart for two subjects. This chart represents the
 -   `active_points` (array, optional): Points to include.
 -   `active_aspects` (array, optional): Aspects to include.
 -   `show_aspect_icons` (boolean, optional): Display aspect icons on aspect lines (default: true).
+-   `double_chart_aspect_grid_type` (string, optional): Aspect display layout — "list" (default) or "table".
+-   `style` (string, optional): Chart wheel layout — "classic" (default) or "modern".
+-   `show_zodiac_background_ring` (boolean, optional): Show colored zodiac wedges behind the wheel, modern style only (default: true).
+-   `show_degree_indicators` (boolean, optional): Display radial lines and degree numbers for planet positions on the chart wheel (default: true).
 -   `distribution_method` (string, optional): Distribution calculation method.
 
 ## Request Body Example

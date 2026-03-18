@@ -89,7 +89,7 @@
           "Charts"
         ],
         "summary": "Natal Chart",
-        "description": "**POST** `/api/v5/chart/birth-chart`\n\nReturns birth chart data and rendered SVG chart.\n\n**Parameters:**\n- `theme`, `language`\n- `split_chart` (if true returns chart_wheel and chart_grid, otherwise a single chart)\n- `transparent_background`\n- `show_house_position_comparison` (hide the comparison table when false)\n- `show_cusp_position_comparison` (hide the cusp comparison table when false, for dual charts)\n- `show_degree_indicators` (hide radial lines and degree numbers when false)\n- `show_aspect_icons` (hide aspect icons on aspect lines when false)\n- `custom_title` (temporary title override, max 40 chars)\n\n**Returns:**\n- `status`: \"OK\"\n- `chart_data`: ChartDataModel\n- `chart`: SVG (when split_chart=false)\n- `chart_wheel`, `chart_grid`: SVGs (when split_chart=true)",
+        "description": "**POST** `/api/v5/chart/birth-chart`\n\nReturns birth chart data and rendered SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `style`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`\n- `show_degree_indicators`, `show_aspect_icons`\n- `show_zodiac_background_ring` (modern style only)\n- `double_chart_aspect_grid_type` ('list' or 'table', dual charts)\n- `custom_title` (temporary title override, max 40 chars)\n\n**Returns:**\n- `status`: \"OK\"\n- `chart_data`: ChartDataModel\n- `chart`: SVG (when split_chart=false)\n- `chart_wheel`, `chart_grid`: SVGs (when split_chart=true)",
         "operationId": "natal_chart_api_v5_chart_birth_chart_post",
         "requestBody": {
           "content": {
@@ -156,7 +156,7 @@
           "Charts"
         ],
         "summary": "Synastry Chart",
-        "description": "**POST** `/api/v5/chart/synastry`\n\nReturns synastry chart data and a dual-wheel SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `custom_title`\n\n**Returns:**\n- `chart` (or `chart_wheel` + `chart_grid` when split_chart=true)\n- `chart_data`",
+        "description": "**POST** `/api/v5/chart/synastry`\n\nReturns synastry chart data and a dual-wheel SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `style`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`\n- `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `custom_title`\n\n**Returns:**\n- `chart` (or `chart_wheel` + `chart_grid` when split_chart=true)\n- `chart_data`",
         "operationId": "synastry_chart_api_v5_chart_synastry_post",
         "requestBody": {
           "content": {
@@ -223,7 +223,7 @@
           "Charts"
         ],
         "summary": "Composite Chart",
-        "description": "**POST** `/api/v5/chart/composite`\n\nReturns composite chart data and rendered SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `custom_title`\n\n**Returns:**\n- `chart` (or `chart_wheel` + `chart_grid`)\n- `chart_data`",
+        "description": "**POST** `/api/v5/chart/composite`\n\nReturns composite chart data and rendered SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `style`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`\n- `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `custom_title`\n\n**Returns:**\n- `chart` (or `chart_wheel` + `chart_grid`)\n- `chart_data`",
         "operationId": "composite_chart_api_v5_chart_composite_post",
         "requestBody": {
           "content": {
@@ -290,7 +290,7 @@
           "Charts"
         ],
         "summary": "Transit Chart",
-        "description": "**POST** `/api/v5/chart/transit`\n\nReturns transit data and rendered SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `custom_title`\n\n**Returns:**\n- `chart` (or `chart_wheel` + `chart_grid`)\n- `chart_data`",
+        "description": "**POST** `/api/v5/chart/transit`\n\nReturns transit data and rendered SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `style`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`\n- `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `custom_title`\n\n**Returns:**\n- `chart` (or `chart_wheel` + `chart_grid`)\n- `chart_data`",
         "operationId": "transit_chart_api_v5_chart_transit_post",
         "requestBody": {
           "content": {
@@ -357,7 +357,7 @@
           "Charts"
         ],
         "summary": "Solar Return Chart",
-        "description": "**POST** `/api/v5/chart/solar-return`\n\nReturns solar return data and rendered SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `custom_title`\n\n**Returns:**\n- `return_type`: \"Solar\"\n- `wheel_type`: \"dual\" | \"single\"\n- `chart` (or `chart_wheel` + `chart_grid`)",
+        "description": "**POST** `/api/v5/chart/solar-return`\n\nReturns solar return data and rendered SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `style`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`\n- `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `custom_title`\n\n**Returns:**\n- `return_type`: \"Solar\"\n- `wheel_type`: \"dual\" | \"single\"\n- `chart` (or `chart_wheel` + `chart_grid`)",
         "operationId": "solar_return_chart_api_v5_chart_solar_return_post",
         "requestBody": {
           "content": {
@@ -424,7 +424,7 @@
           "Charts"
         ],
         "summary": "Lunar Return Chart",
-        "description": "**POST** `/api/v5/chart/lunar-return`\n\nReturns lunar return data and rendered SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `custom_title`\n\n**Returns:**\n- `return_type`: \"Lunar\"\n- `wheel_type`: \"dual\" | \"single\"\n- `chart` (or `chart_wheel` + `chart_grid`)",
+        "description": "**POST** `/api/v5/chart/lunar-return`\n\nReturns lunar return data and rendered SVG chart.\n\n**Parameters:**\n- `theme`, `language`, `style`, `split_chart`, `transparent_background`\n- `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`\n- `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `custom_title`\n\n**Returns:**\n- `return_type`: \"Lunar\"\n- `wheel_type`: \"dual\" | \"single\"\n- `chart` (or `chart_wheel` + `chart_grid`)",
         "operationId": "lunar_return_chart_api_v5_chart_lunar_return_post",
         "requestBody": {
           "content": {
@@ -2124,7 +2124,35 @@
                   "SASSANIAN",
                   "J2000",
                   "J1900",
-                  "B1950"
+                  "B1950",
+                  "ARYABHATA",
+                  "ARYABHATA_522",
+                  "ARYABHATA_MSUN",
+                  "GALCENT_0SAG",
+                  "GALCENT_COCHRANE",
+                  "GALCENT_MULA_WILHELM",
+                  "GALCENT_RGILBRAND",
+                  "GALEQU_FIORENZA",
+                  "GALEQU_IAU1958",
+                  "GALEQU_MULA",
+                  "GALEQU_TRUE",
+                  "GALALIGN_MARDYKS",
+                  "KRISHNAMURTI_VP291",
+                  "LAHIRI_1940",
+                  "LAHIRI_ICRC",
+                  "LAHIRI_VP285",
+                  "SURYASIDDHANTA",
+                  "SURYASIDDHANTA_MSUN",
+                  "SS_CITRA",
+                  "SS_REVATI",
+                  "TRUE_CITRA",
+                  "TRUE_MULA",
+                  "TRUE_PUSHYA",
+                  "TRUE_REVATI",
+                  "TRUE_SHEORAN",
+                  "BABYL_BRITTON",
+                  "VALENS_MOON",
+                  "USER"
                 ]
               },
               {
@@ -2175,6 +2203,18 @@
               "True Geocentric"
             ],
             "title": "Perspective Type"
+          },
+          "ayanamsa_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ayanamsa Value",
+            "description": "Ayanamsa offset in degrees for sidereal charts (tropical 0 Aries minus sidereal 0 Aries). None for tropical charts."
           },
           "sun": {
             "anyOf": [
@@ -2496,6 +2536,156 @@
               }
             ]
           },
+          "aldebaran": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "antares": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sirius": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "fomalhaut": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "algol": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "betelgeuse": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "canopus": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "procyon": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "arcturus": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pollux": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "deneb": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "altair": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rigel": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "achernar": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "capella": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "pars_fortunae": {
             "anyOf": [
               {
@@ -2690,6 +2880,21 @@
                 "Quaoar",
                 "Regulus",
                 "Spica",
+                "Aldebaran",
+                "Antares",
+                "Sirius",
+                "Fomalhaut",
+                "Algol",
+                "Betelgeuse",
+                "Canopus",
+                "Procyon",
+                "Arcturus",
+                "Pollux",
+                "Deneb",
+                "Altair",
+                "Rigel",
+                "Achernar",
+                "Capella",
                 "Pars_Fortunae",
                 "Pars_Spiritus",
                 "Pars_Amoris",
@@ -2823,6 +3028,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -3000,6 +3220,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -3242,6 +3477,36 @@
               "Custom Chart Title"
             ]
           },
+          "style": {
+            "type": "string",
+            "enum": [
+              "classic",
+              "modern"
+            ],
+            "title": "Style",
+            "description": "Chart rendering style: 'classic' (traditional wheel) or 'modern' (concentric rings).",
+            "default": "classic",
+            "examples": [
+              "classic",
+              "modern"
+            ]
+          },
+          "show_zodiac_background_ring": {
+            "type": "boolean",
+            "title": "Show Zodiac Background Ring",
+            "description": "Show colored zodiac sign wedges on the wheel. Only affects 'modern' style.",
+            "default": true
+          },
+          "double_chart_aspect_grid_type": {
+            "type": "string",
+            "enum": [
+              "list",
+              "table"
+            ],
+            "title": "Double Chart Aspect Grid Type",
+            "description": "Layout for double-chart aspect display: 'list' (vertical) or 'table' (grid matrix).",
+            "default": "list"
+          },
           "subject": {
             "$ref": "#/components/schemas/SubjectModel",
             "description": "Subject used for the birth chart calculation."
@@ -3295,6 +3560,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -3636,6 +3916,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -3818,6 +4113,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -4060,6 +4370,36 @@
               "Custom Chart Title"
             ]
           },
+          "style": {
+            "type": "string",
+            "enum": [
+              "classic",
+              "modern"
+            ],
+            "title": "Style",
+            "description": "Chart rendering style: 'classic' (traditional wheel) or 'modern' (concentric rings).",
+            "default": "classic",
+            "examples": [
+              "classic",
+              "modern"
+            ]
+          },
+          "show_zodiac_background_ring": {
+            "type": "boolean",
+            "title": "Show Zodiac Background Ring",
+            "description": "Show colored zodiac sign wedges on the wheel. Only affects 'modern' style.",
+            "default": true
+          },
+          "double_chart_aspect_grid_type": {
+            "type": "string",
+            "enum": [
+              "list",
+              "table"
+            ],
+            "title": "Double Chart Aspect Grid Type",
+            "description": "Layout for double-chart aspect display: 'list' (vertical) or 'table' (grid matrix).",
+            "default": "list"
+          },
           "first_subject": {
             "$ref": "#/components/schemas/SubjectModel",
             "description": "Primary subject used for the composite chart."
@@ -4215,7 +4555,35 @@
                   "SASSANIAN",
                   "J2000",
                   "J1900",
-                  "B1950"
+                  "B1950",
+                  "ARYABHATA",
+                  "ARYABHATA_522",
+                  "ARYABHATA_MSUN",
+                  "GALCENT_0SAG",
+                  "GALCENT_COCHRANE",
+                  "GALCENT_MULA_WILHELM",
+                  "GALCENT_RGILBRAND",
+                  "GALEQU_FIORENZA",
+                  "GALEQU_IAU1958",
+                  "GALEQU_MULA",
+                  "GALEQU_TRUE",
+                  "GALALIGN_MARDYKS",
+                  "KRISHNAMURTI_VP291",
+                  "LAHIRI_1940",
+                  "LAHIRI_ICRC",
+                  "LAHIRI_VP285",
+                  "SURYASIDDHANTA",
+                  "SURYASIDDHANTA_MSUN",
+                  "SS_CITRA",
+                  "SS_REVATI",
+                  "TRUE_CITRA",
+                  "TRUE_MULA",
+                  "TRUE_PUSHYA",
+                  "TRUE_REVATI",
+                  "TRUE_SHEORAN",
+                  "BABYL_BRITTON",
+                  "VALENS_MOON",
+                  "USER"
                 ]
               },
               {
@@ -4266,6 +4634,18 @@
               "True Geocentric"
             ],
             "title": "Perspective Type"
+          },
+          "ayanamsa_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ayanamsa Value",
+            "description": "Ayanamsa offset in degrees for sidereal charts (tropical 0 Aries minus sidereal 0 Aries). None for tropical charts."
           },
           "sun": {
             "anyOf": [
@@ -4587,6 +4967,156 @@
               }
             ]
           },
+          "aldebaran": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "antares": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sirius": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "fomalhaut": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "algol": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "betelgeuse": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "canopus": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "procyon": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "arcturus": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pollux": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "deneb": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "altair": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rigel": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "achernar": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "capella": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "pars_fortunae": {
             "anyOf": [
               {
@@ -4781,6 +5311,21 @@
                 "Quaoar",
                 "Regulus",
                 "Spica",
+                "Aldebaran",
+                "Antares",
+                "Sirius",
+                "Fomalhaut",
+                "Algol",
+                "Betelgeuse",
+                "Canopus",
+                "Procyon",
+                "Arcturus",
+                "Pollux",
+                "Deneb",
+                "Altair",
+                "Rigel",
+                "Achernar",
+                "Capella",
                 "Pars_Fortunae",
                 "Pars_Spiritus",
                 "Pars_Amoris",
@@ -4987,6 +5532,21 @@
                 "Quaoar",
                 "Regulus",
                 "Spica",
+                "Aldebaran",
+                "Antares",
+                "Sirius",
+                "Fomalhaut",
+                "Algol",
+                "Betelgeuse",
+                "Canopus",
+                "Procyon",
+                "Arcturus",
+                "Pollux",
+                "Deneb",
+                "Altair",
+                "Rigel",
+                "Achernar",
+                "Capella",
                 "Pars_Fortunae",
                 "Pars_Spiritus",
                 "Pars_Amoris",
@@ -5174,6 +5734,21 @@
                   "Quaoar",
                   "Regulus",
                   "Spica",
+                  "Aldebaran",
+                  "Antares",
+                  "Sirius",
+                  "Fomalhaut",
+                  "Algol",
+                  "Betelgeuse",
+                  "Canopus",
+                  "Procyon",
+                  "Arcturus",
+                  "Pollux",
+                  "Deneb",
+                  "Altair",
+                  "Rigel",
+                  "Achernar",
+                  "Capella",
                   "Pars_Fortunae",
                   "Pars_Spiritus",
                   "Pars_Amoris",
@@ -5326,7 +5901,8 @@
                 "type": "null"
               }
             ],
-            "title": "Speed"
+            "title": "Speed",
+            "description": "Daily motion in degrees/day. Negative = retrograde. Populated for planets, house cusps, and fixed stars."
           },
           "declination": {
             "anyOf": [
@@ -5337,7 +5913,20 @@
                 "type": "null"
               }
             ],
-            "title": "Declination"
+            "title": "Declination",
+            "description": "Declination in degrees north (+) or south (-) of the celestial equator."
+          },
+          "magnitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Magnitude",
+            "description": "Apparent visual magnitude (fixed stars only). Lower = brighter."
           }
         },
         "type": "object",
@@ -5353,7 +5942,7 @@
           "point_type"
         ],
         "title": "KerykeionPointModel",
-        "description": "Model representing an astrological celestial point or house cusp.\n\nThis model contains comprehensive information about celestial objects\n(planets, points) or house cusps including their zodiacal position,\nsign placement, and metadata.\n\nAttributes:\n    name: The name of the celestial point or house.\n    quality: Astrological quality (Cardinal, Fixed, Mutable).\n    element: Astrological element (Fire, Earth, Air, Water).\n    sign: The zodiac sign the point is located in.\n    sign_num: Numerical identifier for the zodiac sign (0-11).\n    position: Position within the sign (0-30 degrees).\n    abs_pos: Absolute position in the zodiac (0-360 degrees).\n    emoji: Unicode emoji representing the point or sign.\n    point_type: Type of the celestial point (Planet, House, etc.).\n    house: House placement of the point (optional).\n    retrograde: Whether the point is in retrograde motion (optional)."
+        "description": "Model representing an astrological celestial point or house cusp.\n\nThis model contains comprehensive information about celestial objects\n(planets, points) or house cusps including their zodiacal position,\nsign placement, and metadata.\n\nAttributes:\n    name: The name of the celestial point or house.\n    quality: Astrological quality (Cardinal, Fixed, Mutable).\n    element: Astrological element (Fire, Earth, Air, Water).\n    sign: The zodiac sign the point is located in.\n    sign_num: Numerical identifier for the zodiac sign (0-11).\n    position: Position within the sign (0-30 degrees).\n    abs_pos: Absolute position in the zodiac (0-360 degrees).\n    emoji: Unicode emoji representing the point or sign.\n    point_type: Type of the celestial point (Planet, House, etc.).\n    house: House placement of the point (optional).\n    retrograde: Whether the point is in retrograde motion (optional).\n    speed: Daily motion in degrees/day along the ecliptic. Negative values\n        indicate retrograde motion. For house cusps this is the cusp\n        progression rate driven by diurnal rotation. For fixed stars this\n        is the slow drift due to precession (~50 arcsec/year). Added in v5.12.\n    declination: Declination in degrees north (+) or south (-) of the\n        celestial equator, computed from equatorial coordinates via\n        ``swe.calc_ut`` with ``FLG_EQUATORIAL``. Useful for parallel and\n        contra-parallel aspects. Added in v5.12.\n    magnitude: Apparent visual magnitude of fixed stars (lower = brighter;\n        e.g. Sirius = -1.46, Regulus = 1.35). Only populated for fixed\n        star points; ``None`` for planets and calculated points. Retrieved\n        via ``swe.fixstar2_mag``. Added in v5.12."
       },
       "LunarPhaseModel": {
         "properties": {
@@ -6733,6 +7322,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -6975,6 +7579,36 @@
               "Custom Chart Title"
             ]
           },
+          "style": {
+            "type": "string",
+            "enum": [
+              "classic",
+              "modern"
+            ],
+            "title": "Style",
+            "description": "Chart rendering style: 'classic' (traditional wheel) or 'modern' (concentric rings).",
+            "default": "classic",
+            "examples": [
+              "classic",
+              "modern"
+            ]
+          },
+          "show_zodiac_background_ring": {
+            "type": "boolean",
+            "title": "Show Zodiac Background Ring",
+            "description": "Show colored zodiac sign wedges on the wheel. Only affects 'modern' style.",
+            "default": true
+          },
+          "double_chart_aspect_grid_type": {
+            "type": "string",
+            "enum": [
+              "list",
+              "table"
+            ],
+            "title": "Double Chart Aspect Grid Type",
+            "description": "Layout for double-chart aspect display: 'list' (vertical) or 'table' (grid matrix).",
+            "default": "list"
+          },
           "name": {
             "type": "string",
             "title": "Name",
@@ -7026,7 +7660,35 @@
                   "SASSANIAN",
                   "J2000",
                   "J1900",
-                  "B1950"
+                  "B1950",
+                  "ARYABHATA",
+                  "ARYABHATA_522",
+                  "ARYABHATA_MSUN",
+                  "GALCENT_0SAG",
+                  "GALCENT_COCHRANE",
+                  "GALCENT_MULA_WILHELM",
+                  "GALCENT_RGILBRAND",
+                  "GALEQU_FIORENZA",
+                  "GALEQU_IAU1958",
+                  "GALEQU_MULA",
+                  "GALEQU_TRUE",
+                  "GALALIGN_MARDYKS",
+                  "KRISHNAMURTI_VP291",
+                  "LAHIRI_1940",
+                  "LAHIRI_ICRC",
+                  "LAHIRI_VP285",
+                  "SURYASIDDHANTA",
+                  "SURYASIDDHANTA_MSUN",
+                  "SS_CITRA",
+                  "SS_REVATI",
+                  "TRUE_CITRA",
+                  "TRUE_MULA",
+                  "TRUE_PUSHYA",
+                  "TRUE_REVATI",
+                  "TRUE_SHEORAN",
+                  "BABYL_BRITTON",
+                  "VALENS_MOON",
+                  "USER"
                 ]
               },
               {
@@ -7208,7 +7870,35 @@
                   "SASSANIAN",
                   "J2000",
                   "J1900",
-                  "B1950"
+                  "B1950",
+                  "ARYABHATA",
+                  "ARYABHATA_522",
+                  "ARYABHATA_MSUN",
+                  "GALCENT_0SAG",
+                  "GALCENT_COCHRANE",
+                  "GALCENT_MULA_WILHELM",
+                  "GALCENT_RGILBRAND",
+                  "GALEQU_FIORENZA",
+                  "GALEQU_IAU1958",
+                  "GALEQU_MULA",
+                  "GALEQU_TRUE",
+                  "GALALIGN_MARDYKS",
+                  "KRISHNAMURTI_VP291",
+                  "LAHIRI_1940",
+                  "LAHIRI_ICRC",
+                  "LAHIRI_VP285",
+                  "SURYASIDDHANTA",
+                  "SURYASIDDHANTA_MSUN",
+                  "SS_CITRA",
+                  "SS_REVATI",
+                  "TRUE_CITRA",
+                  "TRUE_MULA",
+                  "TRUE_PUSHYA",
+                  "TRUE_REVATI",
+                  "TRUE_SHEORAN",
+                  "BABYL_BRITTON",
+                  "VALENS_MOON",
+                  "USER"
                 ]
               },
               {
@@ -7452,7 +8142,35 @@
                   "SASSANIAN",
                   "J2000",
                   "J1900",
-                  "B1950"
+                  "B1950",
+                  "ARYABHATA",
+                  "ARYABHATA_522",
+                  "ARYABHATA_MSUN",
+                  "GALCENT_0SAG",
+                  "GALCENT_COCHRANE",
+                  "GALCENT_MULA_WILHELM",
+                  "GALCENT_RGILBRAND",
+                  "GALEQU_FIORENZA",
+                  "GALEQU_IAU1958",
+                  "GALEQU_MULA",
+                  "GALEQU_TRUE",
+                  "GALALIGN_MARDYKS",
+                  "KRISHNAMURTI_VP291",
+                  "LAHIRI_1940",
+                  "LAHIRI_ICRC",
+                  "LAHIRI_VP285",
+                  "SURYASIDDHANTA",
+                  "SURYASIDDHANTA_MSUN",
+                  "SS_CITRA",
+                  "SS_REVATI",
+                  "TRUE_CITRA",
+                  "TRUE_MULA",
+                  "TRUE_PUSHYA",
+                  "TRUE_REVATI",
+                  "TRUE_SHEORAN",
+                  "BABYL_BRITTON",
+                  "VALENS_MOON",
+                  "USER"
                 ]
               },
               {
@@ -7503,6 +8221,18 @@
               "True Geocentric"
             ],
             "title": "Perspective Type"
+          },
+          "ayanamsa_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ayanamsa Value",
+            "description": "Ayanamsa offset in degrees for sidereal charts (tropical 0 Aries minus sidereal 0 Aries). None for tropical charts."
           },
           "sun": {
             "anyOf": [
@@ -7824,6 +8554,156 @@
               }
             ]
           },
+          "aldebaran": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "antares": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sirius": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "fomalhaut": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "algol": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "betelgeuse": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "canopus": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "procyon": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "arcturus": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pollux": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "deneb": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "altair": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rigel": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "achernar": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "capella": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "pars_fortunae": {
             "anyOf": [
               {
@@ -8018,6 +8898,21 @@
                 "Quaoar",
                 "Regulus",
                 "Spica",
+                "Aldebaran",
+                "Antares",
+                "Sirius",
+                "Fomalhaut",
+                "Algol",
+                "Betelgeuse",
+                "Canopus",
+                "Procyon",
+                "Arcturus",
+                "Pollux",
+                "Deneb",
+                "Altair",
+                "Rigel",
+                "Achernar",
+                "Capella",
                 "Pars_Fortunae",
                 "Pars_Spiritus",
                 "Pars_Amoris",
@@ -8122,6 +9017,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -8384,6 +9294,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -8625,6 +9550,36 @@
             "examples": [
               "Custom Chart Title"
             ]
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "classic",
+              "modern"
+            ],
+            "title": "Style",
+            "description": "Chart rendering style: 'classic' (traditional wheel) or 'modern' (concentric rings).",
+            "default": "classic",
+            "examples": [
+              "classic",
+              "modern"
+            ]
+          },
+          "show_zodiac_background_ring": {
+            "type": "boolean",
+            "title": "Show Zodiac Background Ring",
+            "description": "Show colored zodiac sign wedges on the wheel. Only affects 'modern' style.",
+            "default": true
+          },
+          "double_chart_aspect_grid_type": {
+            "type": "string",
+            "enum": [
+              "list",
+              "table"
+            ],
+            "title": "Double Chart Aspect Grid Type",
+            "description": "Layout for double-chart aspect display: 'list' (vertical) or 'table' (grid matrix).",
+            "default": "list"
           },
           "subject": {
             "$ref": "#/components/schemas/SubjectModel",
@@ -9268,6 +10223,21 @@
                 "Quaoar",
                 "Regulus",
                 "Spica",
+                "Aldebaran",
+                "Antares",
+                "Sirius",
+                "Fomalhaut",
+                "Algol",
+                "Betelgeuse",
+                "Canopus",
+                "Procyon",
+                "Arcturus",
+                "Pollux",
+                "Deneb",
+                "Altair",
+                "Rigel",
+                "Achernar",
+                "Capella",
                 "Pars_Fortunae",
                 "Pars_Spiritus",
                 "Pars_Amoris",
@@ -9567,7 +10537,35 @@
                   "SASSANIAN",
                   "J2000",
                   "J1900",
-                  "B1950"
+                  "B1950",
+                  "ARYABHATA",
+                  "ARYABHATA_522",
+                  "ARYABHATA_MSUN",
+                  "GALCENT_0SAG",
+                  "GALCENT_COCHRANE",
+                  "GALCENT_MULA_WILHELM",
+                  "GALCENT_RGILBRAND",
+                  "GALEQU_FIORENZA",
+                  "GALEQU_IAU1958",
+                  "GALEQU_MULA",
+                  "GALEQU_TRUE",
+                  "GALALIGN_MARDYKS",
+                  "KRISHNAMURTI_VP291",
+                  "LAHIRI_1940",
+                  "LAHIRI_ICRC",
+                  "LAHIRI_VP285",
+                  "SURYASIDDHANTA",
+                  "SURYASIDDHANTA_MSUN",
+                  "SS_CITRA",
+                  "SS_REVATI",
+                  "TRUE_CITRA",
+                  "TRUE_MULA",
+                  "TRUE_PUSHYA",
+                  "TRUE_REVATI",
+                  "TRUE_SHEORAN",
+                  "BABYL_BRITTON",
+                  "VALENS_MOON",
+                  "USER"
                 ]
               },
               {
@@ -9667,6 +10665,36 @@
               "X",
               "Y"
             ]
+          },
+          "custom_ayanamsa_t0": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Custom Ayanamsa T0",
+            "description": "Reference epoch as Julian Day for the USER sidereal mode. Required when sidereal_mode='USER'.",
+            "examples": [
+              2451545.0
+            ]
+          },
+          "custom_ayanamsa_ayan_t0": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Custom Ayanamsa Ayan T0",
+            "description": "Ayanamsa offset in degrees at the reference epoch. Required when sidereal_mode='USER'.",
+            "examples": [
+              23.5
+            ]
           }
         },
         "additionalProperties": false,
@@ -9743,6 +10771,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -9937,6 +10980,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -10179,6 +11237,36 @@
               "Custom Chart Title"
             ]
           },
+          "style": {
+            "type": "string",
+            "enum": [
+              "classic",
+              "modern"
+            ],
+            "title": "Style",
+            "description": "Chart rendering style: 'classic' (traditional wheel) or 'modern' (concentric rings).",
+            "default": "classic",
+            "examples": [
+              "classic",
+              "modern"
+            ]
+          },
+          "show_zodiac_background_ring": {
+            "type": "boolean",
+            "title": "Show Zodiac Background Ring",
+            "description": "Show colored zodiac sign wedges on the wheel. Only affects 'modern' style.",
+            "default": true
+          },
+          "double_chart_aspect_grid_type": {
+            "type": "string",
+            "enum": [
+              "list",
+              "table"
+            ],
+            "title": "Double Chart Aspect Grid Type",
+            "description": "Layout for double-chart aspect display: 'list' (vertical) or 'table' (grid matrix).",
+            "default": "list"
+          },
           "first_subject": {
             "$ref": "#/components/schemas/SubjectModel",
             "description": "Primary subject (inner wheel)."
@@ -10249,6 +11337,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -10437,6 +11540,21 @@
                     "Quaoar",
                     "Regulus",
                     "Spica",
+                    "Aldebaran",
+                    "Antares",
+                    "Sirius",
+                    "Fomalhaut",
+                    "Algol",
+                    "Betelgeuse",
+                    "Canopus",
+                    "Procyon",
+                    "Arcturus",
+                    "Pollux",
+                    "Deneb",
+                    "Altair",
+                    "Rigel",
+                    "Achernar",
+                    "Capella",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -10678,6 +11796,36 @@
             "examples": [
               "Custom Chart Title"
             ]
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "classic",
+              "modern"
+            ],
+            "title": "Style",
+            "description": "Chart rendering style: 'classic' (traditional wheel) or 'modern' (concentric rings).",
+            "default": "classic",
+            "examples": [
+              "classic",
+              "modern"
+            ]
+          },
+          "show_zodiac_background_ring": {
+            "type": "boolean",
+            "title": "Show Zodiac Background Ring",
+            "description": "Show colored zodiac sign wedges on the wheel. Only affects 'modern' style.",
+            "default": true
+          },
+          "double_chart_aspect_grid_type": {
+            "type": "string",
+            "enum": [
+              "list",
+              "table"
+            ],
+            "title": "Double Chart Aspect Grid Type",
+            "description": "Layout for double-chart aspect display: 'list' (vertical) or 'table' (grid matrix).",
+            "default": "list"
           },
           "first_subject": {
             "$ref": "#/components/schemas/SubjectModel",

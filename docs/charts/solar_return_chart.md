@@ -67,6 +67,9 @@ This chart type is foundational for yearly planning and is widely used by profes
 -   **`return_location`** (object, optional): Relocation.
 -   **`wheel_type`** (string, optional): "dual" (default) or "single".
 -   **`theme`**, **`language`**, **`split_chart`** (rendering options).
+-   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
+-   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
+-   **`double_chart_aspect_grid_type`** (string, optional): Aspect display for dual charts — "list" (default) or "table". Default: "list".
 -   **`show_house_position_comparison`** (bool, optional): Show or hide the house/points comparison table (default: true).
 -   **`show_cusp_position_comparison`** (bool, optional): Show or hide the cusp comparison table for dual charts (default: true).
 -   **`show_degree_indicators`** (bool, optional): Display radial lines and degree numbers for planet positions on the wheel (default: true).
@@ -85,15 +88,18 @@ This chart type is foundational for yearly planning and is widely used by profes
         "minute": 0,
         "city": "London",
         "nation": "GB",
-        "lng": -0.1278,
-        "lat": 51.5074,
-        "tz_str": "Europe/London"
+        "longitude": -0.1278,
+        "latitude": 51.5074,
+        "timezone": "Europe/London"
     },
     "year": 2024,
     "month": 10,
     "day": 1,
     "wheel_type": "dual",
-    "theme": "dark"
+    "theme": "dark",
+    "style": "modern",
+    "show_zodiac_background_ring": true,
+    "double_chart_aspect_grid_type": "list"
 }
 ```
 

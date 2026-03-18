@@ -61,13 +61,16 @@ Returns the calculated subject for the current moment.
         "lng": -0.0015,
         "lat": 51.4779,
         "tz_str": "Etc/UTC",
+        "ayanamsa_value": null,
         "sun": {
             "name": "Sun",
             "sign": "Sco",
             "position": 4.5,
             "abs_pos": 214.5,
             "emoji": "♏",
-            "house": "9th House"
+            "house": "9th House",
+            "speed": 1.0067,
+            "declination": -13.12
         },
         "moon": {
             "name": "Moon",
@@ -75,7 +78,9 @@ Returns the calculated subject for the current moment.
             "position": 12.0,
             "abs_pos": 12.0,
             "emoji": "♈",
-            "house": "2nd House"
+            "house": "2nd House",
+            "speed": 13.245,
+            "declination": 5.67
         }
         // ... other planets and houses
     }

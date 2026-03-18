@@ -65,6 +65,9 @@ The composite chart is particularly valuable for committed relationships, as it 
     }
     ```
 -   **`theme`**, **`language`**, **`split_chart`** (rendering options).
+-   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
+-   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
+-   **`double_chart_aspect_grid_type`** (string, optional): Aspect display layout — "list" (default) or "table". Default: "list".
 -   **`show_house_position_comparison`** (bool, optional): Show or hide the house/points comparison table for the composite chart (default: true).
 -   **`show_degree_indicators`** (bool, optional): Display radial lines and degree numbers for planet positions on the wheel (default: true).
 -   **`show_aspect_icons`** (bool, optional): Display aspect icons on aspect lines (default: true).
@@ -82,9 +85,9 @@ The composite chart is particularly valuable for committed relationships, as it 
         "minute": 0,
         "city": "Rome",
         "nation": "IT",
-        "lng": 12.4964,
-        "lat": 41.9028,
-        "tz_str": "Europe/Rome"
+        "longitude": 12.4964,
+        "latitude": 41.9028,
+        "timezone": "Europe/Rome"
     },
     "second_subject": {
         "name": "Partner B",
@@ -95,11 +98,13 @@ The composite chart is particularly valuable for committed relationships, as it 
         "minute": 30,
         "city": "Milan",
         "nation": "IT",
-        "lng": 9.19,
-        "lat": 45.4642,
-        "tz_str": "Europe/Rome"
+        "longitude": 9.19,
+        "latitude": 45.4642,
+        "timezone": "Europe/Rome"
     },
-    "theme": "dark"
+    "theme": "dark",
+    "style": "modern",
+    "show_zodiac_background_ring": true
 }
 ```
 

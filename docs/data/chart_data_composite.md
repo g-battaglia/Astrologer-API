@@ -61,9 +61,9 @@ This endpoint calculates the composite chart for two subjects. A composite chart
         "minute": 0,
         "city": "Rome",
         "nation": "IT",
-        "lng": 12.4964,
-        "lat": 41.9028,
-        "tz_str": "Europe/Rome"
+        "longitude": 12.4964,
+        "latitude": 41.9028,
+        "timezone": "Europe/Rome"
     },
     "second_subject": {
         "name": "Partner B",
@@ -74,9 +74,9 @@ This endpoint calculates the composite chart for two subjects. A composite chart
         "minute": 30,
         "city": "Milan",
         "nation": "IT",
-        "lng": 9.19,
-        "lat": 45.4642,
-        "tz_str": "Europe/Rome"
+        "longitude": 9.19,
+        "latitude": 45.4642,
+        "timezone": "Europe/Rome"
     }
 }
 ```
@@ -101,7 +101,10 @@ This endpoint calculates the composite chart for two subjects. A composite chart
         "sign": "Aqu",
         "position": 15.0,
         "abs_pos": 315.0,
-        "house": "10th House"
+        "house": "10th House",
+        "speed": 1.0089,
+        "declination": -19.72,
+        "magnitude": null
       },
       ...
     },

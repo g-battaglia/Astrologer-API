@@ -176,11 +176,18 @@ def build_subject(
         altitude=subject_request.altitude,
         active_points=resolved_points,
         suppress_geonames_warning=True,
+        custom_ayanamsa_t0=subject_request.custom_ayanamsa_t0,
+        custom_ayanamsa_ayan_t0=subject_request.custom_ayanamsa_ayan_t0,
     )
 
 
 def build_transit_subject(
-    transit_request, reference_subject, *, active_points: Optional[Sequence[str]] = None
+    transit_request,
+    reference_subject,
+    *,
+    active_points: Optional[Sequence[str]] = None,
+    custom_ayanamsa_t0: Optional[float] = None,
+    custom_ayanamsa_ayan_t0: Optional[float] = None,
 ) -> object:
     """
     Build a Transit Subject instance, inheriting settings from a reference subject.
@@ -189,6 +196,8 @@ def build_transit_subject(
         transit_request: The transit data request model.
         reference_subject: The reference (natal) subject to inherit settings from.
         active_points (Optional[Sequence[str]]): Optional list of active points.
+        custom_ayanamsa_t0: Reference epoch for USER sidereal mode (from natal subject request).
+        custom_ayanamsa_ayan_t0: Ayanamsa offset for USER sidereal mode (from natal subject request).
 
     Returns:
         AstrologicalSubject: The constructed transit subject.
@@ -219,6 +228,8 @@ def build_transit_subject(
         altitude=transit_request.altitude,
         active_points=resolved_points,
         suppress_geonames_warning=True,
+        custom_ayanamsa_t0=custom_ayanamsa_t0,
+        custom_ayanamsa_ayan_t0=custom_ayanamsa_ayan_t0,
     )
 
 
@@ -233,6 +244,9 @@ def render_chart(
     show_degree_indicators: bool = True,
     show_aspect_icons: bool = True,
     custom_title: Optional[str] = None,
+    style: str = "classic",
+    show_zodiac_background_ring: bool = True,
+    double_chart_aspect_grid_type: str = "list",
 ) -> dict:
     """
     Render chart(s) based on configuration.
@@ -248,6 +262,9 @@ def render_chart(
         show_degree_indicators (bool): Whether to show radial lines and degree numbers for planets.
         show_aspect_icons (bool): Whether to show aspect icons on aspect lines.
         custom_title (Optional[str]): Custom title for the chart.
+        style (str): Chart rendering style — 'classic' (traditional wheel) or 'modern' (concentric rings).
+        show_zodiac_background_ring (bool): Show colored zodiac sign wedges (modern style only).
+        double_chart_aspect_grid_type (str): Layout for double-chart aspects — 'list' or 'table'.
 
     Returns:
         dict: The complete payload with chart data and SVG strings.
@@ -262,6 +279,9 @@ def render_chart(
         show_degree_indicators=show_degree_indicators,
         show_aspect_icons=show_aspect_icons,
         custom_title=custom_title,
+        double_chart_aspect_grid_type=double_chart_aspect_grid_type,
+        style=style,
+        show_zodiac_background_ring=show_zodiac_background_ring,
     )
 
     if split_chart:
@@ -300,6 +320,9 @@ def chart_payload(
     show_degree_indicators: bool = True,
     show_aspect_icons: bool = True,
     custom_title: Optional[str] = None,
+    style: str = "classic",
+    show_zodiac_background_ring: bool = True,
+    double_chart_aspect_grid_type: str = "list",
 ) -> dict:
     """
     Generate a complete chart payload including data and rendered SVG(s).
@@ -315,6 +338,9 @@ def chart_payload(
         show_degree_indicators (bool): Whether to show radial lines and degree numbers for planets.
         show_aspect_icons (bool): Whether to show aspect icons on aspect lines.
         custom_title (Optional[str]): Custom title for the chart.
+        style (str): Chart rendering style — 'classic' (traditional wheel) or 'modern' (concentric rings).
+        show_zodiac_background_ring (bool): Show colored zodiac sign wedges (modern style only).
+        double_chart_aspect_grid_type (str): Layout for double-chart aspects — 'list' or 'table'.
 
     Returns:
         dict: The complete payload with chart data and SVG strings.
@@ -331,6 +357,9 @@ def chart_payload(
         show_degree_indicators,
         show_aspect_icons,
         custom_title,
+        style,
+        show_zodiac_background_ring,
+        double_chart_aspect_grid_type,
     )
     payload.update(charts)
     return payload
@@ -432,6 +461,20 @@ def build_return_factory(
     """
     location = request_body.return_location
 
+    # Extract custom ayanamsa params from the natal subject request for USER sidereal mode
+    custom_ayanamsa_kwargs: dict = {}
+    if hasattr(request_body, "subject") and hasattr(
+        request_body.subject, "custom_ayanamsa_t0"
+    ):
+        if request_body.subject.custom_ayanamsa_t0 is not None:
+            custom_ayanamsa_kwargs["custom_ayanamsa_t0"] = (
+                request_body.subject.custom_ayanamsa_t0
+            )
+        if request_body.subject.custom_ayanamsa_ayan_t0 is not None:
+            custom_ayanamsa_kwargs["custom_ayanamsa_ayan_t0"] = (
+                request_body.subject.custom_ayanamsa_ayan_t0
+            )
+
     if location:
         nation = resolve_nation(location.nation) or natal_subject.nation
 
@@ -454,6 +497,7 @@ def build_return_factory(
                 geonames_username=location.geonames_username,
                 cache_expire_after_days=30,
                 altitude=location.altitude,
+                **custom_ayanamsa_kwargs,
             )
 
         logger.info(
@@ -472,6 +516,7 @@ def build_return_factory(
             tz_str=location.timezone,
             online=False,
             altitude=location.altitude,
+            **custom_ayanamsa_kwargs,
         )
 
     logger.info(
@@ -488,6 +533,7 @@ def build_return_factory(
         tz_str=natal_subject.tz_str,
         online=False,
         altitude=getattr(natal_subject, "altitude", None),
+        **custom_ayanamsa_kwargs,
     )
 
 
@@ -637,6 +683,8 @@ def create_transit_chart_data(
         request_body.transit_subject,
         reference_subject=natal_subject,
         active_points=active_points,
+        custom_ayanamsa_t0=request_body.first_subject.custom_ayanamsa_t0,
+        custom_ayanamsa_ayan_t0=request_body.first_subject.custom_ayanamsa_ayan_t0,
     )
     chart_data = ChartDataFactory.create_transit_chart_data(
         natal_subject,

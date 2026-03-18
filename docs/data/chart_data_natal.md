@@ -48,9 +48,9 @@ This endpoint returns the full calculated data for a natal chart (birth chart) w
         "minute": 15,
         "city": "Paris",
         "nation": "FR",
-        "lng": 2.3522,
-        "lat": 48.8566,
-        "tz_str": "Europe/Paris"
+        "longitude": 2.3522,
+        "latitude": 48.8566,
+        "timezone": "Europe/Paris"
     },
     "distribution_method": "weighted"
 }
@@ -80,6 +80,9 @@ This endpoint returns the full calculated data for a natal chart (birth chart) w
         "position": 2.5,
         "abs_pos": 212.5,
         "house": "12th House",
+        "speed": 1.0133,
+        "declination": -12.38,
+        "magnitude": null,
         ...
       },
       ...

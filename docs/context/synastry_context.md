@@ -46,7 +46,7 @@ Generates an AI-powered interpretation of a synastry (relationship) chart. This 
         "timezone": "America/New_York"
     }
     ```
--   **Computation options**: flags such as `include_house_comparison`, `include_relationship_score`, `active_points`, `active_aspects`, `distribution_method`, `custom_distribution_weights` (identical to `/api/v5/chart-data/synastry`). Rendering options like `theme`, `language`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `custom_title` are **not** accepted here.
+-   **Computation options**: flags such as `include_house_comparison`, `include_relationship_score`, `active_points`, `active_aspects`, `distribution_method`, `custom_distribution_weights` (identical to `/api/v5/chart-data/synastry`). Rendering options like `theme`, `language`, `style`, `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `custom_title` are **not** accepted here.
 
 #### Complete Request Example
 
@@ -61,9 +61,9 @@ Generates an AI-powered interpretation of a synastry (relationship) chart. This 
         "minute": 0,
         "city": "London",
         "nation": "GB",
-        "lng": -0.1278,
-        "lat": 51.5074,
-        "tz_str": "Europe/London"
+        "longitude": -0.1278,
+        "latitude": 51.5074,
+        "timezone": "Europe/London"
     },
     "second_subject": {
         "name": "Partner B",
@@ -74,9 +74,9 @@ Generates an AI-powered interpretation of a synastry (relationship) chart. This 
         "minute": 30,
         "city": "New York",
         "nation": "US",
-        "lng": -74.006,
-        "lat": 40.7128,
-        "tz_str": "America/New_York"
+        "longitude": -74.006,
+        "latitude": 40.7128,
+        "timezone": "America/New_York"
     }
 }
 ```

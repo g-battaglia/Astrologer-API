@@ -1247,12 +1247,12 @@
         "p1_abs_pos": 190.60828815878577,
         "p1_name": "Ascendant",
         "p1_owner": "Baseline Test Roma 1990",
-        "p1_speed": 0.0,
+        "p1_speed": 282.7044520155118,
         "p2": 14,
         "p2_abs_pos": 316.7702853041942,
         "p2_name": "Medium_Coeli",
         "p2_owner": "Baseline Test Paris",
-        "p2_speed": 0.0
+        "p2_speed": 364.2491807451451
       },
       {
         "aspect": "quintile",
@@ -1400,12 +1400,12 @@
         "p1_abs_pos": 10.60828815878574,
         "p1_name": "Descendant",
         "p1_owner": "Baseline Test Roma 1990",
-        "p1_speed": 0.0,
+        "p1_speed": 282.7044520155118,
         "p2": 16,
         "p2_abs_pos": 136.7702853041942,
         "p2_name": "Imum_Coeli",
         "p2_owner": "Baseline Test Paris",
-        "p2_speed": 0.0
+        "p2_speed": 364.2491807451451
       },
       {
         "aspect": "trine",
@@ -1624,6 +1624,7 @@
       "water_percentage": 26
     },
     "first_subject": {
+      "achernar": null,
       "active_points": [
         "Sun",
         "Moon",
@@ -1644,13 +1645,23 @@
         "Descendant",
         "Imum_Coeli"
       ],
+      "alcyone": null,
+      "aldebaran": null,
+      "algol": null,
+      "algorab": null,
+      "alkaid": null,
+      "alphecca": null,
+      "altair": null,
+      "antares": null,
       "anti_vertex": null,
+      "arcturus": null,
       "ascendant": {
         "abs_pos": 190.60828815878577,
         "declination": null,
         "element": "Air",
         "emoji": "♎️",
         "house": "First_House",
+        "magnitude": null,
         "name": "Ascendant",
         "point_type": "AstrologicalPoint",
         "position": 10.608288158785768,
@@ -1658,8 +1669,12 @@
         "retrograde": false,
         "sign": "Lib",
         "sign_num": 6,
-        "speed": 360.0
+        "speed": 282.7044520155118
       },
+      "ayanamsa_value": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "capella": null,
       "ceres": null,
       "chiron": {
         "abs_pos": 106.06263028916405,
@@ -1667,6 +1682,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Chiron",
         "point_type": "AstrologicalPoint",
         "position": 16.062630289164048,
@@ -1679,12 +1695,15 @@
       "city": "Rome",
       "day": 15,
       "day_of_week": "Friday",
+      "deneb": null,
+      "deneb_algedi": null,
       "descendant": {
         "abs_pos": 10.60828815878574,
         "declination": null,
         "element": "Fire",
         "emoji": "♈️",
         "house": "Seventh_House",
+        "magnitude": null,
         "name": "Descendant",
         "point_type": "AstrologicalPoint",
         "position": 10.60828815878574,
@@ -1692,7 +1711,7 @@
         "retrograde": false,
         "sign": "Ari",
         "sign_num": 0,
-        "speed": 360.0
+        "speed": 282.7044520155118
       },
       "earth": null,
       "eighth_house": {
@@ -1701,6 +1720,7 @@
         "element": "Earth",
         "emoji": "♉️",
         "house": null,
+        "magnitude": null,
         "name": "Eighth_House",
         "point_type": "House",
         "position": 7.293049951131877,
@@ -1708,7 +1728,7 @@
         "retrograde": null,
         "sign": "Tau",
         "sign_num": 1,
-        "speed": null
+        "speed": 304.7579444702677
       },
       "eleventh_house": {
         "abs_pos": 136.048699929613,
@@ -1716,6 +1736,7 @@
         "element": "Fire",
         "emoji": "♌️",
         "house": null,
+        "magnitude": null,
         "name": "Eleventh_House",
         "point_type": "House",
         "position": 16.048699929613008,
@@ -1723,7 +1744,7 @@
         "retrograde": null,
         "sign": "Leo",
         "sign_num": 4,
-        "speed": null
+        "speed": 330.87191549149696
       },
       "eris": null,
       "fifth_house": {
@@ -1732,6 +1753,7 @@
         "element": "Air",
         "emoji": "♒️",
         "house": null,
+        "magnitude": null,
         "name": "Fifth_House",
         "point_type": "House",
         "position": 16.048699929613008,
@@ -1739,7 +1761,7 @@
         "retrograde": null,
         "sign": "Aqu",
         "sign_num": 10,
-        "speed": null
+        "speed": 330.87191549149696
       },
       "first_house": {
         "abs_pos": 190.60828815878577,
@@ -1747,6 +1769,7 @@
         "element": "Air",
         "emoji": "♎️",
         "house": null,
+        "magnitude": null,
         "name": "First_House",
         "point_type": "House",
         "position": 10.608288158785768,
@@ -1754,14 +1777,16 @@
         "retrograde": null,
         "sign": "Lib",
         "sign_num": 6,
-        "speed": null
+        "speed": 282.7044520155118
       },
+      "fomalhaut": null,
       "fourth_house": {
         "abs_pos": 282.44815772060167,
         "declination": null,
         "element": "Earth",
         "emoji": "♑️",
         "house": null,
+        "magnitude": null,
         "name": "Fourth_House",
         "point_type": "House",
         "position": 12.448157720601671,
@@ -1769,7 +1794,7 @@
         "retrograde": null,
         "sign": "Cap",
         "sign_num": 9,
-        "speed": null
+        "speed": 334.0843019351966
       },
       "haumea": null,
       "hour": 14,
@@ -1795,6 +1820,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Imum_Coeli",
         "point_type": "AstrologicalPoint",
         "position": 12.448157720601671,
@@ -1802,7 +1828,7 @@
         "retrograde": false,
         "sign": "Cap",
         "sign_num": 9,
-        "speed": 360.0
+        "speed": 334.0843019351966
       },
       "is_diurnal": true,
       "iso_formatted_local_datetime": "1990-06-15T14:30:00+02:00",
@@ -1816,6 +1842,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Jupiter",
         "point_type": "AstrologicalPoint",
         "position": 15.89395077397532,
@@ -1840,6 +1867,7 @@
         "element": "Fire",
         "emoji": "♈️",
         "house": "Seventh_House",
+        "magnitude": null,
         "name": "Mars",
         "point_type": "AstrologicalPoint",
         "position": 11.05629056671608,
@@ -1855,6 +1883,7 @@
         "element": "Water",
         "emoji": "♏️",
         "house": "Second_House",
+        "magnitude": null,
         "name": "Mean_Lilith",
         "point_type": "AstrologicalPoint",
         "position": 24.95366107040303,
@@ -1872,6 +1901,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Medium_Coeli",
         "point_type": "AstrologicalPoint",
         "position": 12.448157720601642,
@@ -1879,7 +1909,7 @@
         "retrograde": false,
         "sign": "Can",
         "sign_num": 3,
-        "speed": 360.0
+        "speed": 334.0843019351966
       },
       "mercury": {
         "abs_pos": 65.72646521723449,
@@ -1887,6 +1917,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": "Eighth_House",
+        "magnitude": null,
         "name": "Mercury",
         "point_type": "AstrologicalPoint",
         "position": 5.726465217234491,
@@ -1904,6 +1935,7 @@
         "element": "Water",
         "emoji": "♓️",
         "house": "Fifth_House",
+        "magnitude": null,
         "name": "Moon",
         "point_type": "AstrologicalPoint",
         "position": 15.636387264717484,
@@ -1921,6 +1953,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Neptune",
         "point_type": "AstrologicalPoint",
         "position": 13.716575919430682,
@@ -1936,6 +1969,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": null,
+        "magnitude": null,
         "name": "Ninth_House",
         "point_type": "House",
         "position": 8.305310856256483,
@@ -1943,7 +1977,7 @@
         "retrograde": null,
         "sign": "Gem",
         "sign_num": 2,
-        "speed": null
+        "speed": 322.594586974792
       },
       "orcus": null,
       "pallas": null,
@@ -1959,6 +1993,7 @@
         "element": "Water",
         "emoji": "♏️",
         "house": "Second_House",
+        "magnitude": null,
         "name": "Pluto",
         "point_type": "AstrologicalPoint",
         "position": 15.401130493427871,
@@ -1968,14 +2003,18 @@
         "sign_num": 7,
         "speed": -0.02017052930444015
       },
+      "pollux": null,
+      "procyon": null,
       "quaoar": null,
       "regulus": null,
+      "rigel": null,
       "saturn": {
         "abs_pos": 294.0307406358914,
         "declination": -21.190727317881983,
         "element": "Earth",
         "emoji": "♑️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Saturn",
         "point_type": "AstrologicalPoint",
         "position": 24.03074063589139,
@@ -1991,6 +2030,7 @@
         "element": "Water",
         "emoji": "♏️",
         "house": null,
+        "magnitude": null,
         "name": "Second_House",
         "point_type": "House",
         "position": 7.293049951131877,
@@ -1998,7 +2038,7 @@
         "retrograde": null,
         "sign": "Sco",
         "sign_num": 7,
-        "speed": null
+        "speed": 304.7579444702677
       },
       "sedna": null,
       "seventh_house": {
@@ -2007,6 +2047,7 @@
         "element": "Fire",
         "emoji": "♈️",
         "house": null,
+        "magnitude": null,
         "name": "Seventh_House",
         "point_type": "House",
         "position": 10.60828815878574,
@@ -2014,15 +2055,17 @@
         "retrograde": null,
         "sign": "Ari",
         "sign_num": 0,
-        "speed": null
+        "speed": 282.7044520155118
       },
       "sidereal_mode": null,
+      "sirius": null,
       "sixth_house": {
         "abs_pos": 345.76873582436275,
         "declination": null,
         "element": "Water",
         "emoji": "♓️",
         "house": null,
+        "magnitude": null,
         "name": "Sixth_House",
         "point_type": "House",
         "position": 15.76873582436275,
@@ -2030,7 +2073,7 @@
         "retrograde": null,
         "sign": "Pis",
         "sign_num": 11,
-        "speed": null
+        "speed": 310.945005651588
       },
       "spica": null,
       "sun": {
@@ -2039,6 +2082,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": "Ninth_House",
+        "magnitude": null,
         "name": "Sun",
         "point_type": "AstrologicalPoint",
         "position": 24.149464803789243,
@@ -2054,6 +2098,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": null,
+        "magnitude": null,
         "name": "Tenth_House",
         "point_type": "House",
         "position": 12.448157720601642,
@@ -2061,7 +2106,7 @@
         "retrograde": null,
         "sign": "Can",
         "sign_num": 3,
-        "speed": null
+        "speed": 334.0843019351966
       },
       "third_house": {
         "abs_pos": 248.30531085625648,
@@ -2069,6 +2114,7 @@
         "element": "Fire",
         "emoji": "♐️",
         "house": null,
+        "magnitude": null,
         "name": "Third_House",
         "point_type": "House",
         "position": 8.305310856256483,
@@ -2076,7 +2122,7 @@
         "retrograde": null,
         "sign": "Sag",
         "sign_num": 8,
-        "speed": null
+        "speed": 322.594586974792
       },
       "true_lilith": null,
       "true_north_lunar_node": {
@@ -2085,6 +2131,7 @@
         "element": "Air",
         "emoji": "♒️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "True_North_Lunar_Node",
         "point_type": "AstrologicalPoint",
         "position": 8.120147565809418,
@@ -2100,6 +2147,7 @@
         "element": "Fire",
         "emoji": "♌️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "True_South_Lunar_Node",
         "point_type": "AstrologicalPoint",
         "position": 8.120147565809418,
@@ -2115,6 +2163,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": null,
+        "magnitude": null,
         "name": "Twelfth_House",
         "point_type": "House",
         "position": 15.76873582436275,
@@ -2122,7 +2171,7 @@
         "retrograde": null,
         "sign": "Vir",
         "sign_num": 5,
-        "speed": null
+        "speed": 310.945005651588
       },
       "tz_str": "Europe/Rome",
       "uranus": {
@@ -2131,6 +2180,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": "Third_House",
+        "magnitude": null,
         "name": "Uranus",
         "point_type": "AstrologicalPoint",
         "position": 8.16442896660027,
@@ -2140,12 +2190,14 @@
         "sign_num": 9,
         "speed": -0.038933166446184775
       },
+      "vega": null,
       "venus": {
         "abs_pos": 48.802112108680184,
         "declination": 15.546189556148093,
         "element": "Earth",
         "emoji": "♉️",
         "house": "Eighth_House",
+        "magnitude": null,
         "name": "Venus",
         "point_type": "AstrologicalPoint",
         "position": 18.802112108680184,
@@ -2892,6 +2944,7 @@
       "score_value": 17,
       "subjects": [
         {
+          "achernar": null,
           "active_points": [
             "Sun",
             "Moon",
@@ -2912,13 +2965,23 @@
             "Descendant",
             "Imum_Coeli"
           ],
+          "alcyone": null,
+          "aldebaran": null,
+          "algol": null,
+          "algorab": null,
+          "alkaid": null,
+          "alphecca": null,
+          "altair": null,
+          "antares": null,
           "anti_vertex": null,
+          "arcturus": null,
           "ascendant": {
             "abs_pos": 190.60828815878577,
             "declination": null,
             "element": "Air",
             "emoji": "♎️",
             "house": "First_House",
+            "magnitude": null,
             "name": "Ascendant",
             "point_type": "AstrologicalPoint",
             "position": 10.608288158785768,
@@ -2926,8 +2989,12 @@
             "retrograde": false,
             "sign": "Lib",
             "sign_num": 6,
-            "speed": 360.0
+            "speed": 282.7044520155118
           },
+          "ayanamsa_value": null,
+          "betelgeuse": null,
+          "canopus": null,
+          "capella": null,
           "ceres": null,
           "chiron": {
             "abs_pos": 106.06263028916405,
@@ -2935,6 +3002,7 @@
             "element": "Water",
             "emoji": "♋️",
             "house": "Tenth_House",
+            "magnitude": null,
             "name": "Chiron",
             "point_type": "AstrologicalPoint",
             "position": 16.062630289164048,
@@ -2947,12 +3015,15 @@
           "city": "Rome",
           "day": 15,
           "day_of_week": "Friday",
+          "deneb": null,
+          "deneb_algedi": null,
           "descendant": {
             "abs_pos": 10.60828815878574,
             "declination": null,
             "element": "Fire",
             "emoji": "♈️",
             "house": "Seventh_House",
+            "magnitude": null,
             "name": "Descendant",
             "point_type": "AstrologicalPoint",
             "position": 10.60828815878574,
@@ -2960,7 +3031,7 @@
             "retrograde": false,
             "sign": "Ari",
             "sign_num": 0,
-            "speed": 360.0
+            "speed": 282.7044520155118
           },
           "earth": null,
           "eighth_house": {
@@ -2969,6 +3040,7 @@
             "element": "Earth",
             "emoji": "♉️",
             "house": null,
+            "magnitude": null,
             "name": "Eighth_House",
             "point_type": "House",
             "position": 7.293049951131877,
@@ -2976,7 +3048,7 @@
             "retrograde": null,
             "sign": "Tau",
             "sign_num": 1,
-            "speed": null
+            "speed": 304.7579444702677
           },
           "eleventh_house": {
             "abs_pos": 136.048699929613,
@@ -2984,6 +3056,7 @@
             "element": "Fire",
             "emoji": "♌️",
             "house": null,
+            "magnitude": null,
             "name": "Eleventh_House",
             "point_type": "House",
             "position": 16.048699929613008,
@@ -2991,7 +3064,7 @@
             "retrograde": null,
             "sign": "Leo",
             "sign_num": 4,
-            "speed": null
+            "speed": 330.87191549149696
           },
           "eris": null,
           "fifth_house": {
@@ -3000,6 +3073,7 @@
             "element": "Air",
             "emoji": "♒️",
             "house": null,
+            "magnitude": null,
             "name": "Fifth_House",
             "point_type": "House",
             "position": 16.048699929613008,
@@ -3007,7 +3081,7 @@
             "retrograde": null,
             "sign": "Aqu",
             "sign_num": 10,
-            "speed": null
+            "speed": 330.87191549149696
           },
           "first_house": {
             "abs_pos": 190.60828815878577,
@@ -3015,6 +3089,7 @@
             "element": "Air",
             "emoji": "♎️",
             "house": null,
+            "magnitude": null,
             "name": "First_House",
             "point_type": "House",
             "position": 10.608288158785768,
@@ -3022,14 +3097,16 @@
             "retrograde": null,
             "sign": "Lib",
             "sign_num": 6,
-            "speed": null
+            "speed": 282.7044520155118
           },
+          "fomalhaut": null,
           "fourth_house": {
             "abs_pos": 282.44815772060167,
             "declination": null,
             "element": "Earth",
             "emoji": "♑️",
             "house": null,
+            "magnitude": null,
             "name": "Fourth_House",
             "point_type": "House",
             "position": 12.448157720601671,
@@ -3037,7 +3114,7 @@
             "retrograde": null,
             "sign": "Cap",
             "sign_num": 9,
-            "speed": null
+            "speed": 334.0843019351966
           },
           "haumea": null,
           "hour": 14,
@@ -3063,6 +3140,7 @@
             "element": "Earth",
             "emoji": "♑️",
             "house": "Fourth_House",
+            "magnitude": null,
             "name": "Imum_Coeli",
             "point_type": "AstrologicalPoint",
             "position": 12.448157720601671,
@@ -3070,7 +3148,7 @@
             "retrograde": false,
             "sign": "Cap",
             "sign_num": 9,
-            "speed": 360.0
+            "speed": 334.0843019351966
           },
           "is_diurnal": true,
           "iso_formatted_local_datetime": "1990-06-15T14:30:00+02:00",
@@ -3084,6 +3162,7 @@
             "element": "Water",
             "emoji": "♋️",
             "house": "Tenth_House",
+            "magnitude": null,
             "name": "Jupiter",
             "point_type": "AstrologicalPoint",
             "position": 15.89395077397532,
@@ -3108,6 +3187,7 @@
             "element": "Fire",
             "emoji": "♈️",
             "house": "Seventh_House",
+            "magnitude": null,
             "name": "Mars",
             "point_type": "AstrologicalPoint",
             "position": 11.05629056671608,
@@ -3123,6 +3203,7 @@
             "element": "Water",
             "emoji": "♏️",
             "house": "Second_House",
+            "magnitude": null,
             "name": "Mean_Lilith",
             "point_type": "AstrologicalPoint",
             "position": 24.95366107040303,
@@ -3140,6 +3221,7 @@
             "element": "Water",
             "emoji": "♋️",
             "house": "Tenth_House",
+            "magnitude": null,
             "name": "Medium_Coeli",
             "point_type": "AstrologicalPoint",
             "position": 12.448157720601642,
@@ -3147,7 +3229,7 @@
             "retrograde": false,
             "sign": "Can",
             "sign_num": 3,
-            "speed": 360.0
+            "speed": 334.0843019351966
           },
           "mercury": {
             "abs_pos": 65.72646521723449,
@@ -3155,6 +3237,7 @@
             "element": "Air",
             "emoji": "♊️",
             "house": "Eighth_House",
+            "magnitude": null,
             "name": "Mercury",
             "point_type": "AstrologicalPoint",
             "position": 5.726465217234491,
@@ -3172,6 +3255,7 @@
             "element": "Water",
             "emoji": "♓️",
             "house": "Fifth_House",
+            "magnitude": null,
             "name": "Moon",
             "point_type": "AstrologicalPoint",
             "position": 15.636387264717484,
@@ -3189,6 +3273,7 @@
             "element": "Earth",
             "emoji": "♑️",
             "house": "Fourth_House",
+            "magnitude": null,
             "name": "Neptune",
             "point_type": "AstrologicalPoint",
             "position": 13.716575919430682,
@@ -3204,6 +3289,7 @@
             "element": "Air",
             "emoji": "♊️",
             "house": null,
+            "magnitude": null,
             "name": "Ninth_House",
             "point_type": "House",
             "position": 8.305310856256483,
@@ -3211,7 +3297,7 @@
             "retrograde": null,
             "sign": "Gem",
             "sign_num": 2,
-            "speed": null
+            "speed": 322.594586974792
           },
           "orcus": null,
           "pallas": null,
@@ -3227,6 +3313,7 @@
             "element": "Water",
             "emoji": "♏️",
             "house": "Second_House",
+            "magnitude": null,
             "name": "Pluto",
             "point_type": "AstrologicalPoint",
             "position": 15.401130493427871,
@@ -3236,14 +3323,18 @@
             "sign_num": 7,
             "speed": -0.02017052930444015
           },
+          "pollux": null,
+          "procyon": null,
           "quaoar": null,
           "regulus": null,
+          "rigel": null,
           "saturn": {
             "abs_pos": 294.0307406358914,
             "declination": -21.190727317881983,
             "element": "Earth",
             "emoji": "♑️",
             "house": "Fourth_House",
+            "magnitude": null,
             "name": "Saturn",
             "point_type": "AstrologicalPoint",
             "position": 24.03074063589139,
@@ -3259,6 +3350,7 @@
             "element": "Water",
             "emoji": "♏️",
             "house": null,
+            "magnitude": null,
             "name": "Second_House",
             "point_type": "House",
             "position": 7.293049951131877,
@@ -3266,7 +3358,7 @@
             "retrograde": null,
             "sign": "Sco",
             "sign_num": 7,
-            "speed": null
+            "speed": 304.7579444702677
           },
           "sedna": null,
           "seventh_house": {
@@ -3275,6 +3367,7 @@
             "element": "Fire",
             "emoji": "♈️",
             "house": null,
+            "magnitude": null,
             "name": "Seventh_House",
             "point_type": "House",
             "position": 10.60828815878574,
@@ -3282,15 +3375,17 @@
             "retrograde": null,
             "sign": "Ari",
             "sign_num": 0,
-            "speed": null
+            "speed": 282.7044520155118
           },
           "sidereal_mode": null,
+          "sirius": null,
           "sixth_house": {
             "abs_pos": 345.76873582436275,
             "declination": null,
             "element": "Water",
             "emoji": "♓️",
             "house": null,
+            "magnitude": null,
             "name": "Sixth_House",
             "point_type": "House",
             "position": 15.76873582436275,
@@ -3298,7 +3393,7 @@
             "retrograde": null,
             "sign": "Pis",
             "sign_num": 11,
-            "speed": null
+            "speed": 310.945005651588
           },
           "spica": null,
           "sun": {
@@ -3307,6 +3402,7 @@
             "element": "Air",
             "emoji": "♊️",
             "house": "Ninth_House",
+            "magnitude": null,
             "name": "Sun",
             "point_type": "AstrologicalPoint",
             "position": 24.149464803789243,
@@ -3322,6 +3418,7 @@
             "element": "Water",
             "emoji": "♋️",
             "house": null,
+            "magnitude": null,
             "name": "Tenth_House",
             "point_type": "House",
             "position": 12.448157720601642,
@@ -3329,7 +3426,7 @@
             "retrograde": null,
             "sign": "Can",
             "sign_num": 3,
-            "speed": null
+            "speed": 334.0843019351966
           },
           "third_house": {
             "abs_pos": 248.30531085625648,
@@ -3337,6 +3434,7 @@
             "element": "Fire",
             "emoji": "♐️",
             "house": null,
+            "magnitude": null,
             "name": "Third_House",
             "point_type": "House",
             "position": 8.305310856256483,
@@ -3344,7 +3442,7 @@
             "retrograde": null,
             "sign": "Sag",
             "sign_num": 8,
-            "speed": null
+            "speed": 322.594586974792
           },
           "true_lilith": null,
           "true_north_lunar_node": {
@@ -3353,6 +3451,7 @@
             "element": "Air",
             "emoji": "♒️",
             "house": "Fourth_House",
+            "magnitude": null,
             "name": "True_North_Lunar_Node",
             "point_type": "AstrologicalPoint",
             "position": 8.120147565809418,
@@ -3368,6 +3467,7 @@
             "element": "Fire",
             "emoji": "♌️",
             "house": "Tenth_House",
+            "magnitude": null,
             "name": "True_South_Lunar_Node",
             "point_type": "AstrologicalPoint",
             "position": 8.120147565809418,
@@ -3383,6 +3483,7 @@
             "element": "Earth",
             "emoji": "♍️",
             "house": null,
+            "magnitude": null,
             "name": "Twelfth_House",
             "point_type": "House",
             "position": 15.76873582436275,
@@ -3390,7 +3491,7 @@
             "retrograde": null,
             "sign": "Vir",
             "sign_num": 5,
-            "speed": null
+            "speed": 310.945005651588
           },
           "tz_str": "Europe/Rome",
           "uranus": {
@@ -3399,6 +3500,7 @@
             "element": "Earth",
             "emoji": "♑️",
             "house": "Third_House",
+            "magnitude": null,
             "name": "Uranus",
             "point_type": "AstrologicalPoint",
             "position": 8.16442896660027,
@@ -3408,12 +3510,14 @@
             "sign_num": 9,
             "speed": -0.038933166446184775
           },
+          "vega": null,
           "venus": {
             "abs_pos": 48.802112108680184,
             "declination": 15.546189556148093,
             "element": "Earth",
             "emoji": "♉️",
             "house": "Eighth_House",
+            "magnitude": null,
             "name": "Venus",
             "point_type": "AstrologicalPoint",
             "position": 18.802112108680184,
@@ -3429,6 +3533,7 @@
           "zodiac_type": "Tropical"
         },
         {
+          "achernar": null,
           "active_points": [
             "Sun",
             "Moon",
@@ -3449,13 +3554,23 @@
             "Descendant",
             "Imum_Coeli"
           ],
+          "alcyone": null,
+          "aldebaran": null,
+          "algol": null,
+          "algorab": null,
+          "alkaid": null,
+          "alphecca": null,
+          "altair": null,
+          "antares": null,
           "anti_vertex": null,
+          "arcturus": null,
           "ascendant": {
             "abs_pos": 79.24588185888686,
             "declination": null,
             "element": "Air",
             "emoji": "♊️",
             "house": "First_House",
+            "magnitude": null,
             "name": "Ascendant",
             "point_type": "AstrologicalPoint",
             "position": 19.24588185888686,
@@ -3463,8 +3578,12 @@
             "retrograde": false,
             "sign": "Gem",
             "sign_num": 2,
-            "speed": 360.0
+            "speed": 376.72821201923756
           },
+          "ayanamsa_value": null,
+          "betelgeuse": null,
+          "canopus": null,
+          "capella": null,
           "ceres": null,
           "chiron": {
             "abs_pos": 83.41260799776387,
@@ -3472,6 +3591,7 @@
             "element": "Air",
             "emoji": "♊️",
             "house": "First_House",
+            "magnitude": null,
             "name": "Chiron",
             "point_type": "AstrologicalPoint",
             "position": 23.41260799776387,
@@ -3484,12 +3604,15 @@
           "city": "Paris",
           "day": 20,
           "day_of_week": "Sunday",
+          "deneb": null,
+          "deneb_algedi": null,
           "descendant": {
             "abs_pos": 259.24588185888683,
             "declination": null,
             "element": "Fire",
             "emoji": "♐️",
             "house": "Seventh_House",
+            "magnitude": null,
             "name": "Descendant",
             "point_type": "AstrologicalPoint",
             "position": 19.245881858886833,
@@ -3497,7 +3620,7 @@
             "retrograde": false,
             "sign": "Sag",
             "sign_num": 8,
-            "speed": 360.0
+            "speed": 376.72821201923756
           },
           "earth": null,
           "eighth_house": {
@@ -3506,6 +3629,7 @@
             "element": "Earth",
             "emoji": "♑️",
             "house": null,
+            "magnitude": null,
             "name": "Eighth_House",
             "point_type": "House",
             "position": 8.088815111975862,
@@ -3513,7 +3637,7 @@
             "retrograde": null,
             "sign": "Cap",
             "sign_num": 9,
-            "speed": null
+            "speed": 315.0591968373129
           },
           "eleventh_house": {
             "abs_pos": 345.9878984509939,
@@ -3521,6 +3645,7 @@
             "element": "Water",
             "emoji": "♓️",
             "house": null,
+            "magnitude": null,
             "name": "Eleventh_House",
             "point_type": "House",
             "position": 15.987898450993896,
@@ -3528,7 +3653,7 @@
             "retrograde": null,
             "sign": "Pis",
             "sign_num": 11,
-            "speed": null
+            "speed": 464.9923473115809
           },
           "eris": null,
           "fifth_house": {
@@ -3537,6 +3662,7 @@
             "element": "Earth",
             "emoji": "♍️",
             "house": null,
+            "magnitude": null,
             "name": "Fifth_House",
             "point_type": "House",
             "position": 15.987898450993953,
@@ -3544,7 +3670,7 @@
             "retrograde": null,
             "sign": "Vir",
             "sign_num": 5,
-            "speed": null
+            "speed": 464.9923473115809
           },
           "first_house": {
             "abs_pos": 79.24588185888686,
@@ -3552,6 +3678,7 @@
             "element": "Air",
             "emoji": "♊️",
             "house": null,
+            "magnitude": null,
             "name": "First_House",
             "point_type": "House",
             "position": 19.24588185888686,
@@ -3559,14 +3686,16 @@
             "retrograde": null,
             "sign": "Gem",
             "sign_num": 2,
-            "speed": null
+            "speed": 376.72821201923756
           },
+          "fomalhaut": null,
           "fourth_house": {
             "abs_pos": 136.7702853041942,
             "declination": null,
             "element": "Fire",
             "emoji": "♌️",
             "house": null,
+            "magnitude": null,
             "name": "Fourth_House",
             "point_type": "House",
             "position": 16.770285304194203,
@@ -3574,7 +3703,7 @@
             "retrograde": null,
             "sign": "Leo",
             "sign_num": 4,
-            "speed": null
+            "speed": 364.2491807451451
           },
           "haumea": null,
           "hour": 10,
@@ -3600,6 +3729,7 @@
             "element": "Fire",
             "emoji": "♌️",
             "house": "Fourth_House",
+            "magnitude": null,
             "name": "Imum_Coeli",
             "point_type": "AstrologicalPoint",
             "position": 16.770285304194203,
@@ -3607,7 +3737,7 @@
             "retrograde": false,
             "sign": "Leo",
             "sign_num": 4,
-            "speed": 360.0
+            "speed": 364.2491807451451
           },
           "is_diurnal": true,
           "iso_formatted_local_datetime": "1988-03-20T10:15:00+01:00",
@@ -3621,6 +3751,7 @@
             "element": "Earth",
             "emoji": "♉️",
             "house": "Twelfth_House",
+            "magnitude": null,
             "name": "Jupiter",
             "point_type": "AstrologicalPoint",
             "position": 2.5194156615583623,
@@ -3645,6 +3776,7 @@
             "element": "Earth",
             "emoji": "♑️",
             "house": "Eighth_House",
+            "magnitude": null,
             "name": "Mars",
             "point_type": "AstrologicalPoint",
             "position": 18.190650154502237,
@@ -3660,6 +3792,7 @@
             "element": "Fire",
             "emoji": "♌️",
             "house": "Fourth_House",
+            "magnitude": null,
             "name": "Mean_Lilith",
             "point_type": "AstrologicalPoint",
             "position": 23.958440229521813,
@@ -3677,6 +3810,7 @@
             "element": "Air",
             "emoji": "♒️",
             "house": "Tenth_House",
+            "magnitude": null,
             "name": "Medium_Coeli",
             "point_type": "AstrologicalPoint",
             "position": 16.770285304194203,
@@ -3684,7 +3818,7 @@
             "retrograde": false,
             "sign": "Aqu",
             "sign_num": 10,
-            "speed": 360.0
+            "speed": 364.2491807451451
           },
           "mercury": {
             "abs_pos": 335.34426259542084,
@@ -3692,6 +3826,7 @@
             "element": "Water",
             "emoji": "♓️",
             "house": "Tenth_House",
+            "magnitude": null,
             "name": "Mercury",
             "point_type": "AstrologicalPoint",
             "position": 5.344262595420844,
@@ -3709,6 +3844,7 @@
             "element": "Earth",
             "emoji": "♉️",
             "house": "Twelfth_House",
+            "magnitude": null,
             "name": "Moon",
             "point_type": "AstrologicalPoint",
             "position": 1.2852432905976379,
@@ -3726,6 +3862,7 @@
             "element": "Earth",
             "emoji": "♑️",
             "house": "Eighth_House",
+            "magnitude": null,
             "name": "Neptune",
             "point_type": "AstrologicalPoint",
             "position": 10.0584083209705,
@@ -3741,6 +3878,7 @@
             "element": "Earth",
             "emoji": "♑️",
             "house": null,
+            "magnitude": null,
             "name": "Ninth_House",
             "point_type": "House",
             "position": 25.905905596519915,
@@ -3748,7 +3886,7 @@
             "retrograde": null,
             "sign": "Cap",
             "sign_num": 9,
-            "speed": null
+            "speed": 317.44086025336304
           },
           "orcus": null,
           "pallas": null,
@@ -3764,6 +3902,7 @@
             "element": "Water",
             "emoji": "♏️",
             "house": "Sixth_House",
+            "magnitude": null,
             "name": "Pluto",
             "point_type": "AstrologicalPoint",
             "position": 12.242344136928466,
@@ -3773,14 +3912,18 @@
             "sign_num": 7,
             "speed": -0.018692352326800426
           },
+          "pollux": null,
+          "procyon": null,
           "quaoar": null,
           "regulus": null,
+          "rigel": null,
           "saturn": {
             "abs_pos": 272.1666978802639,
             "declination": -22.292205105108426,
             "element": "Earth",
             "emoji": "♑️",
             "house": "Seventh_House",
+            "magnitude": null,
             "name": "Saturn",
             "point_type": "AstrologicalPoint",
             "position": 2.1666978802638823,
@@ -3796,6 +3939,7 @@
             "element": "Water",
             "emoji": "♋️",
             "house": null,
+            "magnitude": null,
             "name": "Second_House",
             "point_type": "House",
             "position": 8.088815111975876,
@@ -3803,7 +3947,7 @@
             "retrograde": null,
             "sign": "Can",
             "sign_num": 3,
-            "speed": null
+            "speed": 315.0591968373129
           },
           "sedna": null,
           "seventh_house": {
@@ -3812,6 +3956,7 @@
             "element": "Fire",
             "emoji": "♐️",
             "house": null,
+            "magnitude": null,
             "name": "Seventh_House",
             "point_type": "House",
             "position": 19.245881858886833,
@@ -3819,15 +3964,17 @@
             "retrograde": null,
             "sign": "Sag",
             "sign_num": 8,
-            "speed": null
+            "speed": 376.72821201923756
           },
           "sidereal_mode": null,
+          "sirius": null,
           "sixth_house": {
             "abs_pos": 210.40413399381833,
             "declination": null,
             "element": "Water",
             "emoji": "♏️",
             "house": null,
+            "magnitude": null,
             "name": "Sixth_House",
             "point_type": "House",
             "position": 0.40413399381833415,
@@ -3835,7 +3982,7 @@
             "retrograde": null,
             "sign": "Sco",
             "sign_num": 7,
-            "speed": null
+            "speed": 536.6907356063616
           },
           "spica": null,
           "sun": {
@@ -3844,6 +3991,7 @@
             "element": "Water",
             "emoji": "♓️",
             "house": "Eleventh_House",
+            "magnitude": null,
             "name": "Sun",
             "point_type": "AstrologicalPoint",
             "position": 29.983717639961924,
@@ -3859,6 +4007,7 @@
             "element": "Air",
             "emoji": "♒️",
             "house": null,
+            "magnitude": null,
             "name": "Tenth_House",
             "point_type": "House",
             "position": 16.770285304194203,
@@ -3866,7 +4015,7 @@
             "retrograde": null,
             "sign": "Aqu",
             "sign_num": 10,
-            "speed": null
+            "speed": 364.2491807451451
           },
           "third_house": {
             "abs_pos": 115.90590559651991,
@@ -3874,6 +4023,7 @@
             "element": "Water",
             "emoji": "♋️",
             "house": null,
+            "magnitude": null,
             "name": "Third_House",
             "point_type": "House",
             "position": 25.905905596519915,
@@ -3881,7 +4031,7 @@
             "retrograde": null,
             "sign": "Can",
             "sign_num": 3,
-            "speed": null
+            "speed": 317.44086025336304
           },
           "true_lilith": null,
           "true_north_lunar_node": {
@@ -3890,6 +4040,7 @@
             "element": "Water",
             "emoji": "♓️",
             "house": "Eleventh_House",
+            "magnitude": null,
             "name": "True_North_Lunar_Node",
             "point_type": "AstrologicalPoint",
             "position": 23.081984541091913,
@@ -3905,6 +4056,7 @@
             "element": "Earth",
             "emoji": "♍️",
             "house": "Fifth_House",
+            "magnitude": null,
             "name": "True_South_Lunar_Node",
             "point_type": "AstrologicalPoint",
             "position": 23.08198454109197,
@@ -3920,6 +4072,7 @@
             "element": "Earth",
             "emoji": "♉️",
             "house": null,
+            "magnitude": null,
             "name": "Twelfth_House",
             "point_type": "House",
             "position": 0.4041339938183448,
@@ -3927,7 +4080,7 @@
             "retrograde": null,
             "sign": "Tau",
             "sign_num": 1,
-            "speed": null
+            "speed": 536.6907356063616
           },
           "tz_str": "Europe/Paris",
           "uranus": {
@@ -3936,6 +4089,7 @@
             "element": "Earth",
             "emoji": "♑️",
             "house": "Seventh_House",
+            "magnitude": null,
             "name": "Uranus",
             "point_type": "AstrologicalPoint",
             "position": 0.9442701402105627,
@@ -3945,12 +4099,14 @@
             "sign_num": 9,
             "speed": 0.013379211217601357
           },
+          "vega": null,
           "venus": {
             "abs_pos": 45.299806755211456,
             "declination": 18.59095297903353,
             "element": "Earth",
             "emoji": "♉️",
             "house": "Twelfth_House",
+            "magnitude": null,
             "name": "Venus",
             "point_type": "AstrologicalPoint",
             "position": 15.299806755211456,
@@ -3968,6 +4124,7 @@
       ]
     },
     "second_subject": {
+      "achernar": null,
       "active_points": [
         "Sun",
         "Moon",
@@ -3988,13 +4145,23 @@
         "Descendant",
         "Imum_Coeli"
       ],
+      "alcyone": null,
+      "aldebaran": null,
+      "algol": null,
+      "algorab": null,
+      "alkaid": null,
+      "alphecca": null,
+      "altair": null,
+      "antares": null,
       "anti_vertex": null,
+      "arcturus": null,
       "ascendant": {
         "abs_pos": 79.24588185888686,
         "declination": null,
         "element": "Air",
         "emoji": "♊️",
         "house": "First_House",
+        "magnitude": null,
         "name": "Ascendant",
         "point_type": "AstrologicalPoint",
         "position": 19.24588185888686,
@@ -4002,8 +4169,12 @@
         "retrograde": false,
         "sign": "Gem",
         "sign_num": 2,
-        "speed": 360.0
+        "speed": 376.72821201923756
       },
+      "ayanamsa_value": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "capella": null,
       "ceres": null,
       "chiron": {
         "abs_pos": 83.41260799776387,
@@ -4011,6 +4182,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": "First_House",
+        "magnitude": null,
         "name": "Chiron",
         "point_type": "AstrologicalPoint",
         "position": 23.41260799776387,
@@ -4023,12 +4195,15 @@
       "city": "Paris",
       "day": 20,
       "day_of_week": "Sunday",
+      "deneb": null,
+      "deneb_algedi": null,
       "descendant": {
         "abs_pos": 259.24588185888683,
         "declination": null,
         "element": "Fire",
         "emoji": "♐️",
         "house": "Seventh_House",
+        "magnitude": null,
         "name": "Descendant",
         "point_type": "AstrologicalPoint",
         "position": 19.245881858886833,
@@ -4036,7 +4211,7 @@
         "retrograde": false,
         "sign": "Sag",
         "sign_num": 8,
-        "speed": 360.0
+        "speed": 376.72821201923756
       },
       "earth": null,
       "eighth_house": {
@@ -4045,6 +4220,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": null,
+        "magnitude": null,
         "name": "Eighth_House",
         "point_type": "House",
         "position": 8.088815111975862,
@@ -4052,7 +4228,7 @@
         "retrograde": null,
         "sign": "Cap",
         "sign_num": 9,
-        "speed": null
+        "speed": 315.0591968373129
       },
       "eleventh_house": {
         "abs_pos": 345.9878984509939,
@@ -4060,6 +4236,7 @@
         "element": "Water",
         "emoji": "♓️",
         "house": null,
+        "magnitude": null,
         "name": "Eleventh_House",
         "point_type": "House",
         "position": 15.987898450993896,
@@ -4067,7 +4244,7 @@
         "retrograde": null,
         "sign": "Pis",
         "sign_num": 11,
-        "speed": null
+        "speed": 464.9923473115809
       },
       "eris": null,
       "fifth_house": {
@@ -4076,6 +4253,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": null,
+        "magnitude": null,
         "name": "Fifth_House",
         "point_type": "House",
         "position": 15.987898450993953,
@@ -4083,7 +4261,7 @@
         "retrograde": null,
         "sign": "Vir",
         "sign_num": 5,
-        "speed": null
+        "speed": 464.9923473115809
       },
       "first_house": {
         "abs_pos": 79.24588185888686,
@@ -4091,6 +4269,7 @@
         "element": "Air",
         "emoji": "♊️",
         "house": null,
+        "magnitude": null,
         "name": "First_House",
         "point_type": "House",
         "position": 19.24588185888686,
@@ -4098,14 +4277,16 @@
         "retrograde": null,
         "sign": "Gem",
         "sign_num": 2,
-        "speed": null
+        "speed": 376.72821201923756
       },
+      "fomalhaut": null,
       "fourth_house": {
         "abs_pos": 136.7702853041942,
         "declination": null,
         "element": "Fire",
         "emoji": "♌️",
         "house": null,
+        "magnitude": null,
         "name": "Fourth_House",
         "point_type": "House",
         "position": 16.770285304194203,
@@ -4113,7 +4294,7 @@
         "retrograde": null,
         "sign": "Leo",
         "sign_num": 4,
-        "speed": null
+        "speed": 364.2491807451451
       },
       "haumea": null,
       "hour": 10,
@@ -4139,6 +4320,7 @@
         "element": "Fire",
         "emoji": "♌️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Imum_Coeli",
         "point_type": "AstrologicalPoint",
         "position": 16.770285304194203,
@@ -4146,7 +4328,7 @@
         "retrograde": false,
         "sign": "Leo",
         "sign_num": 4,
-        "speed": 360.0
+        "speed": 364.2491807451451
       },
       "is_diurnal": true,
       "iso_formatted_local_datetime": "1988-03-20T10:15:00+01:00",
@@ -4160,6 +4342,7 @@
         "element": "Earth",
         "emoji": "♉️",
         "house": "Twelfth_House",
+        "magnitude": null,
         "name": "Jupiter",
         "point_type": "AstrologicalPoint",
         "position": 2.5194156615583623,
@@ -4184,6 +4367,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": "Eighth_House",
+        "magnitude": null,
         "name": "Mars",
         "point_type": "AstrologicalPoint",
         "position": 18.190650154502237,
@@ -4199,6 +4383,7 @@
         "element": "Fire",
         "emoji": "♌️",
         "house": "Fourth_House",
+        "magnitude": null,
         "name": "Mean_Lilith",
         "point_type": "AstrologicalPoint",
         "position": 23.958440229521813,
@@ -4216,6 +4401,7 @@
         "element": "Air",
         "emoji": "♒️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Medium_Coeli",
         "point_type": "AstrologicalPoint",
         "position": 16.770285304194203,
@@ -4223,7 +4409,7 @@
         "retrograde": false,
         "sign": "Aqu",
         "sign_num": 10,
-        "speed": 360.0
+        "speed": 364.2491807451451
       },
       "mercury": {
         "abs_pos": 335.34426259542084,
@@ -4231,6 +4417,7 @@
         "element": "Water",
         "emoji": "♓️",
         "house": "Tenth_House",
+        "magnitude": null,
         "name": "Mercury",
         "point_type": "AstrologicalPoint",
         "position": 5.344262595420844,
@@ -4248,6 +4435,7 @@
         "element": "Earth",
         "emoji": "♉️",
         "house": "Twelfth_House",
+        "magnitude": null,
         "name": "Moon",
         "point_type": "AstrologicalPoint",
         "position": 1.2852432905976379,
@@ -4265,6 +4453,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": "Eighth_House",
+        "magnitude": null,
         "name": "Neptune",
         "point_type": "AstrologicalPoint",
         "position": 10.0584083209705,
@@ -4280,6 +4469,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": null,
+        "magnitude": null,
         "name": "Ninth_House",
         "point_type": "House",
         "position": 25.905905596519915,
@@ -4287,7 +4477,7 @@
         "retrograde": null,
         "sign": "Cap",
         "sign_num": 9,
-        "speed": null
+        "speed": 317.44086025336304
       },
       "orcus": null,
       "pallas": null,
@@ -4303,6 +4493,7 @@
         "element": "Water",
         "emoji": "♏️",
         "house": "Sixth_House",
+        "magnitude": null,
         "name": "Pluto",
         "point_type": "AstrologicalPoint",
         "position": 12.242344136928466,
@@ -4312,14 +4503,18 @@
         "sign_num": 7,
         "speed": -0.018692352326800426
       },
+      "pollux": null,
+      "procyon": null,
       "quaoar": null,
       "regulus": null,
+      "rigel": null,
       "saturn": {
         "abs_pos": 272.1666978802639,
         "declination": -22.292205105108426,
         "element": "Earth",
         "emoji": "♑️",
         "house": "Seventh_House",
+        "magnitude": null,
         "name": "Saturn",
         "point_type": "AstrologicalPoint",
         "position": 2.1666978802638823,
@@ -4335,6 +4530,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": null,
+        "magnitude": null,
         "name": "Second_House",
         "point_type": "House",
         "position": 8.088815111975876,
@@ -4342,7 +4538,7 @@
         "retrograde": null,
         "sign": "Can",
         "sign_num": 3,
-        "speed": null
+        "speed": 315.0591968373129
       },
       "sedna": null,
       "seventh_house": {
@@ -4351,6 +4547,7 @@
         "element": "Fire",
         "emoji": "♐️",
         "house": null,
+        "magnitude": null,
         "name": "Seventh_House",
         "point_type": "House",
         "position": 19.245881858886833,
@@ -4358,15 +4555,17 @@
         "retrograde": null,
         "sign": "Sag",
         "sign_num": 8,
-        "speed": null
+        "speed": 376.72821201923756
       },
       "sidereal_mode": null,
+      "sirius": null,
       "sixth_house": {
         "abs_pos": 210.40413399381833,
         "declination": null,
         "element": "Water",
         "emoji": "♏️",
         "house": null,
+        "magnitude": null,
         "name": "Sixth_House",
         "point_type": "House",
         "position": 0.40413399381833415,
@@ -4374,7 +4573,7 @@
         "retrograde": null,
         "sign": "Sco",
         "sign_num": 7,
-        "speed": null
+        "speed": 536.6907356063616
       },
       "spica": null,
       "sun": {
@@ -4383,6 +4582,7 @@
         "element": "Water",
         "emoji": "♓️",
         "house": "Eleventh_House",
+        "magnitude": null,
         "name": "Sun",
         "point_type": "AstrologicalPoint",
         "position": 29.983717639961924,
@@ -4398,6 +4598,7 @@
         "element": "Air",
         "emoji": "♒️",
         "house": null,
+        "magnitude": null,
         "name": "Tenth_House",
         "point_type": "House",
         "position": 16.770285304194203,
@@ -4405,7 +4606,7 @@
         "retrograde": null,
         "sign": "Aqu",
         "sign_num": 10,
-        "speed": null
+        "speed": 364.2491807451451
       },
       "third_house": {
         "abs_pos": 115.90590559651991,
@@ -4413,6 +4614,7 @@
         "element": "Water",
         "emoji": "♋️",
         "house": null,
+        "magnitude": null,
         "name": "Third_House",
         "point_type": "House",
         "position": 25.905905596519915,
@@ -4420,7 +4622,7 @@
         "retrograde": null,
         "sign": "Can",
         "sign_num": 3,
-        "speed": null
+        "speed": 317.44086025336304
       },
       "true_lilith": null,
       "true_north_lunar_node": {
@@ -4429,6 +4631,7 @@
         "element": "Water",
         "emoji": "♓️",
         "house": "Eleventh_House",
+        "magnitude": null,
         "name": "True_North_Lunar_Node",
         "point_type": "AstrologicalPoint",
         "position": 23.081984541091913,
@@ -4444,6 +4647,7 @@
         "element": "Earth",
         "emoji": "♍️",
         "house": "Fifth_House",
+        "magnitude": null,
         "name": "True_South_Lunar_Node",
         "point_type": "AstrologicalPoint",
         "position": 23.08198454109197,
@@ -4459,6 +4663,7 @@
         "element": "Earth",
         "emoji": "♉️",
         "house": null,
+        "magnitude": null,
         "name": "Twelfth_House",
         "point_type": "House",
         "position": 0.4041339938183448,
@@ -4466,7 +4671,7 @@
         "retrograde": null,
         "sign": "Tau",
         "sign_num": 1,
-        "speed": null
+        "speed": 536.6907356063616
       },
       "tz_str": "Europe/Paris",
       "uranus": {
@@ -4475,6 +4680,7 @@
         "element": "Earth",
         "emoji": "♑️",
         "house": "Seventh_House",
+        "magnitude": null,
         "name": "Uranus",
         "point_type": "AstrologicalPoint",
         "position": 0.9442701402105627,
@@ -4484,12 +4690,14 @@
         "sign_num": 9,
         "speed": 0.013379211217601357
       },
+      "vega": null,
       "venus": {
         "abs_pos": 45.299806755211456,
         "declination": 18.59095297903353,
         "element": "Earth",
         "emoji": "♉️",
         "house": "Twelfth_House",
+        "magnitude": null,
         "name": "Venus",
         "point_type": "AstrologicalPoint",
         "position": 15.299806755211456,
@@ -4505,6 +4713,6 @@
       "zodiac_type": "Tropical"
     }
   },
-  "context": "<chart_analysis type=\"Synastry\">\n  <first_subject>\n    <chart name=\"Baseline Test Roma 1990\">\n      <birth_data date=\"1990-06-15 14:30\" city=\"Rome\" nation=\"IT\" lat=\"41.90\" lng=\"12.50\" lng_dir=\"E\" tz=\"Europe/Rome\" />\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <planets>\n        <point name=\"Sun\" position=\"24.15\" sign=\"Gemini\" abs_pos=\"84.15\" quality=\"Mutable\" element=\"Air\" house=\"Ninth House\" motion=\"direct\" speed=\"0.9551\" declination=\"23.31\" />\n        <point name=\"Moon\" position=\"15.64\" sign=\"Pisces\" abs_pos=\"345.64\" quality=\"Mutable\" element=\"Water\" house=\"Fifth House\" motion=\"direct\" speed=\"13.3692\" declination=\"-2.76\" />\n        <point name=\"Mercury\" position=\"5.73\" sign=\"Gemini\" abs_pos=\"65.73\" quality=\"Mutable\" element=\"Air\" house=\"Eighth House\" motion=\"direct\" speed=\"1.7169\" declination=\"19.63\" />\n        <point name=\"Venus\" position=\"18.80\" sign=\"Taurus\" abs_pos=\"48.80\" quality=\"Fixed\" element=\"Earth\" house=\"Eighth House\" motion=\"direct\" speed=\"1.1760\" declination=\"15.55\" />\n        <point name=\"Mars\" position=\"11.06\" sign=\"Aries\" abs_pos=\"11.06\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.7189\" declination=\"2.55\" />\n        <point name=\"Jupiter\" position=\"15.89\" sign=\"Cancer\" abs_pos=\"105.89\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"0.2167\" declination=\"22.68\" />\n        <point name=\"Saturn\" position=\"24.03\" sign=\"Capricorn\" abs_pos=\"294.03\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"retrograde\" speed=\"-0.0587\" declination=\"-21.19\" />\n        <point name=\"Uranus\" position=\"8.16\" sign=\"Capricorn\" abs_pos=\"278.16\" quality=\"Cardinal\" element=\"Earth\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.0389\" declination=\"-23.51\" />\n        <point name=\"Neptune\" position=\"13.72\" sign=\"Capricorn\" abs_pos=\"283.72\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"retrograde\" speed=\"-0.0250\" declination=\"-21.86\" />\n        <point name=\"Pluto\" position=\"15.40\" sign=\"Scorpio\" abs_pos=\"225.40\" quality=\"Fixed\" element=\"Water\" house=\"Second House\" motion=\"retrograde\" speed=\"-0.0202\" declination=\"-1.25\" />\n        <point name=\"Chiron\" position=\"16.06\" sign=\"Cancer\" abs_pos=\"106.06\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"0.1012\" declination=\"16.25\" />\n        <point name=\"Mean_Lilith\" position=\"24.95\" sign=\"Scorpio\" abs_pos=\"234.95\" quality=\"Fixed\" element=\"Water\" house=\"Second House\" motion=\"direct\" speed=\"0.1120\" declination=\"-23.82\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"10.61\" sign=\"Libra\" abs_pos=\"190.61\" quality=\"Cardinal\" element=\"Air\" house=\"First House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Descendant\" position=\"10.61\" sign=\"Aries\" abs_pos=\"10.61\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Medium_Coeli\" position=\"12.45\" sign=\"Cancer\" abs_pos=\"102.45\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Imum_Coeli\" position=\"12.45\" sign=\"Capricorn\" abs_pos=\"282.45\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"True_North_Lunar_Node\" position=\"8.12\" sign=\"Aquarius\" abs_pos=\"308.12\" quality=\"Fixed\" element=\"Air\" house=\"Fourth House\" motion=\"direct\" speed=\"0.0134\" declination=\"-18.24\" />\n        <point name=\"True_South_Lunar_Node\" position=\"8.12\" sign=\"Leo\" abs_pos=\"128.12\" quality=\"Fixed\" element=\"Fire\" house=\"Tenth House\" motion=\"direct\" speed=\"-0.0134\" declination=\"18.24\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"10.61\" sign=\"Libra\" />\n        <house name=\"Second_House\" cusp=\"7.29\" sign=\"Scorpio\" />\n        <house name=\"Third_House\" cusp=\"8.31\" sign=\"Sagittarius\" />\n        <house name=\"Fourth_House\" cusp=\"12.45\" sign=\"Capricorn\" />\n        <house name=\"Fifth_House\" cusp=\"16.05\" sign=\"Aquarius\" />\n        <house name=\"Sixth_House\" cusp=\"15.77\" sign=\"Pisces\" />\n        <house name=\"Seventh_House\" cusp=\"10.61\" sign=\"Aries\" />\n        <house name=\"Eighth_House\" cusp=\"7.29\" sign=\"Taurus\" />\n        <house name=\"Ninth_House\" cusp=\"8.31\" sign=\"Gemini\" />\n        <house name=\"Tenth_House\" cusp=\"12.45\" sign=\"Cancer\" />\n        <house name=\"Eleventh_House\" cusp=\"16.05\" sign=\"Leo\" />\n        <house name=\"Twelfth_House\" cusp=\"15.77\" sign=\"Virgo\" />\n      </houses>\n      <lunar_phase name=\"Last Quarter\" phase=\"21\" degrees_between=\"261.49\" emoji=\"🌗\" />\n    </chart>\n  </first_subject>\n  <second_subject>\n    <chart name=\"Baseline Test Paris\">\n      <birth_data date=\"1988-03-20 10:15\" city=\"Paris\" nation=\"FR\" lat=\"48.86\" lng=\"2.35\" lng_dir=\"E\" tz=\"Europe/Paris\" />\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <planets>\n        <point name=\"Sun\" position=\"29.98\" sign=\"Pisces\" abs_pos=\"359.98\" quality=\"Mutable\" element=\"Water\" house=\"Eleventh House\" motion=\"direct\" speed=\"0.9937\" declination=\"-0.01\" />\n        <point name=\"Moon\" position=\"1.29\" sign=\"Taurus\" abs_pos=\"31.29\" quality=\"Fixed\" element=\"Earth\" house=\"Twelfth House\" motion=\"direct\" speed=\"14.2037\" declination=\"14.99\" />\n        <point name=\"Mercury\" position=\"5.34\" sign=\"Pisces\" abs_pos=\"335.34\" quality=\"Mutable\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"1.4014\" declination=\"-11.41\" />\n        <point name=\"Venus\" position=\"15.30\" sign=\"Taurus\" abs_pos=\"45.30\" quality=\"Fixed\" element=\"Earth\" house=\"Twelfth House\" motion=\"direct\" speed=\"1.0668\" declination=\"18.59\" />\n        <point name=\"Mars\" position=\"18.19\" sign=\"Capricorn\" abs_pos=\"288.19\" quality=\"Cardinal\" element=\"Earth\" house=\"Eighth House\" motion=\"direct\" speed=\"0.6750\" declination=\"-22.83\" />\n        <point name=\"Jupiter\" position=\"2.52\" sign=\"Taurus\" abs_pos=\"32.52\" quality=\"Fixed\" element=\"Earth\" house=\"Twelfth House\" motion=\"direct\" speed=\"0.2207\" declination=\"11.42\" />\n        <point name=\"Saturn\" position=\"2.17\" sign=\"Capricorn\" abs_pos=\"272.17\" quality=\"Cardinal\" element=\"Earth\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0354\" declination=\"-22.29\" />\n        <point name=\"Uranus\" position=\"0.94\" sign=\"Capricorn\" abs_pos=\"270.94\" quality=\"Cardinal\" element=\"Earth\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0134\" declination=\"-23.63\" />\n        <point name=\"Neptune\" position=\"10.06\" sign=\"Capricorn\" abs_pos=\"280.06\" quality=\"Cardinal\" element=\"Earth\" house=\"Eighth House\" motion=\"direct\" speed=\"0.0122\" declination=\"-22.09\" />\n        <point name=\"Pluto\" position=\"12.24\" sign=\"Scorpio\" abs_pos=\"222.24\" quality=\"Fixed\" element=\"Water\" house=\"Sixth House\" motion=\"retrograde\" speed=\"-0.0187\" declination=\"0.23\" />\n        <point name=\"Chiron\" position=\"23.41\" sign=\"Gemini\" abs_pos=\"83.41\" quality=\"Mutable\" element=\"Air\" house=\"First House\" motion=\"direct\" speed=\"0.0283\" declination=\"17.39\" />\n        <point name=\"Mean_Lilith\" position=\"23.96\" sign=\"Leo\" abs_pos=\"143.96\" quality=\"Fixed\" element=\"Fire\" house=\"Fourth House\" motion=\"direct\" speed=\"0.1110\" declination=\"15.90\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"19.25\" sign=\"Gemini\" abs_pos=\"79.25\" quality=\"Mutable\" element=\"Air\" house=\"First House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Descendant\" position=\"19.25\" sign=\"Sagittarius\" abs_pos=\"259.25\" quality=\"Mutable\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Medium_Coeli\" position=\"16.77\" sign=\"Aquarius\" abs_pos=\"316.77\" quality=\"Fixed\" element=\"Air\" house=\"Tenth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Imum_Coeli\" position=\"16.77\" sign=\"Leo\" abs_pos=\"136.77\" quality=\"Fixed\" element=\"Fire\" house=\"Fourth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"True_North_Lunar_Node\" position=\"23.08\" sign=\"Pisces\" abs_pos=\"353.08\" quality=\"Mutable\" element=\"Water\" house=\"Eleventh House\" motion=\"retrograde\" speed=\"-0.0111\" declination=\"-2.75\" />\n        <point name=\"True_South_Lunar_Node\" position=\"23.08\" sign=\"Virgo\" abs_pos=\"173.08\" quality=\"Mutable\" element=\"Earth\" house=\"Fifth House\" motion=\"retrograde\" speed=\"0.0111\" declination=\"2.75\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"19.25\" sign=\"Gemini\" />\n        <house name=\"Second_House\" cusp=\"8.09\" sign=\"Cancer\" />\n        <house name=\"Third_House\" cusp=\"25.91\" sign=\"Cancer\" />\n        <house name=\"Fourth_House\" cusp=\"16.77\" sign=\"Leo\" />\n        <house name=\"Fifth_House\" cusp=\"15.99\" sign=\"Virgo\" />\n        <house name=\"Sixth_House\" cusp=\"0.40\" sign=\"Scorpio\" />\n        <house name=\"Seventh_House\" cusp=\"19.25\" sign=\"Sagittarius\" />\n        <house name=\"Eighth_House\" cusp=\"8.09\" sign=\"Capricorn\" />\n        <house name=\"Ninth_House\" cusp=\"25.91\" sign=\"Capricorn\" />\n        <house name=\"Tenth_House\" cusp=\"16.77\" sign=\"Aquarius\" />\n        <house name=\"Eleventh_House\" cusp=\"15.99\" sign=\"Pisces\" />\n        <house name=\"Twelfth_House\" cusp=\"0.40\" sign=\"Taurus\" />\n      </houses>\n      <lunar_phase name=\"Waxing Crescent\" phase=\"3\" degrees_between=\"31.30\" emoji=\"🌒\" />\n    </chart>\n  </second_subject>\n  <aspects count=\"92\">\n    <aspect type=\"opposition\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Saturn\" p2_owner=\"Baseline Test Paris\" orb=\"8.02\" angle=\"180\" />\n    <aspect type=\"opposition\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Uranus\" p2_owner=\"Baseline Test Paris\" orb=\"6.79\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"1.07\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Chiron\" p2_owner=\"Baseline Test Paris\" orb=\"0.74\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Ascendant\" p2_owner=\"Baseline Test Paris\" orb=\"4.90\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"7.38\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Descendant\" p2_owner=\"Baseline Test Paris\" orb=\"4.90\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mean_Lilith\" p2_owner=\"Baseline Test Paris\" orb=\"0.19\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"1.07\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"0.34\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"2.55\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"5.58\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"3.39\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"7.45\" angle=\"0\" />\n    <aspect type=\"square\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Ascendant\" p2_owner=\"Baseline Test Paris\" orb=\"3.61\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Descendant\" p2_owner=\"Baseline Test Paris\" orb=\"3.61\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"7.45\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Mercury\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Sun\" p2_owner=\"Baseline Test Paris\" orb=\"5.74\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mercury\" p2_owner=\"Baseline Test Paris\" orb=\"0.38\" angle=\"90\" />\n    <aspect type=\"quintile\" p1_name=\"Mercury\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"0.64\" angle=\"72\" />\n    <aspect type=\"quintile\" p1_name=\"Mercury\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"0.96\" angle=\"72\" />\n    <aspect type=\"conjunction\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"3.50\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"0.61\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"6.56\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"4.28\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"2.03\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"2.03\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"4.28\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Mars\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"1.00\" angle=\"90\" />\n    <aspect type=\"quintile\" p1_name=\"Mars\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Chiron\" p2_owner=\"Baseline Test Paris\" orb=\"0.36\" angle=\"72\" />\n    <aspect type=\"sextile\" p1_name=\"Mars\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"5.71\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Mars\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"5.71\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"0.59\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"2.30\" angle=\"180\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"5.84\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Jupiter\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"3.65\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Jupiter\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"7.19\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Saturn\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Sun\" p2_owner=\"Baseline Test Paris\" orb=\"5.95\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Saturn\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"5.84\" angle=\"0\" />\n    <aspect type=\"quintile\" p1_name=\"Saturn\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"0.21\" angle=\"72\" />\n    <aspect type=\"sextile\" p1_name=\"Saturn\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"0.95\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"0.95\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Moon\" p2_owner=\"Baseline Test Paris\" orb=\"6.88\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mercury\" p2_owner=\"Baseline Test Paris\" orb=\"2.82\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"7.14\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Jupiter\" p2_owner=\"Baseline Test Paris\" orb=\"5.65\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Saturn\" p2_owner=\"Baseline Test Paris\" orb=\"6.00\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Uranus\" p2_owner=\"Baseline Test Paris\" orb=\"7.22\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"1.89\" angle=\"0\" />\n    <aspect type=\"sextile\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"4.08\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"1.58\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Neptune\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"4.47\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Neptune\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"3.66\" angle=\"0\" />\n    <aspect type=\"sextile\" p1_name=\"Neptune\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"1.47\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"0.10\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"2.79\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"5.34\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"3.16\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"7.68\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"1.37\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"1.37\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"4.12\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"8.65\" angle=\"0\" />\n    <aspect type=\"opposition\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"8.65\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"0.76\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Chiron\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"2.13\" angle=\"180\" />\n    <aspect type=\"opposition\" p1_name=\"Chiron\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"6.00\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Chiron\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"3.82\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Chiron\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"7.02\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Ascendant\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"0.55\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"6.16\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Moon\" p2_owner=\"Baseline Test Paris\" orb=\"0.84\" angle=\"72\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mercury\" p2_owner=\"Baseline Test Paris\" orb=\"7.10\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"2.85\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"5.74\" angle=\"180\" />\n    <aspect type=\"opposition\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"2.39\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"0.21\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Descendant\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"0.55\" angle=\"90\" />\n    <aspect type=\"quintile\" p1_name=\"Descendant\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Chiron\" p2_owner=\"Baseline Test Paris\" orb=\"0.80\" angle=\"72\" />\n    <aspect type=\"trine\" p1_name=\"Descendant\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"6.16\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Imum_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"2.85\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Imum_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"5.74\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Imum_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"2.39\" angle=\"0\" />\n    <aspect type=\"sextile\" p1_name=\"Imum_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"0.21\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Mean_Lilith\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Sun\" p2_owner=\"Baseline Test Paris\" orb=\"5.03\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Mean_Lilith\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"9.65\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Mean_Lilith\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"1.87\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Mean_Lilith\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mean_Lilith\" p2_owner=\"Baseline Test Paris\" orb=\"1.00\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"1.87\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"4.12\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"8.65\" angle=\"180\" />\n    <aspect type=\"conjunction\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"8.65\" angle=\"0\" />\n  </aspects>\n  <house_overlay>\n    <first_points_in_second subject=\"Baseline Test Roma 1990\" target=\"Baseline Test Paris\">\n      <point_in_house point_name=\"Sun\" point_owner=\"Baseline Test Roma 1990\" degree=\"24.15\" sign=\"Gem\" owner_house=\"Ninth_House\" projected_house=\"First_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"Baseline Test Roma 1990\" degree=\"15.64\" sign=\"Pis\" owner_house=\"Fifth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"Baseline Test Roma 1990\" degree=\"5.73\" sign=\"Gem\" owner_house=\"Eighth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"Baseline Test Roma 1990\" degree=\"18.80\" sign=\"Tau\" owner_house=\"Eighth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"Baseline Test Roma 1990\" degree=\"11.06\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"Baseline Test Roma 1990\" degree=\"15.89\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Second_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"Baseline Test Roma 1990\" degree=\"24.03\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"Baseline Test Roma 1990\" degree=\"8.16\" sign=\"Cap\" owner_house=\"Third_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"Baseline Test Roma 1990\" degree=\"13.72\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"Baseline Test Roma 1990\" degree=\"15.40\" sign=\"Sco\" owner_house=\"Second_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"Baseline Test Roma 1990\" degree=\"8.12\" sign=\"Aqu\" owner_house=\"Fourth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"Baseline Test Roma 1990\" degree=\"8.12\" sign=\"Leo\" owner_house=\"Tenth_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"Baseline Test Roma 1990\" degree=\"24.95\" sign=\"Sco\" owner_house=\"Second_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"Baseline Test Roma 1990\" degree=\"16.06\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Second_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"Baseline Test Roma 1990\" degree=\"10.61\" sign=\"Lib\" owner_house=\"First_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"Baseline Test Roma 1990\" degree=\"12.45\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Second_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"Baseline Test Roma 1990\" degree=\"10.61\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"Baseline Test Roma 1990\" degree=\"12.45\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Paris\" />\n    </first_points_in_second>\n    <second_points_in_first subject=\"Baseline Test Paris\" target=\"Baseline Test Roma 1990\">\n      <point_in_house point_name=\"Sun\" point_owner=\"Baseline Test Paris\" degree=\"29.98\" sign=\"Pis\" owner_house=\"Eleventh_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"Baseline Test Paris\" degree=\"1.29\" sign=\"Tau\" owner_house=\"Twelfth_House\" projected_house=\"Seventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"Baseline Test Paris\" degree=\"5.34\" sign=\"Pis\" owner_house=\"Tenth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"Baseline Test Paris\" degree=\"15.30\" sign=\"Tau\" owner_house=\"Twelfth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"Baseline Test Paris\" degree=\"18.19\" sign=\"Cap\" owner_house=\"Eighth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"Baseline Test Paris\" degree=\"2.52\" sign=\"Tau\" owner_house=\"Twelfth_House\" projected_house=\"Seventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"Baseline Test Paris\" degree=\"2.17\" sign=\"Cap\" owner_house=\"Seventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"Baseline Test Paris\" degree=\"0.94\" sign=\"Cap\" owner_house=\"Seventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"Baseline Test Paris\" degree=\"10.06\" sign=\"Cap\" owner_house=\"Eighth_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"Baseline Test Paris\" degree=\"12.24\" sign=\"Sco\" owner_house=\"Sixth_House\" projected_house=\"Second_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"Baseline Test Paris\" degree=\"23.08\" sign=\"Pis\" owner_house=\"Eleventh_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"Baseline Test Paris\" degree=\"23.08\" sign=\"Vir\" owner_house=\"Fifth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"Baseline Test Paris\" degree=\"23.96\" sign=\"Leo\" owner_house=\"Fourth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"Baseline Test Paris\" degree=\"23.41\" sign=\"Gem\" owner_house=\"First_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"Baseline Test Paris\" degree=\"19.25\" sign=\"Gem\" owner_house=\"First_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"Baseline Test Paris\" degree=\"16.77\" sign=\"Aqu\" owner_house=\"Tenth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"Baseline Test Paris\" degree=\"19.25\" sign=\"Sag\" owner_house=\"Seventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"Baseline Test Paris\" degree=\"16.77\" sign=\"Leo\" owner_house=\"Fourth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n    </second_points_in_first>\n    <first_cusps_in_second subject=\"Baseline Test Roma 1990\" target=\"Baseline Test Paris\">\n      <point_in_house point_name=\"First_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"10.61\" sign=\"Lib\" owner_house=\"First_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"7.29\" sign=\"Sco\" owner_house=\"Second_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"8.31\" sign=\"Sag\" owner_house=\"Third_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"12.45\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"16.05\" sign=\"Aqu\" owner_house=\"Fifth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"15.77\" sign=\"Pis\" owner_house=\"Sixth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"10.61\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"7.29\" sign=\"Tau\" owner_house=\"Eighth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"8.31\" sign=\"Gem\" owner_house=\"Ninth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"12.45\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Second_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"16.05\" sign=\"Leo\" owner_house=\"Eleventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"15.77\" sign=\"Vir\" owner_house=\"Twelfth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Baseline Test Paris\" />\n    </first_cusps_in_second>\n    <second_cusps_in_first subject=\"Baseline Test Paris\" target=\"Baseline Test Roma 1990\">\n      <point_in_house point_name=\"First_House\" point_owner=\"Baseline Test Paris\" degree=\"19.25\" sign=\"Gem\" owner_house=\"First_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"Baseline Test Paris\" degree=\"8.09\" sign=\"Can\" owner_house=\"Second_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"Baseline Test Paris\" degree=\"25.91\" sign=\"Can\" owner_house=\"Third_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"Baseline Test Paris\" degree=\"16.77\" sign=\"Leo\" owner_house=\"Fourth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"Baseline Test Paris\" degree=\"15.99\" sign=\"Vir\" owner_house=\"Fifth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"Baseline Test Paris\" degree=\"0.40\" sign=\"Sco\" owner_house=\"Sixth_House\" projected_house=\"First_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"Baseline Test Paris\" degree=\"19.25\" sign=\"Sag\" owner_house=\"Seventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"Baseline Test Paris\" degree=\"8.09\" sign=\"Cap\" owner_house=\"Eighth_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"Baseline Test Paris\" degree=\"25.91\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"Baseline Test Paris\" degree=\"16.77\" sign=\"Aqu\" owner_house=\"Tenth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"Baseline Test Paris\" degree=\"15.99\" sign=\"Pis\" owner_house=\"Eleventh_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"Baseline Test Paris\" degree=\"0.40\" sign=\"Tau\" owner_house=\"Twelfth_House\" projected_house=\"Seventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n    </second_cusps_in_first>\n  </house_overlay>\n  <relationship_score value=\"17\" max=\"44\" description=\"Very Important\" destiny_sign=\"true\" />\n  <element_distribution fire=\"17%\" earth=\"33%\" air=\"24%\" water=\"26%\" />\n  <quality_distribution cardinal=\"37%\" fixed=\"29%\" mutable=\"34%\" />\n  <active_points>Ascendant, Chiron, Descendant, Imum_Coeli, Jupiter, Mars, Mean_Lilith, Medium_Coeli, Mercury, Moon, Neptune, Pluto, Saturn, Sun, True_North_Lunar_Node, True_South_Lunar_Node, Uranus, Venus</active_points>\n  <active_aspects>conjunction (10), opposition (10), trine (8), sextile (6), square (5), quintile (1)</active_aspects>\n</chart_analysis>",
+  "context": "<chart_analysis type=\"Synastry\">\n  <first_subject>\n    <chart name=\"Baseline Test Roma 1990\">\n      <birth_data date=\"1990-06-15 14:30\" city=\"Rome\" nation=\"IT\" lat=\"41.90\" lng=\"12.50\" lng_dir=\"E\" tz=\"Europe/Rome\" />\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <planets>\n        <point name=\"Sun\" position=\"24.15\" sign=\"Gemini\" abs_pos=\"84.15\" quality=\"Mutable\" element=\"Air\" house=\"Ninth House\" motion=\"direct\" speed=\"0.9551\" declination=\"23.31\" />\n        <point name=\"Moon\" position=\"15.64\" sign=\"Pisces\" abs_pos=\"345.64\" quality=\"Mutable\" element=\"Water\" house=\"Fifth House\" motion=\"direct\" speed=\"13.3692\" declination=\"-2.76\" />\n        <point name=\"Mercury\" position=\"5.73\" sign=\"Gemini\" abs_pos=\"65.73\" quality=\"Mutable\" element=\"Air\" house=\"Eighth House\" motion=\"direct\" speed=\"1.7169\" declination=\"19.63\" />\n        <point name=\"Venus\" position=\"18.80\" sign=\"Taurus\" abs_pos=\"48.80\" quality=\"Fixed\" element=\"Earth\" house=\"Eighth House\" motion=\"direct\" speed=\"1.1760\" declination=\"15.55\" />\n        <point name=\"Mars\" position=\"11.06\" sign=\"Aries\" abs_pos=\"11.06\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.7189\" declination=\"2.55\" />\n        <point name=\"Jupiter\" position=\"15.89\" sign=\"Cancer\" abs_pos=\"105.89\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"0.2167\" declination=\"22.68\" />\n        <point name=\"Saturn\" position=\"24.03\" sign=\"Capricorn\" abs_pos=\"294.03\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"retrograde\" speed=\"-0.0587\" declination=\"-21.19\" />\n        <point name=\"Uranus\" position=\"8.16\" sign=\"Capricorn\" abs_pos=\"278.16\" quality=\"Cardinal\" element=\"Earth\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.0389\" declination=\"-23.51\" />\n        <point name=\"Neptune\" position=\"13.72\" sign=\"Capricorn\" abs_pos=\"283.72\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"retrograde\" speed=\"-0.0250\" declination=\"-21.86\" />\n        <point name=\"Pluto\" position=\"15.40\" sign=\"Scorpio\" abs_pos=\"225.40\" quality=\"Fixed\" element=\"Water\" house=\"Second House\" motion=\"retrograde\" speed=\"-0.0202\" declination=\"-1.25\" />\n        <point name=\"Chiron\" position=\"16.06\" sign=\"Cancer\" abs_pos=\"106.06\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"0.1012\" declination=\"16.25\" />\n        <point name=\"Mean_Lilith\" position=\"24.95\" sign=\"Scorpio\" abs_pos=\"234.95\" quality=\"Fixed\" element=\"Water\" house=\"Second House\" motion=\"direct\" speed=\"0.1120\" declination=\"-23.82\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"10.61\" sign=\"Libra\" abs_pos=\"190.61\" quality=\"Cardinal\" element=\"Air\" house=\"First House\" motion=\"direct\" speed=\"282.7045\" />\n        <point name=\"Descendant\" position=\"10.61\" sign=\"Aries\" abs_pos=\"10.61\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"282.7045\" />\n        <point name=\"Medium_Coeli\" position=\"12.45\" sign=\"Cancer\" abs_pos=\"102.45\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"334.0843\" />\n        <point name=\"Imum_Coeli\" position=\"12.45\" sign=\"Capricorn\" abs_pos=\"282.45\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"direct\" speed=\"334.0843\" />\n        <point name=\"True_North_Lunar_Node\" position=\"8.12\" sign=\"Aquarius\" abs_pos=\"308.12\" quality=\"Fixed\" element=\"Air\" house=\"Fourth House\" motion=\"direct\" speed=\"0.0134\" declination=\"-18.24\" />\n        <point name=\"True_South_Lunar_Node\" position=\"8.12\" sign=\"Leo\" abs_pos=\"128.12\" quality=\"Fixed\" element=\"Fire\" house=\"Tenth House\" motion=\"direct\" speed=\"-0.0134\" declination=\"18.24\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"10.61\" sign=\"Libra\" />\n        <house name=\"Second_House\" cusp=\"7.29\" sign=\"Scorpio\" />\n        <house name=\"Third_House\" cusp=\"8.31\" sign=\"Sagittarius\" />\n        <house name=\"Fourth_House\" cusp=\"12.45\" sign=\"Capricorn\" />\n        <house name=\"Fifth_House\" cusp=\"16.05\" sign=\"Aquarius\" />\n        <house name=\"Sixth_House\" cusp=\"15.77\" sign=\"Pisces\" />\n        <house name=\"Seventh_House\" cusp=\"10.61\" sign=\"Aries\" />\n        <house name=\"Eighth_House\" cusp=\"7.29\" sign=\"Taurus\" />\n        <house name=\"Ninth_House\" cusp=\"8.31\" sign=\"Gemini\" />\n        <house name=\"Tenth_House\" cusp=\"12.45\" sign=\"Cancer\" />\n        <house name=\"Eleventh_House\" cusp=\"16.05\" sign=\"Leo\" />\n        <house name=\"Twelfth_House\" cusp=\"15.77\" sign=\"Virgo\" />\n      </houses>\n      <lunar_phase name=\"Last Quarter\" phase=\"21\" degrees_between=\"261.49\" emoji=\"🌗\" />\n    </chart>\n  </first_subject>\n  <second_subject>\n    <chart name=\"Baseline Test Paris\">\n      <birth_data date=\"1988-03-20 10:15\" city=\"Paris\" nation=\"FR\" lat=\"48.86\" lng=\"2.35\" lng_dir=\"E\" tz=\"Europe/Paris\" />\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <planets>\n        <point name=\"Sun\" position=\"29.98\" sign=\"Pisces\" abs_pos=\"359.98\" quality=\"Mutable\" element=\"Water\" house=\"Eleventh House\" motion=\"direct\" speed=\"0.9937\" declination=\"-0.01\" />\n        <point name=\"Moon\" position=\"1.29\" sign=\"Taurus\" abs_pos=\"31.29\" quality=\"Fixed\" element=\"Earth\" house=\"Twelfth House\" motion=\"direct\" speed=\"14.2037\" declination=\"14.99\" />\n        <point name=\"Mercury\" position=\"5.34\" sign=\"Pisces\" abs_pos=\"335.34\" quality=\"Mutable\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"1.4014\" declination=\"-11.41\" />\n        <point name=\"Venus\" position=\"15.30\" sign=\"Taurus\" abs_pos=\"45.30\" quality=\"Fixed\" element=\"Earth\" house=\"Twelfth House\" motion=\"direct\" speed=\"1.0668\" declination=\"18.59\" />\n        <point name=\"Mars\" position=\"18.19\" sign=\"Capricorn\" abs_pos=\"288.19\" quality=\"Cardinal\" element=\"Earth\" house=\"Eighth House\" motion=\"direct\" speed=\"0.6750\" declination=\"-22.83\" />\n        <point name=\"Jupiter\" position=\"2.52\" sign=\"Taurus\" abs_pos=\"32.52\" quality=\"Fixed\" element=\"Earth\" house=\"Twelfth House\" motion=\"direct\" speed=\"0.2207\" declination=\"11.42\" />\n        <point name=\"Saturn\" position=\"2.17\" sign=\"Capricorn\" abs_pos=\"272.17\" quality=\"Cardinal\" element=\"Earth\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0354\" declination=\"-22.29\" />\n        <point name=\"Uranus\" position=\"0.94\" sign=\"Capricorn\" abs_pos=\"270.94\" quality=\"Cardinal\" element=\"Earth\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0134\" declination=\"-23.63\" />\n        <point name=\"Neptune\" position=\"10.06\" sign=\"Capricorn\" abs_pos=\"280.06\" quality=\"Cardinal\" element=\"Earth\" house=\"Eighth House\" motion=\"direct\" speed=\"0.0122\" declination=\"-22.09\" />\n        <point name=\"Pluto\" position=\"12.24\" sign=\"Scorpio\" abs_pos=\"222.24\" quality=\"Fixed\" element=\"Water\" house=\"Sixth House\" motion=\"retrograde\" speed=\"-0.0187\" declination=\"0.23\" />\n        <point name=\"Chiron\" position=\"23.41\" sign=\"Gemini\" abs_pos=\"83.41\" quality=\"Mutable\" element=\"Air\" house=\"First House\" motion=\"direct\" speed=\"0.0283\" declination=\"17.39\" />\n        <point name=\"Mean_Lilith\" position=\"23.96\" sign=\"Leo\" abs_pos=\"143.96\" quality=\"Fixed\" element=\"Fire\" house=\"Fourth House\" motion=\"direct\" speed=\"0.1110\" declination=\"15.90\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"19.25\" sign=\"Gemini\" abs_pos=\"79.25\" quality=\"Mutable\" element=\"Air\" house=\"First House\" motion=\"direct\" speed=\"376.7282\" />\n        <point name=\"Descendant\" position=\"19.25\" sign=\"Sagittarius\" abs_pos=\"259.25\" quality=\"Mutable\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"376.7282\" />\n        <point name=\"Medium_Coeli\" position=\"16.77\" sign=\"Aquarius\" abs_pos=\"316.77\" quality=\"Fixed\" element=\"Air\" house=\"Tenth House\" motion=\"direct\" speed=\"364.2492\" />\n        <point name=\"Imum_Coeli\" position=\"16.77\" sign=\"Leo\" abs_pos=\"136.77\" quality=\"Fixed\" element=\"Fire\" house=\"Fourth House\" motion=\"direct\" speed=\"364.2492\" />\n        <point name=\"True_North_Lunar_Node\" position=\"23.08\" sign=\"Pisces\" abs_pos=\"353.08\" quality=\"Mutable\" element=\"Water\" house=\"Eleventh House\" motion=\"retrograde\" speed=\"-0.0111\" declination=\"-2.75\" />\n        <point name=\"True_South_Lunar_Node\" position=\"23.08\" sign=\"Virgo\" abs_pos=\"173.08\" quality=\"Mutable\" element=\"Earth\" house=\"Fifth House\" motion=\"retrograde\" speed=\"0.0111\" declination=\"2.75\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"19.25\" sign=\"Gemini\" />\n        <house name=\"Second_House\" cusp=\"8.09\" sign=\"Cancer\" />\n        <house name=\"Third_House\" cusp=\"25.91\" sign=\"Cancer\" />\n        <house name=\"Fourth_House\" cusp=\"16.77\" sign=\"Leo\" />\n        <house name=\"Fifth_House\" cusp=\"15.99\" sign=\"Virgo\" />\n        <house name=\"Sixth_House\" cusp=\"0.40\" sign=\"Scorpio\" />\n        <house name=\"Seventh_House\" cusp=\"19.25\" sign=\"Sagittarius\" />\n        <house name=\"Eighth_House\" cusp=\"8.09\" sign=\"Capricorn\" />\n        <house name=\"Ninth_House\" cusp=\"25.91\" sign=\"Capricorn\" />\n        <house name=\"Tenth_House\" cusp=\"16.77\" sign=\"Aquarius\" />\n        <house name=\"Eleventh_House\" cusp=\"15.99\" sign=\"Pisces\" />\n        <house name=\"Twelfth_House\" cusp=\"0.40\" sign=\"Taurus\" />\n      </houses>\n      <lunar_phase name=\"Waxing Crescent\" phase=\"3\" degrees_between=\"31.30\" emoji=\"🌒\" />\n    </chart>\n  </second_subject>\n  <aspects count=\"92\">\n    <aspect type=\"opposition\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Saturn\" p2_owner=\"Baseline Test Paris\" orb=\"8.02\" angle=\"180\" />\n    <aspect type=\"opposition\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Uranus\" p2_owner=\"Baseline Test Paris\" orb=\"6.79\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"1.07\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Chiron\" p2_owner=\"Baseline Test Paris\" orb=\"0.74\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Ascendant\" p2_owner=\"Baseline Test Paris\" orb=\"4.90\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"7.38\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Descendant\" p2_owner=\"Baseline Test Paris\" orb=\"4.90\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mean_Lilith\" p2_owner=\"Baseline Test Paris\" orb=\"0.19\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"1.07\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"0.34\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"2.55\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"5.58\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"3.39\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"7.45\" angle=\"0\" />\n    <aspect type=\"square\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Ascendant\" p2_owner=\"Baseline Test Paris\" orb=\"3.61\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Descendant\" p2_owner=\"Baseline Test Paris\" orb=\"3.61\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Moon\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"7.45\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Mercury\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Sun\" p2_owner=\"Baseline Test Paris\" orb=\"5.74\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mercury\" p2_owner=\"Baseline Test Paris\" orb=\"0.38\" angle=\"90\" />\n    <aspect type=\"quintile\" p1_name=\"Mercury\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"0.64\" angle=\"72\" />\n    <aspect type=\"quintile\" p1_name=\"Mercury\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"0.96\" angle=\"72\" />\n    <aspect type=\"conjunction\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"3.50\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"0.61\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"6.56\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"4.28\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"2.03\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"2.03\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Venus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"4.28\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Mars\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"1.00\" angle=\"90\" />\n    <aspect type=\"quintile\" p1_name=\"Mars\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Chiron\" p2_owner=\"Baseline Test Paris\" orb=\"0.36\" angle=\"72\" />\n    <aspect type=\"sextile\" p1_name=\"Mars\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"5.71\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Mars\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"5.71\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"0.59\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"2.30\" angle=\"180\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"5.84\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Jupiter\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"3.65\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Jupiter\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"7.19\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Saturn\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Sun\" p2_owner=\"Baseline Test Paris\" orb=\"5.95\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Saturn\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"5.84\" angle=\"0\" />\n    <aspect type=\"quintile\" p1_name=\"Saturn\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"0.21\" angle=\"72\" />\n    <aspect type=\"sextile\" p1_name=\"Saturn\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"0.95\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"0.95\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Moon\" p2_owner=\"Baseline Test Paris\" orb=\"6.88\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mercury\" p2_owner=\"Baseline Test Paris\" orb=\"2.82\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"7.14\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Jupiter\" p2_owner=\"Baseline Test Paris\" orb=\"5.65\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Saturn\" p2_owner=\"Baseline Test Paris\" orb=\"6.00\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Uranus\" p2_owner=\"Baseline Test Paris\" orb=\"7.22\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"1.89\" angle=\"0\" />\n    <aspect type=\"sextile\" p1_name=\"Uranus\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"4.08\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"1.58\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Neptune\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"4.47\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Neptune\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"3.66\" angle=\"0\" />\n    <aspect type=\"sextile\" p1_name=\"Neptune\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"1.47\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"0.10\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"2.79\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"5.34\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"3.16\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"7.68\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"1.37\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Pluto\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"1.37\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"4.12\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"8.65\" angle=\"0\" />\n    <aspect type=\"opposition\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"8.65\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"0.76\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Chiron\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"2.13\" angle=\"180\" />\n    <aspect type=\"opposition\" p1_name=\"Chiron\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"6.00\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Chiron\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"3.82\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Chiron\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"7.02\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Ascendant\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"0.55\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"6.16\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Moon\" p2_owner=\"Baseline Test Paris\" orb=\"0.84\" angle=\"72\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mercury\" p2_owner=\"Baseline Test Paris\" orb=\"7.10\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"2.85\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"5.74\" angle=\"180\" />\n    <aspect type=\"opposition\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"2.39\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"0.21\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Descendant\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"0.55\" angle=\"90\" />\n    <aspect type=\"quintile\" p1_name=\"Descendant\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Chiron\" p2_owner=\"Baseline Test Paris\" orb=\"0.80\" angle=\"72\" />\n    <aspect type=\"trine\" p1_name=\"Descendant\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"6.16\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Imum_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"2.85\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Imum_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mars\" p2_owner=\"Baseline Test Paris\" orb=\"5.74\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Imum_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Neptune\" p2_owner=\"Baseline Test Paris\" orb=\"2.39\" angle=\"0\" />\n    <aspect type=\"sextile\" p1_name=\"Imum_Coeli\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"0.21\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Mean_Lilith\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Sun\" p2_owner=\"Baseline Test Paris\" orb=\"5.03\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Mean_Lilith\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Venus\" p2_owner=\"Baseline Test Paris\" orb=\"9.65\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Mean_Lilith\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"1.87\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Mean_Lilith\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Mean_Lilith\" p2_owner=\"Baseline Test Paris\" orb=\"1.00\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Baseline Test Paris\" orb=\"1.87\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Pluto\" p2_owner=\"Baseline Test Paris\" orb=\"4.12\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Medium_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"8.65\" angle=\"180\" />\n    <aspect type=\"conjunction\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"Baseline Test Roma 1990\" p2_name=\"Imum_Coeli\" p2_owner=\"Baseline Test Paris\" orb=\"8.65\" angle=\"0\" />\n  </aspects>\n  <house_overlay>\n    <first_points_in_second subject=\"Baseline Test Roma 1990\" target=\"Baseline Test Paris\">\n      <point_in_house point_name=\"Sun\" point_owner=\"Baseline Test Roma 1990\" degree=\"24.15\" sign=\"Gem\" owner_house=\"Ninth_House\" projected_house=\"First_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"Baseline Test Roma 1990\" degree=\"15.64\" sign=\"Pis\" owner_house=\"Fifth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"Baseline Test Roma 1990\" degree=\"5.73\" sign=\"Gem\" owner_house=\"Eighth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"Baseline Test Roma 1990\" degree=\"18.80\" sign=\"Tau\" owner_house=\"Eighth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"Baseline Test Roma 1990\" degree=\"11.06\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"Baseline Test Roma 1990\" degree=\"15.89\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Second_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"Baseline Test Roma 1990\" degree=\"24.03\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"Baseline Test Roma 1990\" degree=\"8.16\" sign=\"Cap\" owner_house=\"Third_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"Baseline Test Roma 1990\" degree=\"13.72\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"Baseline Test Roma 1990\" degree=\"15.40\" sign=\"Sco\" owner_house=\"Second_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"Baseline Test Roma 1990\" degree=\"8.12\" sign=\"Aqu\" owner_house=\"Fourth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"Baseline Test Roma 1990\" degree=\"8.12\" sign=\"Leo\" owner_house=\"Tenth_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"Baseline Test Roma 1990\" degree=\"24.95\" sign=\"Sco\" owner_house=\"Second_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"Baseline Test Roma 1990\" degree=\"16.06\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Second_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"Baseline Test Roma 1990\" degree=\"10.61\" sign=\"Lib\" owner_house=\"First_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"Baseline Test Roma 1990\" degree=\"12.45\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Second_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"Baseline Test Roma 1990\" degree=\"10.61\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"Baseline Test Roma 1990\" degree=\"12.45\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Paris\" />\n    </first_points_in_second>\n    <second_points_in_first subject=\"Baseline Test Paris\" target=\"Baseline Test Roma 1990\">\n      <point_in_house point_name=\"Sun\" point_owner=\"Baseline Test Paris\" degree=\"29.98\" sign=\"Pis\" owner_house=\"Eleventh_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"Baseline Test Paris\" degree=\"1.29\" sign=\"Tau\" owner_house=\"Twelfth_House\" projected_house=\"Seventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"Baseline Test Paris\" degree=\"5.34\" sign=\"Pis\" owner_house=\"Tenth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"Baseline Test Paris\" degree=\"15.30\" sign=\"Tau\" owner_house=\"Twelfth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"Baseline Test Paris\" degree=\"18.19\" sign=\"Cap\" owner_house=\"Eighth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"Baseline Test Paris\" degree=\"2.52\" sign=\"Tau\" owner_house=\"Twelfth_House\" projected_house=\"Seventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"Baseline Test Paris\" degree=\"2.17\" sign=\"Cap\" owner_house=\"Seventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"Baseline Test Paris\" degree=\"0.94\" sign=\"Cap\" owner_house=\"Seventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"Baseline Test Paris\" degree=\"10.06\" sign=\"Cap\" owner_house=\"Eighth_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"Baseline Test Paris\" degree=\"12.24\" sign=\"Sco\" owner_house=\"Sixth_House\" projected_house=\"Second_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"Baseline Test Paris\" degree=\"23.08\" sign=\"Pis\" owner_house=\"Eleventh_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"Baseline Test Paris\" degree=\"23.08\" sign=\"Vir\" owner_house=\"Fifth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"Baseline Test Paris\" degree=\"23.96\" sign=\"Leo\" owner_house=\"Fourth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"Baseline Test Paris\" degree=\"23.41\" sign=\"Gem\" owner_house=\"First_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"Baseline Test Paris\" degree=\"19.25\" sign=\"Gem\" owner_house=\"First_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"Baseline Test Paris\" degree=\"16.77\" sign=\"Aqu\" owner_house=\"Tenth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"Baseline Test Paris\" degree=\"19.25\" sign=\"Sag\" owner_house=\"Seventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"Baseline Test Paris\" degree=\"16.77\" sign=\"Leo\" owner_house=\"Fourth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n    </second_points_in_first>\n    <first_cusps_in_second subject=\"Baseline Test Roma 1990\" target=\"Baseline Test Paris\">\n      <point_in_house point_name=\"First_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"10.61\" sign=\"Lib\" owner_house=\"First_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"7.29\" sign=\"Sco\" owner_house=\"Second_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"8.31\" sign=\"Sag\" owner_house=\"Third_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"12.45\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"16.05\" sign=\"Aqu\" owner_house=\"Fifth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"15.77\" sign=\"Pis\" owner_house=\"Sixth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"10.61\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"7.29\" sign=\"Tau\" owner_house=\"Eighth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"8.31\" sign=\"Gem\" owner_house=\"Ninth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"12.45\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Second_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"16.05\" sign=\"Leo\" owner_house=\"Eleventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Paris\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"Baseline Test Roma 1990\" degree=\"15.77\" sign=\"Vir\" owner_house=\"Twelfth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Baseline Test Paris\" />\n    </first_cusps_in_second>\n    <second_cusps_in_first subject=\"Baseline Test Paris\" target=\"Baseline Test Roma 1990\">\n      <point_in_house point_name=\"First_House\" point_owner=\"Baseline Test Paris\" degree=\"19.25\" sign=\"Gem\" owner_house=\"First_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"Baseline Test Paris\" degree=\"8.09\" sign=\"Can\" owner_house=\"Second_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"Baseline Test Paris\" degree=\"25.91\" sign=\"Can\" owner_house=\"Third_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"Baseline Test Paris\" degree=\"16.77\" sign=\"Leo\" owner_house=\"Fourth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"Baseline Test Paris\" degree=\"15.99\" sign=\"Vir\" owner_house=\"Fifth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"Baseline Test Paris\" degree=\"0.40\" sign=\"Sco\" owner_house=\"Sixth_House\" projected_house=\"First_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"Baseline Test Paris\" degree=\"19.25\" sign=\"Sag\" owner_house=\"Seventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"Baseline Test Paris\" degree=\"8.09\" sign=\"Cap\" owner_house=\"Eighth_House\" projected_house=\"Third_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"Baseline Test Paris\" degree=\"25.91\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"Baseline Test Paris\" degree=\"16.77\" sign=\"Aqu\" owner_house=\"Tenth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"Baseline Test Paris\" degree=\"15.99\" sign=\"Pis\" owner_house=\"Eleventh_House\" projected_house=\"Sixth_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"Baseline Test Paris\" degree=\"0.40\" sign=\"Tau\" owner_house=\"Twelfth_House\" projected_house=\"Seventh_House\" projected_house_owner=\"Baseline Test Roma 1990\" />\n    </second_cusps_in_first>\n  </house_overlay>\n  <relationship_score value=\"17\" max=\"44\" description=\"Very Important\" destiny_sign=\"true\" />\n  <element_distribution fire=\"17%\" earth=\"33%\" air=\"24%\" water=\"26%\" />\n  <quality_distribution cardinal=\"37%\" fixed=\"29%\" mutable=\"34%\" />\n  <active_points>Ascendant, Chiron, Descendant, Imum_Coeli, Jupiter, Mars, Mean_Lilith, Medium_Coeli, Mercury, Moon, Neptune, Pluto, Saturn, Sun, True_North_Lunar_Node, True_South_Lunar_Node, Uranus, Venus</active_points>\n  <active_aspects>conjunction (10), opposition (10), trine (8), sextile (6), square (5), quintile (1)</active_aspects>\n</chart_analysis>",
   "status": "OK"
 }
