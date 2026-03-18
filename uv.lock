@@ -65,7 +65,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi" },
-    { name = "kerykeion", directory = "../kerykeion" },
+    { name = "kerykeion", specifier = "==5.12.1" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "pyjwt", specifier = ">=2.10.1" },
@@ -414,8 +414,8 @@ wheels = [
 
 [[package]]
 name = "kerykeion"
-version = "5.12.0"
-source = { directory = "../kerykeion" }
+version = "5.12.1"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
     { name = "pyswisseph" },
@@ -426,32 +426,9 @@ dependencies = [
     { name = "simple-ascii-tables" },
     { name = "typing-extensions" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "pydantic", specifier = ">=2.5" },
-    { name = "pyswisseph", specifier = ">=2.10.3.1" },
-    { name = "pytz", specifier = ">=2024.2" },
-    { name = "requests", specifier = ">=2.32.3" },
-    { name = "requests-cache", specifier = ">=1.2.1" },
-    { name = "scour", specifier = ">=0.38.2" },
-    { name = "simple-ascii-tables", specifier = ">=1.0.0" },
-    { name = "typing-extensions", specifier = ">=4.12.2" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "coverage", specifier = ">=7.6.0" },
-    { name = "mypy", specifier = ">=1.17.1" },
-    { name = "pdoc", specifier = ">=15.0.4" },
-    { name = "poethepoet", specifier = ">=0.36.0" },
-    { name = "pyright", specifier = ">=1.1.408" },
-    { name = "pytest", specifier = ">=8.4.1" },
-    { name = "pytest-cov", specifier = ">=6.0.0" },
-    { name = "pytest-xdist", specifier = ">=3.5.0" },
-    { name = "ruff", specifier = ">=0.12.9" },
-    { name = "types-pytz", specifier = ">=2025.2.0.20250516" },
-    { name = "types-requests", specifier = ">=2.32.4.20250611" },
+sdist = { url = "https://files.pythonhosted.org/packages/be/ab/601f297d51abca6ad85d3909e848d56d59069acd76c9da3abf12f994d741/kerykeion-5.12.1.tar.gz", hash = "sha256:ea864179035c679bdbccbcc709af1e4b21bc9b85af9719d73f311c2818f6e7ac", size = 742116, upload-time = "2026-03-18T09:15:20.667Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/47/b9/66793c4fe94dcd89432c9a2938c9bc6032d9e95e9154ffba4a325001f048/kerykeion-5.12.1-py3-none-any.whl", hash = "sha256:c1786baf5fc9514ab2cb90b0459fcdfc480cc06457345329fbb562b5818890e0", size = 757120, upload-time = "2026-03-18T09:15:22.495Z" },
 ]
 
 [[package]]

@@ -15,7 +15,7 @@ dependencies = [
     "scour",
     "typing-extensions",
     "pyjwt>=2.10.1",
-    "kerykeion>=5.12.1",
+    "kerykeion==5.12.1",
 ]
 
 [dependency-groups]
