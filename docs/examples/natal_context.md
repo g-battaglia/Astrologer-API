@@ -32,7 +32,7 @@ Endpoint: `/api/v5/context/birth-chart`
 ```json
 {
   "status": "OK",
-  "context": "<chart_analysis type=\"Natal\">\n  <chart name=\"John Doe\">\n    <birth_data date=\"1990-01-01 12:30\" city=\"London\" nation=\"GB\" lat=\"51.51\" lng=\"-0.13\" lng_dir=\"W\" tz=\"Europe/London\" />\n    <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n    <planets>\n      <point name=\"Sun\" position=\"10.84\" sign=\"Capricorn\" abs_pos=\"280.84\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"1.0195\" declination=\"-23.00\" />\n      <point name=\"Moon\" position=\"3.55\" sign=\"Pisces\" abs_pos=\"333.55\" quality=\"Mutable\" element=\"Water\" house=\"Eleventh House\" motion=\"direct\" speed=\"13.4742\" declination=\"-8.81\" />\n      <point name=\"Mercury\" position=\"25.67\" sign=\"Capricorn\" abs_pos=\"295.67\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.2987\" declination=\"-20.39\" />\n      <point name=\"Venus\" position=\"6.22\" sign=\"Aquarius\" abs_pos=\"306.22\" quality=\"Fixed\" element=\"Air\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.1312\" declination=\"-16.87\" />\n      <point name=\"Mars\" position=\"10.01\" sign=\"Sagittarius\" abs_pos=\"250.01\" quality=\"Mutable\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.7038\" declination=\"-21.99\" />\n      <point name=\"Jupiter\" position=\"5.15\" sign=\"Cancer\" abs_pos=\"95.15\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.1345\" declination=\"23.23\" />\n      <point name=\"Saturn\" position=\"15.66\" sign=\"Capricorn\" abs_pos=\"285.66\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.1183\" declination=\"-22.23\" />\n      <point name=\"Uranus\" position=\"5.79\" sign=\"Capricorn\" abs_pos=\"275.79\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0600\" declination=\"-23.59\" />\n      <point name=\"Neptune\" position=\"12.04\" sign=\"Capricorn\" abs_pos=\"282.04\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0379\" declination=\"-22.05\" />\n      <point name=\"Pluto\" position=\"17.09\" sign=\"Scorpio\" abs_pos=\"227.09\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0273\" declination=\"-2.25\" />\n      <point name=\"Chiron\" position=\"13.81\" sign=\"Cancer\" abs_pos=\"103.81\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.0685\" declination=\"15.46\" />\n      <point name=\"Mean_Lilith\" position=\"6.47\" sign=\"Scorpio\" abs_pos=\"216.47\" quality=\"Fixed\" element=\"Water\" house=\"Sixth House\" motion=\"direct\" speed=\"0.1120\" declination=\"-18.42\" />\n    </planets>\n    <axes>\n      <point name=\"Ascendant\" position=\"10.21\" sign=\"Taurus\" abs_pos=\"40.21\" quality=\"Fixed\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"360.0000\" />\n      <point name=\"Descendant\" position=\"10.21\" sign=\"Scorpio\" abs_pos=\"220.21\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"360.0000\" />\n      <point name=\"Medium_Coeli\" position=\"16.85\" sign=\"Capricorn\" abs_pos=\"286.85\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"direct\" speed=\"360.0000\" />\n      <point name=\"Imum_Coeli\" position=\"16.85\" sign=\"Cancer\" abs_pos=\"106.85\" quality=\"Cardinal\" element=\"Water\" house=\"Fourth House\" motion=\"direct\" speed=\"360.0000\" />\n      <point name=\"True_North_Lunar_Node\" position=\"16.87\" sign=\"Aquarius\" abs_pos=\"316.87\" quality=\"Fixed\" element=\"Air\" house=\"Eleventh House\" motion=\"direct\" speed=\"0.0236\" declination=\"-15.78\" />\n      <point name=\"True_South_Lunar_Node\" position=\"16.87\" sign=\"Leo\" abs_pos=\"136.87\" quality=\"Fixed\" element=\"Fire\" house=\"Fifth House\" motion=\"direct\" speed=\"-0.0236\" declination=\"15.78\" />\n    </axes>\n    <houses>\n      <house name=\"First_House\" cusp=\"10.21\" sign=\"Taurus\" />\n      <house name=\"Second_House\" cusp=\"10.24\" sign=\"Gemini\" />\n      <house name=\"Third_House\" cusp=\"29.34\" sign=\"Gemini\" />\n      <house name=\"Fourth_House\" cusp=\"16.85\" sign=\"Cancer\" />\n      <house name=\"Fifth_House\" cusp=\"7.64\" sign=\"Leo\" />\n      <house name=\"Sixth_House\" cusp=\"10.18\" sign=\"Virgo\" />\n      <house name=\"Seventh_House\" cusp=\"10.21\" sign=\"Scorpio\" />\n      <house name=\"Eighth_House\" cusp=\"10.24\" sign=\"Sagittarius\" />\n      <house name=\"Ninth_House\" cusp=\"29.34\" sign=\"Sagittarius\" />\n      <house name=\"Tenth_House\" cusp=\"16.85\" sign=\"Capricorn\" />\n      <house name=\"Eleventh_House\" cusp=\"7.64\" sign=\"Aquarius\" />\n      <house name=\"Twelfth_House\" cusp=\"10.18\" sign=\"Pisces\" />\n    </houses>\n    <lunar_phase name=\"Waxing Crescent\" phase=\"5\" degrees_between=\"52.71\" emoji=\"\ud83c\udf12\" />\n  </chart>\n  <element_distribution fire=\"10%\" earth=\"43%\" air=\"10%\" water=\"37%\" />\n  <quality_distribution cardinal=\"49%\" fixed=\"34%\" mutable=\"17%\" />\n  <aspects count=\"63\">\n    <aspect type=\"opposition\" p1=\"Sun\" p2=\"Jupiter\" orb=\"5.69\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Sun\" p2=\"Saturn\" orb=\"4.82\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Sun\" p2=\"Uranus\" orb=\"5.05\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Sun\" p2=\"Neptune\" orb=\"1.20\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Sun\" p2=\"Chiron\" orb=\"2.98\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Sun\" p2=\"Ascendant\" orb=\"0.63\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Sun\" p2=\"Medium_Coeli\" orb=\"6.02\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Sun\" p2=\"Descendant\" orb=\"0.63\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Sun\" p2=\"Imum_Coeli\" orb=\"6.02\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Sun\" p2=\"Mean_Lilith\" orb=\"4.37\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Moon\" p2=\"Jupiter\" orb=\"1.60\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Moon\" p2=\"Uranus\" orb=\"2.24\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Moon\" p2=\"Descendant\" orb=\"6.66\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Moon\" p2=\"Mean_Lilith\" orb=\"2.92\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Mercury\" p2=\"Medium_Coeli\" orb=\"8.81\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Mercury\" p2=\"Imum_Coeli\" orb=\"8.81\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Venus\" p2=\"Mars\" orb=\"3.80\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Venus\" p2=\"Ascendant\" orb=\"3.99\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Venus\" p2=\"Descendant\" orb=\"3.99\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Venus\" p2=\"Mean_Lilith\" orb=\"0.25\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Mars\" p2=\"True_South_Lunar_Node\" orb=\"6.85\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Jupiter\" p2=\"Uranus\" orb=\"0.64\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"opposition\" p1=\"Jupiter\" p2=\"Neptune\" orb=\"6.89\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Jupiter\" p2=\"Chiron\" orb=\"8.67\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Jupiter\" p2=\"Ascendant\" orb=\"5.06\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Jupiter\" p2=\"Descendant\" orb=\"5.06\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Jupiter\" p2=\"Mean_Lilith\" orb=\"1.32\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Saturn\" p2=\"Uranus\" orb=\"9.87\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Saturn\" p2=\"Neptune\" orb=\"3.62\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Saturn\" p2=\"Pluto\" orb=\"1.43\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Saturn\" p2=\"Chiron\" orb=\"1.85\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Saturn\" p2=\"Ascendant\" orb=\"5.45\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Saturn\" p2=\"Medium_Coeli\" orb=\"1.19\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Saturn\" p2=\"Descendant\" orb=\"5.45\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Saturn\" p2=\"Imum_Coeli\" orb=\"1.19\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Uranus\" p2=\"Neptune\" orb=\"6.25\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Uranus\" p2=\"Chiron\" orb=\"8.03\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Uranus\" p2=\"Ascendant\" orb=\"4.42\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Uranus\" p2=\"Descendant\" orb=\"4.42\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Uranus\" p2=\"Mean_Lilith\" orb=\"0.68\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Neptune\" p2=\"Pluto\" orb=\"5.05\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Neptune\" p2=\"Chiron\" orb=\"1.77\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Neptune\" p2=\"Ascendant\" orb=\"1.83\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Neptune\" p2=\"Medium_Coeli\" orb=\"4.81\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Neptune\" p2=\"Descendant\" orb=\"1.83\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Neptune\" p2=\"Imum_Coeli\" orb=\"4.81\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Neptune\" p2=\"Mean_Lilith\" orb=\"5.57\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"square\" p1=\"Pluto\" p2=\"True_North_Lunar_Node\" orb=\"0.22\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Pluto\" p2=\"Chiron\" orb=\"3.28\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"opposition\" p1=\"Pluto\" p2=\"Ascendant\" orb=\"6.89\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Pluto\" p2=\"Medium_Coeli\" orb=\"0.24\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Pluto\" p2=\"Descendant\" orb=\"6.89\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Pluto\" p2=\"Imum_Coeli\" orb=\"0.24\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"square\" p1=\"Pluto\" p2=\"True_South_Lunar_Node\" orb=\"0.22\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Chiron\" p2=\"Ascendant\" orb=\"3.61\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Chiron\" p2=\"Medium_Coeli\" orb=\"3.04\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Chiron\" p2=\"Descendant\" orb=\"3.61\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Chiron\" p2=\"Imum_Coeli\" orb=\"3.04\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Chiron\" p2=\"Mean_Lilith\" orb=\"7.35\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Ascendant\" p2=\"Medium_Coeli\" orb=\"6.65\" angle=\"120\" movement=\"static\" />\n    <aspect type=\"opposition\" p1=\"Ascendant\" p2=\"Mean_Lilith\" orb=\"3.74\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Descendant\" p2=\"Imum_Coeli\" orb=\"6.65\" angle=\"120\" movement=\"static\" />\n    <aspect type=\"conjunction\" p1=\"Descendant\" p2=\"Mean_Lilith\" orb=\"3.74\" angle=\"0\" movement=\"separating\" />\n  </aspects>\n  <active_points>Ascendant, Chiron, Descendant, Imum_Coeli, Jupiter, Mars, Mean_Lilith, Medium_Coeli, Mercury, Moon, Neptune, Pluto, Saturn, Sun, True_North_Lunar_Node, True_South_Lunar_Node, Uranus, Venus</active_points>\n  <active_aspects>conjunction (10), opposition (10), trine (8), sextile (6), square (5), quintile (1)</active_aspects>\n</chart_analysis>",
+  "context": "<chart_analysis type=\"Natal\">\n  <chart name=\"John Doe\">\n    <birth_data date=\"1990-01-01 12:30\" city=\"London\" nation=\"GB\" lat=\"51.51\" lng=\"-0.13\" lng_dir=\"W\" tz=\"Europe/London\" />\n    <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n    <planets>\n      <point name=\"Sun\" position=\"10.84\" sign=\"Capricorn\" abs_pos=\"280.84\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"1.0195\" declination=\"-23.00\" />\n      <point name=\"Moon\" position=\"3.55\" sign=\"Pisces\" abs_pos=\"333.55\" quality=\"Mutable\" element=\"Water\" house=\"Eleventh House\" motion=\"direct\" speed=\"13.4742\" declination=\"-8.81\" />\n      <point name=\"Mercury\" position=\"25.67\" sign=\"Capricorn\" abs_pos=\"295.67\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.2987\" declination=\"-20.39\" />\n      <point name=\"Venus\" position=\"6.22\" sign=\"Aquarius\" abs_pos=\"306.22\" quality=\"Fixed\" element=\"Air\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.1312\" declination=\"-16.87\" />\n      <point name=\"Mars\" position=\"10.01\" sign=\"Sagittarius\" abs_pos=\"250.01\" quality=\"Mutable\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.7038\" declination=\"-21.99\" />\n      <point name=\"Jupiter\" position=\"5.15\" sign=\"Cancer\" abs_pos=\"95.15\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.1345\" declination=\"23.23\" />\n      <point name=\"Saturn\" position=\"15.66\" sign=\"Capricorn\" abs_pos=\"285.66\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.1183\" declination=\"-22.23\" />\n      <point name=\"Uranus\" position=\"5.79\" sign=\"Capricorn\" abs_pos=\"275.79\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0600\" declination=\"-23.59\" />\n      <point name=\"Neptune\" position=\"12.04\" sign=\"Capricorn\" abs_pos=\"282.04\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0379\" declination=\"-22.05\" />\n      <point name=\"Pluto\" position=\"17.09\" sign=\"Scorpio\" abs_pos=\"227.09\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0273\" declination=\"-2.25\" />\n      <point name=\"Chiron\" position=\"13.81\" sign=\"Cancer\" abs_pos=\"103.81\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.0685\" declination=\"15.46\" />\n      <point name=\"Mean_Lilith\" position=\"6.47\" sign=\"Scorpio\" abs_pos=\"216.47\" quality=\"Fixed\" element=\"Water\" house=\"Sixth House\" motion=\"direct\" speed=\"0.1120\" declination=\"-18.42\" />\n    </planets>\n    <axes>\n      <point name=\"Ascendant\" position=\"10.21\" sign=\"Taurus\" abs_pos=\"40.21\" quality=\"Fixed\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"677.0295\" />\n      <point name=\"Descendant\" position=\"10.21\" sign=\"Scorpio\" abs_pos=\"220.21\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"677.0295\" />\n      <point name=\"Medium_Coeli\" position=\"16.85\" sign=\"Capricorn\" abs_pos=\"286.85\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"direct\" speed=\"336.4242\" />\n      <point name=\"Imum_Coeli\" position=\"16.85\" sign=\"Cancer\" abs_pos=\"106.85\" quality=\"Cardinal\" element=\"Water\" house=\"Fourth House\" motion=\"direct\" speed=\"336.4242\" />\n      <point name=\"True_North_Lunar_Node\" position=\"16.87\" sign=\"Aquarius\" abs_pos=\"316.87\" quality=\"Fixed\" element=\"Air\" house=\"Eleventh House\" motion=\"direct\" speed=\"0.0236\" declination=\"-15.78\" />\n      <point name=\"True_South_Lunar_Node\" position=\"16.87\" sign=\"Leo\" abs_pos=\"136.87\" quality=\"Fixed\" element=\"Fire\" house=\"Fifth House\" motion=\"direct\" speed=\"-0.0236\" declination=\"15.78\" />\n    </axes>\n    <houses>\n      <house name=\"First_House\" cusp=\"10.21\" sign=\"Taurus\" />\n      <house name=\"Second_House\" cusp=\"10.24\" sign=\"Gemini\" />\n      <house name=\"Third_House\" cusp=\"29.34\" sign=\"Gemini\" />\n      <house name=\"Fourth_House\" cusp=\"16.85\" sign=\"Cancer\" />\n      <house name=\"Fifth_House\" cusp=\"7.64\" sign=\"Leo\" />\n      <house name=\"Sixth_House\" cusp=\"10.18\" sign=\"Virgo\" />\n      <house name=\"Seventh_House\" cusp=\"10.21\" sign=\"Scorpio\" />\n      <house name=\"Eighth_House\" cusp=\"10.24\" sign=\"Sagittarius\" />\n      <house name=\"Ninth_House\" cusp=\"29.34\" sign=\"Sagittarius\" />\n      <house name=\"Tenth_House\" cusp=\"16.85\" sign=\"Capricorn\" />\n      <house name=\"Eleventh_House\" cusp=\"7.64\" sign=\"Aquarius\" />\n      <house name=\"Twelfth_House\" cusp=\"10.18\" sign=\"Pisces\" />\n    </houses>\n    <lunar_phase name=\"Waxing Crescent\" phase=\"5\" degrees_between=\"52.71\" emoji=\"\ud83c\udf12\" />\n  </chart>\n  <element_distribution fire=\"10%\" earth=\"43%\" air=\"10%\" water=\"37%\" />\n  <quality_distribution cardinal=\"49%\" fixed=\"34%\" mutable=\"17%\" />\n  <aspects count=\"63\">\n    <aspect type=\"opposition\" p1=\"Sun\" p2=\"Jupiter\" orb=\"5.69\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Sun\" p2=\"Saturn\" orb=\"4.82\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Sun\" p2=\"Uranus\" orb=\"5.05\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Sun\" p2=\"Neptune\" orb=\"1.20\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Sun\" p2=\"Chiron\" orb=\"2.98\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Sun\" p2=\"Ascendant\" orb=\"0.63\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Sun\" p2=\"Medium_Coeli\" orb=\"6.02\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Sun\" p2=\"Descendant\" orb=\"0.63\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Sun\" p2=\"Imum_Coeli\" orb=\"6.02\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Sun\" p2=\"Mean_Lilith\" orb=\"4.37\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Moon\" p2=\"Jupiter\" orb=\"1.60\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Moon\" p2=\"Uranus\" orb=\"2.24\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Moon\" p2=\"Descendant\" orb=\"6.66\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Moon\" p2=\"Mean_Lilith\" orb=\"2.92\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Mercury\" p2=\"Medium_Coeli\" orb=\"8.81\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Mercury\" p2=\"Imum_Coeli\" orb=\"8.81\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Venus\" p2=\"Mars\" orb=\"3.80\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Venus\" p2=\"Ascendant\" orb=\"3.99\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Venus\" p2=\"Descendant\" orb=\"3.99\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"square\" p1=\"Venus\" p2=\"Mean_Lilith\" orb=\"0.25\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Mars\" p2=\"True_South_Lunar_Node\" orb=\"6.85\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Jupiter\" p2=\"Uranus\" orb=\"0.64\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"opposition\" p1=\"Jupiter\" p2=\"Neptune\" orb=\"6.89\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Jupiter\" p2=\"Chiron\" orb=\"8.67\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Jupiter\" p2=\"Ascendant\" orb=\"5.06\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Jupiter\" p2=\"Descendant\" orb=\"5.06\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Jupiter\" p2=\"Mean_Lilith\" orb=\"1.32\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Saturn\" p2=\"Uranus\" orb=\"9.87\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Saturn\" p2=\"Neptune\" orb=\"3.62\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Saturn\" p2=\"Pluto\" orb=\"1.43\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Saturn\" p2=\"Chiron\" orb=\"1.85\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Saturn\" p2=\"Ascendant\" orb=\"5.45\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Saturn\" p2=\"Medium_Coeli\" orb=\"1.19\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Saturn\" p2=\"Descendant\" orb=\"5.45\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Saturn\" p2=\"Imum_Coeli\" orb=\"1.19\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"conjunction\" p1=\"Uranus\" p2=\"Neptune\" orb=\"6.25\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Uranus\" p2=\"Chiron\" orb=\"8.03\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Uranus\" p2=\"Ascendant\" orb=\"4.42\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Uranus\" p2=\"Descendant\" orb=\"4.42\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Uranus\" p2=\"Mean_Lilith\" orb=\"0.68\" angle=\"60\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Neptune\" p2=\"Pluto\" orb=\"5.05\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Neptune\" p2=\"Chiron\" orb=\"1.77\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Neptune\" p2=\"Ascendant\" orb=\"1.83\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Neptune\" p2=\"Medium_Coeli\" orb=\"4.81\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Neptune\" p2=\"Descendant\" orb=\"1.83\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Neptune\" p2=\"Imum_Coeli\" orb=\"4.81\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Neptune\" p2=\"Mean_Lilith\" orb=\"5.57\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"square\" p1=\"Pluto\" p2=\"True_North_Lunar_Node\" orb=\"0.22\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Pluto\" p2=\"Chiron\" orb=\"3.28\" angle=\"120\" movement=\"separating\" />\n    <aspect type=\"opposition\" p1=\"Pluto\" p2=\"Ascendant\" orb=\"6.89\" angle=\"180\" movement=\"applying\" />\n    <aspect type=\"sextile\" p1=\"Pluto\" p2=\"Medium_Coeli\" orb=\"0.24\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Pluto\" p2=\"Descendant\" orb=\"6.89\" angle=\"0\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Pluto\" p2=\"Imum_Coeli\" orb=\"0.24\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"square\" p1=\"Pluto\" p2=\"True_South_Lunar_Node\" orb=\"0.22\" angle=\"90\" movement=\"separating\" />\n    <aspect type=\"sextile\" p1=\"Chiron\" p2=\"Ascendant\" orb=\"3.61\" angle=\"60\" movement=\"applying\" />\n    <aspect type=\"opposition\" p1=\"Chiron\" p2=\"Medium_Coeli\" orb=\"3.04\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Chiron\" p2=\"Descendant\" orb=\"3.61\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"conjunction\" p1=\"Chiron\" p2=\"Imum_Coeli\" orb=\"3.04\" angle=\"0\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Chiron\" p2=\"Mean_Lilith\" orb=\"7.35\" angle=\"120\" movement=\"applying\" />\n    <aspect type=\"trine\" p1=\"Ascendant\" p2=\"Medium_Coeli\" orb=\"6.65\" angle=\"120\" movement=\"static\" />\n    <aspect type=\"opposition\" p1=\"Ascendant\" p2=\"Mean_Lilith\" orb=\"3.74\" angle=\"180\" movement=\"separating\" />\n    <aspect type=\"trine\" p1=\"Descendant\" p2=\"Imum_Coeli\" orb=\"6.65\" angle=\"120\" movement=\"static\" />\n    <aspect type=\"conjunction\" p1=\"Descendant\" p2=\"Mean_Lilith\" orb=\"3.74\" angle=\"0\" movement=\"separating\" />\n  </aspects>\n  <active_points>Ascendant, Chiron, Descendant, Imum_Coeli, Jupiter, Mars, Mean_Lilith, Medium_Coeli, Mercury, Moon, Neptune, Pluto, Saturn, Sun, True_North_Lunar_Node, True_South_Lunar_Node, Uranus, Venus</active_points>\n  <active_aspects>conjunction (10), opposition (10), trine (8), sextile (6), square (5), quintile (1)</active_aspects>\n</chart_analysis>",
   "chart_data": {
     "chart_type": "Natal",
     "subject": {
@@ -51,6 +51,7 @@ Endpoint: `/api/v5/context/birth-chart`
       "houses_system_identifier": "P",
       "houses_system_name": "Placidus",
       "perspective_type": "Apparent Geocentric",
+      "ayanamsa_value": null,
       "sun": {
         "name": "Sun",
         "quality": "Cardinal",
@@ -64,7 +65,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 1.0194718530193225,
-        "declination": -23.00013758778064
+        "declination": -23.00013758778064,
+        "magnitude": null
       },
       "moon": {
         "name": "Moon",
@@ -79,7 +81,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 13.474246761628224,
-        "declination": -8.81298773915052
+        "declination": -8.81298773915052,
+        "magnitude": null
       },
       "mercury": {
         "name": "Mercury",
@@ -94,7 +97,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.29869641753799797,
-        "declination": -20.386624033097966
+        "declination": -20.386624033097966,
+        "magnitude": null
       },
       "venus": {
         "name": "Venus",
@@ -109,7 +113,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.13116320676089085,
-        "declination": -16.87318909895181
+        "declination": -16.87318909895181,
+        "magnitude": null
       },
       "mars": {
         "name": "Mars",
@@ -124,7 +129,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.7037680845619482,
-        "declination": -21.987262405889464
+        "declination": -21.987262405889464,
+        "magnitude": null
       },
       "jupiter": {
         "name": "Jupiter",
@@ -139,7 +145,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.13446940517543093,
-        "declination": 23.225447225504062
+        "declination": 23.225447225504062,
+        "magnitude": null
       },
       "saturn": {
         "name": "Saturn",
@@ -154,7 +161,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.1182732159967062,
-        "declination": -22.23201953433409
+        "declination": -22.23201953433409,
+        "magnitude": null
       },
       "uranus": {
         "name": "Uranus",
@@ -169,7 +177,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.06000647223890577,
-        "declination": -23.58567453326483
+        "declination": -23.58567453326483,
+        "magnitude": null
       },
       "neptune": {
         "name": "Neptune",
@@ -184,7 +193,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.03791058838699209,
-        "declination": -22.05313189938615
+        "declination": -22.05313189938615,
+        "magnitude": null
       },
       "pluto": {
         "name": "Pluto",
@@ -199,7 +209,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.027313516048024646,
-        "declination": -2.2485032427412905
+        "declination": -2.2485032427412905,
+        "magnitude": null
       },
       "ascendant": {
         "name": "Ascendant",
@@ -213,8 +224,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "AstrologicalPoint",
         "house": "First_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "descendant": {
         "name": "Descendant",
@@ -228,8 +240,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "AstrologicalPoint",
         "house": "Seventh_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "medium_coeli": {
         "name": "Medium_Coeli",
@@ -243,8 +256,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "AstrologicalPoint",
         "house": "Tenth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "imum_coeli": {
         "name": "Imum_Coeli",
@@ -258,8 +272,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "AstrologicalPoint",
         "house": "Fourth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "chiron": {
         "name": "Chiron",
@@ -274,7 +289,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.0684757434972255,
-        "declination": 15.457339430332224
+        "declination": 15.457339430332224,
+        "magnitude": null
       },
       "earth": null,
       "pholus": null,
@@ -291,7 +307,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Sixth_House",
         "retrograde": false,
         "speed": 0.11200484873918631,
-        "declination": -18.423773159673363
+        "declination": -18.423773159673363,
+        "magnitude": null
       },
       "true_lilith": null,
       "ceres": null,
@@ -307,6 +324,27 @@ Endpoint: `/api/v5/context/birth-chart`
       "quaoar": null,
       "regulus": null,
       "spica": null,
+      "aldebaran": null,
+      "antares": null,
+      "sirius": null,
+      "fomalhaut": null,
+      "algol": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "procyon": null,
+      "arcturus": null,
+      "pollux": null,
+      "deneb": null,
+      "altair": null,
+      "rigel": null,
+      "achernar": null,
+      "capella": null,
+      "vega": null,
+      "alcyone": null,
+      "alphecca": null,
+      "algorab": null,
+      "deneb_algedi": null,
+      "alkaid": null,
       "pars_fortunae": null,
       "pars_spiritus": null,
       "pars_amoris": null,
@@ -325,8 +363,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "second_house": {
         "name": "Second_House",
@@ -340,8 +379,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 395.77047777170276,
+        "declination": null,
+        "magnitude": null
       },
       "third_house": {
         "name": "Third_House",
@@ -355,8 +395,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.0038596286,
+        "declination": null,
+        "magnitude": null
       },
       "fourth_house": {
         "name": "Fourth_House",
@@ -370,8 +411,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "fifth_house": {
         "name": "Fifth_House",
@@ -385,8 +427,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 403.4195332743098,
+        "declination": null,
+        "magnitude": null
       },
       "sixth_house": {
         "name": "Sixth_House",
@@ -400,8 +443,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 592.8224430258799,
+        "declination": null,
+        "magnitude": null
       },
       "seventh_house": {
         "name": "Seventh_House",
@@ -415,8 +459,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "eighth_house": {
         "name": "Eighth_House",
@@ -430,8 +475,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 395.77047777170276,
+        "declination": null,
+        "magnitude": null
       },
       "ninth_house": {
         "name": "Ninth_House",
@@ -445,8 +491,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.0038596286,
+        "declination": null,
+        "magnitude": null
       },
       "tenth_house": {
         "name": "Tenth_House",
@@ -460,8 +507,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "eleventh_house": {
         "name": "Eleventh_House",
@@ -475,8 +523,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 403.4195332743098,
+        "declination": null,
+        "magnitude": null
       },
       "twelfth_house": {
         "name": "Twelfth_House",
@@ -490,8 +539,9 @@ Endpoint: `/api/v5/context/birth-chart`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 592.8224430258799,
+        "declination": null,
+        "magnitude": null
       },
       "mean_north_lunar_node": null,
       "true_north_lunar_node": {
@@ -507,7 +557,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 0.023620313546416742,
-        "declination": -15.782161057300584
+        "declination": -15.782161057300584,
+        "magnitude": null
       },
       "mean_south_lunar_node": null,
       "true_south_lunar_node": {
@@ -523,7 +574,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": -0.023620313546416742,
-        "declination": 15.782161057300584
+        "declination": 15.782161057300584,
+        "magnitude": null
       },
       "houses_names_list": [
         "First_House",
@@ -672,7 +724,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 0,
         "p2": 13,
         "p1_speed": 1.0194718530193225,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Applying"
       },
       {
@@ -689,7 +741,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 0,
         "p2": 14,
         "p1_speed": 1.0194718530193225,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Separating"
       },
       {
@@ -706,7 +758,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 0,
         "p2": 15,
         "p1_speed": 1.0194718530193225,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Applying"
       },
       {
@@ -723,7 +775,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 0,
         "p2": 16,
         "p1_speed": 1.0194718530193225,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Separating"
       },
       {
@@ -791,7 +843,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 1,
         "p2": 15,
         "p1_speed": 13.474246761628224,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Separating"
       },
       {
@@ -825,7 +877,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 2,
         "p2": 14,
         "p1_speed": -0.29869641753799797,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Applying"
       },
       {
@@ -842,7 +894,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 2,
         "p2": 16,
         "p1_speed": -0.29869641753799797,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Applying"
       },
       {
@@ -876,7 +928,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 3,
         "p2": 13,
         "p1_speed": -0.13116320676089085,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Separating"
       },
       {
@@ -893,7 +945,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 3,
         "p2": 15,
         "p1_speed": -0.13116320676089085,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Separating"
       },
       {
@@ -995,7 +1047,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 5,
         "p2": 13,
         "p1_speed": -0.13446940517543093,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Separating"
       },
       {
@@ -1012,7 +1064,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 5,
         "p2": 15,
         "p1_speed": -0.13446940517543093,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Separating"
       },
       {
@@ -1114,7 +1166,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 6,
         "p2": 13,
         "p1_speed": 0.1182732159967062,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Applying"
       },
       {
@@ -1131,7 +1183,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 6,
         "p2": 14,
         "p1_speed": 0.1182732159967062,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Separating"
       },
       {
@@ -1148,7 +1200,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 6,
         "p2": 15,
         "p1_speed": 0.1182732159967062,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Applying"
       },
       {
@@ -1165,7 +1217,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 6,
         "p2": 16,
         "p1_speed": 0.1182732159967062,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Separating"
       },
       {
@@ -1216,7 +1268,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 7,
         "p2": 13,
         "p1_speed": 0.06000647223890577,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Separating"
       },
       {
@@ -1233,7 +1285,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 7,
         "p2": 15,
         "p1_speed": 0.06000647223890577,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Separating"
       },
       {
@@ -1301,7 +1353,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 8,
         "p2": 13,
         "p1_speed": 0.03791058838699209,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Applying"
       },
       {
@@ -1318,7 +1370,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 8,
         "p2": 14,
         "p1_speed": 0.03791058838699209,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Separating"
       },
       {
@@ -1335,7 +1387,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 8,
         "p2": 15,
         "p1_speed": 0.03791058838699209,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Applying"
       },
       {
@@ -1352,7 +1404,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 8,
         "p2": 16,
         "p1_speed": 0.03791058838699209,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Separating"
       },
       {
@@ -1420,7 +1472,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 9,
         "p2": 13,
         "p1_speed": 0.027313516048024646,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Applying"
       },
       {
@@ -1437,7 +1489,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 9,
         "p2": 14,
         "p1_speed": 0.027313516048024646,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Applying"
       },
       {
@@ -1454,7 +1506,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 9,
         "p2": 15,
         "p1_speed": 0.027313516048024646,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Applying"
       },
       {
@@ -1471,7 +1523,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 9,
         "p2": 16,
         "p1_speed": 0.027313516048024646,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Applying"
       },
       {
@@ -1505,7 +1557,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 12,
         "p2": 13,
         "p1_speed": -0.0684757434972255,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Applying"
       },
       {
@@ -1522,7 +1574,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 12,
         "p2": 14,
         "p1_speed": -0.0684757434972255,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Separating"
       },
       {
@@ -1539,7 +1591,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 12,
         "p2": 15,
         "p1_speed": -0.0684757434972255,
-        "p2_speed": 360.0,
+        "p2_speed": 677.0295487345279,
         "aspect_movement": "Applying"
       },
       {
@@ -1556,7 +1608,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "p1": 12,
         "p2": 16,
         "p1_speed": -0.0684757434972255,
-        "p2_speed": 360.0,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Separating"
       },
       {
@@ -1589,8 +1641,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "diff": 246.6466416728323,
         "p1": 13,
         "p2": 14,
-        "p1_speed": 360.0,
-        "p2_speed": 360.0,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Static"
       },
       {
@@ -1606,7 +1658,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "diff": 176.25996564511647,
         "p1": 13,
         "p2": 17,
-        "p1_speed": 360.0,
+        "p1_speed": 677.0295487345279,
         "p2_speed": 0.11200484873918631,
         "aspect_movement": "Separating"
       },
@@ -1623,8 +1675,8 @@ Endpoint: `/api/v5/context/birth-chart`
         "diff": 113.35335832716771,
         "p1": 15,
         "p2": 16,
-        "p1_speed": 360.0,
-        "p2_speed": 360.0,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 336.42419571786803,
         "aspect_movement": "Static"
       },
       {
@@ -1640,7 +1692,7 @@ Endpoint: `/api/v5/context/birth-chart`
         "diff": 3.7400343548835338,
         "p1": 15,
         "p2": 17,
-        "p1_speed": 360.0,
+        "p1_speed": 677.0295487345279,
         "p2_speed": 0.11200484873918631,
         "aspect_movement": "Separating"
       }

@@ -2686,6 +2686,66 @@
               }
             ]
           },
+          "vega": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alcyone": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alphecca": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "algorab": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "deneb_algedi": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alkaid": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "pars_fortunae": {
             "anyOf": [
               {
@@ -2895,6 +2955,12 @@
                 "Rigel",
                 "Achernar",
                 "Capella",
+                "Vega",
+                "Alcyone",
+                "Alphecca",
+                "Algorab",
+                "Deneb_Algedi",
+                "Alkaid",
                 "Pars_Fortunae",
                 "Pars_Spiritus",
                 "Pars_Amoris",
@@ -3043,6 +3109,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -3235,6 +3307,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -3575,6 +3653,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -3931,6 +4015,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -4128,6 +4218,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -5117,6 +5213,66 @@
               }
             ]
           },
+          "vega": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alcyone": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alphecca": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "algorab": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "deneb_algedi": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alkaid": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "pars_fortunae": {
             "anyOf": [
               {
@@ -5326,6 +5482,12 @@
                 "Rigel",
                 "Achernar",
                 "Capella",
+                "Vega",
+                "Alcyone",
+                "Alphecca",
+                "Algorab",
+                "Deneb_Algedi",
+                "Alkaid",
                 "Pars_Fortunae",
                 "Pars_Spiritus",
                 "Pars_Amoris",
@@ -5547,6 +5709,12 @@
                 "Rigel",
                 "Achernar",
                 "Capella",
+                "Vega",
+                "Alcyone",
+                "Alphecca",
+                "Algorab",
+                "Deneb_Algedi",
+                "Alkaid",
                 "Pars_Fortunae",
                 "Pars_Spiritus",
                 "Pars_Amoris",
@@ -5749,6 +5917,12 @@
                   "Rigel",
                   "Achernar",
                   "Capella",
+                  "Vega",
+                  "Alcyone",
+                  "Alphecca",
+                  "Algorab",
+                  "Deneb_Algedi",
+                  "Alkaid",
                   "Pars_Fortunae",
                   "Pars_Spiritus",
                   "Pars_Amoris",
@@ -7337,6 +7511,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -8704,6 +8884,66 @@
               }
             ]
           },
+          "vega": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alcyone": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alphecca": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "algorab": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "deneb_algedi": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alkaid": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KerykeionPointModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "pars_fortunae": {
             "anyOf": [
               {
@@ -8913,6 +9153,12 @@
                 "Rigel",
                 "Achernar",
                 "Capella",
+                "Vega",
+                "Alcyone",
+                "Alphecca",
+                "Algorab",
+                "Deneb_Algedi",
+                "Alkaid",
                 "Pars_Fortunae",
                 "Pars_Spiritus",
                 "Pars_Amoris",
@@ -9032,6 +9278,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -9309,6 +9561,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -10238,6 +10496,12 @@
                 "Rigel",
                 "Achernar",
                 "Capella",
+                "Vega",
+                "Alcyone",
+                "Alphecca",
+                "Algorab",
+                "Deneb_Algedi",
+                "Alkaid",
                 "Pars_Fortunae",
                 "Pars_Spiritus",
                 "Pars_Amoris",
@@ -10786,6 +11050,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -10995,6 +11265,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -11352,6 +11628,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",
@@ -11555,6 +11837,12 @@
                     "Rigel",
                     "Achernar",
                     "Capella",
+                    "Vega",
+                    "Alcyone",
+                    "Alphecca",
+                    "Algorab",
+                    "Deneb_Algedi",
+                    "Alkaid",
                     "Pars_Fortunae",
                     "Pars_Spiritus",
                     "Pars_Amoris",

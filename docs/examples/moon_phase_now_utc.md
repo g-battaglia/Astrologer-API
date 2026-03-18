@@ -17,19 +17,19 @@ Endpoint: `/api/v5/moon-phase/now-utc`
 {
   "status": "OK",
   "moon_phase_overview": {
-    "timestamp": 1772140847,
-    "datestamp": "Thu, 26 Feb 2026 21:20:47 +0000",
+    "timestamp": 1773846747,
+    "datestamp": "Wed, 18 Mar 2026 15:12:27 +0000",
     "sun": {
-      "sunrise": 1772088701,
-      "sunrise_timestamp": "06:51",
-      "sunset": 1772127292,
-      "sunset_timestamp": "17:34",
-      "solar_noon": "12:13",
-      "day_length": "10:43",
+      "sunrise": 1773814049,
+      "sunrise_timestamp": "06:07",
+      "sunset": 1773857373,
+      "sunset_timestamp": "18:09",
+      "solar_noon": "12:08",
+      "day_length": "12:02",
       "position": {
-        "altitude": -34.44819401379985,
-        "azimuth": 305.1105015529729,
-        "distance": 148135276.1566846
+        "altitude": 24.898407633291985,
+        "azimuth": 232.6076450908489,
+        "distance": 148905129.11008686
       },
       "next_solar_eclipse": {
         "timestamp": 1786556757,
@@ -39,26 +39,26 @@ Endpoint: `/api/v5/moon-phase/now-utc`
       }
     },
     "moon": {
-      "phase": 0.3368001069667679,
-      "phase_name": "Waxing Gibbous",
-      "major_phase": "First Quarter",
-      "stage": "waxing",
-      "illumination": "76%",
-      "age_days": 25,
-      "lunar_cycle": "33.68%",
-      "emoji": "\ud83c\udf14",
+      "phase": 0.9847884452581449,
+      "phase_name": "Waning Crescent",
+      "major_phase": "New Moon",
+      "stage": "waning",
+      "illumination": "0%",
+      "age_days": 15,
+      "lunar_cycle": "98.479%",
+      "emoji": "\ud83c\udf18",
       "zodiac": {
         "sun_sign": "Pis",
-        "moon_sign": "Can"
+        "moon_sign": "Pis"
       },
       "moonrise": null,
       "moonrise_timestamp": null,
       "moonset": null,
       "moonset_timestamp": null,
       "next_lunar_eclipse": {
-        "timestamp": 1772537622,
-        "datestamp": "Tue, 03 Mar 2026 11:33:42 +0000",
-        "type": "Total Lunar Eclipse",
+        "timestamp": 1787890378,
+        "datestamp": "Fri, 28 Aug 2026 04:12:58 +0000",
+        "type": "Partial Lunar Eclipse",
         "visibility_regions": null
       },
       "detailed": {
@@ -67,81 +67,81 @@ Endpoint: `/api/v5/moon-phase/now-utc`
         "upcoming_phases": {
           "new_moon": {
             "last": {
-              "timestamp": 1769983755,
-              "datestamp": "Sun, 01 Feb 2026 22:09:15 +0000",
-              "days_ago": 25,
+              "timestamp": 1772537875,
+              "datestamp": "Tue, 03 Mar 2026 11:37:55 +0000",
+              "days_ago": 15,
               "days_ahead": null,
               "name": null,
               "description": null
             },
             "next": {
-              "timestamp": 1773883409,
-              "datestamp": "Thu, 19 Mar 2026 01:23:29 +0000",
+              "timestamp": 1776426709,
+              "datestamp": "Fri, 17 Apr 2026 11:51:49 +0000",
               "days_ago": null,
-              "days_ahead": 20,
+              "days_ahead": 30,
               "name": null,
               "description": null
             }
           },
           "first_quarter": {
             "last": {
-              "timestamp": 1770640988,
-              "datestamp": "Mon, 09 Feb 2026 12:43:08 +0000",
-              "days_ago": 17,
+              "timestamp": 1773221910,
+              "datestamp": "Wed, 11 Mar 2026 09:38:30 +0000",
+              "days_ago": 7,
               "days_ahead": null,
               "name": null,
               "description": null
             },
             "next": {
-              "timestamp": 1774466262,
-              "datestamp": "Wed, 25 Mar 2026 19:17:42 +0000",
+              "timestamp": 1774466263,
+              "datestamp": "Wed, 25 Mar 2026 19:17:43 +0000",
               "days_ago": null,
-              "days_ahead": 27,
+              "days_ahead": 7,
               "name": null,
               "description": null
             }
           },
           "full_moon": {
             "last": {
-              "timestamp": 1771329669,
-              "datestamp": "Tue, 17 Feb 2026 12:01:09 +0000",
-              "days_ago": 9,
+              "timestamp": 1773846746,
+              "datestamp": "Wed, 18 Mar 2026 15:12:26 +0000",
+              "days_ago": 0,
               "days_ahead": null,
               "name": null,
               "description": null
             },
             "next": {
-              "timestamp": 1772537875,
-              "datestamp": "Tue, 03 Mar 2026 11:37:55 +0000",
+              "timestamp": 1775095919,
+              "datestamp": "Thu, 02 Apr 2026 02:11:59 +0000",
               "days_ago": null,
-              "days_ahead": 5,
+              "days_ahead": 14,
               "name": null,
               "description": null
             }
           },
           "last_quarter": {
             "last": {
-              "timestamp": 1771936056,
-              "datestamp": "Tue, 24 Feb 2026 12:27:36 +0000",
-              "days_ago": 2,
+              "timestamp": 1771936055,
+              "datestamp": "Tue, 24 Feb 2026 12:27:35 +0000",
+              "days_ago": 22,
               "days_ahead": null,
               "name": null,
               "description": null
             },
             "next": {
-              "timestamp": 1773221910,
-              "datestamp": "Wed, 11 Mar 2026 09:38:30 +0000",
+              "timestamp": 1775796700,
+              "datestamp": "Fri, 10 Apr 2026 04:51:40 +0000",
               "days_ago": null,
-              "days_ahead": 13,
+              "days_ahead": 23,
               "name": null,
               "description": null
             }
           }
         },
         "illumination_details": {
-          "percentage": 76.0,
-          "visible_fraction": 0.7593719951910303,
-          "phase_angle": 121.24803850803644
+          "percentage": 0.0,
+          "visible_fraction": 0.0022820035942130446,
+          "phase_angle": 354.52384029293216
         }
       },
       "events": null

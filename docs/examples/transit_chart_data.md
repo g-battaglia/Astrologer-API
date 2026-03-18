@@ -63,6 +63,7 @@ Endpoint: `/api/v5/chart-data/transit`
       "houses_system_identifier": "P",
       "houses_system_name": "Placidus",
       "perspective_type": "Apparent Geocentric",
+      "ayanamsa_value": null,
       "sun": {
         "name": "Sun",
         "quality": "Cardinal",
@@ -76,7 +77,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 1.0194718530193225,
-        "declination": -23.00013758778064
+        "declination": -23.00013758778064,
+        "magnitude": null
       },
       "moon": {
         "name": "Moon",
@@ -91,7 +93,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 13.474246761628224,
-        "declination": -8.81298773915052
+        "declination": -8.81298773915052,
+        "magnitude": null
       },
       "mercury": {
         "name": "Mercury",
@@ -106,7 +109,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.29869641753799797,
-        "declination": -20.386624033097966
+        "declination": -20.386624033097966,
+        "magnitude": null
       },
       "venus": {
         "name": "Venus",
@@ -121,7 +125,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.13116320676089085,
-        "declination": -16.87318909895181
+        "declination": -16.87318909895181,
+        "magnitude": null
       },
       "mars": {
         "name": "Mars",
@@ -136,7 +141,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.7037680845619482,
-        "declination": -21.987262405889464
+        "declination": -21.987262405889464,
+        "magnitude": null
       },
       "jupiter": {
         "name": "Jupiter",
@@ -151,7 +157,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.13446940517543093,
-        "declination": 23.225447225504062
+        "declination": 23.225447225504062,
+        "magnitude": null
       },
       "saturn": {
         "name": "Saturn",
@@ -166,7 +173,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.1182732159967062,
-        "declination": -22.23201953433409
+        "declination": -22.23201953433409,
+        "magnitude": null
       },
       "uranus": {
         "name": "Uranus",
@@ -181,7 +189,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.06000647223890577,
-        "declination": -23.58567453326483
+        "declination": -23.58567453326483,
+        "magnitude": null
       },
       "neptune": {
         "name": "Neptune",
@@ -196,7 +205,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.03791058838699209,
-        "declination": -22.05313189938615
+        "declination": -22.05313189938615,
+        "magnitude": null
       },
       "pluto": {
         "name": "Pluto",
@@ -211,7 +221,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.027313516048024646,
-        "declination": -2.2485032427412905
+        "declination": -2.2485032427412905,
+        "magnitude": null
       },
       "ascendant": {
         "name": "Ascendant",
@@ -225,8 +236,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "AstrologicalPoint",
         "house": "First_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "descendant": {
         "name": "Descendant",
@@ -240,8 +252,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "AstrologicalPoint",
         "house": "Seventh_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "medium_coeli": {
         "name": "Medium_Coeli",
@@ -255,8 +268,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "AstrologicalPoint",
         "house": "Tenth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "imum_coeli": {
         "name": "Imum_Coeli",
@@ -270,8 +284,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "AstrologicalPoint",
         "house": "Fourth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "chiron": {
         "name": "Chiron",
@@ -286,7 +301,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.0684757434972255,
-        "declination": 15.457339430332224
+        "declination": 15.457339430332224,
+        "magnitude": null
       },
       "earth": null,
       "pholus": null,
@@ -303,7 +319,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Sixth_House",
         "retrograde": false,
         "speed": 0.11200484873918631,
-        "declination": -18.423773159673363
+        "declination": -18.423773159673363,
+        "magnitude": null
       },
       "true_lilith": null,
       "ceres": null,
@@ -319,6 +336,27 @@ Endpoint: `/api/v5/chart-data/transit`
       "quaoar": null,
       "regulus": null,
       "spica": null,
+      "aldebaran": null,
+      "antares": null,
+      "sirius": null,
+      "fomalhaut": null,
+      "algol": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "procyon": null,
+      "arcturus": null,
+      "pollux": null,
+      "deneb": null,
+      "altair": null,
+      "rigel": null,
+      "achernar": null,
+      "capella": null,
+      "vega": null,
+      "alcyone": null,
+      "alphecca": null,
+      "algorab": null,
+      "deneb_algedi": null,
+      "alkaid": null,
       "pars_fortunae": null,
       "pars_spiritus": null,
       "pars_amoris": null,
@@ -337,8 +375,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "second_house": {
         "name": "Second_House",
@@ -352,8 +391,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 395.77047777170276,
+        "declination": null,
+        "magnitude": null
       },
       "third_house": {
         "name": "Third_House",
@@ -367,8 +407,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.0038596286,
+        "declination": null,
+        "magnitude": null
       },
       "fourth_house": {
         "name": "Fourth_House",
@@ -382,8 +423,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "fifth_house": {
         "name": "Fifth_House",
@@ -397,8 +439,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 403.4195332743098,
+        "declination": null,
+        "magnitude": null
       },
       "sixth_house": {
         "name": "Sixth_House",
@@ -412,8 +455,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 592.8224430258799,
+        "declination": null,
+        "magnitude": null
       },
       "seventh_house": {
         "name": "Seventh_House",
@@ -427,8 +471,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "eighth_house": {
         "name": "Eighth_House",
@@ -442,8 +487,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 395.77047777170276,
+        "declination": null,
+        "magnitude": null
       },
       "ninth_house": {
         "name": "Ninth_House",
@@ -457,8 +503,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.0038596286,
+        "declination": null,
+        "magnitude": null
       },
       "tenth_house": {
         "name": "Tenth_House",
@@ -472,8 +519,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "eleventh_house": {
         "name": "Eleventh_House",
@@ -487,8 +535,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 403.4195332743098,
+        "declination": null,
+        "magnitude": null
       },
       "twelfth_house": {
         "name": "Twelfth_House",
@@ -502,8 +551,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 592.8224430258799,
+        "declination": null,
+        "magnitude": null
       },
       "mean_north_lunar_node": null,
       "true_north_lunar_node": {
@@ -519,7 +569,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 0.023620313546416742,
-        "declination": -15.782161057300584
+        "declination": -15.782161057300584,
+        "magnitude": null
       },
       "mean_south_lunar_node": null,
       "true_south_lunar_node": {
@@ -535,7 +586,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": -0.023620313546416742,
-        "declination": 15.782161057300584
+        "declination": 15.782161057300584,
+        "magnitude": null
       },
       "houses_names_list": [
         "First_House",
@@ -600,6 +652,7 @@ Endpoint: `/api/v5/chart-data/transit`
       "houses_system_identifier": "P",
       "houses_system_name": "Placidus",
       "perspective_type": "Apparent Geocentric",
+      "ayanamsa_value": null,
       "sun": {
         "name": "Sun",
         "quality": "Cardinal",
@@ -613,7 +666,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Fourth_House",
         "retrograde": false,
         "speed": 1.0189784150133996,
-        "declination": -23.058469645092828
+        "declination": -23.058469645092828,
+        "magnitude": null
       },
       "moon": {
         "name": "Moon",
@@ -628,7 +682,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 11.848403402282583,
-        "declination": 12.627697748938205
+        "declination": 12.627697748938205,
+        "magnitude": null
       },
       "mercury": {
         "name": "Mercury",
@@ -643,7 +698,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.18024888768276492,
-        "declination": -20.153648499123378
+        "declination": -20.153648499123378,
+        "magnitude": null
       },
       "venus": {
         "name": "Venus",
@@ -658,7 +714,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Second_House",
         "retrograde": false,
         "speed": 1.215994704278055,
-        "declination": -18.769281167229988
+        "declination": -18.769281167229988,
+        "magnitude": null
       },
       "mars": {
         "name": "Mars",
@@ -673,7 +730,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Third_House",
         "retrograde": false,
         "speed": 0.7414166472858119,
-        "declination": -23.961395821609738
+        "declination": -23.961395821609738,
+        "magnitude": null
       },
       "jupiter": {
         "name": "Jupiter",
@@ -688,7 +746,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Eighth_House",
         "retrograde": false,
         "speed": 0.003072689905396688,
-        "declination": 12.263996580170174
+        "declination": 12.263996580170174,
+        "magnitude": null
       },
       "saturn": {
         "name": "Saturn",
@@ -703,7 +762,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": 0.08846956521285367,
-        "declination": -11.839074068871083
+        "declination": -11.839074068871083,
+        "magnitude": null
       },
       "uranus": {
         "name": "Uranus",
@@ -718,7 +778,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Eighth_House",
         "retrograde": true,
         "speed": -0.02189582659391066,
-        "declination": 17.279378439765445
+        "declination": 17.279378439765445,
+        "magnitude": null
       },
       "neptune": {
         "name": "Neptune",
@@ -733,7 +794,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Sixth_House",
         "retrograde": false,
         "speed": 0.014553244550974235,
-        "declination": -3.0922172580197613
+        "declination": -3.0922172580197613,
+        "magnitude": null
       },
       "pluto": {
         "name": "Pluto",
@@ -748,7 +810,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Fourth_House",
         "retrograde": false,
         "speed": 0.031013809560585283,
-        "declination": -22.990178711845644
+        "declination": -22.990178711845644,
+        "magnitude": null
       },
       "ascendant": {
         "name": "Ascendant",
@@ -762,8 +825,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "AstrologicalPoint",
         "house": "First_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 254.42720693779913,
+        "declination": null,
+        "magnitude": null
       },
       "descendant": {
         "name": "Descendant",
@@ -777,8 +841,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "AstrologicalPoint",
         "house": "Seventh_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 254.42720693779913,
+        "declination": null,
+        "magnitude": null
       },
       "medium_coeli": {
         "name": "Medium_Coeli",
@@ -792,8 +857,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "AstrologicalPoint",
         "house": "Tenth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 332.7951637930662,
+        "declination": null,
+        "magnitude": null
       },
       "imum_coeli": {
         "name": "Imum_Coeli",
@@ -807,8 +873,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "AstrologicalPoint",
         "house": "Fourth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 332.7951637930662,
+        "declination": null,
+        "magnitude": null
       },
       "chiron": {
         "name": "Chiron",
@@ -823,7 +890,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.004459240144112464,
-        "declination": 7.339868947892404
+        "declination": 7.339868947892404,
+        "magnitude": null
       },
       "earth": null,
       "pholus": null,
@@ -840,7 +908,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 0.1113052384989797,
-        "declination": 10.951800840238558
+        "declination": 10.951800840238558,
+        "magnitude": null
       },
       "true_lilith": null,
       "ceres": null,
@@ -856,6 +925,27 @@ Endpoint: `/api/v5/chart-data/transit`
       "quaoar": null,
       "regulus": null,
       "spica": null,
+      "aldebaran": null,
+      "antares": null,
+      "sirius": null,
+      "fomalhaut": null,
+      "algol": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "procyon": null,
+      "arcturus": null,
+      "pollux": null,
+      "deneb": null,
+      "altair": null,
+      "rigel": null,
+      "achernar": null,
+      "capella": null,
+      "vega": null,
+      "alcyone": null,
+      "alphecca": null,
+      "algorab": null,
+      "deneb_algedi": null,
+      "alkaid": null,
       "pars_fortunae": null,
       "pars_spiritus": null,
       "pars_amoris": null,
@@ -874,8 +964,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 254.42720693779913,
+        "declination": null,
+        "magnitude": null
       },
       "second_house": {
         "name": "Second_House",
@@ -889,8 +980,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 284.23628296465046,
+        "declination": null,
+        "magnitude": null
       },
       "third_house": {
         "name": "Third_House",
@@ -904,8 +996,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 314.7964438333504,
+        "declination": null,
+        "magnitude": null
       },
       "fourth_house": {
         "name": "Fourth_House",
@@ -919,8 +1012,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.7951637930662,
+        "declination": null,
+        "magnitude": null
       },
       "fifth_house": {
         "name": "Fifth_House",
@@ -934,8 +1028,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 318.3473706157241,
+        "declination": null,
+        "magnitude": null
       },
       "sixth_house": {
         "name": "Sixth_House",
@@ -949,8 +1044,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 287.17691941113276,
+        "declination": null,
+        "magnitude": null
       },
       "seventh_house": {
         "name": "Seventh_House",
@@ -964,8 +1060,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 254.42720693779913,
+        "declination": null,
+        "magnitude": null
       },
       "eighth_house": {
         "name": "Eighth_House",
@@ -979,8 +1076,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 284.23628296465046,
+        "declination": null,
+        "magnitude": null
       },
       "ninth_house": {
         "name": "Ninth_House",
@@ -994,8 +1092,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 314.7964438333504,
+        "declination": null,
+        "magnitude": null
       },
       "tenth_house": {
         "name": "Tenth_House",
@@ -1009,8 +1108,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.7951637930662,
+        "declination": null,
+        "magnitude": null
       },
       "eleventh_house": {
         "name": "Eleventh_House",
@@ -1024,8 +1124,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 318.3473706157241,
+        "declination": null,
+        "magnitude": null
       },
       "twelfth_house": {
         "name": "Twelfth_House",
@@ -1039,8 +1140,9 @@ Endpoint: `/api/v5/chart-data/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 287.17691941113276,
+        "declination": null,
+        "magnitude": null
       },
       "mean_north_lunar_node": null,
       "true_north_lunar_node": {
@@ -1056,7 +1158,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "Seventh_House",
         "retrograde": true,
         "speed": -0.10091674259483031,
-        "declination": 8.224464309293955
+        "declination": 8.224464309293955,
+        "magnitude": null
       },
       "mean_south_lunar_node": null,
       "true_south_lunar_node": {
@@ -1072,7 +1175,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "house": "First_House",
         "retrograde": true,
         "speed": 0.10091674259483031,
-        "declination": -8.224464309293955
+        "declination": -8.224464309293955,
+        "magnitude": null
       },
       "houses_names_list": [
         "First_House",
@@ -1204,7 +1308,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 0,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -1221,7 +1325,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 0,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -1238,7 +1342,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 0,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -1255,7 +1359,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 0,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -1374,7 +1478,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 1,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -1391,7 +1495,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 1,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -1493,7 +1597,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 2,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -1578,7 +1682,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 3,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -1595,7 +1699,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 3,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -1663,7 +1767,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 4,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -1680,7 +1784,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 4,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -1799,7 +1903,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 5,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -1816,7 +1920,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 5,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -1833,7 +1937,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 5,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -1850,7 +1954,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 5,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -1935,7 +2039,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 6,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -1952,7 +2056,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 6,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2071,7 +2175,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 7,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -2088,7 +2192,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 7,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -2105,7 +2209,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 7,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -2122,7 +2226,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 7,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -2241,7 +2345,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 8,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -2258,7 +2362,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 8,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2275,7 +2379,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 8,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -2292,7 +2396,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 8,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2394,7 +2498,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 9,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2547,7 +2651,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 12,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2564,7 +2668,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 12,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2665,8 +2769,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "diff": 59.00483594071083,
         "p1": 13,
         "p2": 14,
-        "p1_speed": 0.0,
-        "p2_speed": -0.02189582659391066,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -2682,8 +2786,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "diff": 239.00483594071085,
         "p1": 13,
         "p2": 16,
-        "p1_speed": 0.0,
-        "p2_speed": -0.02189582659391066,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -2784,8 +2888,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "diff": 187.64180573212147,
         "p1": 14,
         "p2": 14,
-        "p1_speed": 0.0,
-        "p2_speed": 0.004459240144112464,
+        "p1_speed": 336.42419571786803,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -2801,8 +2905,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "diff": 7.6418057321214405,
         "p1": 14,
         "p2": 16,
-        "p1_speed": 0.0,
-        "p2_speed": 0.004459240144112464,
+        "p1_speed": 336.42419571786803,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -2937,8 +3041,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "diff": 120.99516405928918,
         "p1": 15,
         "p2": 14,
-        "p1_speed": 0.0,
-        "p2_speed": -0.02189582659391066,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -2954,8 +3058,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "diff": 59.00483594071085,
         "p1": 15,
         "p2": 16,
-        "p1_speed": 0.0,
-        "p2_speed": -0.02189582659391066,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -3073,8 +3177,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "diff": 7.641805732121469,
         "p1": 16,
         "p2": 14,
-        "p1_speed": 0.0,
-        "p2_speed": 0.004459240144112464,
+        "p1_speed": 336.42419571786803,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -3090,8 +3194,8 @@ Endpoint: `/api/v5/chart-data/transit`
         "diff": 172.35819426787856,
         "p1": 16,
         "p2": 16,
-        "p1_speed": 0.0,
-        "p2_speed": 0.004459240144112464,
+        "p1_speed": 336.42419571786803,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -3193,7 +3297,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 17,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -3210,7 +3314,7 @@ Endpoint: `/api/v5/chart-data/transit`
         "p1": 17,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {

@@ -45,7 +45,7 @@ Endpoint: `/api/v5/context/transit`
 ```json
 {
   "status": "OK",
-  "context": "<chart_analysis type=\"Transit\">\n  <first_subject>\n    <chart name=\"John Doe\">\n      <birth_data date=\"1990-01-01 12:30\" city=\"London\" nation=\"GB\" lat=\"51.51\" lng=\"-0.13\" lng_dir=\"W\" tz=\"Europe/London\" />\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <planets>\n        <point name=\"Sun\" position=\"10.84\" sign=\"Capricorn\" abs_pos=\"280.84\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"1.0195\" declination=\"-23.00\" />\n        <point name=\"Moon\" position=\"3.55\" sign=\"Pisces\" abs_pos=\"333.55\" quality=\"Mutable\" element=\"Water\" house=\"Eleventh House\" motion=\"direct\" speed=\"13.4742\" declination=\"-8.81\" />\n        <point name=\"Mercury\" position=\"25.67\" sign=\"Capricorn\" abs_pos=\"295.67\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.2987\" declination=\"-20.39\" />\n        <point name=\"Venus\" position=\"6.22\" sign=\"Aquarius\" abs_pos=\"306.22\" quality=\"Fixed\" element=\"Air\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.1312\" declination=\"-16.87\" />\n        <point name=\"Mars\" position=\"10.01\" sign=\"Sagittarius\" abs_pos=\"250.01\" quality=\"Mutable\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.7038\" declination=\"-21.99\" />\n        <point name=\"Jupiter\" position=\"5.15\" sign=\"Cancer\" abs_pos=\"95.15\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.1345\" declination=\"23.23\" />\n        <point name=\"Saturn\" position=\"15.66\" sign=\"Capricorn\" abs_pos=\"285.66\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.1183\" declination=\"-22.23\" />\n        <point name=\"Uranus\" position=\"5.79\" sign=\"Capricorn\" abs_pos=\"275.79\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0600\" declination=\"-23.59\" />\n        <point name=\"Neptune\" position=\"12.04\" sign=\"Capricorn\" abs_pos=\"282.04\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0379\" declination=\"-22.05\" />\n        <point name=\"Pluto\" position=\"17.09\" sign=\"Scorpio\" abs_pos=\"227.09\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0273\" declination=\"-2.25\" />\n        <point name=\"Chiron\" position=\"13.81\" sign=\"Cancer\" abs_pos=\"103.81\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.0685\" declination=\"15.46\" />\n        <point name=\"Mean_Lilith\" position=\"6.47\" sign=\"Scorpio\" abs_pos=\"216.47\" quality=\"Fixed\" element=\"Water\" house=\"Sixth House\" motion=\"direct\" speed=\"0.1120\" declination=\"-18.42\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"10.21\" sign=\"Taurus\" abs_pos=\"40.21\" quality=\"Fixed\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Descendant\" position=\"10.21\" sign=\"Scorpio\" abs_pos=\"220.21\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Medium_Coeli\" position=\"16.85\" sign=\"Capricorn\" abs_pos=\"286.85\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Imum_Coeli\" position=\"16.85\" sign=\"Cancer\" abs_pos=\"106.85\" quality=\"Cardinal\" element=\"Water\" house=\"Fourth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"True_North_Lunar_Node\" position=\"16.87\" sign=\"Aquarius\" abs_pos=\"316.87\" quality=\"Fixed\" element=\"Air\" house=\"Eleventh House\" motion=\"direct\" speed=\"0.0236\" declination=\"-15.78\" />\n        <point name=\"True_South_Lunar_Node\" position=\"16.87\" sign=\"Leo\" abs_pos=\"136.87\" quality=\"Fixed\" element=\"Fire\" house=\"Fifth House\" motion=\"direct\" speed=\"-0.0236\" declination=\"15.78\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"10.21\" sign=\"Taurus\" />\n        <house name=\"Second_House\" cusp=\"10.24\" sign=\"Gemini\" />\n        <house name=\"Third_House\" cusp=\"29.34\" sign=\"Gemini\" />\n        <house name=\"Fourth_House\" cusp=\"16.85\" sign=\"Cancer\" />\n        <house name=\"Fifth_House\" cusp=\"7.64\" sign=\"Leo\" />\n        <house name=\"Sixth_House\" cusp=\"10.18\" sign=\"Virgo\" />\n        <house name=\"Seventh_House\" cusp=\"10.21\" sign=\"Scorpio\" />\n        <house name=\"Eighth_House\" cusp=\"10.24\" sign=\"Sagittarius\" />\n        <house name=\"Ninth_House\" cusp=\"29.34\" sign=\"Sagittarius\" />\n        <house name=\"Tenth_House\" cusp=\"16.85\" sign=\"Capricorn\" />\n        <house name=\"Eleventh_House\" cusp=\"7.64\" sign=\"Aquarius\" />\n        <house name=\"Twelfth_House\" cusp=\"10.18\" sign=\"Pisces\" />\n      </houses>\n      <lunar_phase name=\"Waxing Crescent\" phase=\"5\" degrees_between=\"52.71\" emoji=\"\ud83c\udf12\" />\n    </chart>\n  </first_subject>\n  <transit_subject>\n    <chart name=\"Transit Moment\">\n      <transit_data date=\"2024-01-01 00:00\" city=\"London\" nation=\"GB\" lat=\"51.51\" lng=\"-0.13\" lng_dir=\"W\" tz=\"Europe/London\" />\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <planets>\n        <point name=\"Sun\" position=\"10.04\" sign=\"Capricorn\" abs_pos=\"280.04\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"direct\" speed=\"1.0190\" declination=\"-23.06\" />\n        <point name=\"Moon\" position=\"5.99\" sign=\"Virgo\" abs_pos=\"155.99\" quality=\"Mutable\" element=\"Earth\" house=\"Eleventh House\" motion=\"direct\" speed=\"11.8484\" declination=\"12.63\" />\n        <point name=\"Mercury\" position=\"22.28\" sign=\"Sagittarius\" abs_pos=\"262.28\" quality=\"Mutable\" element=\"Fire\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.1802\" declination=\"-20.15\" />\n        <point name=\"Venus\" position=\"2.61\" sign=\"Sagittarius\" abs_pos=\"242.61\" quality=\"Mutable\" element=\"Fire\" house=\"Second House\" motion=\"direct\" speed=\"1.2160\" declination=\"-18.77\" />\n        <point name=\"Mars\" position=\"27.31\" sign=\"Sagittarius\" abs_pos=\"267.31\" quality=\"Mutable\" element=\"Fire\" house=\"Third House\" motion=\"direct\" speed=\"0.7414\" declination=\"-23.96\" />\n        <point name=\"Jupiter\" position=\"5.58\" sign=\"Taurus\" abs_pos=\"35.58\" quality=\"Fixed\" element=\"Earth\" house=\"Eighth House\" motion=\"direct\" speed=\"0.0031\" declination=\"12.26\" />\n        <point name=\"Saturn\" position=\"3.24\" sign=\"Pisces\" abs_pos=\"333.24\" quality=\"Mutable\" element=\"Water\" house=\"Fifth House\" motion=\"direct\" speed=\"0.0885\" declination=\"-11.84\" />\n        <point name=\"Uranus\" position=\"19.38\" sign=\"Taurus\" abs_pos=\"49.38\" quality=\"Fixed\" element=\"Earth\" house=\"Eighth House\" motion=\"retrograde\" speed=\"-0.0219\" declination=\"17.28\" />\n        <point name=\"Neptune\" position=\"25.08\" sign=\"Pisces\" abs_pos=\"355.08\" quality=\"Mutable\" element=\"Water\" house=\"Sixth House\" motion=\"direct\" speed=\"0.0146\" declination=\"-3.09\" />\n        <point name=\"Pluto\" position=\"29.36\" sign=\"Capricorn\" abs_pos=\"299.36\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"direct\" speed=\"0.0310\" declination=\"-22.99\" />\n        <point name=\"Chiron\" position=\"15.46\" sign=\"Aries\" abs_pos=\"15.46\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0045\" declination=\"7.34\" />\n        <point name=\"Mean_Lilith\" position=\"9.97\" sign=\"Virgo\" abs_pos=\"159.97\" quality=\"Mutable\" element=\"Earth\" house=\"Eleventh House\" motion=\"direct\" speed=\"0.1113\" declination=\"10.95\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"7.07\" sign=\"Libra\" abs_pos=\"187.07\" quality=\"Cardinal\" element=\"Air\" house=\"First House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Descendant\" position=\"7.07\" sign=\"Aries\" abs_pos=\"7.07\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Medium_Coeli\" position=\"9.21\" sign=\"Cancer\" abs_pos=\"99.21\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Imum_Coeli\" position=\"9.21\" sign=\"Capricorn\" abs_pos=\"279.21\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"True_North_Lunar_Node\" position=\"21.08\" sign=\"Aries\" abs_pos=\"21.08\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"retrograde\" speed=\"-0.1009\" declination=\"8.22\" />\n        <point name=\"True_South_Lunar_Node\" position=\"21.08\" sign=\"Libra\" abs_pos=\"201.08\" quality=\"Cardinal\" element=\"Air\" house=\"First House\" motion=\"retrograde\" speed=\"0.1009\" declination=\"-8.22\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"7.07\" sign=\"Libra\" />\n        <house name=\"Second_House\" cusp=\"1.77\" sign=\"Scorpio\" />\n        <house name=\"Third_House\" cusp=\"2.64\" sign=\"Sagittarius\" />\n        <house name=\"Fourth_House\" cusp=\"9.21\" sign=\"Capricorn\" />\n        <house name=\"Fifth_House\" cusp=\"14.80\" sign=\"Aquarius\" />\n        <house name=\"Sixth_House\" cusp=\"14.06\" sign=\"Pisces\" />\n        <house name=\"Seventh_House\" cusp=\"7.07\" sign=\"Aries\" />\n        <house name=\"Eighth_House\" cusp=\"1.77\" sign=\"Taurus\" />\n        <house name=\"Ninth_House\" cusp=\"2.64\" sign=\"Gemini\" />\n        <house name=\"Tenth_House\" cusp=\"9.21\" sign=\"Cancer\" />\n        <house name=\"Eleventh_House\" cusp=\"14.80\" sign=\"Leo\" />\n        <house name=\"Twelfth_House\" cusp=\"14.06\" sign=\"Virgo\" />\n      </houses>\n      <lunar_phase name=\"Waning Gibbous\" phase=\"19\" degrees_between=\"235.95\" emoji=\"\ud83c\udf16\" />\n    </chart>\n  </transit_subject>\n  <aspects count=\"129\">\n    <aspect type=\"conjunction\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"0.80\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"4.84\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"5.25\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"4.63\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"3.77\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"1.62\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"3.77\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"1.62\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"0.86\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"2.44\" angle=\"180\" />\n    <aspect type=\"quintile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"Transit\" orb=\"0.73\" angle=\"72\" />\n    <aspect type=\"square\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"Transit\" orb=\"0.94\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"2.03\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"Transit\" orb=\"0.30\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"5.66\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"5.66\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"6.42\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"6.28\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Neptune\" p2_owner=\"Transit\" orb=\"0.59\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"Transit\" orb=\"3.69\" angle=\"0\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.59\" angle=\"90\" />\n    <aspect type=\"quintile\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"0.60\" angle=\"72\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.59\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"Transit\" orb=\"3.61\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"0.64\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"Transit\" orb=\"6.86\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"0.85\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"0.85\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"4.02\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"Transit\" orb=\"7.40\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"5.45\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"2.95\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"2.95\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"0.04\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"4.89\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"0.85\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Mars\" p2_owner=\"Transit\" orb=\"7.84\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"0.44\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"Transit\" orb=\"1.90\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"1.92\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"4.07\" angle=\"0\" />\n    <aspect type=\"square\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"1.92\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"4.07\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"4.83\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"5.62\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"3.72\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"0.20\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"6.45\" angle=\"180\" />\n    <aspect type=\"conjunction\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"6.45\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"5.69\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"4.25\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"0.21\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Mars\" p2_owner=\"Transit\" orb=\"8.48\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"0.20\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"Transit\" orb=\"2.54\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"1.28\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"3.42\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"1.28\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"3.42\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"4.19\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"2.00\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"6.05\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"6.46\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"7.35\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"3.42\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"4.97\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"2.83\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"4.97\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"2.83\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"2.07\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"0.90\" angle=\"72\" />\n    <aspect type=\"opposition\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"2.29\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Neptune\" p2_owner=\"Transit\" orb=\"7.98\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"Transit\" orb=\"0.26\" angle=\"72\" />\n    <aspect type=\"trine\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"7.88\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"Transit\" orb=\"5.41\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"2.51\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"1.41\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"3.77\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"5.57\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"1.65\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"4.60\" angle=\"0\" />\n    <aspect type=\"opposition\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"4.60\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"3.84\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"0.17\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"4.62\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"9.18\" angle=\"0\" />\n    <aspect type=\"sextile\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"1.00\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"1.00\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"0.23\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"6.81\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"2.53\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.23\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"1.39\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"7.64\" angle=\"180\" />\n    <aspect type=\"conjunction\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"7.64\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"6.88\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.23\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"0.17\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"4.62\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"Transit\" orb=\"6.96\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"9.18\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"1.00\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"1.00\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"0.23\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"6.81\" angle=\"180\" />\n    <aspect type=\"quintile\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"0.73\" angle=\"72\" />\n    <aspect type=\"sextile\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"2.53\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.23\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"1.39\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"7.64\" angle=\"0\" />\n    <aspect type=\"opposition\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"7.64\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.23\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"3.57\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"0.47\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"0.88\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"Transit\" orb=\"3.22\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"2.74\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"2.74\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"3.51\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"Transit\" orb=\"5.41\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"2.51\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"1.41\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"60\" />\n  </aspects>\n  <house_overlay>\n    <first_points_in_second subject=\"John Doe\" target=\"Transit Moment\">\n      <point_in_house point_name=\"Sun\" point_owner=\"John Doe\" degree=\"10.84\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"John Doe\" degree=\"3.55\" sign=\"Pis\" owner_house=\"Eleventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"John Doe\" degree=\"25.67\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"John Doe\" degree=\"6.22\" sign=\"Aqu\" owner_house=\"Tenth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"John Doe\" degree=\"10.01\" sign=\"Sag\" owner_house=\"Seventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"John Doe\" degree=\"5.15\" sign=\"Can\" owner_house=\"Third_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"John Doe\" degree=\"15.66\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"John Doe\" degree=\"5.79\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Third_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"John Doe\" degree=\"12.04\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"John Doe\" degree=\"17.09\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Second_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"John Doe\" degree=\"16.87\" sign=\"Aqu\" owner_house=\"Eleventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"John Doe\" degree=\"16.87\" sign=\"Leo\" owner_house=\"Fifth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"John Doe\" degree=\"6.47\" sign=\"Sco\" owner_house=\"Sixth_House\" projected_house=\"Second_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"John Doe\" degree=\"13.81\" sign=\"Can\" owner_house=\"Third_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Tau\" owner_house=\"First_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Second_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Can\" owner_house=\"Fourth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Transit Moment\" />\n    </first_points_in_second>\n    <second_points_in_first subject=\"Transit\" target=\"John Doe\">\n      <point_in_house point_name=\"Sun\" point_owner=\"Transit Moment\" degree=\"10.04\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"Transit Moment\" degree=\"5.99\" sign=\"Vir\" owner_house=\"Eleventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"Transit Moment\" degree=\"22.28\" sign=\"Sag\" owner_house=\"Third_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"Transit Moment\" degree=\"2.61\" sign=\"Sag\" owner_house=\"Second_House\" projected_house=\"Seventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"Transit Moment\" degree=\"27.31\" sign=\"Sag\" owner_house=\"Third_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"Transit Moment\" degree=\"5.58\" sign=\"Tau\" owner_house=\"Eighth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"Transit Moment\" degree=\"3.24\" sign=\"Pis\" owner_house=\"Fifth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"Transit Moment\" degree=\"19.38\" sign=\"Tau\" owner_house=\"Eighth_House\" projected_house=\"First_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"Transit Moment\" degree=\"25.08\" sign=\"Pis\" owner_house=\"Sixth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"Transit Moment\" degree=\"29.36\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"Transit Moment\" degree=\"21.08\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"Transit Moment\" degree=\"21.08\" sign=\"Lib\" owner_house=\"First_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"Transit Moment\" degree=\"9.97\" sign=\"Vir\" owner_house=\"Eleventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"Transit Moment\" degree=\"15.46\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"Transit Moment\" degree=\"7.07\" sign=\"Lib\" owner_house=\"First_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"Transit Moment\" degree=\"9.21\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Third_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"Transit Moment\" degree=\"7.07\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"Transit Moment\" degree=\"9.21\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"John Doe\" />\n    </second_points_in_first>\n    <first_cusps_in_second subject=\"John Doe\" target=\"Transit\">\n      <point_in_house point_name=\"First_House\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Tau\" owner_house=\"First_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"John Doe\" degree=\"10.24\" sign=\"Gem\" owner_house=\"Second_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"John Doe\" degree=\"29.34\" sign=\"Gem\" owner_house=\"Third_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Can\" owner_house=\"Fourth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"John Doe\" degree=\"7.64\" sign=\"Leo\" owner_house=\"Fifth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"John Doe\" degree=\"10.18\" sign=\"Vir\" owner_house=\"Sixth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Second_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"John Doe\" degree=\"10.24\" sign=\"Sag\" owner_house=\"Eighth_House\" projected_house=\"Third_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"John Doe\" degree=\"29.34\" sign=\"Sag\" owner_house=\"Ninth_House\" projected_house=\"Third_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"John Doe\" degree=\"7.64\" sign=\"Aqu\" owner_house=\"Eleventh_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"John Doe\" degree=\"10.18\" sign=\"Pis\" owner_house=\"Twelfth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Transit Moment\" />\n    </first_cusps_in_second>\n    <second_cusps_in_first subject=\"Transit\" target=\"John Doe\">\n      <point_in_house point_name=\"First_House\" point_owner=\"Transit Moment\" degree=\"7.07\" sign=\"Lib\" owner_house=\"First_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"Transit Moment\" degree=\"1.77\" sign=\"Sco\" owner_house=\"Second_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"Transit Moment\" degree=\"2.64\" sign=\"Sag\" owner_house=\"Third_House\" projected_house=\"Seventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"Transit Moment\" degree=\"9.21\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"Transit Moment\" degree=\"14.80\" sign=\"Aqu\" owner_house=\"Fifth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"Transit Moment\" degree=\"14.06\" sign=\"Pis\" owner_house=\"Sixth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"Transit Moment\" degree=\"7.07\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"Transit Moment\" degree=\"1.77\" sign=\"Tau\" owner_house=\"Eighth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"Transit Moment\" degree=\"2.64\" sign=\"Gem\" owner_house=\"Ninth_House\" projected_house=\"First_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"Transit Moment\" degree=\"9.21\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Third_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"Transit Moment\" degree=\"14.80\" sign=\"Leo\" owner_house=\"Eleventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"Transit Moment\" degree=\"14.06\" sign=\"Vir\" owner_house=\"Twelfth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n    </second_cusps_in_first>\n  </house_overlay>\n  <element_distribution fire=\"10%\" earth=\"43%\" air=\"10%\" water=\"37%\" />\n  <quality_distribution cardinal=\"49%\" fixed=\"34%\" mutable=\"17%\" />\n  <active_points>Ascendant, Chiron, Descendant, Imum_Coeli, Jupiter, Mars, Mean_Lilith, Medium_Coeli, Mercury, Moon, Neptune, Pluto, Saturn, Sun, True_North_Lunar_Node, True_South_Lunar_Node, Uranus, Venus</active_points>\n  <active_aspects>conjunction (10), opposition (10), trine (8), sextile (6), square (5), quintile (1)</active_aspects>\n</chart_analysis>",
+  "context": "<chart_analysis type=\"Transit\">\n  <first_subject>\n    <chart name=\"John Doe\">\n      <birth_data date=\"1990-01-01 12:30\" city=\"London\" nation=\"GB\" lat=\"51.51\" lng=\"-0.13\" lng_dir=\"W\" tz=\"Europe/London\" />\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <planets>\n        <point name=\"Sun\" position=\"10.84\" sign=\"Capricorn\" abs_pos=\"280.84\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"1.0195\" declination=\"-23.00\" />\n        <point name=\"Moon\" position=\"3.55\" sign=\"Pisces\" abs_pos=\"333.55\" quality=\"Mutable\" element=\"Water\" house=\"Eleventh House\" motion=\"direct\" speed=\"13.4742\" declination=\"-8.81\" />\n        <point name=\"Mercury\" position=\"25.67\" sign=\"Capricorn\" abs_pos=\"295.67\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.2987\" declination=\"-20.39\" />\n        <point name=\"Venus\" position=\"6.22\" sign=\"Aquarius\" abs_pos=\"306.22\" quality=\"Fixed\" element=\"Air\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.1312\" declination=\"-16.87\" />\n        <point name=\"Mars\" position=\"10.01\" sign=\"Sagittarius\" abs_pos=\"250.01\" quality=\"Mutable\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.7038\" declination=\"-21.99\" />\n        <point name=\"Jupiter\" position=\"5.15\" sign=\"Cancer\" abs_pos=\"95.15\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.1345\" declination=\"23.23\" />\n        <point name=\"Saturn\" position=\"15.66\" sign=\"Capricorn\" abs_pos=\"285.66\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.1183\" declination=\"-22.23\" />\n        <point name=\"Uranus\" position=\"5.79\" sign=\"Capricorn\" abs_pos=\"275.79\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0600\" declination=\"-23.59\" />\n        <point name=\"Neptune\" position=\"12.04\" sign=\"Capricorn\" abs_pos=\"282.04\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0379\" declination=\"-22.05\" />\n        <point name=\"Pluto\" position=\"17.09\" sign=\"Scorpio\" abs_pos=\"227.09\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0273\" declination=\"-2.25\" />\n        <point name=\"Chiron\" position=\"13.81\" sign=\"Cancer\" abs_pos=\"103.81\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.0685\" declination=\"15.46\" />\n        <point name=\"Mean_Lilith\" position=\"6.47\" sign=\"Scorpio\" abs_pos=\"216.47\" quality=\"Fixed\" element=\"Water\" house=\"Sixth House\" motion=\"direct\" speed=\"0.1120\" declination=\"-18.42\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"10.21\" sign=\"Taurus\" abs_pos=\"40.21\" quality=\"Fixed\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"677.0295\" />\n        <point name=\"Descendant\" position=\"10.21\" sign=\"Scorpio\" abs_pos=\"220.21\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"677.0295\" />\n        <point name=\"Medium_Coeli\" position=\"16.85\" sign=\"Capricorn\" abs_pos=\"286.85\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"direct\" speed=\"336.4242\" />\n        <point name=\"Imum_Coeli\" position=\"16.85\" sign=\"Cancer\" abs_pos=\"106.85\" quality=\"Cardinal\" element=\"Water\" house=\"Fourth House\" motion=\"direct\" speed=\"336.4242\" />\n        <point name=\"True_North_Lunar_Node\" position=\"16.87\" sign=\"Aquarius\" abs_pos=\"316.87\" quality=\"Fixed\" element=\"Air\" house=\"Eleventh House\" motion=\"direct\" speed=\"0.0236\" declination=\"-15.78\" />\n        <point name=\"True_South_Lunar_Node\" position=\"16.87\" sign=\"Leo\" abs_pos=\"136.87\" quality=\"Fixed\" element=\"Fire\" house=\"Fifth House\" motion=\"direct\" speed=\"-0.0236\" declination=\"15.78\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"10.21\" sign=\"Taurus\" />\n        <house name=\"Second_House\" cusp=\"10.24\" sign=\"Gemini\" />\n        <house name=\"Third_House\" cusp=\"29.34\" sign=\"Gemini\" />\n        <house name=\"Fourth_House\" cusp=\"16.85\" sign=\"Cancer\" />\n        <house name=\"Fifth_House\" cusp=\"7.64\" sign=\"Leo\" />\n        <house name=\"Sixth_House\" cusp=\"10.18\" sign=\"Virgo\" />\n        <house name=\"Seventh_House\" cusp=\"10.21\" sign=\"Scorpio\" />\n        <house name=\"Eighth_House\" cusp=\"10.24\" sign=\"Sagittarius\" />\n        <house name=\"Ninth_House\" cusp=\"29.34\" sign=\"Sagittarius\" />\n        <house name=\"Tenth_House\" cusp=\"16.85\" sign=\"Capricorn\" />\n        <house name=\"Eleventh_House\" cusp=\"7.64\" sign=\"Aquarius\" />\n        <house name=\"Twelfth_House\" cusp=\"10.18\" sign=\"Pisces\" />\n      </houses>\n      <lunar_phase name=\"Waxing Crescent\" phase=\"5\" degrees_between=\"52.71\" emoji=\"\ud83c\udf12\" />\n    </chart>\n  </first_subject>\n  <transit_subject>\n    <chart name=\"Transit Moment\">\n      <transit_data date=\"2024-01-01 00:00\" city=\"London\" nation=\"GB\" lat=\"51.51\" lng=\"-0.13\" lng_dir=\"W\" tz=\"Europe/London\" />\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <planets>\n        <point name=\"Sun\" position=\"10.04\" sign=\"Capricorn\" abs_pos=\"280.04\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"direct\" speed=\"1.0190\" declination=\"-23.06\" />\n        <point name=\"Moon\" position=\"5.99\" sign=\"Virgo\" abs_pos=\"155.99\" quality=\"Mutable\" element=\"Earth\" house=\"Eleventh House\" motion=\"direct\" speed=\"11.8484\" declination=\"12.63\" />\n        <point name=\"Mercury\" position=\"22.28\" sign=\"Sagittarius\" abs_pos=\"262.28\" quality=\"Mutable\" element=\"Fire\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.1802\" declination=\"-20.15\" />\n        <point name=\"Venus\" position=\"2.61\" sign=\"Sagittarius\" abs_pos=\"242.61\" quality=\"Mutable\" element=\"Fire\" house=\"Second House\" motion=\"direct\" speed=\"1.2160\" declination=\"-18.77\" />\n        <point name=\"Mars\" position=\"27.31\" sign=\"Sagittarius\" abs_pos=\"267.31\" quality=\"Mutable\" element=\"Fire\" house=\"Third House\" motion=\"direct\" speed=\"0.7414\" declination=\"-23.96\" />\n        <point name=\"Jupiter\" position=\"5.58\" sign=\"Taurus\" abs_pos=\"35.58\" quality=\"Fixed\" element=\"Earth\" house=\"Eighth House\" motion=\"direct\" speed=\"0.0031\" declination=\"12.26\" />\n        <point name=\"Saturn\" position=\"3.24\" sign=\"Pisces\" abs_pos=\"333.24\" quality=\"Mutable\" element=\"Water\" house=\"Fifth House\" motion=\"direct\" speed=\"0.0885\" declination=\"-11.84\" />\n        <point name=\"Uranus\" position=\"19.38\" sign=\"Taurus\" abs_pos=\"49.38\" quality=\"Fixed\" element=\"Earth\" house=\"Eighth House\" motion=\"retrograde\" speed=\"-0.0219\" declination=\"17.28\" />\n        <point name=\"Neptune\" position=\"25.08\" sign=\"Pisces\" abs_pos=\"355.08\" quality=\"Mutable\" element=\"Water\" house=\"Sixth House\" motion=\"direct\" speed=\"0.0146\" declination=\"-3.09\" />\n        <point name=\"Pluto\" position=\"29.36\" sign=\"Capricorn\" abs_pos=\"299.36\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"direct\" speed=\"0.0310\" declination=\"-22.99\" />\n        <point name=\"Chiron\" position=\"15.46\" sign=\"Aries\" abs_pos=\"15.46\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0045\" declination=\"7.34\" />\n        <point name=\"Mean_Lilith\" position=\"9.97\" sign=\"Virgo\" abs_pos=\"159.97\" quality=\"Mutable\" element=\"Earth\" house=\"Eleventh House\" motion=\"direct\" speed=\"0.1113\" declination=\"10.95\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"7.07\" sign=\"Libra\" abs_pos=\"187.07\" quality=\"Cardinal\" element=\"Air\" house=\"First House\" motion=\"direct\" speed=\"254.4272\" />\n        <point name=\"Descendant\" position=\"7.07\" sign=\"Aries\" abs_pos=\"7.07\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"254.4272\" />\n        <point name=\"Medium_Coeli\" position=\"9.21\" sign=\"Cancer\" abs_pos=\"99.21\" quality=\"Cardinal\" element=\"Water\" house=\"Tenth House\" motion=\"direct\" speed=\"332.7952\" />\n        <point name=\"Imum_Coeli\" position=\"9.21\" sign=\"Capricorn\" abs_pos=\"279.21\" quality=\"Cardinal\" element=\"Earth\" house=\"Fourth House\" motion=\"direct\" speed=\"332.7952\" />\n        <point name=\"True_North_Lunar_Node\" position=\"21.08\" sign=\"Aries\" abs_pos=\"21.08\" quality=\"Cardinal\" element=\"Fire\" house=\"Seventh House\" motion=\"retrograde\" speed=\"-0.1009\" declination=\"8.22\" />\n        <point name=\"True_South_Lunar_Node\" position=\"21.08\" sign=\"Libra\" abs_pos=\"201.08\" quality=\"Cardinal\" element=\"Air\" house=\"First House\" motion=\"retrograde\" speed=\"0.1009\" declination=\"-8.22\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"7.07\" sign=\"Libra\" />\n        <house name=\"Second_House\" cusp=\"1.77\" sign=\"Scorpio\" />\n        <house name=\"Third_House\" cusp=\"2.64\" sign=\"Sagittarius\" />\n        <house name=\"Fourth_House\" cusp=\"9.21\" sign=\"Capricorn\" />\n        <house name=\"Fifth_House\" cusp=\"14.80\" sign=\"Aquarius\" />\n        <house name=\"Sixth_House\" cusp=\"14.06\" sign=\"Pisces\" />\n        <house name=\"Seventh_House\" cusp=\"7.07\" sign=\"Aries\" />\n        <house name=\"Eighth_House\" cusp=\"1.77\" sign=\"Taurus\" />\n        <house name=\"Ninth_House\" cusp=\"2.64\" sign=\"Gemini\" />\n        <house name=\"Tenth_House\" cusp=\"9.21\" sign=\"Cancer\" />\n        <house name=\"Eleventh_House\" cusp=\"14.80\" sign=\"Leo\" />\n        <house name=\"Twelfth_House\" cusp=\"14.06\" sign=\"Virgo\" />\n      </houses>\n      <lunar_phase name=\"Waning Gibbous\" phase=\"19\" degrees_between=\"235.95\" emoji=\"\ud83c\udf16\" />\n    </chart>\n  </transit_subject>\n  <aspects count=\"129\">\n    <aspect type=\"conjunction\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"0.80\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"4.84\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"5.25\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"4.63\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"3.77\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"1.62\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"3.77\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"1.62\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"0.86\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"2.44\" angle=\"180\" />\n    <aspect type=\"quintile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"Transit\" orb=\"0.73\" angle=\"72\" />\n    <aspect type=\"square\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"Transit\" orb=\"0.94\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"2.03\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"Transit\" orb=\"0.30\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"5.66\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"5.66\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"6.42\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"6.28\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Neptune\" p2_owner=\"Transit\" orb=\"0.59\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"Transit\" orb=\"3.69\" angle=\"0\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.59\" angle=\"90\" />\n    <aspect type=\"quintile\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"0.60\" angle=\"72\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.59\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"Transit\" orb=\"3.61\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"0.64\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"Transit\" orb=\"6.86\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"0.85\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"0.85\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"4.02\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"Transit\" orb=\"7.40\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"5.45\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"2.95\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"2.95\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"0.04\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"4.89\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"0.85\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Mars\" p2_owner=\"Transit\" orb=\"7.84\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"0.44\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"Transit\" orb=\"1.90\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"1.92\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"4.07\" angle=\"0\" />\n    <aspect type=\"square\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"1.92\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"4.07\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"4.83\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"5.62\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"3.72\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"0.20\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"6.45\" angle=\"180\" />\n    <aspect type=\"conjunction\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"6.45\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"5.69\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"4.25\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"0.21\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Mars\" p2_owner=\"Transit\" orb=\"8.48\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"0.20\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"Transit\" orb=\"2.54\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"1.28\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"3.42\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"1.28\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"3.42\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"4.19\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"2.00\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"6.05\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"6.46\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"7.35\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"3.42\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"Transit\" orb=\"4.97\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"2.83\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"Transit\" orb=\"4.97\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"2.83\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"2.07\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"0.90\" angle=\"72\" />\n    <aspect type=\"opposition\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"2.29\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Neptune\" p2_owner=\"Transit\" orb=\"7.98\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"Transit\" orb=\"0.26\" angle=\"72\" />\n    <aspect type=\"trine\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"7.88\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"Transit\" orb=\"5.41\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"2.51\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"1.41\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"3.77\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"5.57\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"1.65\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"4.60\" angle=\"0\" />\n    <aspect type=\"opposition\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"4.60\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"3.84\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"0.17\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"4.62\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"9.18\" angle=\"0\" />\n    <aspect type=\"sextile\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"1.00\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"1.00\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"0.23\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"6.81\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"2.53\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.23\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"1.39\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"7.64\" angle=\"180\" />\n    <aspect type=\"conjunction\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"7.64\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"6.88\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.23\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"0.17\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"4.62\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"Transit\" orb=\"6.96\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"9.18\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"1.00\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"1.00\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"0.23\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"6.81\" angle=\"180\" />\n    <aspect type=\"quintile\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"0.73\" angle=\"72\" />\n    <aspect type=\"sextile\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"2.53\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.23\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"1.39\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"7.64\" angle=\"0\" />\n    <aspect type=\"opposition\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"7.64\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.23\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"Transit\" orb=\"3.57\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"Transit\" orb=\"0.47\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"Transit\" orb=\"0.88\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"Transit\" orb=\"3.22\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"Transit\" orb=\"2.74\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"Transit\" orb=\"2.74\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"Transit\" orb=\"3.51\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"Transit\" orb=\"5.41\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"Transit\" orb=\"2.51\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"Transit\" orb=\"1.41\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"Transit\" orb=\"4.21\" angle=\"60\" />\n  </aspects>\n  <house_overlay>\n    <first_points_in_second subject=\"John Doe\" target=\"Transit Moment\">\n      <point_in_house point_name=\"Sun\" point_owner=\"John Doe\" degree=\"10.84\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"John Doe\" degree=\"3.55\" sign=\"Pis\" owner_house=\"Eleventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"John Doe\" degree=\"25.67\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"John Doe\" degree=\"6.22\" sign=\"Aqu\" owner_house=\"Tenth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"John Doe\" degree=\"10.01\" sign=\"Sag\" owner_house=\"Seventh_House\" projected_house=\"Third_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"John Doe\" degree=\"5.15\" sign=\"Can\" owner_house=\"Third_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"John Doe\" degree=\"15.66\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"John Doe\" degree=\"5.79\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Third_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"John Doe\" degree=\"12.04\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"John Doe\" degree=\"17.09\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Second_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"John Doe\" degree=\"16.87\" sign=\"Aqu\" owner_house=\"Eleventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"John Doe\" degree=\"16.87\" sign=\"Leo\" owner_house=\"Fifth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"John Doe\" degree=\"6.47\" sign=\"Sco\" owner_house=\"Sixth_House\" projected_house=\"Second_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"John Doe\" degree=\"13.81\" sign=\"Can\" owner_house=\"Third_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Tau\" owner_house=\"First_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Second_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Can\" owner_house=\"Fourth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Transit Moment\" />\n    </first_points_in_second>\n    <second_points_in_first subject=\"Transit\" target=\"John Doe\">\n      <point_in_house point_name=\"Sun\" point_owner=\"Transit Moment\" degree=\"10.04\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"Transit Moment\" degree=\"5.99\" sign=\"Vir\" owner_house=\"Eleventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"Transit Moment\" degree=\"22.28\" sign=\"Sag\" owner_house=\"Third_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"Transit Moment\" degree=\"2.61\" sign=\"Sag\" owner_house=\"Second_House\" projected_house=\"Seventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"Transit Moment\" degree=\"27.31\" sign=\"Sag\" owner_house=\"Third_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"Transit Moment\" degree=\"5.58\" sign=\"Tau\" owner_house=\"Eighth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"Transit Moment\" degree=\"3.24\" sign=\"Pis\" owner_house=\"Fifth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"Transit Moment\" degree=\"19.38\" sign=\"Tau\" owner_house=\"Eighth_House\" projected_house=\"First_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"Transit Moment\" degree=\"25.08\" sign=\"Pis\" owner_house=\"Sixth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"Transit Moment\" degree=\"29.36\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"Transit Moment\" degree=\"21.08\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"Transit Moment\" degree=\"21.08\" sign=\"Lib\" owner_house=\"First_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"Transit Moment\" degree=\"9.97\" sign=\"Vir\" owner_house=\"Eleventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"Transit Moment\" degree=\"15.46\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"Transit Moment\" degree=\"7.07\" sign=\"Lib\" owner_house=\"First_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"Transit Moment\" degree=\"9.21\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Third_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"Transit Moment\" degree=\"7.07\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"Transit Moment\" degree=\"9.21\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"John Doe\" />\n    </second_points_in_first>\n    <first_cusps_in_second subject=\"John Doe\" target=\"Transit\">\n      <point_in_house point_name=\"First_House\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Tau\" owner_house=\"First_House\" projected_house=\"Eighth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"John Doe\" degree=\"10.24\" sign=\"Gem\" owner_house=\"Second_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"John Doe\" degree=\"29.34\" sign=\"Gem\" owner_house=\"Third_House\" projected_house=\"Ninth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Can\" owner_house=\"Fourth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"John Doe\" degree=\"7.64\" sign=\"Leo\" owner_house=\"Fifth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"John Doe\" degree=\"10.18\" sign=\"Vir\" owner_house=\"Sixth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Second_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"John Doe\" degree=\"10.24\" sign=\"Sag\" owner_house=\"Eighth_House\" projected_house=\"Third_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"John Doe\" degree=\"29.34\" sign=\"Sag\" owner_house=\"Ninth_House\" projected_house=\"Third_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"John Doe\" degree=\"7.64\" sign=\"Aqu\" owner_house=\"Eleventh_House\" projected_house=\"Fourth_House\" projected_house_owner=\"Transit Moment\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"John Doe\" degree=\"10.18\" sign=\"Pis\" owner_house=\"Twelfth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"Transit Moment\" />\n    </first_cusps_in_second>\n    <second_cusps_in_first subject=\"Transit\" target=\"John Doe\">\n      <point_in_house point_name=\"First_House\" point_owner=\"Transit Moment\" degree=\"7.07\" sign=\"Lib\" owner_house=\"First_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"Transit Moment\" degree=\"1.77\" sign=\"Sco\" owner_house=\"Second_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"Transit Moment\" degree=\"2.64\" sign=\"Sag\" owner_house=\"Third_House\" projected_house=\"Seventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"Transit Moment\" degree=\"9.21\" sign=\"Cap\" owner_house=\"Fourth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"Transit Moment\" degree=\"14.80\" sign=\"Aqu\" owner_house=\"Fifth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"Transit Moment\" degree=\"14.06\" sign=\"Pis\" owner_house=\"Sixth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"Transit Moment\" degree=\"7.07\" sign=\"Ari\" owner_house=\"Seventh_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"Transit Moment\" degree=\"1.77\" sign=\"Tau\" owner_house=\"Eighth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"Transit Moment\" degree=\"2.64\" sign=\"Gem\" owner_house=\"Ninth_House\" projected_house=\"First_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"Transit Moment\" degree=\"9.21\" sign=\"Can\" owner_house=\"Tenth_House\" projected_house=\"Third_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"Transit Moment\" degree=\"14.80\" sign=\"Leo\" owner_house=\"Eleventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"Transit Moment\" degree=\"14.06\" sign=\"Vir\" owner_house=\"Twelfth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n    </second_cusps_in_first>\n  </house_overlay>\n  <element_distribution fire=\"10%\" earth=\"43%\" air=\"10%\" water=\"37%\" />\n  <quality_distribution cardinal=\"49%\" fixed=\"34%\" mutable=\"17%\" />\n  <active_points>Ascendant, Chiron, Descendant, Imum_Coeli, Jupiter, Mars, Mean_Lilith, Medium_Coeli, Mercury, Moon, Neptune, Pluto, Saturn, Sun, True_North_Lunar_Node, True_South_Lunar_Node, Uranus, Venus</active_points>\n  <active_aspects>conjunction (10), opposition (10), trine (8), sextile (6), square (5), quintile (1)</active_aspects>\n</chart_analysis>",
   "chart_data": {
     "chart_type": "Transit",
     "first_subject": {
@@ -64,6 +64,7 @@ Endpoint: `/api/v5/context/transit`
       "houses_system_identifier": "P",
       "houses_system_name": "Placidus",
       "perspective_type": "Apparent Geocentric",
+      "ayanamsa_value": null,
       "sun": {
         "name": "Sun",
         "quality": "Cardinal",
@@ -77,7 +78,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 1.0194718530193225,
-        "declination": -23.00013758778064
+        "declination": -23.00013758778064,
+        "magnitude": null
       },
       "moon": {
         "name": "Moon",
@@ -92,7 +94,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 13.474246761628224,
-        "declination": -8.81298773915052
+        "declination": -8.81298773915052,
+        "magnitude": null
       },
       "mercury": {
         "name": "Mercury",
@@ -107,7 +110,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.29869641753799797,
-        "declination": -20.386624033097966
+        "declination": -20.386624033097966,
+        "magnitude": null
       },
       "venus": {
         "name": "Venus",
@@ -122,7 +126,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.13116320676089085,
-        "declination": -16.87318909895181
+        "declination": -16.87318909895181,
+        "magnitude": null
       },
       "mars": {
         "name": "Mars",
@@ -137,7 +142,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.7037680845619482,
-        "declination": -21.987262405889464
+        "declination": -21.987262405889464,
+        "magnitude": null
       },
       "jupiter": {
         "name": "Jupiter",
@@ -152,7 +158,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.13446940517543093,
-        "declination": 23.225447225504062
+        "declination": 23.225447225504062,
+        "magnitude": null
       },
       "saturn": {
         "name": "Saturn",
@@ -167,7 +174,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.1182732159967062,
-        "declination": -22.23201953433409
+        "declination": -22.23201953433409,
+        "magnitude": null
       },
       "uranus": {
         "name": "Uranus",
@@ -182,7 +190,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.06000647223890577,
-        "declination": -23.58567453326483
+        "declination": -23.58567453326483,
+        "magnitude": null
       },
       "neptune": {
         "name": "Neptune",
@@ -197,7 +206,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.03791058838699209,
-        "declination": -22.05313189938615
+        "declination": -22.05313189938615,
+        "magnitude": null
       },
       "pluto": {
         "name": "Pluto",
@@ -212,7 +222,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.027313516048024646,
-        "declination": -2.2485032427412905
+        "declination": -2.2485032427412905,
+        "magnitude": null
       },
       "ascendant": {
         "name": "Ascendant",
@@ -226,8 +237,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "AstrologicalPoint",
         "house": "First_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "descendant": {
         "name": "Descendant",
@@ -241,8 +253,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "AstrologicalPoint",
         "house": "Seventh_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "medium_coeli": {
         "name": "Medium_Coeli",
@@ -256,8 +269,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "AstrologicalPoint",
         "house": "Tenth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "imum_coeli": {
         "name": "Imum_Coeli",
@@ -271,8 +285,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "AstrologicalPoint",
         "house": "Fourth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "chiron": {
         "name": "Chiron",
@@ -287,7 +302,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.0684757434972255,
-        "declination": 15.457339430332224
+        "declination": 15.457339430332224,
+        "magnitude": null
       },
       "earth": null,
       "pholus": null,
@@ -304,7 +320,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Sixth_House",
         "retrograde": false,
         "speed": 0.11200484873918631,
-        "declination": -18.423773159673363
+        "declination": -18.423773159673363,
+        "magnitude": null
       },
       "true_lilith": null,
       "ceres": null,
@@ -320,6 +337,27 @@ Endpoint: `/api/v5/context/transit`
       "quaoar": null,
       "regulus": null,
       "spica": null,
+      "aldebaran": null,
+      "antares": null,
+      "sirius": null,
+      "fomalhaut": null,
+      "algol": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "procyon": null,
+      "arcturus": null,
+      "pollux": null,
+      "deneb": null,
+      "altair": null,
+      "rigel": null,
+      "achernar": null,
+      "capella": null,
+      "vega": null,
+      "alcyone": null,
+      "alphecca": null,
+      "algorab": null,
+      "deneb_algedi": null,
+      "alkaid": null,
       "pars_fortunae": null,
       "pars_spiritus": null,
       "pars_amoris": null,
@@ -338,8 +376,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "second_house": {
         "name": "Second_House",
@@ -353,8 +392,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 395.77047777170276,
+        "declination": null,
+        "magnitude": null
       },
       "third_house": {
         "name": "Third_House",
@@ -368,8 +408,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.0038596286,
+        "declination": null,
+        "magnitude": null
       },
       "fourth_house": {
         "name": "Fourth_House",
@@ -383,8 +424,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "fifth_house": {
         "name": "Fifth_House",
@@ -398,8 +440,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 403.4195332743098,
+        "declination": null,
+        "magnitude": null
       },
       "sixth_house": {
         "name": "Sixth_House",
@@ -413,8 +456,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 592.8224430258799,
+        "declination": null,
+        "magnitude": null
       },
       "seventh_house": {
         "name": "Seventh_House",
@@ -428,8 +472,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "eighth_house": {
         "name": "Eighth_House",
@@ -443,8 +488,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 395.77047777170276,
+        "declination": null,
+        "magnitude": null
       },
       "ninth_house": {
         "name": "Ninth_House",
@@ -458,8 +504,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.0038596286,
+        "declination": null,
+        "magnitude": null
       },
       "tenth_house": {
         "name": "Tenth_House",
@@ -473,8 +520,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "eleventh_house": {
         "name": "Eleventh_House",
@@ -488,8 +536,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 403.4195332743098,
+        "declination": null,
+        "magnitude": null
       },
       "twelfth_house": {
         "name": "Twelfth_House",
@@ -503,8 +552,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 592.8224430258799,
+        "declination": null,
+        "magnitude": null
       },
       "mean_north_lunar_node": null,
       "true_north_lunar_node": {
@@ -520,7 +570,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 0.023620313546416742,
-        "declination": -15.782161057300584
+        "declination": -15.782161057300584,
+        "magnitude": null
       },
       "mean_south_lunar_node": null,
       "true_south_lunar_node": {
@@ -536,7 +587,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": -0.023620313546416742,
-        "declination": 15.782161057300584
+        "declination": 15.782161057300584,
+        "magnitude": null
       },
       "houses_names_list": [
         "First_House",
@@ -601,6 +653,7 @@ Endpoint: `/api/v5/context/transit`
       "houses_system_identifier": "P",
       "houses_system_name": "Placidus",
       "perspective_type": "Apparent Geocentric",
+      "ayanamsa_value": null,
       "sun": {
         "name": "Sun",
         "quality": "Cardinal",
@@ -614,7 +667,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Fourth_House",
         "retrograde": false,
         "speed": 1.0189784150133996,
-        "declination": -23.058469645092828
+        "declination": -23.058469645092828,
+        "magnitude": null
       },
       "moon": {
         "name": "Moon",
@@ -629,7 +683,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 11.848403402282583,
-        "declination": 12.627697748938205
+        "declination": 12.627697748938205,
+        "magnitude": null
       },
       "mercury": {
         "name": "Mercury",
@@ -644,7 +699,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.18024888768276492,
-        "declination": -20.153648499123378
+        "declination": -20.153648499123378,
+        "magnitude": null
       },
       "venus": {
         "name": "Venus",
@@ -659,7 +715,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Second_House",
         "retrograde": false,
         "speed": 1.215994704278055,
-        "declination": -18.769281167229988
+        "declination": -18.769281167229988,
+        "magnitude": null
       },
       "mars": {
         "name": "Mars",
@@ -674,7 +731,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Third_House",
         "retrograde": false,
         "speed": 0.7414166472858119,
-        "declination": -23.961395821609738
+        "declination": -23.961395821609738,
+        "magnitude": null
       },
       "jupiter": {
         "name": "Jupiter",
@@ -689,7 +747,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Eighth_House",
         "retrograde": false,
         "speed": 0.003072689905396688,
-        "declination": 12.263996580170174
+        "declination": 12.263996580170174,
+        "magnitude": null
       },
       "saturn": {
         "name": "Saturn",
@@ -704,7 +763,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": 0.08846956521285367,
-        "declination": -11.839074068871083
+        "declination": -11.839074068871083,
+        "magnitude": null
       },
       "uranus": {
         "name": "Uranus",
@@ -719,7 +779,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Eighth_House",
         "retrograde": true,
         "speed": -0.02189582659391066,
-        "declination": 17.279378439765445
+        "declination": 17.279378439765445,
+        "magnitude": null
       },
       "neptune": {
         "name": "Neptune",
@@ -734,7 +795,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Sixth_House",
         "retrograde": false,
         "speed": 0.014553244550974235,
-        "declination": -3.0922172580197613
+        "declination": -3.0922172580197613,
+        "magnitude": null
       },
       "pluto": {
         "name": "Pluto",
@@ -749,7 +811,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Fourth_House",
         "retrograde": false,
         "speed": 0.031013809560585283,
-        "declination": -22.990178711845644
+        "declination": -22.990178711845644,
+        "magnitude": null
       },
       "ascendant": {
         "name": "Ascendant",
@@ -763,8 +826,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "AstrologicalPoint",
         "house": "First_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 254.42720693779913,
+        "declination": null,
+        "magnitude": null
       },
       "descendant": {
         "name": "Descendant",
@@ -778,8 +842,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "AstrologicalPoint",
         "house": "Seventh_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 254.42720693779913,
+        "declination": null,
+        "magnitude": null
       },
       "medium_coeli": {
         "name": "Medium_Coeli",
@@ -793,8 +858,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "AstrologicalPoint",
         "house": "Tenth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 332.7951637930662,
+        "declination": null,
+        "magnitude": null
       },
       "imum_coeli": {
         "name": "Imum_Coeli",
@@ -808,8 +874,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "AstrologicalPoint",
         "house": "Fourth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 332.7951637930662,
+        "declination": null,
+        "magnitude": null
       },
       "chiron": {
         "name": "Chiron",
@@ -824,7 +891,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.004459240144112464,
-        "declination": 7.339868947892404
+        "declination": 7.339868947892404,
+        "magnitude": null
       },
       "earth": null,
       "pholus": null,
@@ -841,7 +909,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 0.1113052384989797,
-        "declination": 10.951800840238558
+        "declination": 10.951800840238558,
+        "magnitude": null
       },
       "true_lilith": null,
       "ceres": null,
@@ -857,6 +926,27 @@ Endpoint: `/api/v5/context/transit`
       "quaoar": null,
       "regulus": null,
       "spica": null,
+      "aldebaran": null,
+      "antares": null,
+      "sirius": null,
+      "fomalhaut": null,
+      "algol": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "procyon": null,
+      "arcturus": null,
+      "pollux": null,
+      "deneb": null,
+      "altair": null,
+      "rigel": null,
+      "achernar": null,
+      "capella": null,
+      "vega": null,
+      "alcyone": null,
+      "alphecca": null,
+      "algorab": null,
+      "deneb_algedi": null,
+      "alkaid": null,
       "pars_fortunae": null,
       "pars_spiritus": null,
       "pars_amoris": null,
@@ -875,8 +965,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 254.42720693779913,
+        "declination": null,
+        "magnitude": null
       },
       "second_house": {
         "name": "Second_House",
@@ -890,8 +981,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 284.23628296465046,
+        "declination": null,
+        "magnitude": null
       },
       "third_house": {
         "name": "Third_House",
@@ -905,8 +997,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 314.7964438333504,
+        "declination": null,
+        "magnitude": null
       },
       "fourth_house": {
         "name": "Fourth_House",
@@ -920,8 +1013,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.7951637930662,
+        "declination": null,
+        "magnitude": null
       },
       "fifth_house": {
         "name": "Fifth_House",
@@ -935,8 +1029,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 318.3473706157241,
+        "declination": null,
+        "magnitude": null
       },
       "sixth_house": {
         "name": "Sixth_House",
@@ -950,8 +1045,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 287.17691941113276,
+        "declination": null,
+        "magnitude": null
       },
       "seventh_house": {
         "name": "Seventh_House",
@@ -965,8 +1061,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 254.42720693779913,
+        "declination": null,
+        "magnitude": null
       },
       "eighth_house": {
         "name": "Eighth_House",
@@ -980,8 +1077,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 284.23628296465046,
+        "declination": null,
+        "magnitude": null
       },
       "ninth_house": {
         "name": "Ninth_House",
@@ -995,8 +1093,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 314.7964438333504,
+        "declination": null,
+        "magnitude": null
       },
       "tenth_house": {
         "name": "Tenth_House",
@@ -1010,8 +1109,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.7951637930662,
+        "declination": null,
+        "magnitude": null
       },
       "eleventh_house": {
         "name": "Eleventh_House",
@@ -1025,8 +1125,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 318.3473706157241,
+        "declination": null,
+        "magnitude": null
       },
       "twelfth_house": {
         "name": "Twelfth_House",
@@ -1040,8 +1141,9 @@ Endpoint: `/api/v5/context/transit`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 287.17691941113276,
+        "declination": null,
+        "magnitude": null
       },
       "mean_north_lunar_node": null,
       "true_north_lunar_node": {
@@ -1057,7 +1159,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "Seventh_House",
         "retrograde": true,
         "speed": -0.10091674259483031,
-        "declination": 8.224464309293955
+        "declination": 8.224464309293955,
+        "magnitude": null
       },
       "mean_south_lunar_node": null,
       "true_south_lunar_node": {
@@ -1073,7 +1176,8 @@ Endpoint: `/api/v5/context/transit`
         "house": "First_House",
         "retrograde": true,
         "speed": 0.10091674259483031,
-        "declination": -8.224464309293955
+        "declination": -8.224464309293955,
+        "magnitude": null
       },
       "houses_names_list": [
         "First_House",
@@ -1205,7 +1309,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 0,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -1222,7 +1326,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 0,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -1239,7 +1343,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 0,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -1256,7 +1360,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 0,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -1375,7 +1479,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 1,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -1392,7 +1496,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 1,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -1494,7 +1598,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 2,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -1579,7 +1683,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 3,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -1596,7 +1700,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 3,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -1664,7 +1768,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 4,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -1681,7 +1785,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 4,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -1800,7 +1904,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 5,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -1817,7 +1921,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 5,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -1834,7 +1938,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 5,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -1851,7 +1955,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 5,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -1936,7 +2040,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 6,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -1953,7 +2057,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 6,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2072,7 +2176,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 7,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -2089,7 +2193,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 7,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -2106,7 +2210,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 7,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Separating"
       },
       {
@@ -2123,7 +2227,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 7,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -2242,7 +2346,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 8,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -2259,7 +2363,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 8,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2276,7 +2380,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 8,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 254.42720693779913,
         "aspect_movement": "Applying"
       },
       {
@@ -2293,7 +2397,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 8,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2395,7 +2499,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 9,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2548,7 +2652,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 12,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2565,7 +2669,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 12,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Applying"
       },
       {
@@ -2666,8 +2770,8 @@ Endpoint: `/api/v5/context/transit`
         "diff": 59.00483594071083,
         "p1": 13,
         "p2": 14,
-        "p1_speed": 0.0,
-        "p2_speed": -0.02189582659391066,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -2683,8 +2787,8 @@ Endpoint: `/api/v5/context/transit`
         "diff": 239.00483594071085,
         "p1": 13,
         "p2": 16,
-        "p1_speed": 0.0,
-        "p2_speed": -0.02189582659391066,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -2785,8 +2889,8 @@ Endpoint: `/api/v5/context/transit`
         "diff": 187.64180573212147,
         "p1": 14,
         "p2": 14,
-        "p1_speed": 0.0,
-        "p2_speed": 0.004459240144112464,
+        "p1_speed": 336.42419571786803,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -2802,8 +2906,8 @@ Endpoint: `/api/v5/context/transit`
         "diff": 7.6418057321214405,
         "p1": 14,
         "p2": 16,
-        "p1_speed": 0.0,
-        "p2_speed": 0.004459240144112464,
+        "p1_speed": 336.42419571786803,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -2938,8 +3042,8 @@ Endpoint: `/api/v5/context/transit`
         "diff": 120.99516405928918,
         "p1": 15,
         "p2": 14,
-        "p1_speed": 0.0,
-        "p2_speed": -0.02189582659391066,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -2955,8 +3059,8 @@ Endpoint: `/api/v5/context/transit`
         "diff": 59.00483594071085,
         "p1": 15,
         "p2": 16,
-        "p1_speed": 0.0,
-        "p2_speed": -0.02189582659391066,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -3074,8 +3178,8 @@ Endpoint: `/api/v5/context/transit`
         "diff": 7.641805732121469,
         "p1": 16,
         "p2": 14,
-        "p1_speed": 0.0,
-        "p2_speed": 0.004459240144112464,
+        "p1_speed": 336.42419571786803,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -3091,8 +3195,8 @@ Endpoint: `/api/v5/context/transit`
         "diff": 172.35819426787856,
         "p1": 16,
         "p2": 16,
-        "p1_speed": 0.0,
-        "p2_speed": 0.004459240144112464,
+        "p1_speed": 336.42419571786803,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Static"
       },
       {
@@ -3194,7 +3298,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 17,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {
@@ -3211,7 +3315,7 @@ Endpoint: `/api/v5/context/transit`
         "p1": 17,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 332.7951637930662,
         "aspect_movement": "Separating"
       },
       {

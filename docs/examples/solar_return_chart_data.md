@@ -52,6 +52,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
       "houses_system_identifier": "P",
       "houses_system_name": "Placidus",
       "perspective_type": "Apparent Geocentric",
+      "ayanamsa_value": null,
       "sun": {
         "name": "Sun",
         "quality": "Cardinal",
@@ -65,7 +66,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 1.0194718530193225,
-        "declination": -23.00013758778064
+        "declination": -23.00013758778064,
+        "magnitude": null
       },
       "moon": {
         "name": "Moon",
@@ -80,7 +82,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 13.474246761628224,
-        "declination": -8.81298773915052
+        "declination": -8.81298773915052,
+        "magnitude": null
       },
       "mercury": {
         "name": "Mercury",
@@ -95,7 +98,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.29869641753799797,
-        "declination": -20.386624033097966
+        "declination": -20.386624033097966,
+        "magnitude": null
       },
       "venus": {
         "name": "Venus",
@@ -110,7 +114,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.13116320676089085,
-        "declination": -16.87318909895181
+        "declination": -16.87318909895181,
+        "magnitude": null
       },
       "mars": {
         "name": "Mars",
@@ -125,7 +130,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.7037680845619482,
-        "declination": -21.987262405889464
+        "declination": -21.987262405889464,
+        "magnitude": null
       },
       "jupiter": {
         "name": "Jupiter",
@@ -140,7 +146,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.13446940517543093,
-        "declination": 23.225447225504062
+        "declination": 23.225447225504062,
+        "magnitude": null
       },
       "saturn": {
         "name": "Saturn",
@@ -155,7 +162,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.1182732159967062,
-        "declination": -22.23201953433409
+        "declination": -22.23201953433409,
+        "magnitude": null
       },
       "uranus": {
         "name": "Uranus",
@@ -170,7 +178,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.06000647223890577,
-        "declination": -23.58567453326483
+        "declination": -23.58567453326483,
+        "magnitude": null
       },
       "neptune": {
         "name": "Neptune",
@@ -185,7 +194,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.03791058838699209,
-        "declination": -22.05313189938615
+        "declination": -22.05313189938615,
+        "magnitude": null
       },
       "pluto": {
         "name": "Pluto",
@@ -200,7 +210,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.027313516048024646,
-        "declination": -2.2485032427412905
+        "declination": -2.2485032427412905,
+        "magnitude": null
       },
       "ascendant": {
         "name": "Ascendant",
@@ -214,8 +225,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "First_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "descendant": {
         "name": "Descendant",
@@ -229,8 +241,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Seventh_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "medium_coeli": {
         "name": "Medium_Coeli",
@@ -244,8 +257,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Tenth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "imum_coeli": {
         "name": "Imum_Coeli",
@@ -259,8 +273,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Fourth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "chiron": {
         "name": "Chiron",
@@ -275,7 +290,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.0684757434972255,
-        "declination": 15.457339430332224
+        "declination": 15.457339430332224,
+        "magnitude": null
       },
       "earth": null,
       "pholus": null,
@@ -292,7 +308,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Sixth_House",
         "retrograde": false,
         "speed": 0.11200484873918631,
-        "declination": -18.423773159673363
+        "declination": -18.423773159673363,
+        "magnitude": null
       },
       "true_lilith": null,
       "ceres": null,
@@ -308,6 +325,27 @@ Endpoint: `/api/v5/chart-data/solar-return`
       "quaoar": null,
       "regulus": null,
       "spica": null,
+      "aldebaran": null,
+      "antares": null,
+      "sirius": null,
+      "fomalhaut": null,
+      "algol": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "procyon": null,
+      "arcturus": null,
+      "pollux": null,
+      "deneb": null,
+      "altair": null,
+      "rigel": null,
+      "achernar": null,
+      "capella": null,
+      "vega": null,
+      "alcyone": null,
+      "alphecca": null,
+      "algorab": null,
+      "deneb_algedi": null,
+      "alkaid": null,
       "pars_fortunae": null,
       "pars_spiritus": null,
       "pars_amoris": null,
@@ -326,8 +364,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "second_house": {
         "name": "Second_House",
@@ -341,8 +380,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 395.77047777170276,
+        "declination": null,
+        "magnitude": null
       },
       "third_house": {
         "name": "Third_House",
@@ -356,8 +396,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.0038596286,
+        "declination": null,
+        "magnitude": null
       },
       "fourth_house": {
         "name": "Fourth_House",
@@ -371,8 +412,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "fifth_house": {
         "name": "Fifth_House",
@@ -386,8 +428,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 403.4195332743098,
+        "declination": null,
+        "magnitude": null
       },
       "sixth_house": {
         "name": "Sixth_House",
@@ -401,8 +444,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 592.8224430258799,
+        "declination": null,
+        "magnitude": null
       },
       "seventh_house": {
         "name": "Seventh_House",
@@ -416,8 +460,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "eighth_house": {
         "name": "Eighth_House",
@@ -431,8 +476,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 395.77047777170276,
+        "declination": null,
+        "magnitude": null
       },
       "ninth_house": {
         "name": "Ninth_House",
@@ -446,8 +492,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.0038596286,
+        "declination": null,
+        "magnitude": null
       },
       "tenth_house": {
         "name": "Tenth_House",
@@ -461,8 +508,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "eleventh_house": {
         "name": "Eleventh_House",
@@ -476,8 +524,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 403.4195332743098,
+        "declination": null,
+        "magnitude": null
       },
       "twelfth_house": {
         "name": "Twelfth_House",
@@ -491,8 +540,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 592.8224430258799,
+        "declination": null,
+        "magnitude": null
       },
       "mean_north_lunar_node": null,
       "true_north_lunar_node": {
@@ -508,7 +558,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 0.023620313546416742,
-        "declination": -15.782161057300584
+        "declination": -15.782161057300584,
+        "magnitude": null
       },
       "mean_south_lunar_node": null,
       "true_south_lunar_node": {
@@ -524,7 +575,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": -0.023620313546416742,
-        "declination": 15.782161057300584
+        "declination": 15.782161057300584,
+        "magnitude": null
       },
       "houses_names_list": [
         "First_House",
@@ -589,6 +641,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
       "houses_system_identifier": "P",
       "houses_system_name": "Placidus",
       "perspective_type": "Apparent Geocentric",
+      "ayanamsa_value": null,
       "sun": {
         "name": "Sun",
         "quality": "Cardinal",
@@ -602,7 +655,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": 1.0190456926809746,
-        "declination": -22.996136175296726
+        "declination": -22.996136175296726,
+        "magnitude": null
       },
       "moon": {
         "name": "Moon",
@@ -617,7 +671,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Second_House",
         "retrograde": false,
         "speed": 11.802554484796916,
-        "declination": 8.539114654845877
+        "declination": 8.539114654845877,
+        "magnitude": null
       },
       "mercury": {
         "name": "Mercury",
@@ -632,7 +687,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Fifth_House",
         "retrograde": true,
         "speed": -0.054173137435294755,
-        "declination": -20.19772830305253
+        "declination": -20.19772830305253,
+        "magnitude": null
       },
       "venus": {
         "name": "Venus",
@@ -647,7 +703,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Fourth_House",
         "retrograde": false,
         "speed": 1.2167667641455386,
-        "declination": -18.973129595097234
+        "declination": -18.973129595097234,
+        "magnitude": null
       },
       "mars": {
         "name": "Mars",
@@ -662,7 +719,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": 0.7420095161419454,
-        "declination": -23.979586056168312
+        "declination": -23.979586056168312,
+        "magnitude": null
       },
       "jupiter": {
         "name": "Jupiter",
@@ -677,7 +735,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Tenth_House",
         "retrograde": false,
         "speed": 0.005775454868706104,
-        "declination": 12.268920589736657
+        "declination": 12.268920589736657,
+        "magnitude": null
       },
       "saturn": {
         "name": "Saturn",
@@ -692,7 +751,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Eighth_House",
         "retrograde": false,
         "speed": 0.08934622528528875,
-        "declination": -11.812992122207733
+        "declination": -11.812992122207733,
+        "magnitude": null
       },
       "uranus": {
         "name": "Uranus",
@@ -707,7 +767,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.021320974660716252,
-        "declination": 17.275074573863407
+        "declination": 17.275074573863407,
+        "magnitude": null
       },
       "neptune": {
         "name": "Neptune",
@@ -722,7 +783,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.014972299032544165,
-        "declination": -3.08724046418149
+        "declination": -3.08724046418149,
+        "magnitude": null
       },
       "pluto": {
         "name": "Pluto",
@@ -737,7 +799,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Sixth_House",
         "retrograde": false,
         "speed": 0.031125610575131957,
-        "declination": -22.985777312771237
+        "declination": -22.985777312771237,
+        "magnitude": null
       },
       "ascendant": {
         "name": "Ascendant",
@@ -751,8 +814,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "First_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 253.70249412384567,
+        "declination": null,
+        "magnitude": null
       },
       "descendant": {
         "name": "Descendant",
@@ -766,8 +830,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Seventh_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 253.70249412384567,
+        "declination": null,
+        "magnitude": null
       },
       "medium_coeli": {
         "name": "Medium_Coeli",
@@ -781,8 +846,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Tenth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 383.1808228357097,
+        "declination": null,
+        "magnitude": null
       },
       "imum_coeli": {
         "name": "Imum_Coeli",
@@ -796,8 +862,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Fourth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 383.1808228357097,
+        "declination": null,
+        "magnitude": null
       },
       "chiron": {
         "name": "Chiron",
@@ -812,7 +879,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.005177644187450087,
-        "declination": 7.339592889008827
+        "declination": 7.339592889008827,
+        "magnitude": null
       },
       "earth": null,
       "pholus": null,
@@ -829,7 +897,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Second_House",
         "retrograde": false,
         "speed": 0.11129592872848199,
-        "declination": 10.91067889813146
+        "declination": 10.91067889813146,
+        "magnitude": null
       },
       "true_lilith": null,
       "ceres": null,
@@ -845,6 +914,27 @@ Endpoint: `/api/v5/chart-data/solar-return`
       "quaoar": null,
       "regulus": null,
       "spica": null,
+      "aldebaran": null,
+      "antares": null,
+      "sirius": null,
+      "fomalhaut": null,
+      "algol": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "procyon": null,
+      "arcturus": null,
+      "pollux": null,
+      "deneb": null,
+      "altair": null,
+      "rigel": null,
+      "achernar": null,
+      "capella": null,
+      "vega": null,
+      "alcyone": null,
+      "alphecca": null,
+      "algorab": null,
+      "deneb_algedi": null,
+      "alkaid": null,
       "pars_fortunae": null,
       "pars_spiritus": null,
       "pars_amoris": null,
@@ -863,8 +953,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 253.70249412384567,
+        "declination": null,
+        "magnitude": null
       },
       "second_house": {
         "name": "Second_House",
@@ -878,8 +969,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 284.54579900045144,
+        "declination": null,
+        "magnitude": null
       },
       "third_house": {
         "name": "Third_House",
@@ -893,8 +985,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.41682846463,
+        "declination": null,
+        "magnitude": null
       },
       "fourth_house": {
         "name": "Fourth_House",
@@ -908,8 +1001,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 383.1808228357097,
+        "declination": null,
+        "magnitude": null
       },
       "fifth_house": {
         "name": "Fifth_House",
@@ -923,8 +1017,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 377.55816277633505,
+        "declination": null,
+        "magnitude": null
       },
       "sixth_house": {
         "name": "Sixth_House",
@@ -938,8 +1033,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 305.392542774843,
+        "declination": null,
+        "magnitude": null
       },
       "seventh_house": {
         "name": "Seventh_House",
@@ -953,8 +1049,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 253.70249412384567,
+        "declination": null,
+        "magnitude": null
       },
       "eighth_house": {
         "name": "Eighth_House",
@@ -968,8 +1065,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 284.54579900045144,
+        "declination": null,
+        "magnitude": null
       },
       "ninth_house": {
         "name": "Ninth_House",
@@ -983,8 +1081,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.41682846463,
+        "declination": null,
+        "magnitude": null
       },
       "tenth_house": {
         "name": "Tenth_House",
@@ -998,8 +1097,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 383.1808228357097,
+        "declination": null,
+        "magnitude": null
       },
       "eleventh_house": {
         "name": "Eleventh_House",
@@ -1013,8 +1113,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 377.55816277633505,
+        "declination": null,
+        "magnitude": null
       },
       "twelfth_house": {
         "name": "Twelfth_House",
@@ -1028,8 +1129,9 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 305.392542774843,
+        "declination": null,
+        "magnitude": null
       },
       "mean_north_lunar_node": null,
       "true_north_lunar_node": {
@@ -1045,7 +1147,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Ninth_House",
         "retrograde": true,
         "speed": -0.0635364339326565,
-        "declination": 8.200503537135534
+        "declination": 8.200503537135534,
+        "magnitude": null
       },
       "mean_south_lunar_node": null,
       "true_south_lunar_node": {
@@ -1061,7 +1164,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "house": "Third_House",
         "retrograde": true,
         "speed": 0.0635364339326565,
-        "declination": -8.200503537135534
+        "declination": -8.200503537135534,
+        "magnitude": null
       },
       "houses_names_list": [
         "First_House",
@@ -1375,7 +1479,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 2,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Applying"
       },
       {
@@ -1392,7 +1496,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 2,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Applying"
       },
       {
@@ -1477,7 +1581,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 3,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Separating"
       },
       {
@@ -1494,7 +1598,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 3,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Separating"
       },
       {
@@ -1545,7 +1649,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 4,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Separating"
       },
       {
@@ -1562,7 +1666,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 4,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Separating"
       },
       {
@@ -1664,7 +1768,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 5,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Separating"
       },
       {
@@ -1851,7 +1955,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 7,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Separating"
       },
       {
@@ -2055,7 +2159,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 9,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
@@ -2072,7 +2176,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 9,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
@@ -2157,7 +2261,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 11,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
@@ -2174,7 +2278,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 11,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
@@ -2191,7 +2295,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 11,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Separating"
       },
       {
@@ -2377,8 +2481,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "diff": 92.23128010851752,
         "p1": 13,
         "p2": 13,
-        "p1_speed": 0.0,
-        "p2_speed": -0.021320974660716252,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Static"
       },
       {
@@ -2394,8 +2498,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "diff": 272.2312801085175,
         "p1": 13,
         "p2": 15,
-        "p1_speed": 0.0,
-        "p2_speed": -0.021320974660716252,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Static"
       },
       {
@@ -2632,8 +2736,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "diff": 87.76871989148248,
         "p1": 15,
         "p2": 13,
-        "p1_speed": 0.0,
-        "p2_speed": -0.021320974660716252,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Static"
       },
       {
@@ -2649,8 +2753,8 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "diff": 92.23128010851752,
         "p1": 15,
         "p2": 15,
-        "p1_speed": 0.0,
-        "p2_speed": -0.021320974660716252,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Static"
       },
       {
@@ -2939,7 +3043,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 19,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
@@ -2956,7 +3060,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 19,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Separating"
       },
       {
@@ -2973,7 +3077,7 @@ Endpoint: `/api/v5/chart-data/solar-return`
         "p1": 19,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {

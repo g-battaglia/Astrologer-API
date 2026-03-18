@@ -33,7 +33,7 @@ Endpoint: `/api/v5/context/solar-return`
 ```json
 {
   "status": "OK",
-  "context": "<chart_analysis type=\"DualReturnChart\">\n  <first_subject>\n    <chart name=\"John Doe\">\n      <birth_data date=\"1990-01-01 12:30\" city=\"London\" nation=\"GB\" lat=\"51.51\" lng=\"-0.13\" lng_dir=\"W\" tz=\"Europe/London\" />\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <planets>\n        <point name=\"Sun\" position=\"10.84\" sign=\"Capricorn\" abs_pos=\"280.84\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"1.0195\" declination=\"-23.00\" />\n        <point name=\"Moon\" position=\"3.55\" sign=\"Pisces\" abs_pos=\"333.55\" quality=\"Mutable\" element=\"Water\" house=\"Eleventh House\" motion=\"direct\" speed=\"13.4742\" declination=\"-8.81\" />\n        <point name=\"Mercury\" position=\"25.67\" sign=\"Capricorn\" abs_pos=\"295.67\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.2987\" declination=\"-20.39\" />\n        <point name=\"Venus\" position=\"6.22\" sign=\"Aquarius\" abs_pos=\"306.22\" quality=\"Fixed\" element=\"Air\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.1312\" declination=\"-16.87\" />\n        <point name=\"Mars\" position=\"10.01\" sign=\"Sagittarius\" abs_pos=\"250.01\" quality=\"Mutable\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.7038\" declination=\"-21.99\" />\n        <point name=\"Jupiter\" position=\"5.15\" sign=\"Cancer\" abs_pos=\"95.15\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.1345\" declination=\"23.23\" />\n        <point name=\"Saturn\" position=\"15.66\" sign=\"Capricorn\" abs_pos=\"285.66\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.1183\" declination=\"-22.23\" />\n        <point name=\"Uranus\" position=\"5.79\" sign=\"Capricorn\" abs_pos=\"275.79\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0600\" declination=\"-23.59\" />\n        <point name=\"Neptune\" position=\"12.04\" sign=\"Capricorn\" abs_pos=\"282.04\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0379\" declination=\"-22.05\" />\n        <point name=\"Pluto\" position=\"17.09\" sign=\"Scorpio\" abs_pos=\"227.09\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0273\" declination=\"-2.25\" />\n        <point name=\"Chiron\" position=\"13.81\" sign=\"Cancer\" abs_pos=\"103.81\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.0685\" declination=\"15.46\" />\n        <point name=\"Mean_Lilith\" position=\"6.47\" sign=\"Scorpio\" abs_pos=\"216.47\" quality=\"Fixed\" element=\"Water\" house=\"Sixth House\" motion=\"direct\" speed=\"0.1120\" declination=\"-18.42\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"10.21\" sign=\"Taurus\" abs_pos=\"40.21\" quality=\"Fixed\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Descendant\" position=\"10.21\" sign=\"Scorpio\" abs_pos=\"220.21\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Medium_Coeli\" position=\"16.85\" sign=\"Capricorn\" abs_pos=\"286.85\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Imum_Coeli\" position=\"16.85\" sign=\"Cancer\" abs_pos=\"106.85\" quality=\"Cardinal\" element=\"Water\" house=\"Fourth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"True_North_Lunar_Node\" position=\"16.87\" sign=\"Aquarius\" abs_pos=\"316.87\" quality=\"Fixed\" element=\"Air\" house=\"Eleventh House\" motion=\"direct\" speed=\"0.0236\" declination=\"-15.78\" />\n        <point name=\"True_South_Lunar_Node\" position=\"16.87\" sign=\"Leo\" abs_pos=\"136.87\" quality=\"Fixed\" element=\"Fire\" house=\"Fifth House\" motion=\"direct\" speed=\"-0.0236\" declination=\"15.78\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"10.21\" sign=\"Taurus\" />\n        <house name=\"Second_House\" cusp=\"10.24\" sign=\"Gemini\" />\n        <house name=\"Third_House\" cusp=\"29.34\" sign=\"Gemini\" />\n        <house name=\"Fourth_House\" cusp=\"16.85\" sign=\"Cancer\" />\n        <house name=\"Fifth_House\" cusp=\"7.64\" sign=\"Leo\" />\n        <house name=\"Sixth_House\" cusp=\"10.18\" sign=\"Virgo\" />\n        <house name=\"Seventh_House\" cusp=\"10.21\" sign=\"Scorpio\" />\n        <house name=\"Eighth_House\" cusp=\"10.24\" sign=\"Sagittarius\" />\n        <house name=\"Ninth_House\" cusp=\"29.34\" sign=\"Sagittarius\" />\n        <house name=\"Tenth_House\" cusp=\"16.85\" sign=\"Capricorn\" />\n        <house name=\"Eleventh_House\" cusp=\"7.64\" sign=\"Aquarius\" />\n        <house name=\"Twelfth_House\" cusp=\"10.18\" sign=\"Pisces\" />\n      </houses>\n      <lunar_phase name=\"Waxing Crescent\" phase=\"5\" degrees_between=\"52.71\" emoji=\"\ud83c\udf12\" />\n    </chart>\n  </first_subject>\n  <second_subject>\n    <chart name=\"John Doe Solar Return\">\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <return_info type=\"Solar\" />\n      <planets>\n        <point name=\"Sun\" position=\"10.84\" sign=\"Capricorn\" abs_pos=\"280.84\" quality=\"Cardinal\" element=\"Earth\" house=\"Fifth House\" motion=\"direct\" speed=\"1.0190\" declination=\"-23.00\" />\n        <point name=\"Moon\" position=\"15.23\" sign=\"Virgo\" abs_pos=\"165.23\" quality=\"Mutable\" element=\"Earth\" house=\"Second House\" motion=\"direct\" speed=\"11.8026\" declination=\"8.54\" />\n        <point name=\"Mercury\" position=\"22.19\" sign=\"Sagittarius\" abs_pos=\"262.19\" quality=\"Mutable\" element=\"Fire\" house=\"Fifth House\" motion=\"retrograde\" speed=\"-0.0542\" declination=\"-20.20\" />\n        <point name=\"Venus\" position=\"3.56\" sign=\"Sagittarius\" abs_pos=\"243.56\" quality=\"Mutable\" element=\"Fire\" house=\"Fourth House\" motion=\"direct\" speed=\"1.2168\" declination=\"-18.97\" />\n        <point name=\"Mars\" position=\"27.89\" sign=\"Sagittarius\" abs_pos=\"267.89\" quality=\"Mutable\" element=\"Fire\" house=\"Fifth House\" motion=\"direct\" speed=\"0.7420\" declination=\"-23.98\" />\n        <point name=\"Jupiter\" position=\"5.59\" sign=\"Taurus\" abs_pos=\"35.59\" quality=\"Fixed\" element=\"Earth\" house=\"Tenth House\" motion=\"direct\" speed=\"0.0058\" declination=\"12.27\" />\n        <point name=\"Saturn\" position=\"3.31\" sign=\"Pisces\" abs_pos=\"333.31\" quality=\"Mutable\" element=\"Water\" house=\"Eighth House\" motion=\"direct\" speed=\"0.0893\" declination=\"-11.81\" />\n        <point name=\"Uranus\" position=\"19.37\" sign=\"Taurus\" abs_pos=\"49.37\" quality=\"Fixed\" element=\"Earth\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.0213\" declination=\"17.28\" />\n        <point name=\"Neptune\" position=\"25.09\" sign=\"Pisces\" abs_pos=\"355.09\" quality=\"Mutable\" element=\"Water\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0150\" declination=\"-3.09\" />\n        <point name=\"Pluto\" position=\"29.38\" sign=\"Capricorn\" abs_pos=\"299.38\" quality=\"Cardinal\" element=\"Earth\" house=\"Sixth House\" motion=\"direct\" speed=\"0.0311\" declination=\"-22.99\" />\n        <point name=\"Chiron\" position=\"15.47\" sign=\"Aries\" abs_pos=\"15.47\" quality=\"Cardinal\" element=\"Fire\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0052\" declination=\"7.34\" />\n        <point name=\"Mean_Lilith\" position=\"10.06\" sign=\"Virgo\" abs_pos=\"160.06\" quality=\"Mutable\" element=\"Earth\" house=\"Second House\" motion=\"direct\" speed=\"0.1113\" declination=\"10.91\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"12.44\" sign=\"Leo\" abs_pos=\"132.44\" quality=\"Fixed\" element=\"Fire\" house=\"First House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Descendant\" position=\"12.44\" sign=\"Aquarius\" abs_pos=\"312.44\" quality=\"Fixed\" element=\"Air\" house=\"Seventh House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Medium_Coeli\" position=\"23.96\" sign=\"Aries\" abs_pos=\"23.96\" quality=\"Cardinal\" element=\"Fire\" house=\"Tenth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"Imum_Coeli\" position=\"23.96\" sign=\"Libra\" abs_pos=\"203.96\" quality=\"Cardinal\" element=\"Air\" house=\"Fourth House\" motion=\"direct\" speed=\"360.0000\" />\n        <point name=\"True_North_Lunar_Node\" position=\"21.01\" sign=\"Aries\" abs_pos=\"21.01\" quality=\"Cardinal\" element=\"Fire\" house=\"Ninth House\" motion=\"retrograde\" speed=\"-0.0635\" declination=\"8.20\" />\n        <point name=\"True_South_Lunar_Node\" position=\"21.01\" sign=\"Libra\" abs_pos=\"201.01\" quality=\"Cardinal\" element=\"Air\" house=\"Third House\" motion=\"retrograde\" speed=\"0.0635\" declination=\"-8.20\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"12.44\" sign=\"Leo\" />\n        <house name=\"Second_House\" cusp=\"29.96\" sign=\"Leo\" />\n        <house name=\"Third_House\" cusp=\"22.80\" sign=\"Virgo\" />\n        <house name=\"Fourth_House\" cusp=\"23.96\" sign=\"Libra\" />\n        <house name=\"Fifth_House\" cusp=\"3.76\" sign=\"Sagittarius\" />\n        <house name=\"Sixth_House\" cusp=\"12.45\" sign=\"Capricorn\" />\n        <house name=\"Seventh_House\" cusp=\"12.44\" sign=\"Aquarius\" />\n        <house name=\"Eighth_House\" cusp=\"29.96\" sign=\"Aquarius\" />\n        <house name=\"Ninth_House\" cusp=\"22.80\" sign=\"Pisces\" />\n        <house name=\"Tenth_House\" cusp=\"23.96\" sign=\"Aries\" />\n        <house name=\"Eleventh_House\" cusp=\"3.76\" sign=\"Gemini\" />\n        <house name=\"Twelfth_House\" cusp=\"12.45\" sign=\"Cancer\" />\n      </houses>\n      <lunar_phase name=\"Last Quarter\" phase=\"20\" degrees_between=\"244.40\" emoji=\"\ud83c\udf17\" />\n    </chart>\n  </second_subject>\n  <aspects count=\"111\">\n    <aspect type=\"conjunction\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"0.00\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"4.40\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"5.25\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"4.63\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"0.78\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"John Doe Solar Return\" orb=\"0.64\" angle=\"72\" />\n    <aspect type=\"square\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"John Doe Solar Return\" orb=\"0.01\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Mars\" p2_owner=\"John Doe Solar Return\" orb=\"5.66\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"2.04\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"John Doe Solar Return\" orb=\"0.24\" angle=\"0\" />\n    <aspect type=\"opposition\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"6.51\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"6.30\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Neptune\" p2_owner=\"John Doe Solar Return\" orb=\"0.58\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"John Doe Solar Return\" orb=\"3.72\" angle=\"0\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.65\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"1.70\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"1.70\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.65\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"John Doe Solar Return\" orb=\"2.66\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"0.63\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"John Doe Solar Return\" orb=\"6.84\" angle=\"0\" />\n    <aspect type=\"opposition\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"6.22\" angle=\"180\" />\n    <aspect type=\"conjunction\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"6.22\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"John Doe Solar Return\" orb=\"6.45\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"5.45\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.42\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.42\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"0.05\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"5.69\" angle=\"180\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Mars\" p2_owner=\"John Doe Solar Return\" orb=\"7.26\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"0.44\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"John Doe Solar Return\" orb=\"1.83\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"0.82\" angle=\"72\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"4.91\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"4.82\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"0.43\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"3.71\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"0.19\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"5.60\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"5.05\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Mars\" p2_owner=\"John Doe Solar Return\" orb=\"7.90\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"0.20\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"John Doe Solar Return\" orb=\"2.47\" angle=\"60\" />\n    <aspect type=\"quintile\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"0.18\" angle=\"72\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"4.27\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"1.20\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"3.19\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"6.45\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"7.33\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"3.43\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"1.98\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"1.86\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"2.27\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Neptune\" p2_owner=\"John Doe Solar Return\" orb=\"7.99\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"John Doe Solar Return\" orb=\"0.29\" angle=\"72\" />\n    <aspect type=\"square\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.66\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.66\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"John Doe Solar Return\" orb=\"5.32\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"2.50\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.15\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"1.40\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.43\" angle=\"180\" />\n    <aspect type=\"conjunction\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.43\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"7.09\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.15\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"2.98\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"1.42\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"5.56\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"1.65\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"3.75\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"0.63\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"5.03\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"4.62\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"9.16\" angle=\"0\" />\n    <aspect type=\"square\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.23\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.23\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"0.15\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"6.02\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"1.62\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"2.51\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.16\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"1.39\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"6.79\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.16\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"0.63\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"5.03\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"4.62\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"John Doe Solar Return\" orb=\"6.89\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"9.16\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.23\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.23\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"0.15\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"6.02\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"1.62\" angle=\"60\" />\n    <aspect type=\"quintile\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"0.73\" angle=\"72\" />\n    <aspect type=\"sextile\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"2.51\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.16\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"1.39\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.16\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"4.37\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"0.88\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"John Doe Solar Return\" orb=\"3.15\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"3.59\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"John Doe Solar Return\" orb=\"5.32\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"2.50\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.15\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"1.40\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.43\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"7.09\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.43\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.15\" angle=\"60\" />\n  </aspects>\n  <house_overlay>\n    <first_points_in_second subject=\"John Doe\" target=\"John Doe Solar Return\">\n      <point_in_house point_name=\"Sun\" point_owner=\"John Doe\" degree=\"10.84\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"John Doe\" degree=\"3.55\" sign=\"Pis\" owner_house=\"Eleventh_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"John Doe\" degree=\"25.67\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"John Doe\" degree=\"6.22\" sign=\"Aqu\" owner_house=\"Tenth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"John Doe\" degree=\"10.01\" sign=\"Sag\" owner_house=\"Seventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"John Doe\" degree=\"5.15\" sign=\"Can\" owner_house=\"Third_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"John Doe\" degree=\"15.66\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"John Doe\" degree=\"5.79\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"John Doe\" degree=\"12.04\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"John Doe\" degree=\"17.09\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Fourth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"John Doe\" degree=\"16.87\" sign=\"Aqu\" owner_house=\"Eleventh_House\" projected_house=\"Seventh_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"John Doe\" degree=\"16.87\" sign=\"Leo\" owner_house=\"Fifth_House\" projected_house=\"First_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"John Doe\" degree=\"6.47\" sign=\"Sco\" owner_house=\"Sixth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"John Doe\" degree=\"13.81\" sign=\"Can\" owner_house=\"Third_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Tau\" owner_house=\"First_House\" projected_house=\"Tenth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Fourth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Can\" owner_house=\"Fourth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe Solar Return\" />\n    </first_points_in_second>\n    <second_points_in_first subject=\"John Doe Solar Return\" target=\"John Doe\">\n      <point_in_house point_name=\"Sun\" point_owner=\"John Doe Solar Return\" degree=\"10.84\" sign=\"Cap\" owner_house=\"Fifth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"John Doe Solar Return\" degree=\"15.23\" sign=\"Vir\" owner_house=\"Second_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"John Doe Solar Return\" degree=\"22.19\" sign=\"Sag\" owner_house=\"Fifth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"John Doe Solar Return\" degree=\"3.56\" sign=\"Sag\" owner_house=\"Fourth_House\" projected_house=\"Seventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"John Doe Solar Return\" degree=\"27.89\" sign=\"Sag\" owner_house=\"Fifth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"John Doe Solar Return\" degree=\"5.59\" sign=\"Tau\" owner_house=\"Tenth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"John Doe Solar Return\" degree=\"3.31\" sign=\"Pis\" owner_house=\"Eighth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"John Doe Solar Return\" degree=\"19.37\" sign=\"Tau\" owner_house=\"Tenth_House\" projected_house=\"First_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"John Doe Solar Return\" degree=\"25.09\" sign=\"Pis\" owner_house=\"Ninth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"John Doe Solar Return\" degree=\"29.38\" sign=\"Cap\" owner_house=\"Sixth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"John Doe Solar Return\" degree=\"21.01\" sign=\"Ari\" owner_house=\"Ninth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"John Doe Solar Return\" degree=\"21.01\" sign=\"Lib\" owner_house=\"Third_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"John Doe Solar Return\" degree=\"10.06\" sign=\"Vir\" owner_house=\"Second_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"John Doe Solar Return\" degree=\"15.47\" sign=\"Ari\" owner_house=\"Ninth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"John Doe Solar Return\" degree=\"12.44\" sign=\"Leo\" owner_house=\"First_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"John Doe Solar Return\" degree=\"23.96\" sign=\"Ari\" owner_house=\"Tenth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"John Doe Solar Return\" degree=\"12.44\" sign=\"Aqu\" owner_house=\"Seventh_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"John Doe Solar Return\" degree=\"23.96\" sign=\"Lib\" owner_house=\"Fourth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n    </second_points_in_first>\n    <first_cusps_in_second subject=\"John Doe\" target=\"John Doe Solar Return\">\n      <point_in_house point_name=\"First_House\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Tau\" owner_house=\"First_House\" projected_house=\"Tenth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"John Doe\" degree=\"10.24\" sign=\"Gem\" owner_house=\"Second_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"John Doe\" degree=\"29.34\" sign=\"Gem\" owner_house=\"Third_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Can\" owner_house=\"Fourth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"John Doe\" degree=\"7.64\" sign=\"Leo\" owner_house=\"Fifth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"John Doe\" degree=\"10.18\" sign=\"Vir\" owner_house=\"Sixth_House\" projected_house=\"Second_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Fourth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"John Doe\" degree=\"10.24\" sign=\"Sag\" owner_house=\"Eighth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"John Doe\" degree=\"29.34\" sign=\"Sag\" owner_house=\"Ninth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"John Doe\" degree=\"7.64\" sign=\"Aqu\" owner_house=\"Eleventh_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"John Doe\" degree=\"10.18\" sign=\"Pis\" owner_house=\"Twelfth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe Solar Return\" />\n    </first_cusps_in_second>\n    <second_cusps_in_first subject=\"John Doe Solar Return\" target=\"John Doe\">\n      <point_in_house point_name=\"First_House\" point_owner=\"John Doe Solar Return\" degree=\"12.44\" sign=\"Leo\" owner_house=\"First_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"John Doe Solar Return\" degree=\"29.96\" sign=\"Leo\" owner_house=\"Second_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"John Doe Solar Return\" degree=\"22.80\" sign=\"Vir\" owner_house=\"Third_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"John Doe Solar Return\" degree=\"23.96\" sign=\"Lib\" owner_house=\"Fourth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"John Doe Solar Return\" degree=\"3.76\" sign=\"Sag\" owner_house=\"Fifth_House\" projected_house=\"Seventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"John Doe Solar Return\" degree=\"12.45\" sign=\"Cap\" owner_house=\"Sixth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"John Doe Solar Return\" degree=\"12.44\" sign=\"Aqu\" owner_house=\"Seventh_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"John Doe Solar Return\" degree=\"29.96\" sign=\"Aqu\" owner_house=\"Eighth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"John Doe Solar Return\" degree=\"22.80\" sign=\"Pis\" owner_house=\"Ninth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"John Doe Solar Return\" degree=\"23.96\" sign=\"Ari\" owner_house=\"Tenth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"John Doe Solar Return\" degree=\"3.76\" sign=\"Gem\" owner_house=\"Eleventh_House\" projected_house=\"First_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"John Doe Solar Return\" degree=\"12.45\" sign=\"Can\" owner_house=\"Twelfth_House\" projected_house=\"Third_House\" projected_house_owner=\"John Doe\" />\n    </second_cusps_in_first>\n  </house_overlay>\n  <element_distribution fire=\"10%\" earth=\"43%\" air=\"10%\" water=\"37%\" />\n  <quality_distribution cardinal=\"49%\" fixed=\"34%\" mutable=\"17%\" />\n  <active_points>Ascendant, Chiron, Descendant, Imum_Coeli, Jupiter, Mars, Mean_Lilith, Medium_Coeli, Mercury, Moon, Neptune, Pluto, Saturn, Sun, True_North_Lunar_Node, True_South_Lunar_Node, Uranus, Venus</active_points>\n  <active_aspects>conjunction (10), opposition (10), trine (8), sextile (6), square (5), quintile (1)</active_aspects>\n</chart_analysis>",
+  "context": "<chart_analysis type=\"DualReturnChart\">\n  <first_subject>\n    <chart name=\"John Doe\">\n      <birth_data date=\"1990-01-01 12:30\" city=\"London\" nation=\"GB\" lat=\"51.51\" lng=\"-0.13\" lng_dir=\"W\" tz=\"Europe/London\" />\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <planets>\n        <point name=\"Sun\" position=\"10.84\" sign=\"Capricorn\" abs_pos=\"280.84\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"1.0195\" declination=\"-23.00\" />\n        <point name=\"Moon\" position=\"3.55\" sign=\"Pisces\" abs_pos=\"333.55\" quality=\"Mutable\" element=\"Water\" house=\"Eleventh House\" motion=\"direct\" speed=\"13.4742\" declination=\"-8.81\" />\n        <point name=\"Mercury\" position=\"25.67\" sign=\"Capricorn\" abs_pos=\"295.67\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.2987\" declination=\"-20.39\" />\n        <point name=\"Venus\" position=\"6.22\" sign=\"Aquarius\" abs_pos=\"306.22\" quality=\"Fixed\" element=\"Air\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.1312\" declination=\"-16.87\" />\n        <point name=\"Mars\" position=\"10.01\" sign=\"Sagittarius\" abs_pos=\"250.01\" quality=\"Mutable\" element=\"Fire\" house=\"Seventh House\" motion=\"direct\" speed=\"0.7038\" declination=\"-21.99\" />\n        <point name=\"Jupiter\" position=\"5.15\" sign=\"Cancer\" abs_pos=\"95.15\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.1345\" declination=\"23.23\" />\n        <point name=\"Saturn\" position=\"15.66\" sign=\"Capricorn\" abs_pos=\"285.66\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.1183\" declination=\"-22.23\" />\n        <point name=\"Uranus\" position=\"5.79\" sign=\"Capricorn\" abs_pos=\"275.79\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0600\" declination=\"-23.59\" />\n        <point name=\"Neptune\" position=\"12.04\" sign=\"Capricorn\" abs_pos=\"282.04\" quality=\"Cardinal\" element=\"Earth\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0379\" declination=\"-22.05\" />\n        <point name=\"Pluto\" position=\"17.09\" sign=\"Scorpio\" abs_pos=\"227.09\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"0.0273\" declination=\"-2.25\" />\n        <point name=\"Chiron\" position=\"13.81\" sign=\"Cancer\" abs_pos=\"103.81\" quality=\"Cardinal\" element=\"Water\" house=\"Third House\" motion=\"retrograde\" speed=\"-0.0685\" declination=\"15.46\" />\n        <point name=\"Mean_Lilith\" position=\"6.47\" sign=\"Scorpio\" abs_pos=\"216.47\" quality=\"Fixed\" element=\"Water\" house=\"Sixth House\" motion=\"direct\" speed=\"0.1120\" declination=\"-18.42\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"10.21\" sign=\"Taurus\" abs_pos=\"40.21\" quality=\"Fixed\" element=\"Earth\" house=\"First House\" motion=\"direct\" speed=\"677.0295\" />\n        <point name=\"Descendant\" position=\"10.21\" sign=\"Scorpio\" abs_pos=\"220.21\" quality=\"Fixed\" element=\"Water\" house=\"Seventh House\" motion=\"direct\" speed=\"677.0295\" />\n        <point name=\"Medium_Coeli\" position=\"16.85\" sign=\"Capricorn\" abs_pos=\"286.85\" quality=\"Cardinal\" element=\"Earth\" house=\"Tenth House\" motion=\"direct\" speed=\"336.4242\" />\n        <point name=\"Imum_Coeli\" position=\"16.85\" sign=\"Cancer\" abs_pos=\"106.85\" quality=\"Cardinal\" element=\"Water\" house=\"Fourth House\" motion=\"direct\" speed=\"336.4242\" />\n        <point name=\"True_North_Lunar_Node\" position=\"16.87\" sign=\"Aquarius\" abs_pos=\"316.87\" quality=\"Fixed\" element=\"Air\" house=\"Eleventh House\" motion=\"direct\" speed=\"0.0236\" declination=\"-15.78\" />\n        <point name=\"True_South_Lunar_Node\" position=\"16.87\" sign=\"Leo\" abs_pos=\"136.87\" quality=\"Fixed\" element=\"Fire\" house=\"Fifth House\" motion=\"direct\" speed=\"-0.0236\" declination=\"15.78\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"10.21\" sign=\"Taurus\" />\n        <house name=\"Second_House\" cusp=\"10.24\" sign=\"Gemini\" />\n        <house name=\"Third_House\" cusp=\"29.34\" sign=\"Gemini\" />\n        <house name=\"Fourth_House\" cusp=\"16.85\" sign=\"Cancer\" />\n        <house name=\"Fifth_House\" cusp=\"7.64\" sign=\"Leo\" />\n        <house name=\"Sixth_House\" cusp=\"10.18\" sign=\"Virgo\" />\n        <house name=\"Seventh_House\" cusp=\"10.21\" sign=\"Scorpio\" />\n        <house name=\"Eighth_House\" cusp=\"10.24\" sign=\"Sagittarius\" />\n        <house name=\"Ninth_House\" cusp=\"29.34\" sign=\"Sagittarius\" />\n        <house name=\"Tenth_House\" cusp=\"16.85\" sign=\"Capricorn\" />\n        <house name=\"Eleventh_House\" cusp=\"7.64\" sign=\"Aquarius\" />\n        <house name=\"Twelfth_House\" cusp=\"10.18\" sign=\"Pisces\" />\n      </houses>\n      <lunar_phase name=\"Waxing Crescent\" phase=\"5\" degrees_between=\"52.71\" emoji=\"\ud83c\udf12\" />\n    </chart>\n  </first_subject>\n  <second_subject>\n    <chart name=\"John Doe Solar Return\">\n      <config zodiac=\"Tropical\" house_system=\"Placidus\" perspective=\"Apparent Geocentric\" />\n      <return_info type=\"Solar\" />\n      <planets>\n        <point name=\"Sun\" position=\"10.84\" sign=\"Capricorn\" abs_pos=\"280.84\" quality=\"Cardinal\" element=\"Earth\" house=\"Fifth House\" motion=\"direct\" speed=\"1.0190\" declination=\"-23.00\" />\n        <point name=\"Moon\" position=\"15.23\" sign=\"Virgo\" abs_pos=\"165.23\" quality=\"Mutable\" element=\"Earth\" house=\"Second House\" motion=\"direct\" speed=\"11.8026\" declination=\"8.54\" />\n        <point name=\"Mercury\" position=\"22.19\" sign=\"Sagittarius\" abs_pos=\"262.19\" quality=\"Mutable\" element=\"Fire\" house=\"Fifth House\" motion=\"retrograde\" speed=\"-0.0542\" declination=\"-20.20\" />\n        <point name=\"Venus\" position=\"3.56\" sign=\"Sagittarius\" abs_pos=\"243.56\" quality=\"Mutable\" element=\"Fire\" house=\"Fourth House\" motion=\"direct\" speed=\"1.2168\" declination=\"-18.97\" />\n        <point name=\"Mars\" position=\"27.89\" sign=\"Sagittarius\" abs_pos=\"267.89\" quality=\"Mutable\" element=\"Fire\" house=\"Fifth House\" motion=\"direct\" speed=\"0.7420\" declination=\"-23.98\" />\n        <point name=\"Jupiter\" position=\"5.59\" sign=\"Taurus\" abs_pos=\"35.59\" quality=\"Fixed\" element=\"Earth\" house=\"Tenth House\" motion=\"direct\" speed=\"0.0058\" declination=\"12.27\" />\n        <point name=\"Saturn\" position=\"3.31\" sign=\"Pisces\" abs_pos=\"333.31\" quality=\"Mutable\" element=\"Water\" house=\"Eighth House\" motion=\"direct\" speed=\"0.0893\" declination=\"-11.81\" />\n        <point name=\"Uranus\" position=\"19.37\" sign=\"Taurus\" abs_pos=\"49.37\" quality=\"Fixed\" element=\"Earth\" house=\"Tenth House\" motion=\"retrograde\" speed=\"-0.0213\" declination=\"17.28\" />\n        <point name=\"Neptune\" position=\"25.09\" sign=\"Pisces\" abs_pos=\"355.09\" quality=\"Mutable\" element=\"Water\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0150\" declination=\"-3.09\" />\n        <point name=\"Pluto\" position=\"29.38\" sign=\"Capricorn\" abs_pos=\"299.38\" quality=\"Cardinal\" element=\"Earth\" house=\"Sixth House\" motion=\"direct\" speed=\"0.0311\" declination=\"-22.99\" />\n        <point name=\"Chiron\" position=\"15.47\" sign=\"Aries\" abs_pos=\"15.47\" quality=\"Cardinal\" element=\"Fire\" house=\"Ninth House\" motion=\"direct\" speed=\"0.0052\" declination=\"7.34\" />\n        <point name=\"Mean_Lilith\" position=\"10.06\" sign=\"Virgo\" abs_pos=\"160.06\" quality=\"Mutable\" element=\"Earth\" house=\"Second House\" motion=\"direct\" speed=\"0.1113\" declination=\"10.91\" />\n      </planets>\n      <axes>\n        <point name=\"Ascendant\" position=\"12.44\" sign=\"Leo\" abs_pos=\"132.44\" quality=\"Fixed\" element=\"Fire\" house=\"First House\" motion=\"direct\" speed=\"253.7025\" />\n        <point name=\"Descendant\" position=\"12.44\" sign=\"Aquarius\" abs_pos=\"312.44\" quality=\"Fixed\" element=\"Air\" house=\"Seventh House\" motion=\"direct\" speed=\"253.7025\" />\n        <point name=\"Medium_Coeli\" position=\"23.96\" sign=\"Aries\" abs_pos=\"23.96\" quality=\"Cardinal\" element=\"Fire\" house=\"Tenth House\" motion=\"direct\" speed=\"383.1808\" />\n        <point name=\"Imum_Coeli\" position=\"23.96\" sign=\"Libra\" abs_pos=\"203.96\" quality=\"Cardinal\" element=\"Air\" house=\"Fourth House\" motion=\"direct\" speed=\"383.1808\" />\n        <point name=\"True_North_Lunar_Node\" position=\"21.01\" sign=\"Aries\" abs_pos=\"21.01\" quality=\"Cardinal\" element=\"Fire\" house=\"Ninth House\" motion=\"retrograde\" speed=\"-0.0635\" declination=\"8.20\" />\n        <point name=\"True_South_Lunar_Node\" position=\"21.01\" sign=\"Libra\" abs_pos=\"201.01\" quality=\"Cardinal\" element=\"Air\" house=\"Third House\" motion=\"retrograde\" speed=\"0.0635\" declination=\"-8.20\" />\n      </axes>\n      <houses>\n        <house name=\"First_House\" cusp=\"12.44\" sign=\"Leo\" />\n        <house name=\"Second_House\" cusp=\"29.96\" sign=\"Leo\" />\n        <house name=\"Third_House\" cusp=\"22.80\" sign=\"Virgo\" />\n        <house name=\"Fourth_House\" cusp=\"23.96\" sign=\"Libra\" />\n        <house name=\"Fifth_House\" cusp=\"3.76\" sign=\"Sagittarius\" />\n        <house name=\"Sixth_House\" cusp=\"12.45\" sign=\"Capricorn\" />\n        <house name=\"Seventh_House\" cusp=\"12.44\" sign=\"Aquarius\" />\n        <house name=\"Eighth_House\" cusp=\"29.96\" sign=\"Aquarius\" />\n        <house name=\"Ninth_House\" cusp=\"22.80\" sign=\"Pisces\" />\n        <house name=\"Tenth_House\" cusp=\"23.96\" sign=\"Aries\" />\n        <house name=\"Eleventh_House\" cusp=\"3.76\" sign=\"Gemini\" />\n        <house name=\"Twelfth_House\" cusp=\"12.45\" sign=\"Cancer\" />\n      </houses>\n      <lunar_phase name=\"Last Quarter\" phase=\"20\" degrees_between=\"244.40\" emoji=\"\ud83c\udf17\" />\n    </chart>\n  </second_subject>\n  <aspects count=\"111\">\n    <aspect type=\"conjunction\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"0.00\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"4.40\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"5.25\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"4.63\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Sun\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"0.78\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"John Doe Solar Return\" orb=\"0.64\" angle=\"72\" />\n    <aspect type=\"square\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"John Doe Solar Return\" orb=\"0.01\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Mars\" p2_owner=\"John Doe Solar Return\" orb=\"5.66\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"2.04\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"John Doe Solar Return\" orb=\"0.24\" angle=\"0\" />\n    <aspect type=\"opposition\" p1_name=\"Moon\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"6.51\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"6.30\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Neptune\" p2_owner=\"John Doe Solar Return\" orb=\"0.58\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"John Doe Solar Return\" orb=\"3.72\" angle=\"0\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.65\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"1.70\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"1.70\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Mercury\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.65\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"John Doe Solar Return\" orb=\"2.66\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"0.63\" angle=\"90\" />\n    <aspect type=\"conjunction\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"John Doe Solar Return\" orb=\"6.84\" angle=\"0\" />\n    <aspect type=\"opposition\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"6.22\" angle=\"180\" />\n    <aspect type=\"conjunction\" p1_name=\"Venus\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"6.22\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Venus\" p2_owner=\"John Doe Solar Return\" orb=\"6.45\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"5.45\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.42\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.42\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Mars\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"0.05\" angle=\"90\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"5.69\" angle=\"180\" />\n    <aspect type=\"opposition\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Mars\" p2_owner=\"John Doe Solar Return\" orb=\"7.26\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"0.44\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"John Doe Solar Return\" orb=\"1.83\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"0.82\" angle=\"72\" />\n    <aspect type=\"sextile\" p1_name=\"Jupiter\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"4.91\" angle=\"60\" />\n    <aspect type=\"conjunction\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"4.82\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"0.43\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"3.71\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"0.19\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Saturn\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"5.60\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"5.05\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Mars\" p2_owner=\"John Doe Solar Return\" orb=\"7.90\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"0.20\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"John Doe Solar Return\" orb=\"2.47\" angle=\"60\" />\n    <aspect type=\"quintile\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"0.18\" angle=\"72\" />\n    <aspect type=\"trine\" p1_name=\"Uranus\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"4.27\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"1.20\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"3.19\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"6.45\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"7.33\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"3.43\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Neptune\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"1.98\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"1.86\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"2.27\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Neptune\" p2_owner=\"John Doe Solar Return\" orb=\"7.99\" angle=\"120\" />\n    <aspect type=\"quintile\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Pluto\" p2_owner=\"John Doe Solar Return\" orb=\"0.29\" angle=\"72\" />\n    <aspect type=\"square\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.66\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Pluto\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.66\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"John Doe Solar Return\" orb=\"5.32\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"2.50\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.15\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"1.40\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.43\" angle=\"180\" />\n    <aspect type=\"conjunction\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.43\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Imum_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"7.09\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"True_North_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.15\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"2.98\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"1.42\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"5.56\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"1.65\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Chiron\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"3.75\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"0.63\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"5.03\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"4.62\" angle=\"0\" />\n    <aspect type=\"conjunction\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"9.16\" angle=\"0\" />\n    <aspect type=\"square\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.23\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.23\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Ascendant\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"0.15\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"6.02\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"1.62\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"2.51\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.16\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"1.39\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"6.79\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"Medium_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.16\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"0.63\" angle=\"60\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"5.03\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"4.62\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"John Doe Solar Return\" orb=\"6.89\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"9.16\" angle=\"180\" />\n    <aspect type=\"square\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.23\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"2.23\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Descendant\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"0.15\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"6.02\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Moon\" p2_owner=\"John Doe Solar Return\" orb=\"1.62\" angle=\"60\" />\n    <aspect type=\"quintile\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"0.73\" angle=\"72\" />\n    <aspect type=\"sextile\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"2.51\" angle=\"60\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.16\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"1.39\" angle=\"90\" />\n    <aspect type=\"square\" p1_name=\"Imum_Coeli\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.16\" angle=\"90\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Sun\" p2_owner=\"John Doe Solar Return\" orb=\"4.37\" angle=\"60\" />\n    <aspect type=\"opposition\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Jupiter\" p2_owner=\"John Doe Solar Return\" orb=\"0.88\" angle=\"180\" />\n    <aspect type=\"trine\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Saturn\" p2_owner=\"John Doe Solar Return\" orb=\"3.15\" angle=\"120\" />\n    <aspect type=\"sextile\" p1_name=\"Mean_Lilith\" p1_owner=\"John Doe\" p2_name=\"Mean_Lilith\" p2_owner=\"John Doe Solar Return\" orb=\"3.59\" angle=\"60\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Mercury\" p2_owner=\"John Doe Solar Return\" orb=\"5.32\" angle=\"120\" />\n    <aspect type=\"square\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Uranus\" p2_owner=\"John Doe Solar Return\" orb=\"2.50\" angle=\"90\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_North_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.15\" angle=\"120\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Chiron\" p2_owner=\"John Doe Solar Return\" orb=\"1.40\" angle=\"120\" />\n    <aspect type=\"conjunction\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Ascendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.43\" angle=\"0\" />\n    <aspect type=\"trine\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Medium_Coeli\" p2_owner=\"John Doe Solar Return\" orb=\"7.09\" angle=\"120\" />\n    <aspect type=\"opposition\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"Descendant\" p2_owner=\"John Doe Solar Return\" orb=\"4.43\" angle=\"180\" />\n    <aspect type=\"sextile\" p1_name=\"True_South_Lunar_Node\" p1_owner=\"John Doe\" p2_name=\"True_South_Lunar_Node\" p2_owner=\"John Doe Solar Return\" orb=\"4.15\" angle=\"60\" />\n  </aspects>\n  <house_overlay>\n    <first_points_in_second subject=\"John Doe\" target=\"John Doe Solar Return\">\n      <point_in_house point_name=\"Sun\" point_owner=\"John Doe\" degree=\"10.84\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"John Doe\" degree=\"3.55\" sign=\"Pis\" owner_house=\"Eleventh_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"John Doe\" degree=\"25.67\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"John Doe\" degree=\"6.22\" sign=\"Aqu\" owner_house=\"Tenth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"John Doe\" degree=\"10.01\" sign=\"Sag\" owner_house=\"Seventh_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"John Doe\" degree=\"5.15\" sign=\"Can\" owner_house=\"Third_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"John Doe\" degree=\"15.66\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"John Doe\" degree=\"5.79\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"John Doe\" degree=\"12.04\" sign=\"Cap\" owner_house=\"Ninth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"John Doe\" degree=\"17.09\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Fourth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"John Doe\" degree=\"16.87\" sign=\"Aqu\" owner_house=\"Eleventh_House\" projected_house=\"Seventh_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"John Doe\" degree=\"16.87\" sign=\"Leo\" owner_house=\"Fifth_House\" projected_house=\"First_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"John Doe\" degree=\"6.47\" sign=\"Sco\" owner_house=\"Sixth_House\" projected_house=\"Fourth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"John Doe\" degree=\"13.81\" sign=\"Can\" owner_house=\"Third_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Tau\" owner_house=\"First_House\" projected_house=\"Tenth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Fourth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Can\" owner_house=\"Fourth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe Solar Return\" />\n    </first_points_in_second>\n    <second_points_in_first subject=\"John Doe Solar Return\" target=\"John Doe\">\n      <point_in_house point_name=\"Sun\" point_owner=\"John Doe Solar Return\" degree=\"10.84\" sign=\"Cap\" owner_house=\"Fifth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Moon\" point_owner=\"John Doe Solar Return\" degree=\"15.23\" sign=\"Vir\" owner_house=\"Second_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mercury\" point_owner=\"John Doe Solar Return\" degree=\"22.19\" sign=\"Sag\" owner_house=\"Fifth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Venus\" point_owner=\"John Doe Solar Return\" degree=\"3.56\" sign=\"Sag\" owner_house=\"Fourth_House\" projected_house=\"Seventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mars\" point_owner=\"John Doe Solar Return\" degree=\"27.89\" sign=\"Sag\" owner_house=\"Fifth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Jupiter\" point_owner=\"John Doe Solar Return\" degree=\"5.59\" sign=\"Tau\" owner_house=\"Tenth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Saturn\" point_owner=\"John Doe Solar Return\" degree=\"3.31\" sign=\"Pis\" owner_house=\"Eighth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Uranus\" point_owner=\"John Doe Solar Return\" degree=\"19.37\" sign=\"Tau\" owner_house=\"Tenth_House\" projected_house=\"First_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Neptune\" point_owner=\"John Doe Solar Return\" degree=\"25.09\" sign=\"Pis\" owner_house=\"Ninth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Pluto\" point_owner=\"John Doe Solar Return\" degree=\"29.38\" sign=\"Cap\" owner_house=\"Sixth_House\" projected_house=\"Tenth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"True_North_Lunar_Node\" point_owner=\"John Doe Solar Return\" degree=\"21.01\" sign=\"Ari\" owner_house=\"Ninth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"True_South_Lunar_Node\" point_owner=\"John Doe Solar Return\" degree=\"21.01\" sign=\"Lib\" owner_house=\"Third_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Mean_Lilith\" point_owner=\"John Doe Solar Return\" degree=\"10.06\" sign=\"Vir\" owner_house=\"Second_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Chiron\" point_owner=\"John Doe Solar Return\" degree=\"15.47\" sign=\"Ari\" owner_house=\"Ninth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Ascendant\" point_owner=\"John Doe Solar Return\" degree=\"12.44\" sign=\"Leo\" owner_house=\"First_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Medium_Coeli\" point_owner=\"John Doe Solar Return\" degree=\"23.96\" sign=\"Ari\" owner_house=\"Tenth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Descendant\" point_owner=\"John Doe Solar Return\" degree=\"12.44\" sign=\"Aqu\" owner_house=\"Seventh_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Imum_Coeli\" point_owner=\"John Doe Solar Return\" degree=\"23.96\" sign=\"Lib\" owner_house=\"Fourth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n    </second_points_in_first>\n    <first_cusps_in_second subject=\"John Doe\" target=\"John Doe Solar Return\">\n      <point_in_house point_name=\"First_House\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Tau\" owner_house=\"First_House\" projected_house=\"Tenth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"John Doe\" degree=\"10.24\" sign=\"Gem\" owner_house=\"Second_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"John Doe\" degree=\"29.34\" sign=\"Gem\" owner_house=\"Third_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Can\" owner_house=\"Fourth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"John Doe\" degree=\"7.64\" sign=\"Leo\" owner_house=\"Fifth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"John Doe\" degree=\"10.18\" sign=\"Vir\" owner_house=\"Sixth_House\" projected_house=\"Second_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"John Doe\" degree=\"10.21\" sign=\"Sco\" owner_house=\"Seventh_House\" projected_house=\"Fourth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"John Doe\" degree=\"10.24\" sign=\"Sag\" owner_house=\"Eighth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"John Doe\" degree=\"29.34\" sign=\"Sag\" owner_house=\"Ninth_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"John Doe\" degree=\"16.85\" sign=\"Cap\" owner_house=\"Tenth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"John Doe\" degree=\"7.64\" sign=\"Aqu\" owner_house=\"Eleventh_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe Solar Return\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"John Doe\" degree=\"10.18\" sign=\"Pis\" owner_house=\"Twelfth_House\" projected_house=\"Eighth_House\" projected_house_owner=\"John Doe Solar Return\" />\n    </first_cusps_in_second>\n    <second_cusps_in_first subject=\"John Doe Solar Return\" target=\"John Doe\">\n      <point_in_house point_name=\"First_House\" point_owner=\"John Doe Solar Return\" degree=\"12.44\" sign=\"Leo\" owner_house=\"First_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Second_House\" point_owner=\"John Doe Solar Return\" degree=\"29.96\" sign=\"Leo\" owner_house=\"Second_House\" projected_house=\"Fifth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Third_House\" point_owner=\"John Doe Solar Return\" degree=\"22.80\" sign=\"Vir\" owner_house=\"Third_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Fourth_House\" point_owner=\"John Doe Solar Return\" degree=\"23.96\" sign=\"Lib\" owner_house=\"Fourth_House\" projected_house=\"Sixth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Fifth_House\" point_owner=\"John Doe Solar Return\" degree=\"3.76\" sign=\"Sag\" owner_house=\"Fifth_House\" projected_house=\"Seventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Sixth_House\" point_owner=\"John Doe Solar Return\" degree=\"12.45\" sign=\"Cap\" owner_house=\"Sixth_House\" projected_house=\"Ninth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Seventh_House\" point_owner=\"John Doe Solar Return\" degree=\"12.44\" sign=\"Aqu\" owner_house=\"Seventh_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Eighth_House\" point_owner=\"John Doe Solar Return\" degree=\"29.96\" sign=\"Aqu\" owner_house=\"Eighth_House\" projected_house=\"Eleventh_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Ninth_House\" point_owner=\"John Doe Solar Return\" degree=\"22.80\" sign=\"Pis\" owner_house=\"Ninth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Tenth_House\" point_owner=\"John Doe Solar Return\" degree=\"23.96\" sign=\"Ari\" owner_house=\"Tenth_House\" projected_house=\"Twelfth_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Eleventh_House\" point_owner=\"John Doe Solar Return\" degree=\"3.76\" sign=\"Gem\" owner_house=\"Eleventh_House\" projected_house=\"First_House\" projected_house_owner=\"John Doe\" />\n      <point_in_house point_name=\"Twelfth_House\" point_owner=\"John Doe Solar Return\" degree=\"12.45\" sign=\"Can\" owner_house=\"Twelfth_House\" projected_house=\"Third_House\" projected_house_owner=\"John Doe\" />\n    </second_cusps_in_first>\n  </house_overlay>\n  <element_distribution fire=\"10%\" earth=\"43%\" air=\"10%\" water=\"37%\" />\n  <quality_distribution cardinal=\"49%\" fixed=\"34%\" mutable=\"17%\" />\n  <active_points>Ascendant, Chiron, Descendant, Imum_Coeli, Jupiter, Mars, Mean_Lilith, Medium_Coeli, Mercury, Moon, Neptune, Pluto, Saturn, Sun, True_North_Lunar_Node, True_South_Lunar_Node, Uranus, Venus</active_points>\n  <active_aspects>conjunction (10), opposition (10), trine (8), sextile (6), square (5), quintile (1)</active_aspects>\n</chart_analysis>",
   "chart_data": {
     "chart_type": "DualReturnChart",
     "first_subject": {
@@ -52,6 +52,7 @@ Endpoint: `/api/v5/context/solar-return`
       "houses_system_identifier": "P",
       "houses_system_name": "Placidus",
       "perspective_type": "Apparent Geocentric",
+      "ayanamsa_value": null,
       "sun": {
         "name": "Sun",
         "quality": "Cardinal",
@@ -65,7 +66,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 1.0194718530193225,
-        "declination": -23.00013758778064
+        "declination": -23.00013758778064,
+        "magnitude": null
       },
       "moon": {
         "name": "Moon",
@@ -80,7 +82,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 13.474246761628224,
-        "declination": -8.81298773915052
+        "declination": -8.81298773915052,
+        "magnitude": null
       },
       "mercury": {
         "name": "Mercury",
@@ -95,7 +98,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.29869641753799797,
-        "declination": -20.386624033097966
+        "declination": -20.386624033097966,
+        "magnitude": null
       },
       "venus": {
         "name": "Venus",
@@ -110,7 +114,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.13116320676089085,
-        "declination": -16.87318909895181
+        "declination": -16.87318909895181,
+        "magnitude": null
       },
       "mars": {
         "name": "Mars",
@@ -125,7 +130,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.7037680845619482,
-        "declination": -21.987262405889464
+        "declination": -21.987262405889464,
+        "magnitude": null
       },
       "jupiter": {
         "name": "Jupiter",
@@ -140,7 +146,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.13446940517543093,
-        "declination": 23.225447225504062
+        "declination": 23.225447225504062,
+        "magnitude": null
       },
       "saturn": {
         "name": "Saturn",
@@ -155,7 +162,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.1182732159967062,
-        "declination": -22.23201953433409
+        "declination": -22.23201953433409,
+        "magnitude": null
       },
       "uranus": {
         "name": "Uranus",
@@ -170,7 +178,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.06000647223890577,
-        "declination": -23.58567453326483
+        "declination": -23.58567453326483,
+        "magnitude": null
       },
       "neptune": {
         "name": "Neptune",
@@ -185,7 +194,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.03791058838699209,
-        "declination": -22.05313189938615
+        "declination": -22.05313189938615,
+        "magnitude": null
       },
       "pluto": {
         "name": "Pluto",
@@ -200,7 +210,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Seventh_House",
         "retrograde": false,
         "speed": 0.027313516048024646,
-        "declination": -2.2485032427412905
+        "declination": -2.2485032427412905,
+        "magnitude": null
       },
       "ascendant": {
         "name": "Ascendant",
@@ -214,8 +225,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "First_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "descendant": {
         "name": "Descendant",
@@ -229,8 +241,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Seventh_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "medium_coeli": {
         "name": "Medium_Coeli",
@@ -244,8 +257,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Tenth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "imum_coeli": {
         "name": "Imum_Coeli",
@@ -259,8 +273,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Fourth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "chiron": {
         "name": "Chiron",
@@ -275,7 +290,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Third_House",
         "retrograde": true,
         "speed": -0.0684757434972255,
-        "declination": 15.457339430332224
+        "declination": 15.457339430332224,
+        "magnitude": null
       },
       "earth": null,
       "pholus": null,
@@ -292,7 +308,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Sixth_House",
         "retrograde": false,
         "speed": 0.11200484873918631,
-        "declination": -18.423773159673363
+        "declination": -18.423773159673363,
+        "magnitude": null
       },
       "true_lilith": null,
       "ceres": null,
@@ -308,6 +325,27 @@ Endpoint: `/api/v5/context/solar-return`
       "quaoar": null,
       "regulus": null,
       "spica": null,
+      "aldebaran": null,
+      "antares": null,
+      "sirius": null,
+      "fomalhaut": null,
+      "algol": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "procyon": null,
+      "arcturus": null,
+      "pollux": null,
+      "deneb": null,
+      "altair": null,
+      "rigel": null,
+      "achernar": null,
+      "capella": null,
+      "vega": null,
+      "alcyone": null,
+      "alphecca": null,
+      "algorab": null,
+      "deneb_algedi": null,
+      "alkaid": null,
       "pars_fortunae": null,
       "pars_spiritus": null,
       "pars_amoris": null,
@@ -326,8 +364,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "second_house": {
         "name": "Second_House",
@@ -341,8 +380,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 395.77047777170276,
+        "declination": null,
+        "magnitude": null
       },
       "third_house": {
         "name": "Third_House",
@@ -356,8 +396,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.0038596286,
+        "declination": null,
+        "magnitude": null
       },
       "fourth_house": {
         "name": "Fourth_House",
@@ -371,8 +412,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "fifth_house": {
         "name": "Fifth_House",
@@ -386,8 +428,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 403.4195332743098,
+        "declination": null,
+        "magnitude": null
       },
       "sixth_house": {
         "name": "Sixth_House",
@@ -401,8 +444,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 592.8224430258799,
+        "declination": null,
+        "magnitude": null
       },
       "seventh_house": {
         "name": "Seventh_House",
@@ -416,8 +460,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 677.0295487345279,
+        "declination": null,
+        "magnitude": null
       },
       "eighth_house": {
         "name": "Eighth_House",
@@ -431,8 +476,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 395.77047777170276,
+        "declination": null,
+        "magnitude": null
       },
       "ninth_house": {
         "name": "Ninth_House",
@@ -446,8 +492,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.0038596286,
+        "declination": null,
+        "magnitude": null
       },
       "tenth_house": {
         "name": "Tenth_House",
@@ -461,8 +508,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 336.42419571786803,
+        "declination": null,
+        "magnitude": null
       },
       "eleventh_house": {
         "name": "Eleventh_House",
@@ -476,8 +524,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 403.4195332743098,
+        "declination": null,
+        "magnitude": null
       },
       "twelfth_house": {
         "name": "Twelfth_House",
@@ -491,8 +540,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 592.8224430258799,
+        "declination": null,
+        "magnitude": null
       },
       "mean_north_lunar_node": null,
       "true_north_lunar_node": {
@@ -508,7 +558,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Eleventh_House",
         "retrograde": false,
         "speed": 0.023620313546416742,
-        "declination": -15.782161057300584
+        "declination": -15.782161057300584,
+        "magnitude": null
       },
       "mean_south_lunar_node": null,
       "true_south_lunar_node": {
@@ -524,7 +575,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": -0.023620313546416742,
-        "declination": 15.782161057300584
+        "declination": 15.782161057300584,
+        "magnitude": null
       },
       "houses_names_list": [
         "First_House",
@@ -589,6 +641,7 @@ Endpoint: `/api/v5/context/solar-return`
       "houses_system_identifier": "P",
       "houses_system_name": "Placidus",
       "perspective_type": "Apparent Geocentric",
+      "ayanamsa_value": null,
       "sun": {
         "name": "Sun",
         "quality": "Cardinal",
@@ -602,7 +655,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": 1.0190456926809746,
-        "declination": -22.996136175296726
+        "declination": -22.996136175296726,
+        "magnitude": null
       },
       "moon": {
         "name": "Moon",
@@ -617,7 +671,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Second_House",
         "retrograde": false,
         "speed": 11.802554484796916,
-        "declination": 8.539114654845877
+        "declination": 8.539114654845877,
+        "magnitude": null
       },
       "mercury": {
         "name": "Mercury",
@@ -632,7 +687,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Fifth_House",
         "retrograde": true,
         "speed": -0.054173137435294755,
-        "declination": -20.19772830305253
+        "declination": -20.19772830305253,
+        "magnitude": null
       },
       "venus": {
         "name": "Venus",
@@ -647,7 +703,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Fourth_House",
         "retrograde": false,
         "speed": 1.2167667641455386,
-        "declination": -18.973129595097234
+        "declination": -18.973129595097234,
+        "magnitude": null
       },
       "mars": {
         "name": "Mars",
@@ -662,7 +719,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Fifth_House",
         "retrograde": false,
         "speed": 0.7420095161419454,
-        "declination": -23.979586056168312
+        "declination": -23.979586056168312,
+        "magnitude": null
       },
       "jupiter": {
         "name": "Jupiter",
@@ -677,7 +735,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Tenth_House",
         "retrograde": false,
         "speed": 0.005775454868706104,
-        "declination": 12.268920589736657
+        "declination": 12.268920589736657,
+        "magnitude": null
       },
       "saturn": {
         "name": "Saturn",
@@ -692,7 +751,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Eighth_House",
         "retrograde": false,
         "speed": 0.08934622528528875,
-        "declination": -11.812992122207733
+        "declination": -11.812992122207733,
+        "magnitude": null
       },
       "uranus": {
         "name": "Uranus",
@@ -707,7 +767,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Tenth_House",
         "retrograde": true,
         "speed": -0.021320974660716252,
-        "declination": 17.275074573863407
+        "declination": 17.275074573863407,
+        "magnitude": null
       },
       "neptune": {
         "name": "Neptune",
@@ -722,7 +783,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.014972299032544165,
-        "declination": -3.08724046418149
+        "declination": -3.08724046418149,
+        "magnitude": null
       },
       "pluto": {
         "name": "Pluto",
@@ -737,7 +799,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Sixth_House",
         "retrograde": false,
         "speed": 0.031125610575131957,
-        "declination": -22.985777312771237
+        "declination": -22.985777312771237,
+        "magnitude": null
       },
       "ascendant": {
         "name": "Ascendant",
@@ -751,8 +814,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "First_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 253.70249412384567,
+        "declination": null,
+        "magnitude": null
       },
       "descendant": {
         "name": "Descendant",
@@ -766,8 +830,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Seventh_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 253.70249412384567,
+        "declination": null,
+        "magnitude": null
       },
       "medium_coeli": {
         "name": "Medium_Coeli",
@@ -781,8 +846,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Tenth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 383.1808228357097,
+        "declination": null,
+        "magnitude": null
       },
       "imum_coeli": {
         "name": "Imum_Coeli",
@@ -796,8 +862,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "AstrologicalPoint",
         "house": "Fourth_House",
         "retrograde": false,
-        "speed": 360.0,
-        "declination": null
+        "speed": 383.1808228357097,
+        "declination": null,
+        "magnitude": null
       },
       "chiron": {
         "name": "Chiron",
@@ -812,7 +879,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Ninth_House",
         "retrograde": false,
         "speed": 0.005177644187450087,
-        "declination": 7.339592889008827
+        "declination": 7.339592889008827,
+        "magnitude": null
       },
       "earth": null,
       "pholus": null,
@@ -829,7 +897,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Second_House",
         "retrograde": false,
         "speed": 0.11129592872848199,
-        "declination": 10.91067889813146
+        "declination": 10.91067889813146,
+        "magnitude": null
       },
       "true_lilith": null,
       "ceres": null,
@@ -845,6 +914,27 @@ Endpoint: `/api/v5/context/solar-return`
       "quaoar": null,
       "regulus": null,
       "spica": null,
+      "aldebaran": null,
+      "antares": null,
+      "sirius": null,
+      "fomalhaut": null,
+      "algol": null,
+      "betelgeuse": null,
+      "canopus": null,
+      "procyon": null,
+      "arcturus": null,
+      "pollux": null,
+      "deneb": null,
+      "altair": null,
+      "rigel": null,
+      "achernar": null,
+      "capella": null,
+      "vega": null,
+      "alcyone": null,
+      "alphecca": null,
+      "algorab": null,
+      "deneb_algedi": null,
+      "alkaid": null,
       "pars_fortunae": null,
       "pars_spiritus": null,
       "pars_amoris": null,
@@ -863,8 +953,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 253.70249412384567,
+        "declination": null,
+        "magnitude": null
       },
       "second_house": {
         "name": "Second_House",
@@ -878,8 +969,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 284.54579900045144,
+        "declination": null,
+        "magnitude": null
       },
       "third_house": {
         "name": "Third_House",
@@ -893,8 +985,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.41682846463,
+        "declination": null,
+        "magnitude": null
       },
       "fourth_house": {
         "name": "Fourth_House",
@@ -908,8 +1001,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 383.1808228357097,
+        "declination": null,
+        "magnitude": null
       },
       "fifth_house": {
         "name": "Fifth_House",
@@ -923,8 +1017,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 377.55816277633505,
+        "declination": null,
+        "magnitude": null
       },
       "sixth_house": {
         "name": "Sixth_House",
@@ -938,8 +1033,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 305.392542774843,
+        "declination": null,
+        "magnitude": null
       },
       "seventh_house": {
         "name": "Seventh_House",
@@ -953,8 +1049,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 253.70249412384567,
+        "declination": null,
+        "magnitude": null
       },
       "eighth_house": {
         "name": "Eighth_House",
@@ -968,8 +1065,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 284.54579900045144,
+        "declination": null,
+        "magnitude": null
       },
       "ninth_house": {
         "name": "Ninth_House",
@@ -983,8 +1081,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 332.41682846463,
+        "declination": null,
+        "magnitude": null
       },
       "tenth_house": {
         "name": "Tenth_House",
@@ -998,8 +1097,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 383.1808228357097,
+        "declination": null,
+        "magnitude": null
       },
       "eleventh_house": {
         "name": "Eleventh_House",
@@ -1013,8 +1113,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 377.55816277633505,
+        "declination": null,
+        "magnitude": null
       },
       "twelfth_house": {
         "name": "Twelfth_House",
@@ -1028,8 +1129,9 @@ Endpoint: `/api/v5/context/solar-return`
         "point_type": "House",
         "house": null,
         "retrograde": null,
-        "speed": null,
-        "declination": null
+        "speed": 305.392542774843,
+        "declination": null,
+        "magnitude": null
       },
       "mean_north_lunar_node": null,
       "true_north_lunar_node": {
@@ -1045,7 +1147,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Ninth_House",
         "retrograde": true,
         "speed": -0.0635364339326565,
-        "declination": 8.200503537135534
+        "declination": 8.200503537135534,
+        "magnitude": null
       },
       "mean_south_lunar_node": null,
       "true_south_lunar_node": {
@@ -1061,7 +1164,8 @@ Endpoint: `/api/v5/context/solar-return`
         "house": "Third_House",
         "retrograde": true,
         "speed": 0.0635364339326565,
-        "declination": -8.200503537135534
+        "declination": -8.200503537135534,
+        "magnitude": null
       },
       "houses_names_list": [
         "First_House",
@@ -1375,7 +1479,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 2,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Applying"
       },
       {
@@ -1392,7 +1496,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 2,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Applying"
       },
       {
@@ -1477,7 +1581,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 3,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Separating"
       },
       {
@@ -1494,7 +1598,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 3,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Separating"
       },
       {
@@ -1545,7 +1649,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 4,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Separating"
       },
       {
@@ -1562,7 +1666,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 4,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Separating"
       },
       {
@@ -1664,7 +1768,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 5,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Separating"
       },
       {
@@ -1851,7 +1955,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 7,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Separating"
       },
       {
@@ -2055,7 +2159,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 9,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
@@ -2072,7 +2176,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 9,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
@@ -2157,7 +2261,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 11,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
@@ -2174,7 +2278,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 11,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
@@ -2191,7 +2295,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 11,
         "p2": 16,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Separating"
       },
       {
@@ -2377,8 +2481,8 @@ Endpoint: `/api/v5/context/solar-return`
         "diff": 92.23128010851752,
         "p1": 13,
         "p2": 13,
-        "p1_speed": 0.0,
-        "p2_speed": -0.021320974660716252,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Static"
       },
       {
@@ -2394,8 +2498,8 @@ Endpoint: `/api/v5/context/solar-return`
         "diff": 272.2312801085175,
         "p1": 13,
         "p2": 15,
-        "p1_speed": 0.0,
-        "p2_speed": -0.021320974660716252,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Static"
       },
       {
@@ -2632,8 +2736,8 @@ Endpoint: `/api/v5/context/solar-return`
         "diff": 87.76871989148248,
         "p1": 15,
         "p2": 13,
-        "p1_speed": 0.0,
-        "p2_speed": -0.021320974660716252,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Static"
       },
       {
@@ -2649,8 +2753,8 @@ Endpoint: `/api/v5/context/solar-return`
         "diff": 92.23128010851752,
         "p1": 15,
         "p2": 15,
-        "p1_speed": 0.0,
-        "p2_speed": -0.021320974660716252,
+        "p1_speed": 677.0295487345279,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Static"
       },
       {
@@ -2939,7 +3043,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 19,
         "p2": 13,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
@@ -2956,7 +3060,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 19,
         "p2": 14,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 383.1808228357097,
         "aspect_movement": "Separating"
       },
       {
@@ -2973,7 +3077,7 @@ Endpoint: `/api/v5/context/solar-return`
         "p1": 19,
         "p2": 15,
         "p1_speed": 0.0,
-        "p2_speed": 360.0,
+        "p2_speed": 253.70249412384567,
         "aspect_movement": "Applying"
       },
       {
