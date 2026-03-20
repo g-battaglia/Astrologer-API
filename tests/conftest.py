@@ -74,6 +74,64 @@ def baselines_dir() -> Path:
     return d
 
 
+# ---------------------------------------------------------------------------
+# SVG Validation Helper
+# ---------------------------------------------------------------------------
+
+
+def assert_api_svg_valid(svg: str, *, expect_css_variables: bool = True) -> None:
+    """Validate that an SVG string returned by the API is well-formed.
+
+    This is the primary guard against SVG regressions:
+    - Attribute merging during minification (``<svgxmlns=...``)
+    - Missing namespace declarations
+    - Malformed XML from incorrect string processing
+    - Accidental removal of CSS custom properties
+
+    Args:
+        svg: The SVG string to validate.
+        expect_css_variables: When True (default), assert that CSS custom
+            properties (``var(--…)``) and a ``<style>`` block are present.
+    """
+    from xml.etree import ElementTree
+
+    assert isinstance(svg, str), f"SVG must be a string, got {type(svg).__name__}"
+    assert len(svg) > 100, f"SVG suspiciously short ({len(svg)} chars)"
+
+    # XML well-formedness — catches attribute merging, broken tags, etc.
+    try:
+        tree = ElementTree.fromstring(svg)
+    except ElementTree.ParseError as exc:
+        preview = svg[:500]
+        raise AssertionError(
+            f"API returned invalid XML in chart SVG: {exc}\nFirst 500 chars:\n{preview}"
+        ) from exc
+
+    # Root element must be <svg>
+    local_name = tree.tag.rsplit("}", 1)[-1] if "}" in tree.tag else tree.tag
+    assert local_name == "svg", f"Expected <svg> root element, got <{local_name}>"
+
+    # Namespace
+    assert (
+        "http://www.w3.org/2000/svg" in tree.tag
+        or tree.attrib.get("xmlns") == "http://www.w3.org/2000/svg"
+    ), "SVG must declare xmlns='http://www.w3.org/2000/svg'"
+
+    # Anti-regression: attribute merging
+    assert "<svgxmlns" not in svg, (
+        "SVG tag name merged with attributes — minification is broken"
+    )
+
+    # CSS custom properties
+    if expect_css_variables:
+        assert "var(--" in svg, (
+            "SVG must contain CSS custom properties for consumer restyling"
+        )
+        assert "<style" in svg, (
+            "SVG must contain a <style> block with CSS variable definitions"
+        )
+
+
 @pytest.fixture(autouse=True)
 def freeze_time(monkeypatch: pytest.MonkeyPatch):
     """Congela la sorgente del tempo usata dagli endpoint `now/*`.
