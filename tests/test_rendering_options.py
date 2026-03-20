@@ -18,6 +18,8 @@ from typing import Dict
 import pytest
 from fastapi.testclient import TestClient
 
+from tests.conftest import assert_api_svg_valid
+
 
 # ============================================================================
 # Soggetto di test standard
@@ -62,12 +64,14 @@ class TestChartThemes:
 
     def test_theme_classic_default(self, client: TestClient):
         """Verifica che classic sia il tema di default."""
-        resp = client.post("/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+        resp = client.post(
+            "/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+        )
         assert resp.status_code == 200
 
         body = resp.json()
         assert "chart" in body
-        assert "<svg" in body["chart"]
+        assert_api_svg_valid(body["chart"])
 
     def test_theme_classic_explicit(self, client: TestClient):
         """Verifica il tema classic esplicito."""
@@ -151,7 +155,9 @@ class TestChartLanguages:
 
     def test_language_english_default(self, client: TestClient):
         """Verifica che EN sia la lingua di default."""
-        resp = client.post("/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+        resp = client.post(
+            "/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+        )
         assert resp.status_code == 200
         # L'SVG dovrebbe contenere testo in inglese
         chart = resp.json()["chart"]
@@ -288,7 +294,9 @@ class TestTransparentBackground:
 
     def test_transparent_background_false_default(self, client: TestClient):
         """Verifica che transparent_background=false sia il default."""
-        resp = client.post("/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+        resp = client.post(
+            "/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+        )
         assert resp.status_code == 200
         # Il chart dovrebbe avere un background
         chart = resp.json()["chart"]
@@ -330,7 +338,9 @@ class TestCustomTitle:
 
     def test_no_custom_title_uses_subject_name(self, client: TestClient):
         """Verifica che senza custom_title venga usato il nome del soggetto."""
-        resp = client.post("/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+        resp = client.post(
+            "/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+        )
         assert resp.status_code == 200
 
         chart = resp.json()["chart"]
@@ -401,7 +411,9 @@ class TestSplitChart:
 
     def test_split_chart_false_default(self, client: TestClient):
         """Verifica che split_chart=false sia il default."""
-        resp = client.post("/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+        resp = client.post(
+            "/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+        )
         assert resp.status_code == 200
 
         body = resp.json()
@@ -424,8 +436,8 @@ class TestSplitChart:
         assert "chart" not in body
         assert "chart_wheel" in body
         assert "chart_grid" in body
-        assert "<svg" in body["chart_wheel"]
-        assert "<svg" in body["chart_grid"]
+        assert_api_svg_valid(body["chart_wheel"])
+        assert_api_svg_valid(body["chart_grid"])
 
     def test_split_chart_false_explicit(self, client: TestClient):
         """Verifica split_chart=false esplicito."""
@@ -469,7 +481,9 @@ class TestShowOptions:
 
     def test_show_house_position_comparison_true_default(self, client: TestClient):
         """Verifica che show_house_position_comparison=true sia il default."""
-        resp = client.post("/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+        resp = client.post(
+            "/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+        )
         assert resp.status_code == 200
         assert "<svg" in resp.json()["chart"]
 
@@ -512,7 +526,9 @@ class TestShowOptions:
 
     def test_show_degree_indicators_true_default(self, client: TestClient):
         """Verifica che show_degree_indicators=true sia il default."""
-        resp = client.post("/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+        resp = client.post(
+            "/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+        )
         assert resp.status_code == 200
         assert "<svg" in resp.json()["chart"]
 
@@ -530,7 +546,9 @@ class TestShowOptions:
 
     def test_show_aspect_icons_true_default(self, client: TestClient):
         """Verifica che show_aspect_icons=true sia il default."""
-        resp = client.post("/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+        resp = client.post(
+            "/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+        )
         assert resp.status_code == 200
         assert "<svg" in resp.json()["chart"]
 

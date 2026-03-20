@@ -14,6 +14,8 @@ from typing import Dict
 
 from fastapi.testclient import TestClient
 
+from tests.conftest import assert_api_svg_valid
+
 
 BASE_SUBJECT: Dict[str, object] = {
     "name": "FastAPI Unit Test",
@@ -31,7 +33,9 @@ BASE_SUBJECT: Dict[str, object] = {
 
 
 def test_natal_chart_data(client: TestClient):
-    resp = client.post("/api/v5/chart-data/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+    resp = client.post(
+        "/api/v5/chart-data/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+    )
     assert resp.status_code == 200
     data = resp.json()["chart_data"]
 
@@ -43,12 +47,14 @@ def test_natal_chart_data(client: TestClient):
 
 
 def test_natal_chart_svg(client: TestClient):
-    resp = client.post("/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)})
+    resp = client.post(
+        "/api/v5/chart/birth-chart", json={"subject": deepcopy(BASE_SUBJECT)}
+    )
     assert resp.status_code == 200
     body = resp.json()
 
-    # Chart SVG
-    assert isinstance(body["chart"], str) and "<svg" in body["chart"]
+    # Chart SVG — full XML well-formedness + CSS variables check
+    assert_api_svg_valid(body["chart"])
 
     # Chart data coerenti
     data = body["chart_data"]

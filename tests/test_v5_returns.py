@@ -14,6 +14,8 @@ from typing import Dict
 
 from fastapi.testclient import TestClient
 
+from tests.conftest import assert_api_svg_valid
+
 
 BASE_SUBJECT: Dict[str, object] = {
     "name": "FastAPI Unit Test",
@@ -47,7 +49,7 @@ def test_solar_return_dual_chart_svg(client: TestClient):
     resp = client.post("/api/v5/chart/solar-return", json=payload)
     assert resp.status_code == 200
     body = resp.json()
-    assert isinstance(body["chart"], str) and "<svg" in body["chart"]
+    assert_api_svg_valid(body["chart"])
     assert body["return_type"] == "Solar"
     assert body["wheel_type"] == "dual"
     assert body["chart_data"]["chart_type"] == "DualReturnChart"
@@ -62,7 +64,9 @@ def test_lunar_return_single_chart_data(client: TestClient):
     assert data["chart_type"] == "SingleReturnChart"
     assert data["subject"]["return_type"] == "Lunar"
     # Single wheel: niente house comparison
-    assert data.get("house_comparison") in (None, [], {}) or "house_comparison" not in data
+    assert (
+        data.get("house_comparison") in (None, [], {}) or "house_comparison" not in data
+    )
 
 
 def test_lunar_return_single_chart_svg(client: TestClient):
@@ -70,7 +74,7 @@ def test_lunar_return_single_chart_svg(client: TestClient):
     resp = client.post("/api/v5/chart/lunar-return", json=payload)
     assert resp.status_code == 200
     body = resp.json()
-    assert isinstance(body["chart"], str) and "<svg" in body["chart"]
+    assert_api_svg_valid(body["chart"])
     assert body["return_type"] == "Lunar"
     assert body["wheel_type"] == "single"
     assert body["chart_data"]["chart_type"] == "SingleReturnChart"

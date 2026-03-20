@@ -12,6 +12,8 @@ from typing import Dict
 
 from fastapi.testclient import TestClient
 
+from tests.conftest import assert_api_svg_valid
+
 
 BASE_SUBJECT: Dict[str, object] = {
     "name": "FastAPI Unit Test",
@@ -43,7 +45,10 @@ ROME_SUBJECT: Dict[str, object] = {
 
 
 def test_synastry_chart_data(client: TestClient):
-    payload = {"first_subject": deepcopy(BASE_SUBJECT), "second_subject": deepcopy(ROME_SUBJECT)}
+    payload = {
+        "first_subject": deepcopy(BASE_SUBJECT),
+        "second_subject": deepcopy(ROME_SUBJECT),
+    }
     resp = client.post("/api/v5/chart-data/synastry", json=payload)
     assert resp.status_code == 200
     data = resp.json()["chart_data"]
@@ -58,9 +63,12 @@ def test_synastry_chart_data(client: TestClient):
 
 
 def test_synastry_chart_svg(client: TestClient):
-    payload = {"first_subject": deepcopy(BASE_SUBJECT), "second_subject": deepcopy(ROME_SUBJECT)}
+    payload = {
+        "first_subject": deepcopy(BASE_SUBJECT),
+        "second_subject": deepcopy(ROME_SUBJECT),
+    }
     resp = client.post("/api/v5/chart/synastry", json=payload)
     assert resp.status_code == 200
     body = resp.json()
-    assert isinstance(body["chart"], str) and "<svg" in body["chart"]
+    assert_api_svg_valid(body["chart"])
     assert body["chart_data"]["chart_type"] == "Synastry"

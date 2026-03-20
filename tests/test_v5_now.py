@@ -11,6 +11,8 @@ from __future__ import annotations
 
 from fastapi.testclient import TestClient
 
+from tests.conftest import assert_api_svg_valid
+
 
 def test_now_subject(client: TestClient):
     """Test default behavior (POST with empty body)."""
@@ -26,7 +28,12 @@ def test_now_subject(client: TestClient):
 
 def test_now_subject_custom_config(client: TestClient):
     """Test custom configuration for now subject."""
-    payload = {"name": "Custom Now", "zodiac_type": "Sidereal", "sidereal_mode": "LAHIRI", "houses_system_identifier": "W"}
+    payload = {
+        "name": "Custom Now",
+        "zodiac_type": "Sidereal",
+        "sidereal_mode": "LAHIRI",
+        "houses_system_identifier": "W",
+    }
     resp = client.post("/api/v5/now/subject", json=payload)
     assert resp.status_code == 200
     body = resp.json()
@@ -43,8 +50,8 @@ def test_now_chart_default(client: TestClient):
     assert resp.status_code == 200
     body = resp.json()
 
-    # Presenza di SVG
-    assert isinstance(body["chart"], str) and "<svg" in body["chart"]
+    # Chart SVG — full XML well-formedness + CSS variables check
+    assert_api_svg_valid(body["chart"])
     assert "chart_wheel" not in body
     assert "chart_grid" not in body
 
@@ -66,13 +73,20 @@ def test_now_chart_split(client: TestClient):
     body = resp.json()
 
     assert "chart" not in body
-    assert "chart_wheel" in body and "<svg" in body["chart_wheel"]
-    assert "chart_grid" in body and "<svg" in body["chart_grid"]
+    assert "chart_wheel" in body
+    assert_api_svg_valid(body["chart_wheel"])
+    assert "chart_grid" in body
+    assert_api_svg_valid(body["chart_grid"])
 
 
 def test_now_chart_custom_config(client: TestClient):
     """Test custom subject configuration in chart request."""
-    payload = {"name": "Chart Now", "zodiac_type": "Sidereal", "sidereal_mode": "LAHIRI", "custom_title": "My Title"}
+    payload = {
+        "name": "Chart Now",
+        "zodiac_type": "Sidereal",
+        "sidereal_mode": "LAHIRI",
+        "custom_title": "My Title",
+    }
     resp = client.post("/api/v5/now/chart", json=payload)
     assert resp.status_code == 200
     body = resp.json()
