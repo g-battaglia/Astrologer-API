@@ -8,18 +8,15 @@ order: 5
 
 ## `POST /api/v5/chart/transit`
 
-> **📘 [View Complete Example](../examples/transit_chart_svg.md)**
+> **[View Complete Example](../examples/transit_chart_svg.md)**
 
 This endpoint generates a **transit chart** as a dual-wheel SVG visualization, showing how current (or future) planetary positions interact with a person's natal chart. Transits are the foundation of predictive astrology, revealing timing for opportunities, challenges, and significant life events.
 
 The chart displays:
 
--   **Inner Wheel**: The natal (birth) chart - the permanent foundation
--   **Outer Wheel**: The transit chart - current or future planetary positions
+-   **Inner Wheel**: The natal (birth) chart — the permanent foundation
+-   **Outer Wheel**: The transit chart — current or future planetary positions
 -   **Transit-to-Natal Aspects**: How transiting planets aspect natal planets and points
-
-**Key Concept**:
-Transits act like "cosmic weather" passing over your natal chart. A transiting planet activates specific areas of your life and natal potentials when it forms aspects to your natal planets.
 
 **Use cases:**
 
@@ -27,19 +24,10 @@ Transits act like "cosmic weather" passing over your natal chart. A transiting p
 -   **Timing Decisions**: Choose optimal moments for major life changes
 -   **Understanding Current Events**: Gain perspective on why certain themes are emerging
 -   **Yearly Planning**: Map out the astrological landscape for the year ahead
--   **Crisis Counseling**: Understand the astrological context of challenging periods
-
-**Common Transit Queries**:
-
--   Saturn Return (ages ~29 and ~58): Major life restructuring
--   Jupiter transits: Growth opportunities and expansion periods
--   Outer planet transits (Uranus, Neptune, Pluto): Deep transformation cycles
-
-This is one of the most practically useful chart types, essential for anyone serious about timing and forecasting in astrology.
 
 ### Request Body
 
--   **`first_subject`** (object, required): Natal subject.
+-   **`first_subject`** (object, required): Natal subject. See [Subject Object Reference](../README.md#subject-object-reference).
     ```json
     {
         "name": "Natal Subject",
@@ -55,10 +43,9 @@ This is one of the most practically useful chart types, essential for anyone ser
         "timezone": "Europe/London"
     }
     ```
--   **`transit_subject`** (object, required): Transit moment.
+-   **`transit_subject`** (object, required): Transit moment. Uses a simplified subject model — does **not** include `zodiac_type`, `sidereal_mode`, `perspective_type`, or `houses_system_identifier` (these are inherited from `first_subject`). The `name` field defaults to `"Transit"`.
     ```json
     {
-        "name": "Transit Moment",
         "year": 2024,
         "month": 1,
         "day": 1,
@@ -71,14 +58,32 @@ This is one of the most practically useful chart types, essential for anyone ser
         "timezone": "Europe/London"
     }
     ```
--   **`theme`**, **`language`**, **`split_chart`** (rendering options).
--   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
--   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
--   **`double_chart_aspect_grid_type`** (string, optional): Aspect display for dual charts — "list" (default) or "table". Default: "list".
--   **`show_house_position_comparison`** (bool, optional): Display the house comparison table for natal vs transit (default: true).
--   **`show_cusp_position_comparison`** (bool, optional): Display cusp comparison grids for natal vs transit houses (default: true).
--   **`show_degree_indicators`** (bool, optional): Display radial lines and degree numbers for planet positions on the wheels (default: true).
--   **`show_aspect_icons`** (bool, optional): Display aspect icons on aspect lines (default: true).
+
+**Transit-specific options** (optional):
+
+-   **`include_house_comparison`** (boolean): Include house overlay comparison in the data. Default: `true`.
+
+**Computation options** (optional):
+
+-   **`active_points`** (array of strings): Override which celestial points are included. See [Active Points](../README.md#active-points).
+-   **`active_aspects`** (array of objects): Override which aspects are calculated and their orbs. See [Active Aspects](../README.md#active-aspects).
+-   **`distribution_method`** (string): `"weighted"` (default) or `"pure_count"`.
+-   **`custom_distribution_weights`** (object): Custom weights map for weighted distribution.
+
+**Rendering options** (optional):
+
+-   **`theme`** (string): Visual theme. Default: `"classic"`. See [Themes](../README.md#themes).
+-   **`language`** (string): Language for chart labels. Default: `"EN"`. See [Languages](../README.md#languages).
+-   **`style`** (string): `"classic"` (default) or `"modern"`.
+-   **`split_chart`** (boolean): Return separate `chart_wheel` and `chart_grid` SVGs. Default: `false`.
+-   **`transparent_background`** (boolean): Render with transparent background. Default: `false`.
+-   **`custom_title`** (string): Override the chart title (max 40 characters).
+-   **`show_house_position_comparison`** (boolean): Show the house comparison table. Default: `true`.
+-   **`show_cusp_position_comparison`** (boolean): Show cusp comparison grids for natal vs transit. Default: `true`.
+-   **`show_degree_indicators`** (boolean): Show radial lines and degree numbers. Default: `true`.
+-   **`show_aspect_icons`** (boolean): Show aspect icons on aspect lines. Default: `true`.
+-   **`show_zodiac_background_ring`** (boolean): Show colored zodiac wedges (`"modern"` style only). Default: `true`.
+-   **`double_chart_aspect_grid_type`** (string): Aspect display layout — `"list"` (default) or `"table"`.
 
 #### Complete Request Example
 
@@ -98,7 +103,6 @@ This is one of the most practically useful chart types, essential for anyone ser
         "timezone": "Europe/London"
     },
     "transit_subject": {
-        "name": "Transit Moment",
         "year": 2024,
         "month": 1,
         "day": 1,
@@ -119,9 +123,11 @@ This is one of the most practically useful chart types, essential for anyone ser
 
 ### Response Body
 
--   **`status`** (string): "OK".
--   **`chart_data`** (object): Transit data.
--   **`chart`** (string): SVG string.
+-   **`status`** (string): `"OK"`.
+-   **`chart_data`** (object): Transit data (same structure as the [Transit Chart Data](../data/chart_data_transit.md) endpoint).
+-   **`chart`** (string): SVG string (when `split_chart` is `false`).
+-   **`chart_wheel`** (string): SVG of the dual wheel (when `split_chart` is `true`).
+-   **`chart_grid`** (string): SVG of the aspect grid (when `split_chart` is `true`).
 
 #### Complete Response Example
 

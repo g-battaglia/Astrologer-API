@@ -8,13 +8,13 @@ order: 3
 
 ## `POST /api/v5/context/birth-chart`
 
-> **📘 [View Complete Example](../examples/natal_context.md)**
+> **[View Complete Example](../examples/natal_context.md)**
 
-Generates an AI-powered interpretation of a full natal chart. Unlike the simple subject context, this endpoint analyzes the complete chart data, including house systems and aspects, providing a deeper and more comprehensive reading of the birth chart's dynamics.
+Generates an AI-optimized XML-structured interpretation of a full natal chart. Unlike the simple subject context, this endpoint analyzes the complete chart data, including house systems, aspects, and element/quality distributions, providing a deeper and more comprehensive reading of the birth chart's dynamics.
 
 ### Request Body
 
--   **`subject`** (object, required): The subject's birth data (same structure as `/api/v5/chart-data/birth-chart`).
+-   **`subject`** (object, required): The subject's birth data. See [Subject Object Reference](../README.md#subject-object-reference).
     ```json
     {
         "name": "Subject Name",
@@ -30,7 +30,15 @@ Generates an AI-powered interpretation of a full natal chart. Unlike the simple 
         "timezone": "Europe/London"
     }
     ```
--   **Computation options**: `active_points`, `active_aspects`, `distribution_method`, `custom_distribution_weights` (identical to the natal chart-data endpoint). Rendering options such as `theme`, `language`, `style`, `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `custom_title` are **not** accepted here.
+
+**Computation options** (optional, at request body root level):
+
+-   **`active_points`** (array of strings): Override which celestial points are included. See [Active Points](../README.md#active-points).
+-   **`active_aspects`** (array of objects): Override which aspects are calculated and their orbs. See [Active Aspects](../README.md#active-aspects).
+-   **`distribution_method`** (string): `"weighted"` (default) or `"pure_count"`.
+-   **`custom_distribution_weights`** (object): Custom weights map for weighted distribution.
+
+Rendering options (`theme`, `language`, `style`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `custom_title`) are **not** accepted on this endpoint.
 
 #### Complete Request Example
 
@@ -54,9 +62,9 @@ Generates an AI-powered interpretation of a full natal chart. Unlike the simple 
 
 ### Response Body
 
--   **`status`** (string): "OK" on success.
--   **`context`** (string): The generated AI XML context string for the natal chart.
--   **`chart_data`** (object): The complete calculated chart data.
+-   **`status`** (string): `"OK"`.
+-   **`context`** (string): The AI-optimized XML context string for the natal chart.
+-   **`chart_data`** (object): The complete calculated chart data (same structure as the [Natal Chart Data](../data/chart_data_natal.md) endpoint).
 
 #### Complete Response Example
 
@@ -66,9 +74,9 @@ Generates an AI-powered interpretation of a full natal chart. Unlike the simple 
   "context": "<chart_analysis type=\"Natal\"><subject>Subject Name</subject>...</chart_analysis>",
   "chart_data": {
     "subject": { ... },
-    "houses_list": [ ... ],
-    "aspects_list": [ ... ]
-    // ... full chart data
+    "aspects": [ ... ],
+    "elements_distribution": { ... },
+    "qualities_distribution": { ... }
   }
 }
 ```

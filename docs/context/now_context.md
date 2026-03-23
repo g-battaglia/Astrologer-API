@@ -8,18 +8,27 @@ order: 2
 
 ## `POST /api/v5/now/context`
 
-> **📘 [View Complete Example](../examples/now_context.md)**
+> **[View Complete Example](../examples/now_context.md)**
 
-Generates an AI-powered astrological interpretation for the **current moment** (UTC). This is ideal for "Daily Horoscope", "Current Sky", or "Astrological Weather" features, providing a real-time XML-structured snapshot of the planetary atmosphere.
+Generates an AI-optimized XML-structured astrological context for the **current moment** (UTC). This is ideal for "Daily Horoscope", "Current Sky", or "Astrological Weather" features, providing a real-time snapshot of the planetary atmosphere.
 
-It automatically calculates the positions of celestial bodies for "now" and generates a descriptive context.
+It automatically calculates the positions of celestial bodies for "now" at Greenwich Observatory and generates a descriptive context.
+
+> **Note:** This endpoint returns the AI text in a field called `subject_context` (not `context`), alongside the full `subject` data. See [Response Key Naming](../README.md#response-key-naming).
+
+This endpoint does **not** require a `subject` object — configuration fields are provided at the request body root level.
 
 ### Request Body
 
--   **`name`** (string, optional): A custom name for the context (e.g., "Today's Vibe"). Default: "Now".
--   **`zodiac_type`** (string, optional): "Tropical" (default) or "Sidereal".
--   **`sidereal_mode`** (string, optional): Required if `zodiac_type` is "Sidereal".
--   **`houses_system_identifier`** (string, optional): House system code (default: "P").
+All fields are optional. An empty JSON object `{}` is a valid request.
+
+-   **`name`** (string): Custom name for the context. Default: `"Now"`.
+-   **`zodiac_type`** (string): `"Tropical"` (default) or `"Sidereal"`.
+-   **`sidereal_mode`** (string): Ayanamsa system. Required when `zodiac_type` is `"Sidereal"`. See [Sidereal Modes](../README.md#sidereal-modes).
+-   **`perspective_type`** (string): Astronomical perspective. Default: `"Apparent Geocentric"`. See [Perspective Types](../README.md#perspective-types).
+-   **`houses_system_identifier`** (string): House system code. Default: `"P"` (Placidus). See [House Systems](../README.md#house-systems).
+
+Rendering options (`theme`, `language`, `style`, `split_chart`, `transparent_background`, etc.) are **not** accepted on this endpoint.
 
 #### Complete Request Example
 
@@ -32,9 +41,9 @@ It automatically calculates the positions of celestial bodies for "now" and gene
 
 ### Response Body
 
--   **`status`** (string): "OK" on success.
--   **`subject_context`** (string): The generated AI XML context string of the current sky.
--   **`subject`** (object): The calculated subject data for the current moment.
+-   **`status`** (string): `"OK"`.
+-   **`subject_context`** (string): The AI-optimized XML context string of the current sky.
+-   **`subject`** (object): The calculated subject data for the current moment. Same structure as the [Now Subject](../data/now_subject.md) endpoint.
 
 #### Complete Response Example
 

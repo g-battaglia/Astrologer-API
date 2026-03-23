@@ -8,7 +8,7 @@ order: 3
 
 ## `POST /api/v5/chart/synastry`
 
-> **📘 [View Complete Example](../examples/synastry_chart_svg.md)**
+> **[View Complete Example](../examples/synastry_chart_svg.md)**
 
 This endpoint generates a **synastry chart** (relationship compatibility chart) as a dual-wheel SVG visualization. Synastry is the astrological technique of comparing two birth charts to analyze relationship dynamics, compatibility, and potential challenges between two people.
 
@@ -25,13 +25,10 @@ The chart displays:
 -   **Business Partnerships**: Assess professional compatibility
 -   **Family Dynamics**: Understand parent-child or sibling relationships
 -   **Friendship Analysis**: Explore platonic connections
--   **Coaching & Counseling**: Provide visual aids for relationship therapy
-
-The synastry chart reveals how two individuals interact on an energetic level, highlighting areas of harmony (trines, sextiles) and challenge (squares, oppositions). This is one of the most requested chart types in professional astrology practice.
 
 ### Request Body
 
--   **`first_subject`** (object, required): Inner wheel subject.
+-   **`first_subject`** (object, required): Inner wheel subject. See [Subject Object Reference](../README.md#subject-object-reference).
     ```json
     {
         "name": "Inner",
@@ -47,7 +44,7 @@ The synastry chart reveals how two individuals interact on an energetic level, h
         "timezone": "Europe/London"
     }
     ```
--   **`second_subject`** (object, required): Outer wheel subject.
+-   **`second_subject`** (object, required): Outer wheel subject. Same structure as `first_subject`.
     ```json
     {
         "name": "Outer",
@@ -63,14 +60,33 @@ The synastry chart reveals how two individuals interact on an energetic level, h
         "timezone": "America/New_York"
     }
     ```
--   **`theme`**, **`language`**, **`split_chart`** (rendering options).
--   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
--   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
--   **`double_chart_aspect_grid_type`** (string, optional): Aspect display for dual charts — "list" (default) or "table". Default: "list".
--   **`show_house_position_comparison`** (bool, optional): Display house table (default: true).
--   **`show_cusp_position_comparison`** (bool, optional): Display cusp comparison grids for both subjects (default: true).
--   **`show_degree_indicators`** (bool, optional): Display radial lines and degree numbers for planet positions on the wheels (default: true).
--   **`show_aspect_icons`** (bool, optional): Display aspect icons on aspect lines (default: true).
+
+**Synastry-specific options** (optional):
+
+-   **`include_house_comparison`** (boolean): Include house overlay comparison in the data. Default: `true`.
+-   **`include_relationship_score`** (boolean): Include relationship score analysis in the data. Default: `true`.
+
+**Computation options** (optional):
+
+-   **`active_points`** (array of strings): Override which celestial points are included. See [Active Points](../README.md#active-points).
+-   **`active_aspects`** (array of objects): Override which aspects are calculated and their orbs. See [Active Aspects](../README.md#active-aspects).
+-   **`distribution_method`** (string): `"weighted"` (default) or `"pure_count"`.
+-   **`custom_distribution_weights`** (object): Custom weights map for weighted distribution.
+
+**Rendering options** (optional):
+
+-   **`theme`** (string): Visual theme. Default: `"classic"`. See [Themes](../README.md#themes).
+-   **`language`** (string): Language for chart labels. Default: `"EN"`. See [Languages](../README.md#languages).
+-   **`style`** (string): `"classic"` (default) or `"modern"`.
+-   **`split_chart`** (boolean): Return separate `chart_wheel` and `chart_grid` SVGs. Default: `false`.
+-   **`transparent_background`** (boolean): Render with transparent background. Default: `false`.
+-   **`custom_title`** (string): Override the chart title (max 40 characters).
+-   **`show_house_position_comparison`** (boolean): Show the house comparison table. Default: `true`.
+-   **`show_cusp_position_comparison`** (boolean): Show cusp comparison grids for both subjects. Default: `true`.
+-   **`show_degree_indicators`** (boolean): Show radial lines and degree numbers. Default: `true`.
+-   **`show_aspect_icons`** (boolean): Show aspect icons on aspect lines. Default: `true`.
+-   **`show_zodiac_background_ring`** (boolean): Show colored zodiac wedges (`"modern"` style only). Default: `true`.
+-   **`double_chart_aspect_grid_type`** (string): Aspect display layout — `"list"` (default, vertical) or `"table"` (grid matrix).
 
 #### Complete Request Example
 
@@ -112,10 +128,11 @@ The synastry chart reveals how two individuals interact on an energetic level, h
 
 ### Response Body
 
--   **`status`** (string): "OK".
--   **`chart_data`** (object): Synastry data.
--   **`chart_wheel`** (string): SVG of the dual wheel.
--   **`chart_grid`** (string): SVG of the aspect grid.
+-   **`status`** (string): `"OK"`.
+-   **`chart_data`** (object): Synastry data (same structure as the [Synastry Chart Data](../data/chart_data_synastry.md) endpoint).
+-   **`chart`** (string): SVG string (when `split_chart` is `false`).
+-   **`chart_wheel`** (string): SVG of the dual wheel (when `split_chart` is `true`).
+-   **`chart_grid`** (string): SVG of the aspect grid (when `split_chart` is `true`).
 
 #### Complete Response Example
 

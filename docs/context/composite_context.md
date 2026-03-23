@@ -8,13 +8,13 @@ order: 5
 
 ## `POST /api/v5/context/composite`
 
-> **📘 [View Complete Example](../examples/composite_context.md)**
+> **[View Complete Example](../examples/composite_context.md)**
 
-Generates an AI-powered interpretation of a composite chart. A composite chart is a single chart calculated from the midpoints of two people's charts, representing the relationship itself as a third entity. This endpoint provides insights into the purpose, destiny, and core nature of the partnership.
+Generates an AI-optimized XML-structured interpretation of a composite chart. A composite chart is a single chart calculated from the midpoints of two people's charts, representing the relationship itself as a third entity. This endpoint provides insights into the purpose, destiny, and core nature of the partnership.
 
 ### Request Body
 
--   **`first_subject`** (object, required): First partner.
+-   **`first_subject`** (object, required): First partner. See [Subject Object Reference](../README.md#subject-object-reference).
     ```json
     {
         "name": "Partner A",
@@ -30,7 +30,7 @@ Generates an AI-powered interpretation of a composite chart. A composite chart i
         "timezone": "Europe/London"
     }
     ```
--   **`second_subject`** (object, required): Second partner.
+-   **`second_subject`** (object, required): Second partner. Same structure as `first_subject`.
     ```json
     {
         "name": "Partner B",
@@ -46,7 +46,15 @@ Generates an AI-powered interpretation of a composite chart. A composite chart i
         "timezone": "America/New_York"
     }
     ```
--   **Computation options**: `active_points`, `active_aspects`, `distribution_method`, `custom_distribution_weights` (identical to `/api/v5/chart-data/composite`). Rendering options such as `theme`, `language`, `style`, `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `custom_title` are **not** accepted here.
+
+**Computation options** (optional, at request body root level):
+
+-   **`active_points`** (array of strings): Override which celestial points are included. See [Active Points](../README.md#active-points).
+-   **`active_aspects`** (array of objects): Override which aspects are calculated and their orbs. See [Active Aspects](../README.md#active-aspects).
+-   **`distribution_method`** (string): `"weighted"` (default) or `"pure_count"`.
+-   **`custom_distribution_weights`** (object): Custom weights map for weighted distribution.
+
+Rendering options (`theme`, `language`, `style`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `custom_title`) are **not** accepted on this endpoint.
 
 #### Complete Request Example
 
@@ -83,9 +91,9 @@ Generates an AI-powered interpretation of a composite chart. A composite chart i
 
 ### Response Body
 
--   **`status`** (string): "OK" on success.
--   **`context`** (string): The generated AI XML context string for the composite chart.
--   **`chart_data`** (object): The complete calculated composite chart data.
+-   **`status`** (string): `"OK"`.
+-   **`context`** (string): The AI-optimized XML context string for the composite chart.
+-   **`chart_data`** (object): The complete calculated composite chart data (same structure as the [Composite Chart Data](../data/chart_data_composite.md) endpoint).
 
 #### Complete Response Example
 
@@ -94,9 +102,10 @@ Generates an AI-powered interpretation of a composite chart. A composite chart i
   "status": "OK",
   "context": "<chart_analysis type=\"Composite\"><subject>Composite</subject>...</chart_analysis>",
   "chart_data": {
-    "subject": { ... }, // Composite subject
-    "aspects_list": [ ... ]
-    // ... full composite data
+    "subject": { ... },
+    "aspects": [ ... ],
+    "elements_distribution": { ... },
+    "qualities_distribution": { ... }
   }
 }
 ```

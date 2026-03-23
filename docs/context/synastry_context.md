@@ -8,13 +8,13 @@ order: 4
 
 ## `POST /api/v5/context/synastry`
 
-> **📘 [View Complete Example](../examples/synastry_context.md)**
+> **[View Complete Example](../examples/synastry_context.md)**
 
-Generates an AI-powered interpretation of a synastry (relationship) chart. This endpoint analyzes the astrological compatibility and dynamics between two subjects, providing insights into their relationship strengths, challenges, and overall chemistry.
+Generates an AI-optimized XML-structured interpretation of a synastry (relationship) chart. This endpoint analyzes the astrological compatibility and dynamics between two subjects, providing insights into their relationship strengths, challenges, and overall chemistry.
 
 ### Request Body
 
--   **`first_subject`** (object, required): The first partner (Inner Wheel).
+-   **`first_subject`** (object, required): The first partner (inner wheel). See [Subject Object Reference](../README.md#subject-object-reference).
     ```json
     {
         "name": "Partner A",
@@ -30,7 +30,7 @@ Generates an AI-powered interpretation of a synastry (relationship) chart. This 
         "timezone": "Europe/London"
     }
     ```
--   **`second_subject`** (object, required): The second partner (Outer Wheel).
+-   **`second_subject`** (object, required): The second partner (outer wheel). Same structure as `first_subject`.
     ```json
     {
         "name": "Partner B",
@@ -46,7 +46,20 @@ Generates an AI-powered interpretation of a synastry (relationship) chart. This 
         "timezone": "America/New_York"
     }
     ```
--   **Computation options**: flags such as `include_house_comparison`, `include_relationship_score`, `active_points`, `active_aspects`, `distribution_method`, `custom_distribution_weights` (identical to `/api/v5/chart-data/synastry`). Rendering options like `theme`, `language`, `style`, `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `custom_title` are **not** accepted here.
+
+**Synastry-specific options** (optional):
+
+-   **`include_house_comparison`** (boolean): Include house overlay analysis. Default: `true`.
+-   **`include_relationship_score`** (boolean): Include Ciro Discepolo compatibility score. Default: `true`.
+
+**Computation options** (optional, at request body root level):
+
+-   **`active_points`** (array of strings): Override which celestial points are included. See [Active Points](../README.md#active-points).
+-   **`active_aspects`** (array of objects): Override which aspects are calculated and their orbs. See [Active Aspects](../README.md#active-aspects).
+-   **`distribution_method`** (string): `"weighted"` (default) or `"pure_count"`.
+-   **`custom_distribution_weights`** (object): Custom weights map for weighted distribution.
+
+Rendering options (`theme`, `language`, `style`, `split_chart`, `transparent_background`, `show_house_position_comparison`, `show_cusp_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `show_zodiac_background_ring`, `double_chart_aspect_grid_type`, `custom_title`) are **not** accepted on this endpoint.
 
 #### Complete Request Example
 
@@ -83,9 +96,9 @@ Generates an AI-powered interpretation of a synastry (relationship) chart. This 
 
 ### Response Body
 
--   **`status`** (string): "OK" on success.
--   **`context`** (string): The generated AI XML context string for the relationship.
--   **`chart_data`** (object): The complete calculated synastry chart data.
+-   **`status`** (string): `"OK"`.
+-   **`context`** (string): The AI-optimized XML context string for the relationship.
+-   **`chart_data`** (object): The complete calculated synastry chart data (same structure as the [Synastry Chart Data](../data/chart_data_synastry.md) endpoint).
 
 #### Complete Response Example
 
@@ -96,8 +109,8 @@ Generates an AI-powered interpretation of a synastry (relationship) chart. This 
   "chart_data": {
     "first_subject": { ... },
     "second_subject": { ... },
-    "aspects_list": [ ... ]
-    // ... full synastry data
+    "aspects": [ ... ],
+    "relationship_score": { ... }
   }
 }
 ```

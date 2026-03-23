@@ -8,7 +8,7 @@ order: 1
 
 ## `POST /api/v5/chart/birth-chart`
 
-> **📘 [View Complete Example](../examples/natal_chart_svg.md)**
+> **[View Complete Example](../examples/natal_chart_svg.md)**
 
 This endpoint generates a **visual birth chart** (natal chart) as an SVG image, along with the complete calculated astrological data. A birth chart is a snapshot of the sky at the exact moment and location of a person's birth, showing the positions of planets, houses, and astrological points.
 
@@ -16,7 +16,7 @@ The returned SVG is a professional-quality chart wheel that can be:
 
 -   Embedded directly in web pages or mobile apps
 -   Downloaded and printed
--   Customized with themes (classic, dark, high contrast)
+-   Customized with themes (classic, dark, dark-high-contrast, light, strawberry, black-and-white)
 -   Split into separate wheel and aspect grid components
 
 **Use cases:**
@@ -26,11 +26,9 @@ The returned SVG is a professional-quality chart wheel that can be:
 -   Building astrology reading applications
 -   Visualizing natal placements for interpretation
 
-The endpoint combines the power of precise astronomical calculations with beautiful visual rendering, making it ideal for both professional astrologers and hobbyists.
-
 ### Request Body
 
--   **`subject`** (object, required): The subject's birth data.
+-   **`subject`** (object, required): The subject's birth data. See [Subject Object Reference](../README.md#subject-object-reference) for all fields.
     ```json
     {
         "name": "Alice",
@@ -46,18 +44,26 @@ The endpoint combines the power of precise astronomical calculations with beauti
         "timezone": "Europe/Berlin"
     }
     ```
--   **`active_points`** (array, optional): Points to include.
--   **`active_aspects`** (array, optional): Aspects to include.
--   **`show_aspect_icons`** (boolean, optional): Display aspect icons on aspect lines (default: true).
--   **`theme`** (string, optional): Color theme for the chart (e.g., "classic", "dark", "high_contrast"). Default: "classic".
--   **`language`** (string, optional): Language for chart labels (e.g., "EN", "IT", "ES"). Default: "EN".
--   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
--   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
--   **`split_chart`** (bool, optional): If true, returns the chart wheel and aspect grid as separate SVG strings. Default: false.
--   **`transparent_background`** (bool, optional): If true, the chart background will be transparent. Default: false.
--   **`show_house_position_comparison`** (bool, optional): Show or hide the houses/points comparison table next to the wheel. Default: true.
--   **`show_degree_indicators`** (bool, optional): Show radial lines and degree numbers for planet positions on the wheel. Default: true.
--   **`custom_title`** (string, optional): Override the default chart title.
+
+**Computation options** (optional, at request body root level):
+
+-   **`active_points`** (array of strings): Override which celestial points are included. See [Active Points](../README.md#active-points).
+-   **`active_aspects`** (array of objects): Override which aspects are calculated and their orbs. E.g. `[{"name": "conjunction", "orb": 10}]`. See [Active Aspects](../README.md#active-aspects).
+-   **`distribution_method`** (string): `"weighted"` (default) or `"pure_count"`.
+-   **`custom_distribution_weights`** (object): Custom weights map for weighted distribution.
+
+**Rendering options** (optional):
+
+-   **`theme`** (string): Visual theme — `"classic"` (default), `"light"`, `"dark"`, `"dark-high-contrast"`, `"strawberry"`, `"black-and-white"`. See [Themes](../README.md#themes).
+-   **`language`** (string): Language for chart labels — `"EN"` (default), `"FR"`, `"PT"`, `"IT"`, `"CN"`, `"ES"`, `"RU"`, `"TR"`, `"DE"`, `"HI"`. See [Languages](../README.md#languages).
+-   **`style`** (string): `"classic"` (default, traditional wheel) or `"modern"` (concentric rings).
+-   **`split_chart`** (boolean): If `true`, returns separate `chart_wheel` and `chart_grid` SVGs instead of a single `chart`. Default: `false`.
+-   **`transparent_background`** (boolean): Render with transparent background. Default: `false`.
+-   **`custom_title`** (string): Override the chart title (max 40 characters).
+-   **`show_house_position_comparison`** (boolean): Show the house/points comparison table. Default: `true`.
+-   **`show_degree_indicators`** (boolean): Show radial lines and degree numbers for planet positions. Default: `true`.
+-   **`show_aspect_icons`** (boolean): Show aspect icons on aspect lines. Default: `true`.
+-   **`show_zodiac_background_ring`** (boolean): Show colored zodiac wedges (only affects `"modern"` style). Default: `true`.
 
 #### Complete Request Example
 
@@ -87,11 +93,11 @@ The endpoint combines the power of precise astronomical calculations with beauti
 
 ### Response Body
 
--   **`status`** (string): "OK".
--   **`chart_data`** (object): The calculated chart data (same as chart-data endpoint).
--   **`chart`** (string): The full SVG string of the chart (if `split_chart` is false).
--   **`chart_wheel`** (string): SVG of the wheel (if `split_chart` is true).
--   **`chart_grid`** (string): SVG of the aspect grid (if `split_chart` is true).
+-   **`status`** (string): `"OK"`.
+-   **`chart_data`** (object): The calculated chart data (same structure as the [Natal Chart Data](../data/chart_data_natal.md) endpoint).
+-   **`chart`** (string): The full SVG string (when `split_chart` is `false`).
+-   **`chart_wheel`** (string): SVG of the wheel only (when `split_chart` is `true`).
+-   **`chart_grid`** (string): SVG of the aspect grid only (when `split_chart` is `true`).
 
 #### Complete Response Example
 

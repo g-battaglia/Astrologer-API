@@ -8,7 +8,7 @@ order: 4
 
 ## `POST /api/v5/chart/composite`
 
-> **📘 [View Complete Example](../examples/composite_chart_svg.md)**
+> **[View Complete Example](../examples/composite_chart_svg.md)**
 
 This endpoint generates a **composite chart** as a single-wheel SVG visualization. Unlike synastry (which compares two separate charts), a composite chart creates a completely new chart by calculating the mathematical midpoints between the two subjects' planetary positions. This resulting chart represents the relationship itself as a unique entity.
 
@@ -28,11 +28,9 @@ The composite chart answers the question: "What is the nature of _this_ relation
 -   **Business Ventures**: Analyze the potential and character of a partnership
 -   **Long-term Forecasting**: See how the relationship evolves through transits to the composite chart
 
-The composite chart is particularly valuable for committed relationships, as it provides insights that synastry alone cannot reveal. It's considered essential reading for couples seeking to understand their union's spiritual and practical dimensions.
-
 ### Request Body
 
--   **`first_subject`** (object, required): First partner.
+-   **`first_subject`** (object, required): First partner. See [Subject Object Reference](../README.md#subject-object-reference).
     ```json
     {
         "name": "Partner A",
@@ -48,7 +46,7 @@ The composite chart is particularly valuable for committed relationships, as it 
         "timezone": "Europe/Rome"
     }
     ```
--   **`second_subject`** (object, required): Second partner.
+-   **`second_subject`** (object, required): Second partner. Same structure as `first_subject`.
     ```json
     {
         "name": "Partner B",
@@ -64,13 +62,26 @@ The composite chart is particularly valuable for committed relationships, as it 
         "timezone": "Europe/Rome"
     }
     ```
--   **`theme`**, **`language`**, **`split_chart`** (rendering options).
--   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
--   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
--   **`double_chart_aspect_grid_type`** (string, optional): Aspect display layout — "list" (default) or "table". Default: "list".
--   **`show_house_position_comparison`** (bool, optional): Show or hide the house/points comparison table for the composite chart (default: true).
--   **`show_degree_indicators`** (bool, optional): Display radial lines and degree numbers for planet positions on the wheel (default: true).
--   **`show_aspect_icons`** (bool, optional): Display aspect icons on aspect lines (default: true).
+
+**Computation options** (optional):
+
+-   **`active_points`** (array of strings): Override which celestial points are included. See [Active Points](../README.md#active-points).
+-   **`active_aspects`** (array of objects): Override which aspects are calculated and their orbs. See [Active Aspects](../README.md#active-aspects).
+-   **`distribution_method`** (string): `"weighted"` (default) or `"pure_count"`.
+-   **`custom_distribution_weights`** (object): Custom weights map for weighted distribution.
+
+**Rendering options** (optional):
+
+-   **`theme`** (string): Visual theme. Default: `"classic"`. See [Themes](../README.md#themes).
+-   **`language`** (string): Language for chart labels. Default: `"EN"`. See [Languages](../README.md#languages).
+-   **`style`** (string): `"classic"` (default) or `"modern"`.
+-   **`split_chart`** (boolean): Return separate `chart_wheel` and `chart_grid` SVGs. Default: `false`.
+-   **`transparent_background`** (boolean): Render with transparent background. Default: `false`.
+-   **`custom_title`** (string): Override the chart title (max 40 characters).
+-   **`show_house_position_comparison`** (boolean): Show the house/points comparison table. Default: `true`.
+-   **`show_degree_indicators`** (boolean): Show radial lines and degree numbers. Default: `true`.
+-   **`show_aspect_icons`** (boolean): Show aspect icons on aspect lines. Default: `true`.
+-   **`show_zodiac_background_ring`** (boolean): Show colored zodiac wedges (`"modern"` style only). Default: `true`.
 
 #### Complete Request Example
 
@@ -110,9 +121,11 @@ The composite chart is particularly valuable for committed relationships, as it 
 
 ### Response Body
 
--   **`status`** (string): "OK".
--   **`chart_data`** (object): Composite data.
--   **`chart`** (string): SVG string.
+-   **`status`** (string): `"OK"`.
+-   **`chart_data`** (object): Composite chart data (same structure as the [Composite Chart Data](../data/chart_data_composite.md) endpoint).
+-   **`chart`** (string): SVG string (when `split_chart` is `false`).
+-   **`chart_wheel`** (string): SVG of the wheel only (when `split_chart` is `true`).
+-   **`chart_grid`** (string): SVG of the aspect grid only (when `split_chart` is `true`).
 
 #### Complete Response Example
 

@@ -8,15 +8,15 @@ order: 1
 
 ## `POST /api/v5/context/subject`
 
-> **📘 [View Complete Example](../examples/subject_context.md)**
+> **[View Complete Example](../examples/subject_context.md)**
 
-Generates an AI-powered astrological interpretation based on a subject's birth data. This endpoint provides an XML-structured analysis of the subject's key astrological placements, suitable for generating horoscopes, personality insights, or character descriptions.
+Generates an AI-optimized XML-structured astrological context based on a subject's birth data. This endpoint provides a structured analysis of the subject's key astrological placements, suitable for feeding into Large Language Models (LLMs) to generate horoscopes, personality insights, or character descriptions.
 
-It uses a Large Language Model (LLM) to synthesize the astrological data into a coherent, human-readable narrative.
+> **Note:** This endpoint returns the AI text in a field called `subject_context` (not `context`), alongside the full `subject` data. See [Response Key Naming](../README.md#response-key-naming).
 
 ### Request Body
 
--   **`subject`** (object, required): The subject's birth data.
+-   **`subject`** (object, required): The subject's birth data. See [Subject Object Reference](../README.md#subject-object-reference).
     ```json
     {
         "name": "Subject Name",
@@ -32,6 +32,14 @@ It uses a Large Language Model (LLM) to synthesize the astrological data into a 
         "timezone": "Europe/London"
     }
     ```
+
+**Computation options** (optional, at request body root level):
+
+-   **`active_points`** (array of strings): Override which celestial points are included. See [Active Points](../README.md#active-points).
+
+> **Note:** The request model also accepts `active_aspects`, `distribution_method`, and `custom_distribution_weights` fields (via shared model inheritance), but these have **no effect** on this endpoint — it builds a subject, not chart data. Only `active_points` is used.
+
+Rendering options (`theme`, `language`, `style`, `split_chart`, `transparent_background`, etc.) are **not** accepted on this endpoint.
 
 #### Complete Request Example
 
@@ -55,9 +63,9 @@ It uses a Large Language Model (LLM) to synthesize the astrological data into a 
 
 ### Response Body
 
--   **`status`** (string): "OK" on success.
--   **`subject_context`** (string): The generated AI XML context string.
--   **`subject`** (object): The calculated subject data used for the interpretation.
+-   **`status`** (string): `"OK"`.
+-   **`subject_context`** (string): The AI-optimized XML context string. This field is named `subject_context` (not `context`) because this endpoint returns a subject rather than chart data.
+-   **`subject`** (object): The calculated subject data used for the interpretation. Same structure as the [Subject Data](../data/subject.md) endpoint.
 
 #### Complete Response Example
 

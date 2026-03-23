@@ -8,7 +8,7 @@ order: 2
 
 ## `POST /api/v5/now/chart`
 
-> **📘 [View Complete Example](../examples/now_chart_svg.md)**
+> **[View Complete Example](../examples/now_chart_svg.md)**
 
 This endpoint generates a **real-time astrological chart** for the current moment in UTC (Universal Time Coordinated). It automatically captures the current positions of all celestial bodies and renders them as a visual SVG chart wheel.
 
@@ -22,15 +22,37 @@ Unlike a natal chart which is fixed to a birth date, the "Now" chart is dynamic 
 -   **Teaching Tools**: Demonstrate how planetary positions change over time
 -   **Live Event Charts**: Capture the astrological signature of moment-specific events
 
-This endpoint is perfect for applications that need to display the "cosmic now" without requiring users to input any birth data.
+This endpoint does **not** require a `subject` object — configuration fields are provided at the request body root level.
 
 ### Request Body
 
--   **`name`** (string, optional): Custom name for the chart title (default: "Now").
--   **`zodiac_type`**, **`sidereal_mode`**, **`houses_system_identifier`** (optional configuration).
--   **`theme`**, **`language`**, **`split_chart`**, `transparent_background`, `show_house_position_comparison`, `show_degree_indicators`, `show_aspect_icons`, `custom_title` (rendering options).
--   **`style`** (string, optional): Chart wheel layout — "classic" (default) or "modern". Default: "classic".
--   **`show_zodiac_background_ring`** (bool, optional): Show colored zodiac wedges behind the wheel, modern style only. Default: true.
+**Configuration options** (optional):
+
+-   **`name`** (string): Custom name for the chart title. Default: `"Now"`.
+-   **`zodiac_type`** (string): `"Tropical"` (default) or `"Sidereal"`.
+-   **`sidereal_mode`** (string): Ayanamsa system. Required when `zodiac_type` is `"Sidereal"`. See [Sidereal Modes](../README.md#sidereal-modes).
+-   **`perspective_type`** (string): Astronomical perspective. Default: `"Apparent Geocentric"`. See [Perspective Types](../README.md#perspective-types).
+-   **`houses_system_identifier`** (string): House system code. Default: `"P"` (Placidus). See [House Systems](../README.md#house-systems).
+
+**Computation options** (optional):
+
+-   **`active_points`** (array of strings): Override which celestial points are included. See [Active Points](../README.md#active-points).
+-   **`active_aspects`** (array of objects): Override which aspects are calculated and their orbs. See [Active Aspects](../README.md#active-aspects).
+-   **`distribution_method`** (string): `"weighted"` (default) or `"pure_count"`.
+-   **`custom_distribution_weights`** (object): Custom weights map for weighted distribution.
+
+**Rendering options** (optional):
+
+-   **`theme`** (string): Visual theme — `"classic"` (default), `"light"`, `"dark"`, `"dark-high-contrast"`, `"strawberry"`, `"black-and-white"`. See [Themes](../README.md#themes).
+-   **`language`** (string): Language for chart labels. Default: `"EN"`. See [Languages](../README.md#languages).
+-   **`style`** (string): `"classic"` (default) or `"modern"`.
+-   **`split_chart`** (boolean): Return separate `chart_wheel` and `chart_grid` SVGs. Default: `false`.
+-   **`transparent_background`** (boolean): Render with transparent background. Default: `false`.
+-   **`custom_title`** (string): Override the chart title (max 40 characters).
+-   **`show_house_position_comparison`** (boolean): Show the house/points comparison table. Default: `true`.
+-   **`show_degree_indicators`** (boolean): Show radial lines and degree numbers. Default: `true`.
+-   **`show_aspect_icons`** (boolean): Show aspect icons on aspect lines. Default: `true`.
+-   **`show_zodiac_background_ring`** (boolean): Show colored zodiac wedges (`"modern"` style only). Default: `true`.
 
 #### Complete Request Example
 
@@ -47,9 +69,11 @@ This endpoint is perfect for applications that need to display the "cosmic now" 
 
 ### Response Body
 
--   **`status`** (string): "OK".
--   **`chart_data`** (object): Calculated data for now.
--   **`chart`** (string): SVG string.
+-   **`status`** (string): `"OK"`.
+-   **`chart_data`** (object): Calculated chart data for the current moment.
+-   **`chart`** (string): SVG string (when `split_chart` is `false`).
+-   **`chart_wheel`** (string): SVG of the wheel only (when `split_chart` is `true`).
+-   **`chart_grid`** (string): SVG of the aspect grid only (when `split_chart` is `true`).
 
 #### Complete Response Example
 

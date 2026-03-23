@@ -8,13 +8,13 @@ order: 7
 
 ## `POST /api/v5/chart-data/transit`
 
-> **📘 [View Complete Example](../examples/transit_chart_data.md)**
+> **[View Complete Example](../examples/transit_chart_data.md)**
 
-This endpoint calculates the transits for a specific subject at a specific time. It compares the natal chart (inner wheel) with the transit chart (outer wheel, current sky).
+This endpoint calculates transit data comparing a natal chart (inner wheel) with a transit moment (outer wheel), without generating an SVG chart. It returns the positions for both subjects and the transit-to-natal aspects.
 
 ### Request Body
 
--   **`first_subject`** (object, required): The natal subject.
+-   **`first_subject`** (object, required): The natal subject. See [Subject Object Reference](../README.md#subject-object-reference).
     ```json
     {
         "name": "Natal Subject",
@@ -30,10 +30,9 @@ This endpoint calculates the transits for a specific subject at a specific time.
         "timezone": "Europe/London"
     }
     ```
--   **`transit_subject`** (object, required): The transit moment (time and location).
+-   **`transit_subject`** (object, required): The transit moment. Uses a simplified subject model — does **not** include `zodiac_type`, `sidereal_mode`, `perspective_type`, or `houses_system_identifier` (these are inherited from `first_subject`). The `name` field defaults to `"Transit"`.
     ```json
     {
-        "name": "Transit Moment",
         "year": 2024,
         "month": 1,
         "day": 1,
@@ -46,7 +45,17 @@ This endpoint calculates the transits for a specific subject at a specific time.
         "timezone": "Europe/London"
     }
     ```
--   **`include_house_comparison`** (bool, optional): Check where transiting planets fall in natal houses.
+
+**Transit-specific options** (optional):
+
+-   **`include_house_comparison`** (boolean): Include house overlay comparison showing where transiting planets fall in natal houses. Default: `true`.
+
+**Computation options** (optional, at request body root level):
+
+-   **`active_points`** (array of strings): Override which celestial points are included. See [Active Points](../README.md#active-points).
+-   **`active_aspects`** (array of objects): Override which aspects are calculated and their orbs. See [Active Aspects](../README.md#active-aspects).
+-   **`distribution_method`** (string): `"weighted"` (default) or `"pure_count"`.
+-   **`custom_distribution_weights`** (object): Custom weights map for weighted distribution.
 
 #### Complete Request Example
 
@@ -66,7 +75,6 @@ This endpoint calculates the transits for a specific subject at a specific time.
         "timezone": "Europe/London"
     },
     "transit_subject": {
-        "name": "Transit Moment",
         "year": 2024,
         "month": 1,
         "day": 1,
@@ -77,17 +85,20 @@ This endpoint calculates the transits for a specific subject at a specific time.
         "longitude": -0.1278,
         "latitude": 51.5074,
         "timezone": "Europe/London"
-    }
+    },
+    "include_house_comparison": true
 }
 ```
 
 ### Response Body
 
--   **`status`** (string): "OK".
--   **`chart_data`** (object):
-    -   **`first_subject`**: Natal chart.
-    -   **`second_subject`**: Transit chart.
-    -   **`aspects`**: Transit-to-Natal aspects.
+-   **`status`** (string): `"OK"`.
+-   **`chart_data`** (object): The transit chart data containing:
+    -   **`first_subject`**: Natal chart data.
+    -   **`second_subject`**: Transit chart data.
+    -   **`aspects`**: Transit-to-natal aspects. Aspect names are **lowercase** (e.g. `"square"`, `"conjunction"`).
+    -   **`house_comparison`** (if requested): Where transiting planets fall in natal houses.
+    -   **`elements_distribution`**, **`qualities_distribution`**, **`hemispheres_distribution`**: Distribution analysis.
 
 #### Complete Response Example
 
@@ -101,8 +112,10 @@ This endpoint calculates the transits for a specific subject at a specific time.
       {
         "p1_name": "Sun",
         "p2_name": "Saturn",
-        "aspect": "Square",
-        "orb": 0.5
+        "aspect": "square",
+        "orbit": 0.5,
+        "aspect_degrees": 90,
+        "aspect_movement": "Applying"
       }
     ]
   }
