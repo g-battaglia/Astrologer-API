@@ -12,6 +12,10 @@ order: 5
 
 This endpoint generates a **transit chart** as a dual-wheel SVG visualization, showing how current (or future) planetary positions interact with a person's natal chart. Transits are the foundation of predictive astrology, revealing timing for opportunities, challenges, and significant life events.
 
+### Chart Preview
+
+![Transit Chart Example](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_transit.svg)
+
 The chart displays:
 
 -   **Inner Wheel**: The natal (birth) chart — the permanent foundation

@@ -7,6 +7,10 @@ description: 'SVG example for the Transit Chart endpoint. Professional dual-whee
 
 Endpoint: `/api/v5/chart/transit`
 
+### Chart Preview
+
+![Transit Chart SVG Preview](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_transit.svg)
+
 ## Request Body
 ```json
 {

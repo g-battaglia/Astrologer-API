@@ -7,6 +7,10 @@ description: 'SVG example for the Lunar Return Chart. Visual representation of t
 
 Endpoint: `/api/v5/chart/lunar-return`
 
+### Chart Preview
+
+![Lunar Return Chart SVG Preview](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_lunar_return.svg)
+
 ## Request Body
 ```json
 {

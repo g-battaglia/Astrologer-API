@@ -7,6 +7,10 @@ description: 'View a sample SVG output for the Synastry Chart endpoint. Professi
 
 Endpoint: `/api/v5/chart/synastry`
 
+### Chart Preview
+
+![Synastry Chart SVG Preview](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_synastry.svg)
+
 ## Request Body
 ```json
 {

@@ -7,6 +7,10 @@ description: 'View a sample Now chart SVG. Real-time visualization of the curren
 
 Endpoint: `/api/v5/now/chart`
 
+### Chart Preview
+
+![Now Chart SVG Preview](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/now_chart.svg)
+
 ## Request Body
 ```json
 {

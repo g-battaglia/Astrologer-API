@@ -12,6 +12,10 @@ order: 6
 
 This endpoint generates a **Solar Return chart**, one of the most important timing techniques in predictive astrology. A Solar Return occurs annually when the transiting Sun returns to the exact degree, minute, and second of your natal Sun position — essentially, it's your true "astrological birthday."
 
+### Chart Preview
+
+![Solar Return Chart Example](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_solar_return.svg)
+
 The Solar Return chart is valid for one full year (from one birthday to the next) and outlines the major themes, opportunities, and challenges you'll encounter during that solar year.
 
 **Chart Options**:

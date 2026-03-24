@@ -7,6 +7,10 @@ description: 'Sample SVG output for a professional birth chart. High-quality vis
 
 Endpoint: `/api/v5/chart/birth-chart`
 
+### Chart Preview
+
+![Natal Chart SVG Preview](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_natal.svg)
+
 ## Request Body
 ```json
 {

@@ -7,6 +7,10 @@ description: 'See a sample SVG composite chart. Visual representation of the rel
 
 Endpoint: `/api/v5/chart/composite`
 
+### Chart Preview
+
+![Composite Chart SVG Preview](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_composite.svg)
+
 ## Request Body
 ```json
 {

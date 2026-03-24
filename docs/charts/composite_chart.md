@@ -12,8 +12,12 @@ order: 4
 
 This endpoint generates a **composite chart** as a single-wheel SVG visualization. Unlike synastry (which compares two separate charts), a composite chart creates a completely new chart by calculating the mathematical midpoints between the two subjects' planetary positions. This resulting chart represents the relationship itself as a unique entity.
 
+### Chart Preview
+
+![Composite Chart Example](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_composite.svg)
+
 **Key Concept**:
-The composite chart answers the question: "What is the nature of _this_ relationship?" rather than "How do these two people interact?" It symbolizes the relationship's purpose, destiny, and core characteristics.
+The composite chart answers the question: \"What is the nature of _this_ relationship?\" rather than \"How do these two people interact?\" It symbolizes the relationship's purpose, destiny, and core characteristics.
 
 **Calculation Method**:
 

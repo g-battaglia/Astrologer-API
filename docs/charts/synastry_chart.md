@@ -12,6 +12,10 @@ order: 3
 
 This endpoint generates a **synastry chart** (relationship compatibility chart) as a dual-wheel SVG visualization. Synastry is the astrological technique of comparing two birth charts to analyze relationship dynamics, compatibility, and potential challenges between two people.
 
+### Chart Preview
+
+![Synastry Chart Example](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_synastry.svg)
+
 The chart displays:
 
 -   **Inner Wheel**: The first subject's natal chart

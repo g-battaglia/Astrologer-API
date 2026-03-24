@@ -12,7 +12,11 @@ order: 2
 
 This endpoint generates a **real-time astrological chart** for the current moment in UTC (Universal Time Coordinated). It automatically captures the current positions of all celestial bodies and renders them as a visual SVG chart wheel.
 
-Unlike a natal chart which is fixed to a birth date, the "Now" chart is dynamic and represents the current astrological "weather" or cosmic climate. The chart is calculated for the Prime Meridian (Greenwich, UK) to provide a universal reference point.
+### Chart Preview
+
+![Now Chart Example](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/now_chart.svg)
+
+Unlike a natal chart which is fixed to a birth date, the \"Now\" chart is dynamic and represents the current astrological \"weather\" or cosmic climate. The chart is calculated for the Prime Meridian (Greenwich, UK) to provide a universal reference point.
 
 **Use cases:**
 

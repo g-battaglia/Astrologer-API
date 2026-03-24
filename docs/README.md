@@ -318,6 +318,8 @@ All other context endpoints return `context` + `chart_data`.
 
 ## Documentation Index
 
+> **[Browse All Examples](examples/README.md)** — Complete categorized index of all endpoint examples with chart previews.
+
 ### Data Endpoints (JSON)
 
 Endpoints that return raw calculated data (JSON) without visual charts. Ideal for custom frontend rendering or data analysis.

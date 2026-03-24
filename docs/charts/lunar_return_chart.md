@@ -12,6 +12,10 @@ order: 7
 
 This endpoint generates a **Lunar Return chart**, a monthly predictive chart that occurs when the transiting Moon returns to the exact position of your natal Moon (approximately every 27.3 days). While less commonly known than Solar Returns, Lunar Returns are powerful tools for understanding monthly emotional rhythms and short-term forecasting.
 
+### Chart Preview
+
+![Lunar Return Chart Example](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_lunar_return.svg)
+
 The Lunar Return chart is valid for approximately one month and reveals:
 
 -   Emotional themes and inner experiences

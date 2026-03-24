@@ -7,6 +7,10 @@ description: 'Sample SVG output for a Solar Return. Professional dual-wheel visu
 
 Endpoint: `/api/v5/chart/solar-return`
 
+### Chart Preview
+
+![Solar Return Chart SVG Preview](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_solar_return.svg)
+
 ## Request Body
 ```json
 {

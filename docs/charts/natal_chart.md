@@ -12,6 +12,10 @@ order: 1
 
 This endpoint generates a **visual birth chart** (natal chart) as an SVG image, along with the complete calculated astrological data. A birth chart is a snapshot of the sky at the exact moment and location of a person's birth, showing the positions of planets, houses, and astrological points.
 
+### Chart Preview
+
+![Natal Chart Example](https://raw.githubusercontent.com/g-battaglia/Astrologer-API/v5/tests/baselines/chart_natal.svg)
+
 The returned SVG is a professional-quality chart wheel that can be:
 
 -   Embedded directly in web pages or mobile apps
