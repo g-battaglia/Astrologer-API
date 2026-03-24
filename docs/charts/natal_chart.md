@@ -8,7 +8,7 @@ order: 1
 
 ## `POST /api/v5/chart/birth-chart`
 
-> **[View Complete Example](../examples/natal_chart_svg.md)**
+> **[View Complete Example](../examples/natal_chart_svg)**
 
 This endpoint generates a **visual birth chart** (natal chart) as an SVG image, along with the complete calculated astrological data. A birth chart is a snapshot of the sky at the exact moment and location of a person's birth, showing the positions of planets, houses, and astrological points.
 

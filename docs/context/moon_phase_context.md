@@ -8,7 +8,7 @@ order: 9
 
 ## `POST /api/v5/moon-phase/context`
 
-> **[View Complete Example](../examples/moon_phase_context.md)**
+> **[View Complete Example](../examples/moon_phase_context)**
 
 Returns detailed moon phase information with an AI-optimized XML context string, suitable for LLM consumption. This is the context variant of `/api/v5/moon-phase`.
 

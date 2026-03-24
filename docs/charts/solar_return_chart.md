@@ -8,7 +8,7 @@ order: 6
 
 ## `POST /api/v5/chart/solar-return`
 
-> **[View Complete Example](../examples/solar_return_chart_svg.md)**
+> **[View Complete Example](../examples/solar_return_chart_svg)**
 
 This endpoint generates a **Solar Return chart**, one of the most important timing techniques in predictive astrology. A Solar Return occurs annually when the transiting Sun returns to the exact degree, minute, and second of your natal Sun position — essentially, it's your true "astrological birthday."
 

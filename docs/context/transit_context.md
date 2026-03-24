@@ -8,7 +8,7 @@ order: 6
 
 ## `POST /api/v5/context/transit`
 
-> **[View Complete Example](../examples/transit_context.md)**
+> **[View Complete Example](../examples/transit_context)**
 
 Generates an AI-optimized XML-structured interpretation of a transit chart. This endpoint analyzes how the current (or future) positions of the planets affect a person's natal chart. It is essential for forecasting, understanding current life themes, and predictive astrology.
 

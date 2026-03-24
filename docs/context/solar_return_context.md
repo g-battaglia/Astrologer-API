@@ -8,7 +8,7 @@ order: 7
 
 ## `POST /api/v5/context/solar-return`
 
-> **[View Complete Example](../examples/solar_return_context.md)**
+> **[View Complete Example](../examples/solar_return_context)**
 
 Generates an AI-optimized XML-structured interpretation of a Solar Return chart. The Solar Return occurs once a year when the Sun returns to its exact natal position. This chart is used to forecast the themes and events for the year ahead (from one birthday to the next).
 

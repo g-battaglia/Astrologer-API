@@ -8,7 +8,7 @@ order: 10
 
 ## `POST /api/v5/moon-phase`
 
-> **[View Complete Example](../examples/moon_phase.md)**
+> **[View Complete Example](../examples/moon_phase)**
 
 This endpoint returns detailed moon phase information for a specific date/time and geographic location. It computes lunar illumination, phase timing, upcoming major phases, eclipse predictions, and solar data (sunrise/sunset, sun position).
 

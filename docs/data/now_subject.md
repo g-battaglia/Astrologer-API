@@ -8,7 +8,7 @@ order: 2
 
 ## `POST /api/v5/now/subject`
 
-> **[View Complete Example](../examples/now_subject.md)**
+> **[View Complete Example](../examples/now_subject)**
 
 This endpoint generates an astrological subject for the **current moment** (UTC). It automatically fetches the current time and sets the location to Greenwich Observatory to provide a universal "now" perspective.
 

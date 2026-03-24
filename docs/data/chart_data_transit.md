@@ -8,7 +8,7 @@ order: 7
 
 ## `POST /api/v5/chart-data/transit`
 
-> **[View Complete Example](../examples/transit_chart_data.md)**
+> **[View Complete Example](../examples/transit_chart_data)**
 
 This endpoint calculates transit data comparing a natal chart (inner wheel) with a transit moment (outer wheel), without generating an SVG chart. It returns the positions for both subjects and the transit-to-natal aspects.
 

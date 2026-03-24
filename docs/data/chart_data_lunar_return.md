@@ -8,7 +8,7 @@ order: 9
 
 ## `POST /api/v5/chart-data/lunar-return`
 
-> **[View Complete Example](../examples/lunar_return_chart_data.md)**
+> **[View Complete Example](../examples/lunar_return_chart_data)**
 
 Calculates the Lunar Return chart for the return happening on or after the specified date, without generating an SVG chart. The Lunar Return occurs when the Moon returns to the exact same ecliptic longitude as in the natal chart (approximately every 27.3 days).
 

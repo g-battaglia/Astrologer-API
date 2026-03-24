@@ -8,7 +8,7 @@ order: 8
 
 ## `POST /api/v5/chart-data/solar-return`
 
-> **[View Complete Example](../examples/solar_return_chart_data.md)**
+> **[View Complete Example](../examples/solar_return_chart_data)**
 
 Calculates the Solar Return chart for the return happening on or after the specified date, without generating an SVG chart. The Solar Return occurs when the Sun returns to the exact same ecliptic longitude as in the natal chart.
 

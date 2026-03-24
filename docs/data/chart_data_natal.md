@@ -8,7 +8,7 @@ order: 4
 
 ## `POST /api/v5/chart-data/birth-chart`
 
-> **[View Complete Example](../examples/natal_chart_data.md)**
+> **[View Complete Example](../examples/natal_chart_data)**
 
 This endpoint returns the full calculated data for a natal chart (birth chart) without generating an SVG image. This is ideal for applications that render their own charts or need to perform deep analysis on the astrological data.
 

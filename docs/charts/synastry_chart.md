@@ -8,7 +8,7 @@ order: 3
 
 ## `POST /api/v5/chart/synastry`
 
-> **[View Complete Example](../examples/synastry_chart_svg.md)**
+> **[View Complete Example](../examples/synastry_chart_svg)**
 
 This endpoint generates a **synastry chart** (relationship compatibility chart) as a dual-wheel SVG visualization. Synastry is the astrological technique of comparing two birth charts to analyze relationship dynamics, compatibility, and potential challenges between two people.
 

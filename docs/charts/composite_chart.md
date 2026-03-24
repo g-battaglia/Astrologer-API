@@ -8,7 +8,7 @@ order: 4
 
 ## `POST /api/v5/chart/composite`
 
-> **[View Complete Example](../examples/composite_chart_svg.md)**
+> **[View Complete Example](../examples/composite_chart_svg)**
 
 This endpoint generates a **composite chart** as a single-wheel SVG visualization. Unlike synastry (which compares two separate charts), a composite chart creates a completely new chart by calculating the mathematical midpoints between the two subjects' planetary positions. This resulting chart represents the relationship itself as a unique entity.
 

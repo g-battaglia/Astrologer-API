@@ -8,7 +8,7 @@ order: 3
 
 ## `POST /api/v5/context/birth-chart`
 
-> **[View Complete Example](../examples/natal_context.md)**
+> **[View Complete Example](../examples/natal_context)**
 
 Generates an AI-optimized XML-structured interpretation of a full natal chart. Unlike the simple subject context, this endpoint analyzes the complete chart data, including house systems, aspects, and element/quality distributions, providing a deeper and more comprehensive reading of the birth chart's dynamics.
 

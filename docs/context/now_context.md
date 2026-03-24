@@ -8,7 +8,7 @@ order: 2
 
 ## `POST /api/v5/now/context`
 
-> **[View Complete Example](../examples/now_context.md)**
+> **[View Complete Example](../examples/now_context)**
 
 Generates an AI-optimized XML-structured astrological context for the **current moment** (UTC). This is ideal for "Daily Horoscope", "Current Sky", or "Astrological Weather" features, providing a real-time snapshot of the planetary atmosphere.
 

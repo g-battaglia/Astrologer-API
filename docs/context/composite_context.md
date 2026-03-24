@@ -8,7 +8,7 @@ order: 5
 
 ## `POST /api/v5/context/composite`
 
-> **[View Complete Example](../examples/composite_context.md)**
+> **[View Complete Example](../examples/composite_context)**
 
 Generates an AI-optimized XML-structured interpretation of a composite chart. A composite chart is a single chart calculated from the midpoints of two people's charts, representing the relationship itself as a third entity. This endpoint provides insights into the purpose, destiny, and core nature of the partnership.
 

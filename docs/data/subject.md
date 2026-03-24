@@ -8,7 +8,7 @@ order: 1
 
 ## `POST /api/v5/subject`
 
-> **[View Complete Example](../examples/subject.md)**
+> **[View Complete Example](../examples/subject)**
 
 This endpoint creates an astrological subject object from raw birth data. It performs all necessary astronomical calculations (ephemeris) to determine the positions of planets, houses, and other astrological points for the given time and location.
 

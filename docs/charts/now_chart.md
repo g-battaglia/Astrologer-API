@@ -8,7 +8,7 @@ order: 2
 
 ## `POST /api/v5/now/chart`
 
-> **[View Complete Example](../examples/now_chart_svg.md)**
+> **[View Complete Example](../examples/now_chart_svg)**
 
 This endpoint generates a **real-time astrological chart** for the current moment in UTC (Universal Time Coordinated). It automatically captures the current positions of all celestial bodies and renders them as a visual SVG chart wheel.
 

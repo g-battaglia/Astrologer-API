@@ -8,7 +8,7 @@ order: 1
 
 ## `POST /api/v5/context/subject`
 
-> **[View Complete Example](../examples/subject_context.md)**
+> **[View Complete Example](../examples/subject_context)**
 
 Generates an AI-optimized XML-structured astrological context based on a subject's birth data. This endpoint provides a structured analysis of the subject's key astrological placements, suitable for feeding into Large Language Models (LLMs) to generate horoscopes, personality insights, or character descriptions.
 

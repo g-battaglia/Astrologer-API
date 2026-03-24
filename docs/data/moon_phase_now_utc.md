@@ -8,7 +8,7 @@ order: 11
 
 ## `POST /api/v5/moon-phase/now-utc`
 
-> **[View Complete Example](../examples/moon_phase_now_utc.md)**
+> **[View Complete Example](../examples/moon_phase_now_utc)**
 
 This endpoint returns detailed moon phase information for the **current UTC moment** at Greenwich Observatory (51.4779°N, 0.0015°W). It is the moon phase equivalent of `/api/v5/now/subject`.
 

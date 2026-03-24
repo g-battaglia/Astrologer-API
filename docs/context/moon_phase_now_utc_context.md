@@ -8,7 +8,7 @@ order: 10
 
 ## `POST /api/v5/moon-phase/now-utc/context`
 
-> **[View Complete Example](../examples/moon_phase_now_utc_context.md)**
+> **[View Complete Example](../examples/moon_phase_now_utc_context)**
 
 Returns detailed moon phase information for the **current UTC moment** at Greenwich Observatory (51.4779N, 0.0015W) with an AI-optimized XML context string. This is the context variant of `/api/v5/moon-phase/now-utc`.
 

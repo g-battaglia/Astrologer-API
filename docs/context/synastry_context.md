@@ -8,7 +8,7 @@ order: 4
 
 ## `POST /api/v5/context/synastry`
 
-> **[View Complete Example](../examples/synastry_context.md)**
+> **[View Complete Example](../examples/synastry_context)**
 
 Generates an AI-optimized XML-structured interpretation of a synastry (relationship) chart. This endpoint analyzes the astrological compatibility and dynamics between two subjects, providing insights into their relationship strengths, challenges, and overall chemistry.
 

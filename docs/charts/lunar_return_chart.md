@@ -8,7 +8,7 @@ order: 7
 
 ## `POST /api/v5/chart/lunar-return`
 
-> **[View Complete Example](../examples/lunar_return_chart_svg.md)**
+> **[View Complete Example](../examples/lunar_return_chart_svg)**
 
 This endpoint generates a **Lunar Return chart**, a monthly predictive chart that occurs when the transiting Moon returns to the exact position of your natal Moon (approximately every 27.3 days). While less commonly known than Solar Returns, Lunar Returns are powerful tools for understanding monthly emotional rhythms and short-term forecasting.
 

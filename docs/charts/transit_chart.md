@@ -8,7 +8,7 @@ order: 5
 
 ## `POST /api/v5/chart/transit`
 
-> **[View Complete Example](../examples/transit_chart_svg.md)**
+> **[View Complete Example](../examples/transit_chart_svg)**
 
 This endpoint generates a **transit chart** as a dual-wheel SVG visualization, showing how current (or future) planetary positions interact with a person's natal chart. Transits are the foundation of predictive astrology, revealing timing for opportunities, challenges, and significant life events.
 
