@@ -140,6 +140,27 @@ These endpoints accept the same parameters as their corresponding chart-data end
 -   <a href="https://www.kerykeion.net/astrologer-api-swagger/" target="_blank">Swagger OpenAPI (interactive)</a>
 -   <a href="https://www.kerykeion.net/astrologer-api-redoc/" target="_blank">Redoc OpenAPI (reference)</a>
 -   <a href="https://www.kerykeion.net/content/astrologer-api/" target="_blank">Full Documentation</a>
+-   <a href="https://kerykeion.net/astrologer-api/llms-full.txt" target="_blank">llms-full.txt</a> — single-file docs for LLM ingestion
+
+## Use with AI coding agents
+
+Let your coding agent build with Astrologer API — two paths depending on agent type.
+
+**Agents with skill support** (Claude Code, Cursor, Windsurf, Cline, Gemini, Copilot, Goose, OpenCode, Roo):
+
+```bash
+npx skills add g-battaglia/Astrologer-API
+```
+
+**For agents without skill support** — paste this prompt:
+
+```text
+Use the Astrologer API to build [feature].
+Full docs: https://kerykeion.net/astrologer-api/llms-full.txt
+Fetch that file first, then implement.
+```
+
+Full install guide (all agents): <a href="https://kerykeion.net/skills/astrologer-api" target="_blank">kerykeion.net/skills/astrologer-api</a>
 
 ## Copy‑paste examples
 
