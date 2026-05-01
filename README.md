@@ -1,4 +1,4 @@
-# Astrologer API
+# High Precision Astrology API
 
 Astrologer API lets you add **professional-grade astrology features** to any app — fast.  
 It delivers **plug-and-play SVG charts**, **rich astrological data**, and **AI-optimized XML context** for natal, synastry, transits, composites, returns, and moon phases.
