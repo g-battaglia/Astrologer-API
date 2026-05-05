@@ -137,6 +137,11 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
         examples=[None],
     )
 
+    @field_validator("city")
+    @classmethod
+    def strip_city(cls, value: str) -> str:
+        return value.strip()
+
     @field_validator("timezone")
     @classmethod
     def validate_timezone(cls, value: Optional[str]) -> Optional[str]:
@@ -184,6 +189,12 @@ class SubjectModel(AbstractBaseSubjectModel):
     model_config = {"extra": "forbid"}
 
     name: str = Field(description="Display name for the subject.", examples=["John Doe"])
+
+    @field_validator("name")
+    @classmethod
+    def strip_name(cls, value: str) -> str:
+        return value.strip()
+
     zodiac_type: Optional[ZodiacType] = Field(
         default="Tropical",
         description="Zodiac type used for the calculation.",
@@ -559,6 +570,11 @@ class ReturnLocationModel(BaseModel):
         default=None,
         description="Geonames username to resolve the provided city when coordinates are missing.",
     )
+
+    @field_validator("city")
+    @classmethod
+    def strip_city(cls, value: Optional[str]) -> Optional[str]:
+        return value.strip() if value else value
 
     @field_validator("timezone")
     @classmethod

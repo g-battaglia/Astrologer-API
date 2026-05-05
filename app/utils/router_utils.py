@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from logging import getLogger
 from typing import Optional, Sequence, Union
 
@@ -39,19 +40,17 @@ from ..types.request_models import (
 
 logger = getLogger(__name__)
 
-GEONAMES_ERROR_MESSAGE = (
-    "City/Nation name error or invalid GeoNames username. Please check your username or city name and try again. "
-    "You can create a free username here: https://www.geonames.org/login/. If you want to bypass the usage of "
-    "GeoNames, please remove the geonames_username field from the request. Note: The nation field should be the "
-    "country code (e.g. US, UK, FR, DE, etc.)."
+GEONAMES_HINT = (
+    "You can create a free GeoNames username at https://www.geonames.org/login/. "
+    "To bypass GeoNames, provide latitude, longitude, and timezone directly and remove the geonames_username field."
 )
 
-GEONAMES_ERROR_KEYWORDS = (
-    "No data found for this city",
-    "data found for this city",
-    "Missing data from geonames",
-    "You need to set the coordinates",
-    "Check your connection",
+_SUBJECT_LOCATION_PATHS = (
+    ("subject",),
+    ("first_subject",),
+    ("second_subject",),
+    ("transit_subject",),
+    ("return_location",),
 )
 
 
@@ -399,9 +398,135 @@ def context_payload(chart_data) -> dict:
     }
 
 
+def _classify_geonames_error(message: str) -> Optional[str]:
+    """Classify a GeoNames-related error from the exception message.
+
+    Returns one of: ``"city_not_found"``, ``"timeout"``,
+    ``"connection_error"``, ``"missing_coordinates"``, or ``None``.
+    """
+    city_not_found_markers = (
+        "Missing data from geonames",
+        "No data found for this city",
+        "data found for this city",
+    )
+    if any(m in message for m in city_not_found_markers):
+        return "city_not_found"
+
+    if "ConnectTimeout" in message or "ReadTimeout" in message:
+        return "timeout"
+
+    if "ConnectionError" in message or "Check your connection" in message:
+        return "connection_error"
+
+    if "You need to set the coordinates" in message:
+        return "missing_coordinates"
+
+    return None
+
+
+def _extract_location_from_body(body_str: str) -> tuple[Optional[str], Optional[str]]:
+    """Try to extract ``(city, nation)`` from a JSON request body.
+
+    Walks the known subject paths (``subject``, ``first_subject``,
+    ``second_subject``, ``transit_subject``, ``return_location``) and
+    returns the city/nation from the first entry that has
+    ``geonames_username`` set.
+    """
+    try:
+        body = json.loads(body_str)
+    except (json.JSONDecodeError, TypeError):
+        return None, None
+
+    if not isinstance(body, dict):
+        return None, None
+
+    for path in _SUBJECT_LOCATION_PATHS:
+        node = body.get(path[0])
+        if not isinstance(node, dict):
+            continue
+        if node.get("geonames_username"):
+            return node.get("city"), node.get("nation")
+
+    # Fallback: first subject with city/nation regardless of geonames
+    for path in _SUBJECT_LOCATION_PATHS:
+        node = body.get(path[0])
+        if isinstance(node, dict) and node.get("city"):
+            return node.get("city"), node.get("nation")
+
+    return None, None
+
+
+def _build_geonames_error_response(
+    error_category: str,
+    city: Optional[str],
+    nation: Optional[str],
+) -> tuple[int, dict]:
+    """Return ``(status_code, response_dict)`` for a GeoNames error."""
+
+    location_hint = ""
+    if city or nation:
+        parts = []
+        if city:
+            parts.append(f"city='{city}'")
+        if nation:
+            parts.append(f"nation='{nation}'")
+        location_hint = f" for {', '.join(parts)}"
+
+    if error_category == "city_not_found":
+        msg = (
+            f"No location data found{location_hint}. "
+            "Verify the city name spelling and ensure the nation code matches "
+            "the country where the city is located. The nation field uses "
+            "ISO 3166-1 alpha-2 country codes (e.g. 'EG' for Egypt, 'US' for United States)."
+        )
+        status_code = 400
+    elif error_category == "timeout":
+        msg = (
+            f"GeoNames API timed out while resolving{location_hint}. "
+            "The service may be temporarily overloaded. Please retry in a few moments."
+        )
+        status_code = 504
+    elif error_category == "connection_error":
+        msg = (
+            f"Unable to reach the GeoNames API while resolving{location_hint}. "
+            "Please retry later."
+        )
+        status_code = 502
+    elif error_category == "missing_coordinates":
+        msg = (
+            "You need to provide coordinates (latitude, longitude) and timezone "
+            "for offline mode, or include a geonames_username for online resolution."
+        )
+        status_code = 400
+    else:
+        msg = (
+            f"GeoNames lookup failed{location_hint}. "
+            "Please check the city name, nation code, and your GeoNames username."
+        )
+        status_code = 400
+
+    details = {"error_category": error_category}
+    if city:
+        details["city"] = city
+    if nation:
+        details["nation"] = nation
+
+    return status_code, {
+        "status": "ERROR",
+        "message": msg,
+        "error_type": "GeoNamesLookupError",
+        "details": details,
+        "hint": GEONAMES_HINT,
+    }
+
+
 async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     """
     Handle exceptions and return appropriate JSON responses.
+
+    GeoNames errors get contextual messages with city/nation details and are
+    logged at WARNING level. All other errors are logged at ERROR with full
+    traceback.
 
     Args:
         exc (Exception): The exception raised.
@@ -412,28 +537,34 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     """
     message = str(exc).strip() or exc.__class__.__name__
 
-    # Log the complete request body for debugging
+    # Read the request body once — used for both logging and context extraction.
     try:
         body = await request.body()
         body_str = body.decode("utf-8") if body else "Empty body"
-        logger.error(
-            f"{request.url}: {message} | Request body: {body_str}", exc_info=True
-        )
     except Exception as body_exc:
         logger.error(
-            f"{request.url}: {message} | Failed to read request body: {body_exc}",
-            exc_info=True,
+            "%s: %s | Failed to read request body: %s",
+            request.url, message, body_exc, exc_info=True,
         )
+        body_str = "Empty body"
 
-    if any(keyword in message for keyword in GEONAMES_ERROR_KEYWORDS):
-        return JSONResponse(
-            content={
-                "status": "ERROR",
-                "message": GEONAMES_ERROR_MESSAGE,
-            },
-            status_code=400,
+    # --- GeoNames-specific path ---
+    geonames_category = _classify_geonames_error(message)
+    if geonames_category is not None:
+        city, nation = _extract_location_from_body(body_str)
+        logger.warning(
+            "GeoNames %s for city=%r, nation=%r at %s",
+            geonames_category, city, nation, request.url,
         )
+        status_code, content = _build_geonames_error_response(
+            geonames_category, city, nation,
+        )
+        return JSONResponse(content=content, status_code=status_code)
 
+    # --- Generic error path ---
+    logger.error(
+        "%s: %s | Request body: %s", request.url, message, body_str, exc_info=True,
+    )
     status_code = 400 if isinstance(exc, KerykeionException) else 500
     return JSONResponse(
         content={

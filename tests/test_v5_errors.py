@@ -31,7 +31,7 @@ BASE_SUBJECT: Dict[str, object] = {
 
 
 def test_error_geonames_path_on_subject(client: TestClient):
-    """Geonames richiesto senza coordinate/timezone: l'API risponde 400 con messaggio esplicito."""
+    """Geonames richiesto senza coordinate/timezone: l'API risponde 400 con messaggio contestuale."""
     payload = deepcopy(BASE_SUBJECT)
     # Rimuovo coordinate/timezone per forzare risoluzione online e simulare errore
     payload.pop("longitude")
@@ -43,7 +43,11 @@ def test_error_geonames_path_on_subject(client: TestClient):
     assert resp.status_code == 400
     body = resp.json()
     assert body["status"] == "ERROR"
-    assert "GeoNames" in body["message"]
+    assert body["error_type"] == "GeoNamesLookupError"
+    assert "London" in body["message"]
+    assert body["details"]["city"] == "London"
+    assert body["details"]["nation"] == "GB"
+    assert body["details"]["error_category"] == "city_not_found"
 
 
 def test_error_internal_500_on_natal_chart(client: TestClient, monkeypatch: pytest.MonkeyPatch):
