@@ -60,6 +60,30 @@ def test_lunar_return_domain_error_exposes_message(monkeypatch: pytest.MonkeyPat
     assert body["error_type"] == "KerykeionException"
 
 
+def test_invalid_date_returns_422(client: TestClient) -> None:
+    payload = _build_natal_chart_payload()
+    payload["subject"]["year"] = 2025
+    payload["subject"]["month"] = 2
+    payload["subject"]["day"] = 29
+    resp = client.post("/api/v5/chart/birth-chart", json=payload)
+    assert resp.status_code == 422
+
+
+def test_invalid_date_moon_phase_returns_422(client: TestClient) -> None:
+    payload = {
+        "year": 2025,
+        "month": 2,
+        "day": 29,
+        "hour": 12,
+        "minute": 0,
+        "latitude": 51.5074,
+        "longitude": -0.1276,
+        "timezone": "Europe/London",
+    }
+    resp = client.post("/api/v5/moon-phase", json=payload)
+    assert resp.status_code == 422
+
+
 def test_natal_chart_unexpected_error_exposes_message(monkeypatch: pytest.MonkeyPatch, client: TestClient) -> None:
     error_message = "Unexpected failure"
 

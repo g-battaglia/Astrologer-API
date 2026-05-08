@@ -1,10 +1,18 @@
 from __future__ import annotations
 
+import datetime
 from abc import ABC
 from logging import getLogger
 from typing import Literal, Mapping, Optional, Union, get_args
 
 from pydantic import BaseModel, Field, field_validator, model_validator
+
+
+def _check_date(year: int, month: int, day: int) -> None:
+    try:
+        datetime.date(year, month, day)
+    except ValueError:
+        raise ValueError(f"Invalid date: {year}-{month:02d}-{day:02d} does not exist.")
 from pytz import all_timezones
 
 from kerykeion.schemas import (
@@ -159,6 +167,11 @@ class AbstractBaseSubjectModel(BaseModel, ABC):
                 f"Invalid nation code: '{value}'. It must be a 2-letter country code (ISO 3166-1 alpha-2)."
             )
         return value.upper()
+
+    @model_validator(mode="after")
+    def validate_date(self) -> "AbstractBaseSubjectModel":
+        _check_date(self.year, self.month, self.day)
+        return self
 
     @model_validator(mode="after")
     def ensure_location_source(self) -> "AbstractBaseSubjectModel":
@@ -676,6 +689,9 @@ class PlanetaryReturnRequestModel(ChartRenderingMixin):
         if self.day and self.day != 1 and not self.month:
             raise ValueError("Day can only be provided together with month and year.")
 
+        if self.year and self.month:
+            _check_date(self.year, self.month, self.day or 1)
+
         if self.wheel_type == "single":
             self.include_house_comparison = False
 
@@ -732,6 +748,11 @@ class MoonPhaseRequestModel(BaseModel):
         if value not in all_timezones:
             raise ValueError(f"Invalid timezone '{value}'. Please use a valid timezone from the IANA database.")
         return value
+
+    @model_validator(mode="after")
+    def validate_date(self) -> "MoonPhaseRequestModel":
+        _check_date(self.year, self.month, self.day)
+        return self
 
 
 class NowMoonPhaseRequestModel(BaseModel):
@@ -803,6 +824,9 @@ class PlanetaryReturnDataRequestModel(ChartDataConfigurationMixin):
 
         if self.day and self.day != 1 and not self.month:
             raise ValueError("Day can only be provided together with month and year.")
+
+        if self.year and self.month:
+            _check_date(self.year, self.month, self.day or 1)
 
         if self.wheel_type == "single":
             self.include_house_comparison = False
