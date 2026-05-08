@@ -278,7 +278,7 @@ class SubjectModel(AbstractBaseSubjectModel):
 class TransitSubjectModel(AbstractBaseSubjectModel):
     """Transit subject definition; inherits base validators."""
 
-    model_config = {"extra": "forbid"}
+    model_config = {"extra": "ignore"}
 
     name: Optional[str] = Field(default="Transit", description="Label used for the transit subject.")
 

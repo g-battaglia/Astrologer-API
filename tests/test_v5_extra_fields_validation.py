@@ -174,8 +174,8 @@ class TestExtraFieldsInDifferentModels:
 
         assert response.status_code == 422
 
-    def test_extra_field_in_transit_subject(self, client: TestClient) -> None:
-        """Extra fields in transit_subject should be rejected."""
+    def test_extra_field_in_transit_subject_ignored(self, client: TestClient) -> None:
+        """Extra fields in transit_subject should be silently ignored."""
         transit_subject = {
             "year": 2025,
             "month": 1,
@@ -195,7 +195,7 @@ class TestExtraFieldsInDifferentModels:
 
         response = client.post("/api/v5/chart-data/transit", json=payload)
 
-        assert response.status_code == 422
+        assert response.status_code == 200
 
     def test_extra_field_at_request_level(self, client: TestClient) -> None:
         """Extra fields at the request body level should be rejected."""
