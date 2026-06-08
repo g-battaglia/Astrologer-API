@@ -10,10 +10,10 @@ starlette = "*"
 fastapi = "*"
 uvicorn = "*"
 types-pytz = "*"
-pytz = "*"
 scour = "*"
 typing-extensions = "*"
-kerykeion = "*"
+kerykeion = "<5"
+pytz = "*"
 
 [dev-packages]
 black = "*"
