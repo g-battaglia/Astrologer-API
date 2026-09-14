@@ -17,16 +17,16 @@ Chart examples:
     <td align="center"><strong>Classic Dark</strong></td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Natal%20Chart.svg" width="450" alt="Classic Default Natal Chart"></td>
-    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart.svg" width="450" alt="Classic Dark Natal Chart"></td>
+    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Natal%20Chart.svg" width="450" alt="Classic Default Natal Chart"></td>
+    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart.svg" width="450" alt="Classic Dark Natal Chart"></td>
   </tr>
   <tr>
     <td align="center"><strong>Modern Default</strong></td>
     <td align="center"><strong>Modern Dark</strong></td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Natal%20Chart%20-%20Modern.svg" width="450" alt="Modern Default Natal Chart"></td>
-    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart%20-%20Modern.svg" width="450" alt="Modern Dark Natal Chart"></td>
+    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Natal%20Chart%20-%20Modern.svg" width="450" alt="Modern Default Natal Chart"></td>
+    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart%20-%20Modern.svg" width="450" alt="Modern Dark Natal Chart"></td>
   </tr>
 </table>
 
@@ -511,24 +511,24 @@ Choose between two chart wheel layouts using the `style` parameter (default: `"c
     <td align="center"><strong>Modern Natal (Dark)</strong></td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Natal%20Chart%20-%20Modern.svg" width="450" alt="Modern Default Natal Chart"></td>
-    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart%20-%20Modern.svg" width="450" alt="Modern Dark Natal Chart"></td>
+    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Natal%20Chart%20-%20Modern.svg" width="450" alt="Modern Default Natal Chart"></td>
+    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20-%20Natal%20Chart%20-%20Modern.svg" width="450" alt="Modern Dark Natal Chart"></td>
   </tr>
   <tr>
     <td align="center"><strong>Modern Synastry (Default)</strong></td>
     <td align="center"><strong>Modern Synastry (Dark)</strong></td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Synastry%20Chart%20-%20Modern.svg" width="450" alt="Modern Default Synastry Chart"></td>
-    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20Synastry%20-%20Synastry%20Chart%20-%20Modern.svg" width="450" alt="Modern Dark Synastry Chart"></td>
+    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Synastry%20Chart%20-%20Modern.svg" width="450" alt="Modern Default Synastry Chart"></td>
+    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20Synastry%20-%20Synastry%20Chart%20-%20Modern.svg" width="450" alt="Modern Dark Synastry Chart"></td>
   </tr>
   <tr>
     <td align="center"><strong>Modern Transit (Default)</strong></td>
     <td align="center"><strong>Modern Transit (Dark)</strong></td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Transit%20Chart%20-%20Modern.svg" width="450" alt="Modern Default Transit Chart"></td>
-    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/main/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20Transit%20-%20Transit%20Chart%20-%20Modern.svg" width="450" alt="Modern Dark Transit Chart"></td>
+    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Transit%20Chart%20-%20Modern.svg" width="450" alt="Modern Default Transit Chart"></td>
+    <td><img src="https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Dark%20Theme%20Transit%20-%20Transit%20Chart%20-%20Modern.svg" width="450" alt="Modern Dark Transit Chart"></td>
   </tr>
 </table>
 
