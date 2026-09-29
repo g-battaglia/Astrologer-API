@@ -1,13 +1,14 @@
-# High Precision Astrology API v6
+# Astrologer API
 
-Astrologer API lets you add **professional-grade astrology features** to any app — fast.
-It delivers **plug-and-play SVG charts**, **rich astrological data**, and **AI-optimized XML context** for natal, synastry, transits, composites, returns, and moon phases.
+SVG charts, JSON astrology data and XML context for AI applications. Calculate natal charts, synastry, transits, composites, solar and lunar returns, Moon phases, planetary hours and dominant planets.
 
--   High-precision astronomical calculations
--   Production-ready JSON + beautiful SVGs
--   Built for astrology apps, compatibility/dating systems, dashboards and SaaS tools
+Install the [API skill](https://github.com/g-battaglia/Astrologer-API/tree/v6/skills/astrologer-api) for your coding agent:
 
-👉 Subscribe on RapidAPI: <a href="https://www.kerykeion.net/astrologer-api/subscribe" target="_blank">https://www.kerykeion.net/astrologer-api/subscribe</a>
+```sh
+npx skills add https://github.com/g-battaglia/Astrologer-API/tree/v6/skills/astrologer-api
+```
+
+[Get an API key](https://www.kerykeion.net/astrologer-api/subscribe).
 
 Chart examples (illustrative Kerykeion SVGs):
 
@@ -32,7 +33,7 @@ Chart examples (illustrative Kerykeion SVGs):
 
 ## Quick start
 
-Calculation requests require your RapidAPI key and host headers. The v6 base URL is `https://astrologer.p.rapidapi.com/api/v6`; public v6 access is not yet available on RapidAPI.
+Calculation requests require your RapidAPI key and host headers. The base URL is `https://astrologer.p.rapidapi.com/api/v6`.
 
 Headers:
 
@@ -73,18 +74,20 @@ Response shape:
 ```json
 {
     "status": "OK",
-    "chart": "<svg>...</svg>",
+    "chart": "SVG markup string",
     "chart_data": { "...": "aspects, houses, distributions, subjects" }
 }
 ```
 
-Prefer separate SVGs? Use "split_chart": true. You'll receive chart_wheel and chart_grid instead of chart. See the split example below.
+Set `"split_chart": true` to receive `chart_wheel` and `chart_grid` instead of `chart`. See the split example below.
 
 NOTE: The rendered SVG chart is returned in the `chart` key of the JSON response. During engine initialization, authenticated calculation requests may return `503 ServiceInitializing` with `Retry-After`; REST overload returns `503 ServerBusy` with `Retry-After`. Use bounded retries and handle gateway rate limits separately.
 
 ## Endpoints
 
-### Chart Endpoints (SVG charts + data)
+The 31 endpoints are grouped by function below.
+
+### Charts (SVG charts + data)
 
 The API provides chart endpoints that return rendered SVG charts (found in the `chart` key, or `chart_wheel` and `chart_grid` when split) together with full astrological data.
 
@@ -96,7 +99,7 @@ The API provides chart endpoints that return rendered SVG charts (found in the `
 -   `/api/v6/chart/lunar-return` (POST) - Lunar return chart SVG + data
 -   `/api/v6/now/chart` (POST) - Current moment chart SVG + data
 
-### Data Endpoints (JSON only, no SVG)
+### Chart Data (JSON only, no SVG)
 
 Use these endpoints when you only need structured astrological data without rendered charts.
 
@@ -110,18 +113,18 @@ Use these endpoints when you only need structured astrological data without rend
 -   `/api/v6/now/subject` (POST) - Current UTC subject data
 -   `/api/v6/compatibility-score` (POST) - Ciro Discepolo compatibility score + summary
 
-### Moon Phase Endpoints
+### Moon Phase
 
 Dedicated endpoints for detailed lunar phase analysis. These use a simplified request model (no `subject` wrapper — just date/time and coordinates).
 
 -   `/api/v6/moon-phase` (POST) - Detailed moon phase for a specific date/time and location
 -   `/api/v6/moon-phase/now-utc` (POST) - Current moon phase at Greenwich (UTC)
--   `/api/v6/moon-phase/context` (POST) - Moon phase data with AI-optimized XML context
--   `/api/v6/moon-phase/now-utc/context` (POST) - Current moon phase with AI-optimized XML context
+-   `/api/v6/moon-phase/context` (POST) - Moon phase data with XML context
+-   `/api/v6/moon-phase/now-utc/context` (POST) - Current moon phase with XML context
 
-### Context Endpoints (AI/LLM Integration)
+### AI Context (AI/LLM Integration)
 
-The API provides AI-optimized context endpoints that return structured XML descriptions instead of SVG charts. These are designed for LLM integration and AI applications:
+Context endpoints return structured XML for use in model prompts:
 
 -   `/api/v6/context/subject` (POST) - Subject data with AI context
 -   `/api/v6/context/birth-chart` (POST) - Natal chart data with AI context
@@ -132,27 +135,30 @@ The API provides AI-optimized context endpoints that return structured XML descr
 -   `/api/v6/context/lunar-return` (POST) - Lunar return data with AI context
 -   `/api/v6/now/context` (POST) - Current moment with AI context
 
-Chart context endpoints accept the same computation parameters as their corresponding chart-data endpoints and return `context` (AI-optimized XML context string) alongside `chart_data`, without SVG charts. `/context/subject` and `/now/context` return `subject` instead; moon-phase context endpoints return `moon_phase_overview`.
+Chart context endpoints accept the same computation parameters as their corresponding chart-data endpoints and return `context` (XML context string) alongside `chart_data`, without SVG charts. `/context/subject` and `/now/context` return `subject` instead; moon-phase context endpoints return `moon_phase_overview`.
+
+### Sun & Planetary Hours
+
+-   `/api/v6/sun/times` (POST) - Sunrise, sunset, twilight and solar position for a date and location
+-   `/api/v6/sun/planetary-hours` (POST) - Planetary hours and their rulers for a date and location
+
+### Dominants
+
+-   `/api/v6/analysis/dominants` (POST) - Dominant-planet ranking and element/quality analysis
 
 ## Documentation
 
-This branch contains the **v6 source and reference examples**. The default repository branch remains **v5** while v6 is being prepared for public release.
+The [RapidAPI playground](https://rapidapi.com/gbattaglia/api/astrologer/playground/) contains request schemas and examples. [View the source code](https://github.com/g-battaglia/Astrologer-API/tree/v6).
 
 Documentation for earlier versions is preserved on their respective branches:
 
 | Version | Documentation and source |
 | --- | --- |
-| v5 (current default) | [v5 README](https://github.com/g-battaglia/Astrologer-API/blob/v5/README.md) · [v5 source](https://github.com/g-battaglia/Astrologer-API/tree/v5) |
+| v5 | [v5 README](https://github.com/g-battaglia/Astrologer-API/blob/v5/README.md) · [v5 source](https://github.com/g-battaglia/Astrologer-API/tree/v5) |
 | v4 | [v4 README](https://github.com/g-battaglia/Astrologer-API/blob/v4/README.md) · [v4 source](https://github.com/g-battaglia/Astrologer-API/tree/v4) |
 | v3 | [v3 README](https://github.com/g-battaglia/Astrologer-API/blob/v3/README.md) · [v3 source](https://github.com/g-battaglia/Astrologer-API/tree/v3) |
 
-The examples below describe the v6 contract. Existing <a href="https://www.kerykeion.net/content/astrologer-api/" target="_blank">public documentation</a> and <a href="https://kerykeion.net/astrologer-api/llms-full.txt" target="_blank">LLM reference</a> describe the current API, not v6; v6 reference documentation will accompany its public launch.
-
-## Use with AI coding agents
-
-For v6, compatible agents can connect to the stateless Streamable HTTP MCP endpoint at `POST /api/v6/mcp/`. Send the same two RapidAPI headers as REST, plus `Accept: application/json, text/event-stream`. Keep your API key on a trusted backend; do not embed it in browser code.
-
-The v6 surface also includes predictive, timing, locational, fixed-star and ephemeris endpoints; this README focuses on the most common integrations.
+The earlier [website documentation](https://www.kerykeion.net/content/astrologer-api/) and [LLM reference](https://kerykeion.net/astrologer-api/llms-full.txt) cover v5.
 
 ## Copy‑paste examples
 
@@ -197,8 +203,8 @@ Response (shape):
 ```json
 {
     "status": "OK",
-    "chart_wheel": "<svg>...</svg>",
-    "chart_grid": "<svg>...</svg>",
+    "chart_wheel": "SVG markup string for the wheel",
+    "chart_grid": "SVG markup string for the grid",
     "chart_data": { "...": "chart data" }
 }
 ```
@@ -353,7 +359,7 @@ Response (shape):
 ```json
 {
     "status": "OK",
-    "context": "<chart_analysis type=\"Natal\">...\n</chart_analysis>",
+    "context": "XML chart_analysis element with type Natal",
     "chart_data": { "...": "same structure as /chart-data/birth-chart" }
 }
 ```
@@ -403,7 +409,7 @@ Quick example with custom weights:
 }
 ```
 
-For the complete v6 option lists and defaults, refer to its OpenAPI schema once v6 access is published. The public documentation linked above describes the current API.
+For all options and defaults, see the request schemas in the [RapidAPI playground](https://rapidapi.com/gbattaglia/api/astrologer/playground/).
 
 ## Languages
 
@@ -442,7 +448,7 @@ Add `"show_house_position_comparison": false` and `"show_cusp_position_compariso
 
 ## Custom chart titles
 
-Provide a short (`<= 40` chars) `custom_title` to override the text rendered above the chart for that single request. Whitespace is trimmed and empty strings are ignored.
+Provide a short (40 characters or fewer) `custom_title` to override the text rendered above the chart for that single request. Whitespace is trimmed and empty strings are ignored.
 
 For example, add `"custom_title": "Alice & Bob (Q1 2025)"` to a `/chart/*` request body.
 
@@ -558,7 +564,7 @@ Both fields are required when `sidereal_mode` is `"USER"` and are ignored for al
 
 ## Fixed stars
 
-In v6, fixed stars belong in `subject.active_fixed_stars`, **not** the top-level `active_points`. Discover valid names with `GET /api/v6/fixed-stars/catalog`; no stars are included by default.
+Specify fixed stars in `subject.active_fixed_stars`. No stars are included by default. The example below uses Sirius, Spica and Regulus. Fixed-star catalogue lookup is not available through RapidAPI.
 
 ```json
 {
@@ -698,47 +704,53 @@ This also applies to other administrative divisions:
 
 ## Integration Guide
 
-Since the API returns raw SVG strings, you can easily embed them in any web application.
+Render the returned SVG string in your web application:
 
 ### 1. Pure HTML/Javascript
 
-```html
-<div id="chart-container"></div>
+Run this after the document body is available:
 
-<script>
-    // Assume 'data' is the JSON response from the API
-    const chartSvg = data.chart;
-    document.getElementById('chart-container').innerHTML = chartSvg;
-</script>
+```javascript
+// Assume 'data' is the JSON response from the API.
+const container = document.createElement('div');
+container.className = 'chart-wrapper';
+container.innerHTML = data.chart;
+document.body.appendChild(container);
 ```
 
 ### 2. React (Next.js / CRA)
 
 Use `dangerouslySetInnerHTML` to render the SVG string.
 
-```jsx
+```javascript
+import { createElement } from 'react';
+
 function AstrologyChart({ svgString }) {
-    return (
-        <div
-            className="chart-wrapper"
-            dangerouslySetInnerHTML={{ __html: svgString }}
-        />
-    );
+    return createElement('div', {
+        className: 'chart-wrapper',
+        dangerouslySetInnerHTML: { __html: svgString }
+    });
 }
 ```
 
 ### 3. Vue.js (Nuxt / Vite)
 
-Use the `v-html` directive.
+Use a render function with the `innerHTML` property:
 
-```vue
-<template>
-    <div class="chart-wrapper" v-html="svgString"></div>
-</template>
+```javascript
+import { h } from 'vue';
 
-<script setup>
-defineProps(['svgString']);
-</script>
+export default {
+    props: { svgString: String },
+    setup(props) {
+        return function renderChart() {
+            return h('div', {
+                class: 'chart-wrapper',
+                innerHTML: props.svgString
+            });
+        };
+    }
+};
 ```
 
 ### Styling
@@ -760,5 +772,3 @@ Subscribe: <a href="https://rapidapi.com/gbattaglia/api/astrologer/pricing" targ
 If you need higher quotas or a custom plan beyond the default tiers, reach out via [kerykeion.astrology@gmail.com](mailto:kerykeion.astrology@gmail.com) to discuss tailored options.
 
 Licensing note: Astrologer API is open source (AGPLv3). Using the hosted API via RapidAPI is allowed in any app, including closed‑source since is a third-party service.
-
-**v6 is currently alpha software. Interfaces and capabilities may change before public release.**
