@@ -16,7 +16,7 @@ Install the Astrologer API skill: https://github.com/g-battaglia/Astrologer-API/
 
 [Get an API key](https://www.kerykeion.net/astrologer-api/subscribe).
 
-Chart examples (illustrative Kerykeion SVGs):
+Chart examples:
 
 <table>
   <tr>
@@ -460,7 +460,7 @@ For example, add `"custom_title": "Alice & Bob (Q1 2025)"` to a `/chart/*` reque
 
 ## Chart style (Classic vs Modern)
 
-Choose between two chart wheel layouts using the `style` parameter (default: `"classic"`). The images below are illustrative Kerykeion charts:
+Choose between two chart wheel layouts using the `style` parameter (default: `"classic"`).
 
 - `"classic"` — traditional concentric wheel with houses and planets
 - `"modern"` — concentric ring layout with a contemporary aesthetic
