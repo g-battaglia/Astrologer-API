@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astrologer-api"
+version = "6.0.0"
+description = "FastAPI service for astrological calculations and charts"
+readme = "README.md"
+license = "AGPL-3.0-only"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic",
+    "pydantic-settings",
+    "starlette",
+    "fastapi",
+    "uvicorn",
+    "tzdata>=2025.2",
+    "scour",
+    "typing-extensions",
+    "pyjwt>=2.10.1",
+    "mcp[cli]",
+    "kerykeion==6.0.0a93",
+    "libephemeris>=3.1.0,<4"
+]
+
+[tool.setuptools]
+packages = ["app", "app.config", "app.mcp", "app.mcp.tools", "app.middleware", "app.routers", "app.types", "app.utils"]
+package-dir = {app = "."}
+include-package-data = false
+
+[tool.uv]
+prerelease = "allow"
+
+[tool.ruff]
+line-length = 200
+
+[tool.ruff.lint]
+select = ["F", "ISC001"]
