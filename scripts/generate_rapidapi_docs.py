@@ -10,8 +10,10 @@ This script creates a customized OpenAPI JSON file for RapidAPI by:
 5. Writing the result to rapidapi.json
 
 Usage:
-    python scripts/generate_rapidapi_docs.py
-    python scripts/generate_rapidapi_docs.py -u https://custom-url.example.com
+    uv sync
+    uv run python scripts/generate_rapidapi_docs.py --check
+    uv run python scripts/generate_rapidapi_docs.py
+    uv run python scripts/generate_rapidapi_docs.py -u https://custom-url.example.com
 
 Markdown Format Expected:
     ## Endpoint
@@ -37,11 +39,12 @@ Markdown Format Expected:
     ```
 """
 
+from __future__ import annotations
+
 import argparse
 import json
 import re
 from pathlib import Path
-
 
 # =============================================================================
 # CONFIGURATION
@@ -138,8 +141,7 @@ def extract_request_body_example(content: str) -> dict | None:
         try:
             return json.loads(json_str)
         except json.JSONDecodeError as e:
-            print(f"    WARNING: Invalid JSON in Request Body Example: {e}")
-            return None
+            raise ValueError(f"Invalid JSON in Request Body Example: {e}") from e
     return None
 
 
@@ -178,17 +180,18 @@ def parse_markdown_file(file_path: Path) -> dict | None:
     endpoint = extract_endpoint(content)
     name = extract_name(content)
     description = extract_description(content)
-    request_example = extract_request_body_example(content)
+    try:
+        request_example = extract_request_body_example(content)
+    except ValueError as exc:
+        raise ValueError(f"{file_path.name}: {exc}") from exc
     response_example = extract_response_body_example(content)
 
     # Validate required fields
     if not endpoint:
-        print(f"  WARNING: No endpoint in {file_path.name}")
-        return None
+        raise ValueError(f"{file_path.name}: missing Endpoint")
 
     if not name:
-        print(f"  WARNING: No name in {file_path.name}")
-        return None
+        raise ValueError(f"{file_path.name}: missing Name")
 
     return {
         "endpoint": endpoint,
@@ -236,6 +239,62 @@ def find_operation_in_openapi(openapi_data: dict, endpoint: str) -> dict | None:
             return path_item[method]
 
     return None
+
+
+def validate_request_examples(openapi_data: dict, docs: list[dict]) -> None:
+    """Validate raw examples, including local schema references and enum values.
+
+    Pydantic's alias normalization cannot be used here: RapidAPI validates the
+    literal body against OpenAPI before sending it to the API.
+    """
+    try:
+        from jsonschema import Draft202012Validator, FormatChecker
+        from jsonschema.exceptions import best_match
+    except ImportError as exc:
+        raise ValueError(
+            "Install dev dependencies with uv sync; run the generator with uv run python."
+        ) from exc
+
+    documented = set()
+    for doc in docs:
+        endpoint = doc["endpoint"]
+        source = doc["source"]
+        if endpoint in documented:
+            raise ValueError(f"{source}: duplicate endpoint {endpoint}")
+        documented.add(endpoint)
+        operation = find_operation_in_openapi(openapi_data, endpoint)
+        if operation is None:
+            raise ValueError(f"{source}: endpoint {endpoint} not found in OpenAPI")
+        schema = (
+            operation.get("requestBody", {})
+            .get("content", {})
+            .get("application/json", {})
+            .get("schema")
+        )
+        if schema is None:
+            raise ValueError(f"{source}: {endpoint}: missing JSON request schema")
+        if doc["request_example"] is None:
+            raise ValueError(f"{source}: {endpoint}: missing Request Body Example")
+
+        # Keep components at the validation root so #/components/... references
+        # resolve locally, including those nested in nullable/composite schemas.
+        root_schema = {**schema, "components": openapi_data.get("components", {})}
+        Draft202012Validator.check_schema(root_schema)
+        error = best_match(
+            Draft202012Validator(
+                root_schema, format_checker=FormatChecker()
+            ).iter_errors(doc["request_example"])
+        )
+        if error is not None:
+            raise ValueError(
+                f"{source}: {endpoint}: {error.json_path}: {error.message}"
+            )
+
+    missing = set(ENDPOINT_ORDER) - documented
+    if missing:
+        raise ValueError(
+            f"Missing endpoint documentation: {', '.join(sorted(missing))}"
+        )
 
 
 def update_request_body(operation: dict, request_example: dict | None) -> None:
@@ -363,9 +422,9 @@ def update_openapi_with_docs(openapi_data: dict, docs: list[dict]) -> int:
         print(f"  Updated: {endpoint}")
         print(f"           operationId: {old_operation_id!r} -> {doc['name']!r}")
         if doc["request_example"]:
-            print(f"           requestBody: example added")
+            print("           requestBody: example added")
         if doc["response_example"]:
-            print(f"           response: example added, 422 removed")
+            print("           response: example added, 422 removed")
 
         updated_count += 1
 
@@ -461,7 +520,7 @@ def save_rapidapi_json(openapi_data: dict) -> None:
 # =============================================================================
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> None:
     """
     Main entry point.
 
@@ -483,7 +542,12 @@ def main() -> None:
         type=str,
         help="Override the server URL in the OpenAPI spec (e.g., https://astrologer-api.example.com)",
     )
-    args = parser.parse_args()
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Validate all request examples without writing rapidapi.json.",
+    )
+    args = parser.parse_args(argv)
 
     print("=" * 60)
     print("Generate RapidAPI OpenAPI Spec")
@@ -494,6 +558,12 @@ def main() -> None:
 
     # Step 2: Load all markdown documentation
     docs = load_all_markdown_docs()
+
+    # Validate the complete catalogue before modifying or writing any output.
+    validate_request_examples(openapi_data, docs)
+    if args.check:
+        print(f"Validated {len(docs)} request examples; no files written.")
+        return
 
     # Step 3: Update OpenAPI with documentation
     updated_count = update_openapi_with_docs(openapi_data, docs)
@@ -522,4 +592,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except ValueError as exc:
+        raise SystemExit(f"Validation failed: {exc}") from exc

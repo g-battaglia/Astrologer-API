@@ -82,8 +82,8 @@ Generates a natal chart (birth chart) for a specific person and time. Returns bo
         "Neptune",
         "Pluto",
         "Chiron",
-        "Lilith",
-        "north_node"
+        "Mean_Lilith",
+        "Mean_North_Lunar_Node"
     ],
     "active_aspects": [
         { "name": "conjunction", "orb": 8 },

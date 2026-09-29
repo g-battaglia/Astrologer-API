@@ -9,7 +9,7 @@
       "using_default_location": false
     },
     "moon": {
-      "age_days": 10,
+      "age_days": 24,
       "detailed": {
         "illumination_details": {
           "percentage": 32.0,
@@ -20,12 +20,12 @@
         "upcoming_phases": {
           "first_quarter": {
             "last": {
-              "datestamp": "Fri, 08 Oct 1993 19:35:19 +0000",
-              "days_ago": 2,
+              "datestamp": "Wed, 22 Sep 1993 19:32:06 +0000",
+              "days_ago": 18,
               "days_ahead": null,
               "description": null,
               "name": null,
-              "timestamp": 750108919
+              "timestamp": 748726326
             },
             "next": {
               "datestamp": "Fri, 22 Oct 1993 08:52:01 +0000",
@@ -38,30 +38,30 @@
           },
           "full_moon": {
             "last": {
-              "datestamp": "Thu, 16 Sep 1993 03:10:15 +0000",
-              "days_ago": 24,
+              "datestamp": "Thu, 30 Sep 1993 18:53:51 +0000",
+              "days_ago": 10,
               "days_ahead": null,
               "description": null,
               "name": null,
-              "timestamp": 748149015
+              "timestamp": 749415231
             },
             "next": {
-              "datestamp": "Sat, 30 Oct 1993 12:37:38 +0000",
+              "datestamp": "Sat, 30 Oct 1993 12:37:36 +0000",
               "days_ago": null,
               "days_ahead": 20,
               "description": null,
               "name": null,
-              "timestamp": 751984658
+              "timestamp": 751984656
             }
           },
           "last_quarter": {
             "last": {
-              "datestamp": "Wed, 22 Sep 1993 19:32:06 +0000",
-              "days_ago": 18,
+              "datestamp": "Fri, 08 Oct 1993 19:35:18 +0000",
+              "days_ago": 2,
               "days_ahead": null,
               "description": null,
               "name": null,
-              "timestamp": 748726326
+              "timestamp": 750108918
             },
             "next": {
               "datestamp": "Sun, 07 Nov 1993 06:35:50 +0000",
@@ -74,12 +74,12 @@
           },
           "new_moon": {
             "last": {
-              "datestamp": "Thu, 30 Sep 1993 18:53:51 +0000",
-              "days_ago": 10,
+              "datestamp": "Thu, 16 Sep 1993 03:10:15 +0000",
+              "days_ago": 24,
               "days_ahead": null,
               "description": null,
               "name": null,
-              "timestamp": 749415231
+              "timestamp": 748149015
             },
             "next": {
               "datestamp": "Fri, 15 Oct 1993 11:35:55 +0000",
