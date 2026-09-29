@@ -7,9 +7,7 @@ It delivers **plug-and-play SVG charts**, **rich astrological data**, and **AI-o
 -   Production-ready JSON + beautiful SVGs
 -   Built for astrology apps, compatibility/dating systems, dashboards and SaaS tools
 
-> **Alpha release:** v6 is under active development and validation. Public v6 access on RapidAPI is coming soon; the current API is available today.
-
-👉 Interested? Subscribe on RapidAPI: <a href="https://www.kerykeion.net/astrologer-api/subscribe" target="_blank">https://www.kerykeion.net/astrologer-api/subscribe</a>
+👉 Subscribe on RapidAPI: <a href="https://www.kerykeion.net/astrologer-api/subscribe" target="_blank">https://www.kerykeion.net/astrologer-api/subscribe</a>
 
 Chart examples (illustrative Kerykeion SVGs):
 
