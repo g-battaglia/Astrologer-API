@@ -15,12 +15,13 @@ dependencies = [
     "scour",
     "typing-extensions",
     "pyjwt>=2.10.1",
-    "kerykeion>=5.12.9",
+    "kerykeion==5.12.10",
 ]
 
 [dependency-groups]
 dev = [
     "black",
+    "jsonschema>=4.18",
     "pytest",
     "pytest-cov",
     "mypy",
@@ -60,3 +61,7 @@ omit = [
 show_missing = true
 skip_covered = false
 fail_under = 95
+
+# Review source until 5.12.10 is published; remove this override before release.
+[tool.uv.sources]
+kerykeion = { git = "https://github.com/g-battaglia/kerykeion.git", rev = "4522859ac5b4cbd5d62029cfcc82b9104559dfe8" }

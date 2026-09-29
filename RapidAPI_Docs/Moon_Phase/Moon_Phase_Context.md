@@ -75,7 +75,7 @@ This endpoint uses a simplified request model — no `subject` wrapper needed. O
             "major_phase": "Last Quarter",
             "stage": "waning",
             "illumination": "32%",
-            "age_days": 10,
+            "age_days": 24,
             "lunar_cycle": "80.736%",
             "emoji": "\ud83c\udf18",
             "zodiac": {
@@ -97,19 +97,19 @@ This endpoint uses a simplified request model — no `subject` wrapper needed. O
                 "visibility": null,
                 "upcoming_phases": {
                     "new_moon": {
-                        "last": { "timestamp": 749415231, "datestamp": "Thu, 30 Sep 1993 18:53:51 +0000", "days_ago": 10, "days_ahead": null, "name": null, "description": null },
+                        "last": { "timestamp": 748149015, "datestamp": "Thu, 16 Sep 1993 03:10:15 +0000", "days_ago": 24, "days_ahead": null, "name": null, "description": null },
                         "next": { "timestamp": 750684955, "datestamp": "Fri, 15 Oct 1993 11:35:55 +0000", "days_ago": null, "days_ahead": 5, "name": null, "description": null }
                     },
                     "first_quarter": {
-                        "last": { "timestamp": 750108919, "datestamp": "Fri, 08 Oct 1993 19:35:19 +0000", "days_ago": 2, "days_ahead": null, "name": null, "description": null },
+                        "last": { "timestamp": 748726326, "datestamp": "Wed, 22 Sep 1993 19:32:06 +0000", "days_ago": 18, "days_ahead": null, "name": null, "description": null },
                         "next": { "timestamp": 751279921, "datestamp": "Fri, 22 Oct 1993 08:52:01 +0000", "days_ago": null, "days_ahead": 12, "name": null, "description": null }
                     },
                     "full_moon": {
-                        "last": { "timestamp": 748149015, "datestamp": "Thu, 16 Sep 1993 03:10:15 +0000", "days_ago": 24, "days_ahead": null, "name": null, "description": null },
-                        "next": { "timestamp": 751984658, "datestamp": "Sat, 30 Oct 1993 12:37:38 +0000", "days_ago": null, "days_ahead": 20, "name": null, "description": null }
+                        "last": { "timestamp": 749415231, "datestamp": "Thu, 30 Sep 1993 18:53:51 +0000", "days_ago": 10, "days_ahead": null, "name": null, "description": null },
+                        "next": { "timestamp": 751984656, "datestamp": "Sat, 30 Oct 1993 12:37:36 +0000", "days_ago": null, "days_ahead": 20, "name": null, "description": null }
                     },
                     "last_quarter": {
-                        "last": { "timestamp": 748726326, "datestamp": "Wed, 22 Sep 1993 19:32:06 +0000", "days_ago": 18, "days_ahead": null, "name": null, "description": null },
+                        "last": { "timestamp": 750108918, "datestamp": "Fri, 08 Oct 1993 19:35:18 +0000", "days_ago": 2, "days_ahead": null, "name": null, "description": null },
                         "next": { "timestamp": 752654150, "datestamp": "Sun, 07 Nov 1993 06:35:50 +0000", "days_ago": null, "days_ahead": 28, "name": null, "description": null }
                     }
                 },
