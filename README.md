@@ -8,6 +8,12 @@ Install the [API skill](https://github.com/g-battaglia/Astrologer-API/tree/v6/sk
 npx skills add https://github.com/g-battaglia/Astrologer-API/tree/v6/skills/astrologer-api
 ```
 
+Or ask your agent:
+
+```text
+Install the Astrologer API skill: https://github.com/g-battaglia/Astrologer-API/tree/v6/skills/astrologer-api
+```
+
 [Get an API key](https://www.kerykeion.net/astrologer-api/subscribe).
 
 Chart examples (illustrative Kerykeion SVGs):
