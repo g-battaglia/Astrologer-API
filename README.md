@@ -1,4 +1,6 @@
-# Astrologer API
+# High Precision Astrology API
+
+![John Lennon natal chart, Modern light](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Natal%20Chart%20-%20Modern.svg)
 
 SVG charts, JSON astrology data and XML context for AI applications. Calculate natal charts, synastry, transits, composites, solar and lunar returns, Moon phases, planetary hours and dominant planets.
 
