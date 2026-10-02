@@ -252,8 +252,19 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
             target = os.environ.get("EPHEMERIS_TARGET_TIER", "extended").strip().lower()
             requirement_tier = max((requirement_tier, target), key=_LEB_TIER_ORDER.index)
         requirements = ephe.get_runtime_data_requirements(requirement_tier)
+        if configured:
+            # Metadata stays cached in the reader. Readiness (not liveness)
+            # checks transport once per positive-cache TTL as well.
+            from libephemeris_postgres.config import runtime_config
+            from libephemeris_postgres.pool import get_pool
+
+            with get_pool(runtime_config()).connection() as connection:
+                connection.execute("SELECT 1")
     except Exception as exc:
-        errors.append(f"Cannot inspect libephemeris runtime: {exc}")
+        if _configured_db_tiers():
+            errors.append("Configured ephemeris coefficient source is unavailable.")
+        else:
+            errors.append(f"Cannot inspect libephemeris runtime: {exc}")
         return report
 
     report["mode"] = inventory.get("mode")
