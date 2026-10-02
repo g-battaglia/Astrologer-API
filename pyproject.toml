@@ -20,12 +20,14 @@ dependencies = [
     "typing-extensions",
     "pyjwt>=2.10.1",
     "mcp[cli]",
-    "kerykeion==6.0.0a93",
-    "libephemeris>=3.1.0,<4"
+    # Immutable public integration snapshots; replace with compatible releases
+    # before publishing a package release.
+    "kerykeion @ https://github.com/g-battaglia/kerykeion/archive/83a615caad5716ff3c04547b5038fb89667d0dcd.zip",
+    "libephemeris @ https://github.com/g-battaglia/libephemeris/archive/0557ffec11471fa78beb690a96673b93a12a4535.zip"
 ]
 
 [tool.setuptools]
-packages = ["app", "app.config", "app.mcp", "app.mcp.tools", "app.middleware", "app.routers", "app.types", "app.utils"]
+packages = ["app", "app.config", "app.mcp", "app.mcp.tools", "app.middleware", "app.routers", "app.types", "app.types.request_domains", "app.types.response_domains", "app.utils"]
 package-dir = {app = "."}
 include-package-data = false
 

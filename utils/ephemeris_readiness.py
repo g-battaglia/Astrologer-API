@@ -101,7 +101,7 @@ _routed_expires_at = 0.0
 def _routed_runtime() -> bool:
     """Startup exports explicit mode; detection remains stdlib-only."""
     mode = os.environ.get("KERYKEION_LEB_MODE") or os.environ.get("LIBEPHEMERIS_MODE")
-    return mode in ("db", "routed")
+    return (mode or "").strip().lower() in ("db", "routed")
 
 
 def _managed_data_dir() -> Path | None:

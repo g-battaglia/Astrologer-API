@@ -22,9 +22,18 @@ def source_failure(exc: BaseException) -> tuple[int, dict[str, Any]] | None:
     configuration_error = getattr(ephe, "ConfigurationError", ())
     network_error = getattr(ephe, "NetworkSealedError", ())
     seen: set[int] = set()
-    current: BaseException | None = exc
-    while current is not None and id(current) not in seen:
+    pending = [exc]
+    unavailable: tuple[int, dict[str, Any]] | None = None
+    while pending:
+        current = pending.pop()
+        if id(current) in seen:
+            continue
         seen.add(id(current))
+        # Wrappers can have both explicit causes and implicit contexts. A
+        # generic availability wrapper must not downgrade a nested data fault.
+        for cause in (current.__context__, current.__cause__):
+            if cause is not None:
+                pending.append(cause)
         if isinstance(current, configuration_error):
             return 500, {
                 "status": "ERROR",
@@ -33,12 +42,14 @@ def source_failure(exc: BaseException) -> tuple[int, dict[str, Any]] | None:
             }
         if isinstance(current, db_error) or isinstance(current, routing_error):
             data_fault = isinstance(current, db_data_error) or isinstance(current, routing_error)
-            return (500 if data_fault else 503), {
+            failure = (500 if data_fault else 503), {
                 "status": "ERROR",
                 "message": (
                     "Ephemeris source data is unavailable or invalid. The failure has been logged." if data_fault else "Ephemeris source is temporarily unavailable. Retry after a short delay."
                 ),
                 "error_type": "RoutingDataError" if isinstance(current, routing_error) else "DBDataError" if data_fault else "DBError",
             }
-        current = current.__cause__ or current.__context__
-    return None
+            if data_fault:
+                return failure
+            unavailable = failure
+    return unavailable
