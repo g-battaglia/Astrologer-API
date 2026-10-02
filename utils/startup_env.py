@@ -205,6 +205,7 @@ def resolve(environ: dict[str, str]) -> tuple[dict[str, str], list[str]]:
     }
     return values, warnings
 
+
 def main() -> int:
     values, warnings = resolve(dict(os.environ))
     for warning in warnings:

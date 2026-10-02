@@ -202,15 +202,10 @@ def _reap(proc: Any, recv_conn: Any, send_conn: Any) -> None:
 def _rebuild_exception(name: str, msg: str) -> BaseException:
     """Reconstruct the child's exception so public status mapping is retained."""
     if name == "CoefficientSourceError":
-        try:
-            import libephemeris as ephe
+        class CoefficientSourceError(Exception):
+            pass
 
-            source_error = getattr(ephe, "CoefficientSourceError", None)
-        except Exception:  # pragma: no cover - the child normally has the engine
-            source_error = None
-        if isinstance(source_error, type) and issubclass(source_error, BaseException):
-            return source_error("Ephemeris coefficient source failure")
-        return RuntimeError("Ephemeris coefficient source failure")
+        return CoefficientSourceError("Ephemeris coefficient source failure")
     if name == "KerykeionException":
         from kerykeion.schemas import KerykeionException
 

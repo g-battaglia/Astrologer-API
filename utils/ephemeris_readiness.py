@@ -256,11 +256,9 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         if configured:
             # Metadata stays cached in the reader. Readiness (not liveness)
             # checks transport once per positive-cache TTL as well.
-            from libephemeris_postgres.config import runtime_config
-            from libephemeris_postgres.pool import get_pool
+            from libephemeris_postgres import ping
 
-            with get_pool(runtime_config()).connection() as connection:
-                connection.execute("SELECT 1")
+            ping()
     except Exception as exc:
         if _has_external_source():
             errors.append("Configured ephemeris coefficient source is unavailable.")

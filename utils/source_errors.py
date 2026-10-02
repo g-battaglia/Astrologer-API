@@ -7,11 +7,6 @@ from typing import Any
 
 def source_failure(exc: BaseException) -> tuple[int, dict[str, Any]] | None:
     """Find source failures in wrapper causes without exposing driver messages."""
-    import libephemeris as ephe
-
-    source_type = getattr(ephe, "CoefficientSourceError", ())
-    if not isinstance(source_type, type):
-        return None
     pending = [exc]
     seen: set[int] = set()
     while pending:
@@ -19,7 +14,7 @@ def source_failure(exc: BaseException) -> tuple[int, dict[str, Any]] | None:
         if id(current) in seen:
             continue
         seen.add(id(current))
-        if isinstance(current, source_type):
+        if type(current).__name__ == "CoefficientSourceError":
             return 503, {
                 "status": "ERROR",
                 "message": "Ephemeris source is temporarily unavailable. Retry after a short delay.",

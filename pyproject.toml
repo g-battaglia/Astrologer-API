@@ -20,13 +20,13 @@ dependencies = [
     "typing-extensions",
     "pyjwt>=2.10.1",
     "mcp[cli]",
-    "kerykeion @ git+https://github.com/g-battaglia/kerykeion@64ef9db02b9343d1c0264ee6c3fb61ab900ab240",
-    "libephemeris @ git+https://github.com/g-battaglia/libephemeris@1764c379e9bc0903c7be01d2fa21cfb781895a6b",
+    "kerykeion==6.0.0a93",
+    "libephemeris @ git+https://github.com/g-battaglia/libephemeris@65a49ff6f088c9243df4140fd852f7daf591c5b6",
 ]
 
 [project.optional-dependencies]
 postgres = [
-    "libephemeris-postgres @ git+https://github.com/g-battaglia/libephemeris@1764c379e9bc0903c7be01d2fa21cfb781895a6b#subdirectory=packages/libephemeris-postgres",
+    "libephemeris-postgres @ git+https://github.com/g-battaglia/libephemeris@65a49ff6f088c9243df4140fd852f7daf591c5b6#subdirectory=packages/libephemeris-postgres",
 ]
 
 [tool.setuptools]
