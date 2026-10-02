@@ -125,8 +125,12 @@ def _runtime_tiers(tier: str) -> tuple[str, ...]:
     configured = _configured_db_tiers()
     if configured:
         # Tiered readers still need every lower tier not selected for the DB;
-        # those tiers remain local and are backfilled by the wrapper.
-        return _eligible_tiers(configured[-1])
+        # those tiers remain local and are backfilled by the wrapper. The
+        # operator target also matters: if only medium is remote while the
+        # target remains extended, extended must be present locally.
+        target = os.environ.get("EPHEMERIS_TARGET_TIER", "extended").strip().lower()
+        highest = max((configured[-1], target), key=_LEB_TIER_ORDER.index)
+        return _eligible_tiers(highest)
     return _eligible_tiers(tier)
 
 
@@ -242,7 +246,11 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         import libephemeris as ephe
 
         inventory = ephe.get_leb_inventory()
-        requirement_tier = _configured_db_tiers()[-1] if _configured_db_tiers() else tier
+        configured = _configured_db_tiers()
+        requirement_tier = configured[-1] if configured else tier
+        if configured:
+            target = os.environ.get("EPHEMERIS_TARGET_TIER", "extended").strip().lower()
+            requirement_tier = max((requirement_tier, target), key=_LEB_TIER_ORDER.index)
         requirements = ephe.get_runtime_data_requirements(requirement_tier)
     except Exception as exc:
         errors.append(f"Cannot inspect libephemeris runtime: {exc}")
@@ -274,7 +282,11 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         errors.append(str(inventory.get("error") or "No active LEB reader."))
 
     expected_names = set(report["expected_files"])
-    requirement_manifest_tier = _configured_db_tiers()[-1] if _configured_db_tiers() else tier
+    configured = _configured_db_tiers()
+    requirement_manifest_tier = configured[-1] if configured else tier
+    if configured:
+        target = os.environ.get("EPHEMERIS_TARGET_TIER", "extended").strip().lower()
+        requirement_manifest_tier = max((requirement_manifest_tier, target), key=_LEB_TIER_ORDER.index)
     expected_leb: dict[str, Any] = {}
     for requirement in requirements:
         if requirement.kind != "leb2":
