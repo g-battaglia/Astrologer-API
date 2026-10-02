@@ -206,8 +206,52 @@ def resolve(environ: dict[str, str]) -> tuple[dict[str, str], list[str]]:
     return values, warnings
 
 
+def resolve_source_profile(environ: dict[str, str]) -> tuple[dict[str, str], list[str]]:
+    """Resolve the optional external coefficient-source deployment profile.
+
+    The profile is deliberately separate from the general startup policy so
+    existing deployments keep the exact same output and defaults. Only the
+    wrapper consumes these values; the public API remains in sealed ``leb``
+    mode.
+    """
+    warnings: list[str] = []
+    profile = environ.get("EPHEMERIS_SOURCE_PROFILE", "").strip().lower()
+    if profile not in {"", "postgres"}:
+        warnings.append(
+            f"=== EPHEMERIS_SOURCE_PROFILE={profile!r} is not empty or 'postgres'; using empty profile ==="
+        )
+        profile = ""
+
+    raw_tiers = environ.get("EPHEMERIS_DB_TIERS", "medium,extended")
+    tiers: list[str] = []
+    if profile == "postgres":
+        for raw_tier in raw_tiers.split(","):
+            tier = raw_tier.strip().lower()
+            if tier and tier not in tiers:
+                tiers.append(tier)
+        if any(tier not in {"base", "medium", "extended"} for tier in tiers):
+            warnings.append(
+                f"=== EPHEMERIS_DB_TIERS={raw_tiers!r} contains an unknown tier; using medium,extended ==="
+            )
+            tiers = ["medium", "extended"]
+        if not tiers:
+            warnings.append("=== EPHEMERIS_DB_TIERS is empty; using medium,extended ===")
+            tiers = ["medium", "extended"]
+        tiers.sort(key=_LEB_TIER_ORDER.index)
+
+    return {
+        "EPHEMERIS_SOURCE_PROFILE": profile,
+        "EPHEMERIS_DB_TIERS": ",".join(tiers),
+        "EPHEMERIS_REQUIRED_TIER": "base",
+    }, warnings
+
+
 def main() -> int:
     values, warnings = resolve(dict(os.environ))
+    if "--source-profile" in sys.argv[1:]:
+        source_values, source_warnings = resolve_source_profile(dict(os.environ))
+        values.update(source_values)
+        warnings.extend(source_warnings)
     for warning in warnings:
         print(warning, file=sys.stderr)
     for name, value in values.items():

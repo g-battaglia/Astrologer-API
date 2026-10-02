@@ -80,11 +80,17 @@ def _required_leb_groups() -> tuple[str, ...]:
 # calculation gate re-open (and re-hash) the inventory in a request storm.
 # Cache the negative report for a short TTL instead.
 _NEGATIVE_STATUS_TTL_S = 10.0
+# External coefficient sources need periodic positive health checks as well: a
+# marker is local process state and cannot prove that a remote source is still
+# reachable after startup. Local file-only deployments retain the immutable
+# positive cache for the hot readiness path.
+_EXTERNAL_SOURCE_STATUS_TTL_S = 30.0
 _monotonic = time.monotonic
 
 _cache_lock = threading.Lock()
 _cached_marker_signature: tuple[int, int] | None = None
 _cached_status: dict[str, Any] | None = None
+_cached_positive_expires_at: float | None = None
 _cached_negative_signature: tuple[int, int] | None = None
 _cached_negative_status: dict[str, Any] | None = None
 _cached_negative_expires_at: float | None = None
@@ -101,8 +107,27 @@ def _managed_data_dir() -> Path | None:
     return Path(value) if value else None
 
 
+def _configured_db_tiers() -> tuple[str, ...]:
+    """Return explicitly DB-served tiers in canonical order."""
+    if os.environ.get("EPHEMERIS_SOURCE_PROFILE", "").strip().lower() != "postgres":
+        return ()
+    raw = os.environ.get("EPHEMERIS_DB_TIERS", "medium,extended")
+    tiers = {item.strip().lower() for item in raw.split(",") if item.strip()}
+    return tuple(tier for tier in _LEB_TIER_ORDER if tier in tiers)
+
+
 def _required_tier() -> str:
     return os.environ.get(_REQUIRED_TIER_ENV, "extended").strip().lower()
+
+
+def _runtime_tiers(tier: str) -> tuple[str, ...]:
+    """Return every tier needed by the selected highest source tier."""
+    configured = _configured_db_tiers()
+    if configured:
+        # Tiered readers still need every lower tier not selected for the DB;
+        # those tiers remain local and are backfilled by the wrapper.
+        return _eligible_tiers(configured[-1])
+    return _eligible_tiers(tier)
 
 
 def _eligible_tiers(tier: str) -> tuple[str, ...]:
@@ -115,7 +140,8 @@ def _eligible_tiers(tier: str) -> tuple[str, ...]:
 
 def _expected_leb_files(tier: str, groups: tuple[str, ...] | None = None) -> list[str]:
     resolved = _required_leb_groups() if groups is None else groups
-    return [f"{eligible_tier}_{group}.leb2" for eligible_tier in _eligible_tiers(tier) for group in resolved]
+    tiers = _runtime_tiers(tier)
+    return [f"{eligible_tier}_{group}.leb2" for eligible_tier in tiers for group in resolved]
 
 
 def _base_status(**overrides: Any) -> dict[str, Any]:
@@ -216,7 +242,8 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         import libephemeris as ephe
 
         inventory = ephe.get_leb_inventory()
-        requirements = ephe.get_runtime_data_requirements(tier)
+        requirement_tier = _configured_db_tiers()[-1] if _configured_db_tiers() else tier
+        requirements = ephe.get_runtime_data_requirements(requirement_tier)
     except Exception as exc:
         errors.append(f"Cannot inspect libephemeris runtime: {exc}")
         return report
@@ -247,6 +274,7 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         errors.append(str(inventory.get("error") or "No active LEB reader."))
 
     expected_names = set(report["expected_files"])
+    requirement_manifest_tier = _configured_db_tiers()[-1] if _configured_db_tiers() else tier
     expected_leb: dict[str, Any] = {}
     for requirement in requirements:
         if requirement.kind != "leb2":
@@ -257,6 +285,11 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         expected_leb[requirement.name] = requirement
 
     actual_files = {item.get("name"): item for item in inventory.get("files", [])}
+    all_expected_leb = expected_leb
+    # The core requirement API is cumulative. A postgres profile may select a
+    # non-contiguous subset (for example only extended), so retain only the
+    # local/base and explicitly selected names in this readiness contract.
+    expected_leb = {name: requirement for name, requirement in all_expected_leb.items() if name in expected_names}
     for name in report["expected_files"]:
         leb_requirement: Any = expected_leb.get(name)
         if leb_requirement is None:
@@ -280,7 +313,12 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         if not reviewed:
             errors.append(f"LEB group does not match the reviewed manifest: {leb_requirement.name}.")
 
-    unexpected_requirements = sorted(set(expected_leb) - expected_names)
+    known_requirement_names = {
+        f"{requirement_tier}_{group}.leb2"
+        for requirement_tier in _eligible_tiers(requirement_manifest_tier)
+        for group in _required_leb_groups()
+    }
+    unexpected_requirements = sorted(set(all_expected_leb) - known_requirement_names)
     if unexpected_requirements:
         errors.append("The manifest returned unexpected LEB requirements for this tier: " + ", ".join(unexpected_requirements) + ".")
 
@@ -351,7 +389,7 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
 
 def get_ephemeris_status() -> dict[str, Any]:
     """Return cached managed readiness, or a lightweight local-development state."""
-    global _cached_marker_signature, _cached_status
+    global _cached_marker_signature, _cached_status, _cached_positive_expires_at
     global _cached_negative_signature, _cached_negative_status, _cached_negative_expires_at
     global _ready_latched
 
@@ -367,7 +405,8 @@ def get_ephemeris_status() -> dict[str, Any]:
     signature = (stat.st_mtime_ns, stat.st_size)
 
     with _cache_lock:
-        if _cached_marker_signature == signature and _cached_status is not None:
+        positive_valid = _cached_positive_expires_at is None or _monotonic() < _cached_positive_expires_at
+        if _cached_marker_signature == signature and _cached_status is not None and positive_valid:
             return _cached_status
         # Positive validation is immutable for this marker/package process and
         # can be latched. A negative report may be a transient filesystem or
@@ -384,10 +423,16 @@ def get_ephemeris_status() -> dict[str, Any]:
             _cached_negative_signature = None
             _cached_negative_status = None
             _cached_negative_expires_at = None
+            _cached_positive_expires_at = (
+                _monotonic() + _EXTERNAL_SOURCE_STATUS_TTL_S
+                if _configured_db_tiers()
+                else None
+            )
             _ready_latched = True
         else:
             _cached_marker_signature = None
             _cached_status = None
+            _cached_positive_expires_at = None
             _ready_latched = False
             _cached_negative_signature = signature
             _cached_negative_status = status
@@ -424,24 +469,28 @@ def is_ephemeris_ready() -> bool:
 
 
 def is_ephemeris_ready_latched() -> bool:
-    """Synchronous per-request fast path: no lock, no stat, no validation.
+    """Synchronous per-request fast path for local or recently checked data.
 
-    True once a positive validation has been latched for this process (the
-    sealed inventory is immutable, so the latch only clears via
-    :func:`reset_ephemeris_readiness_cache` or a marker change that fails
-    revalidation), and in unmanaged local development where nothing is gated.
+    External sources use a short positive TTL so the readiness endpoint can
+    detect a provider outage; local file-only deployments retain the immutable
+    process latch.
     """
-    return _ready_latched or _managed_data_dir() is None
+    if _managed_data_dir() is None:
+        return True
+    if _configured_db_tiers() and _cached_positive_expires_at is not None:
+        return _ready_latched and _monotonic() < _cached_positive_expires_at
+    return _ready_latched
 
 
 def reset_ephemeris_readiness_cache() -> None:
     """Clear the marker-keyed cache (test and controlled-reload helper)."""
-    global _cached_marker_signature, _cached_status
+    global _cached_marker_signature, _cached_status, _cached_positive_expires_at
     global _cached_negative_signature, _cached_negative_status, _cached_negative_expires_at
     global _ready_latched
     with _cache_lock:
         _cached_marker_signature = None
         _cached_status = None
+        _cached_positive_expires_at = None
         _cached_negative_signature = None
         _cached_negative_status = None
         _cached_negative_expires_at = None
