@@ -28,6 +28,7 @@ from kerykeion.schemas import MoonPhaseOverviewModel
 from .heavy_work import ServerBusyError, run_heavy  # noqa: F401 - compatibility re-export
 from .logging_utils import get_request_id, log_exception
 from .rendering_validation import validate_colors_settings, validate_language_pack
+from .source_errors import source_failure
 from ..types.request_models import (
     DEFAULT_NAKSHATRA_AYANAMSA,
     _ENGINE_RETURN_FACTORY_ACCEPTS_NAKSHATRA_AYANAMSA,
@@ -795,6 +796,24 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
             request.url.path,
         )
         body_str = ""
+
+    # --- Configured ephemeris source path ---
+    # Check the complete cause/context chain before library-specific mappings:
+    # callers may wrap a source failure in a Kerykeion exception.
+    source_result = source_failure(exc)
+    if source_result is not None:
+        status_code, content = source_result
+        logger.warning(
+            "Ephemeris coefficient source failure | request_id=%s | path=%s | status=%s",
+            get_request_id(request),
+            request.url.path,
+            status_code,
+        )
+        return JSONResponse(
+            content=content,
+            status_code=status_code,
+            headers={"Retry-After": "2"} if status_code == 503 else None,
+        )
 
     # --- GeoNames-specific path ---
     geonames_category = _classify_geonames_error(message)

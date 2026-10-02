@@ -21,11 +21,16 @@ dependencies = [
     "pyjwt>=2.10.1",
     "mcp[cli]",
     "kerykeion==6.0.0a93",
-    "libephemeris>=3.1.0,<4"
+    "libephemeris @ git+https://github.com/g-battaglia/libephemeris@e6daab938f3ea8f01fce0da8fbaca4f5fc307091",
+]
+
+[project.optional-dependencies]
+postgres = [
+    "libephemeris-postgres @ git+https://github.com/g-battaglia/libephemeris@e6daab938f3ea8f01fce0da8fbaca4f5fc307091#subdirectory=packages/libephemeris-postgres",
 ]
 
 [tool.setuptools]
-packages = ["app", "app.config", "app.mcp", "app.mcp.tools", "app.middleware", "app.routers", "app.types", "app.utils"]
+packages = ["app", "app.config", "app.mcp", "app.mcp.tools", "app.middleware", "app.routers", "app.types", "app.types.request_domains", "app.types.response_domains", "app.utils"]
 package-dir = {app = "."}
 include-package-data = false
 

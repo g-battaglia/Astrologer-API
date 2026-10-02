@@ -200,9 +200,12 @@ def _reap(proc: Any, recv_conn: Any, send_conn: Any) -> None:
 
 
 def _rebuild_exception(name: str, msg: str) -> BaseException:
-    """Reconstruct the child's exception so ``handle_exception`` keeps its
-    status mapping: KerykeionException/OverflowError/ValueError -> 400 paths,
-    anything else -> generic 500."""
+    """Reconstruct the child's exception so public status mapping is retained."""
+    if name == "CoefficientSourceError":
+        class CoefficientSourceError(Exception):
+            pass
+
+        return CoefficientSourceError("Ephemeris coefficient source failure")
     if name == "KerykeionException":
         from kerykeion.schemas import KerykeionException
 

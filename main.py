@@ -34,6 +34,7 @@ from .utils.cache_release import cache_release_loop
 from .utils.ephemeris_readiness import is_ephemeris_ready
 from .types.response_models import Public422Response
 from .utils.logging_utils import log_exception
+from .utils.source_errors import source_failure
 from .utils.validation_helpers import format_extra_field_error
 
 
@@ -330,6 +331,19 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 
 
 async def global_exception_handler(request: Request, exc: Exception):
+    source_result = source_failure(exc)
+    if source_result is not None:
+        status_code, content = source_result
+        _logger.warning(
+            "Ephemeris coefficient source failure | path=%s | status=%s",
+            request.url.path,
+            status_code,
+        )
+        return JSONResponse(
+            status_code=status_code,
+            headers={"Retry-After": "2"} if status_code == 503 else None,
+            content=content,
+        )
     log_exception(_logger, request, "unhandled request", exc)
     return JSONResponse(
         status_code=500,
