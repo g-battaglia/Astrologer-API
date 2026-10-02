@@ -107,13 +107,20 @@ def _managed_data_dir() -> Path | None:
     return Path(value) if value else None
 
 
-def _configured_db_tiers() -> tuple[str, ...]:
-    """Return explicitly DB-served tiers in canonical order."""
-    if os.environ.get("EPHEMERIS_SOURCE_PROFILE", "").strip().lower() != "postgres":
+def _has_external_source() -> bool:
+    """Return whether one global external LEB reader factory is configured."""
+    return bool(os.environ.get("LIBEPHEMERIS_LEB_SOURCE", "").strip())
+
+
+def _configured_source_tiers() -> tuple[str, ...]:
+    """Return the manually selected tiers served by the global source."""
+    if not _has_external_source():
         return ()
-    raw = os.environ.get("EPHEMERIS_DB_TIERS", "medium,extended")
-    tiers = {item.strip().lower() for item in raw.split(",") if item.strip()}
-    return tuple(tier for tier in _LEB_TIER_ORDER if tier in tiers)
+    raw = os.environ.get("LIBEPHEMERIS_PG_TIERS", "medium,extended")
+    selected = {item.strip().lower() for item in raw.split(",") if item.strip()}
+    if not selected or not selected <= set(_LEB_TIER_ORDER):
+        raise ValueError("Invalid LIBEPHEMERIS_PG_TIERS")
+    return tuple(tier for tier in _LEB_TIER_ORDER if tier in selected)
 
 
 def _required_tier() -> str:
@@ -121,17 +128,14 @@ def _required_tier() -> str:
 
 
 def _runtime_tiers(tier: str) -> tuple[str, ...]:
-    """Return every tier needed by the selected highest source tier."""
-    configured = _configured_db_tiers()
-    if configured:
-        # Tiered readers still need every lower tier not selected for the DB;
-        # those tiers remain local and are backfilled by the wrapper. The
-        # operator target also matters: if only medium is remote while the
-        # target remains extended, extended must be present locally.
-        target = os.environ.get("EPHEMERIS_TARGET_TIER", "extended").strip().lower()
-        highest = max((configured[-1], target), key=_LEB_TIER_ORDER.index)
-        return _eligible_tiers(highest)
-    return _eligible_tiers(tier)
+    """Return every tier served through the configured local/remote target."""
+    if not _has_external_source():
+        return _eligible_tiers(tier)
+    target = os.environ.get("EPHEMERIS_TARGET_TIER", tier).strip().lower()
+    try:
+        return _eligible_tiers(target)
+    except ValueError as exc:
+        raise ValueError(f"Unsupported required ephemeris tier: {target!r}") from exc
 
 
 def _eligible_tiers(tier: str) -> tuple[str, ...]:
@@ -246,11 +250,8 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         import libephemeris as ephe
 
         inventory = ephe.get_leb_inventory()
-        configured = _configured_db_tiers()
-        requirement_tier = configured[-1] if configured else tier
-        if configured:
-            target = os.environ.get("EPHEMERIS_TARGET_TIER", "extended").strip().lower()
-            requirement_tier = max((requirement_tier, target), key=_LEB_TIER_ORDER.index)
+        configured = _configured_source_tiers()
+        requirement_tier = _runtime_tiers(tier)[-1]
         requirements = ephe.get_runtime_data_requirements(requirement_tier)
         if configured:
             # Metadata stays cached in the reader. Readiness (not liveness)
@@ -261,7 +262,7 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
             with get_pool(runtime_config()).connection() as connection:
                 connection.execute("SELECT 1")
     except Exception as exc:
-        if _configured_db_tiers():
+        if _has_external_source():
             errors.append("Configured ephemeris coefficient source is unavailable.")
         else:
             errors.append(f"Cannot inspect libephemeris runtime: {exc}")
@@ -293,11 +294,7 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         errors.append(str(inventory.get("error") or "No active LEB reader."))
 
     expected_names = set(report["expected_files"])
-    configured = _configured_db_tiers()
-    requirement_manifest_tier = configured[-1] if configured else tier
-    if configured:
-        target = os.environ.get("EPHEMERIS_TARGET_TIER", "extended").strip().lower()
-        requirement_manifest_tier = max((requirement_manifest_tier, target), key=_LEB_TIER_ORDER.index)
+    requirement_manifest_tier = _runtime_tiers(tier)[-1]
     expected_leb: dict[str, Any] = {}
     for requirement in requirements:
         if requirement.kind != "leb2":
@@ -309,9 +306,9 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
 
     actual_files = {item.get("name"): item for item in inventory.get("files", [])}
     all_expected_leb = expected_leb
-    # The core requirement API is cumulative. A postgres profile may select a
-    # non-contiguous subset (for example only extended), so retain only the
-    # local/base and explicitly selected names in this readiness contract.
+    # The runtime inventory is cumulative. Every tier through the selected
+    # target is represented, regardless of whether its bytes are local or
+    # supplied by an external reader.
     expected_leb = {name: requirement for name, requirement in all_expected_leb.items() if name in expected_names}
     for name in report["expected_files"]:
         leb_requirement: Any = expected_leb.get(name)
@@ -448,7 +445,7 @@ def get_ephemeris_status() -> dict[str, Any]:
             _cached_negative_expires_at = None
             _cached_positive_expires_at = (
                 _monotonic() + _EXTERNAL_SOURCE_STATUS_TTL_S
-                if _configured_db_tiers()
+                if _has_external_source()
                 else None
             )
             _ready_latched = True
@@ -500,7 +497,7 @@ def is_ephemeris_ready_latched() -> bool:
     """
     if _managed_data_dir() is None:
         return True
-    if _configured_db_tiers() and _cached_positive_expires_at is not None:
+    if _has_external_source() and _cached_positive_expires_at is not None:
         return _ready_latched and _monotonic() < _cached_positive_expires_at
     return _ready_latched
 
