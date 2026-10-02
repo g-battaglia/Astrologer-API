@@ -105,7 +105,7 @@ async def _acquire_before(semaphore: asyncio.Semaphore, deadline: float) -> None
 
 
 def _occultation_worker(send_conn: Any, kind: str, kwargs: dict) -> None:
-    """Runs in the spawned child: import dependencies lazily, search, send result.
+    """Runs in the spawned child: import kerykeion lazily, search, send result.
 
     Sends ``("ok", events)`` or ``("err", exc_class_name, str(exc))``. Imports
     kerykeion *inside* the function so importing this module in the child stays

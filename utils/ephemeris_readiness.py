@@ -292,7 +292,6 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         errors.append(str(inventory.get("error") or "No active LEB reader."))
 
     expected_names = set(report["expected_files"])
-    requirement_manifest_tier = _runtime_tiers(tier)[-1]
     expected_leb: dict[str, Any] = {}
     for requirement in requirements:
         if requirement.kind != "leb2":
@@ -303,11 +302,6 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         expected_leb[requirement.name] = requirement
 
     actual_files = {item.get("name"): item for item in inventory.get("files", [])}
-    all_expected_leb = expected_leb
-    # The runtime inventory is cumulative. Every tier through the selected
-    # target is represented, regardless of whether its bytes are local or
-    # supplied by an external reader.
-    expected_leb = {name: requirement for name, requirement in all_expected_leb.items() if name in expected_names}
     for name in report["expected_files"]:
         leb_requirement: Any = expected_leb.get(name)
         if leb_requirement is None:
@@ -331,12 +325,7 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         if not reviewed:
             errors.append(f"LEB group does not match the reviewed manifest: {leb_requirement.name}.")
 
-    known_requirement_names = {
-        f"{requirement_tier}_{group}.leb2"
-        for requirement_tier in _eligible_tiers(requirement_manifest_tier)
-        for group in _required_leb_groups()
-    }
-    unexpected_requirements = sorted(set(all_expected_leb) - known_requirement_names)
+    unexpected_requirements = sorted(set(expected_leb) - expected_names)
     if unexpected_requirements:
         errors.append("The manifest returned unexpected LEB requirements for this tier: " + ", ".join(unexpected_requirements) + ".")
 
@@ -493,11 +482,11 @@ def is_ephemeris_ready_latched() -> bool:
     detect a provider outage; local file-only deployments retain the immutable
     process latch.
     """
-    if _managed_data_dir() is None:
-        return True
-    if _has_external_source() and _cached_positive_expires_at is not None:
-        return _ready_latched and _monotonic() < _cached_positive_expires_at
-    return _ready_latched
+    if _cached_positive_expires_at is not None:
+        return (
+            _ready_latched and _monotonic() < _cached_positive_expires_at
+        ) or _managed_data_dir() is None
+    return _ready_latched or _managed_data_dir() is None
 
 
 def reset_ephemeris_readiness_cache() -> None:
