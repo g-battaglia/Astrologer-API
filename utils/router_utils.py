@@ -781,6 +781,13 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     logged at WARNING level. All other errors are logged at ERROR with full
     traceback.
     """
+    from .source_errors import source_failure
+
+    failure = source_failure(exc)
+    if failure is not None:
+        status, payload = failure
+        logger.error("Coefficient source failure | request_id=%s | category=%s", get_request_id(request), payload["error_type"])
+        return JSONResponse(content=payload, status_code=status, headers={"Retry-After": "2"} if status == 503 else None)
     message = str(exc).strip() or exc.__class__.__name__
 
     # The body is read only for the GeoNames response enrichment below. It is

@@ -18,7 +18,6 @@ import time
 from pathlib import Path
 from typing import Any
 
-
 _READY_MARKER = ".initialized"
 _REQUIRED_TIER_ENV = "EPHEMERIS_REQUIRED_TIER"
 
@@ -75,6 +74,7 @@ def _required_leb_groups() -> tuple[str, ...]:
         return _probe_leb_groups()
     return tuple(LEB2_GROUPS)
 
+
 # A failed validation may be a transient filesystem or parse hiccup, so it must
 # be allowed to heal — but re-validating on every poll would let /ready and the
 # calculation gate re-open (and re-hash) the inventory in a request storm.
@@ -94,6 +94,14 @@ _cached_negative_expires_at: float | None = None
 # tolerate a True -> False transition and never use it to gate one-shot
 # initialization.
 _ready_latched = False
+_routed_cached_status: dict[str, Any] | None = None
+_routed_expires_at = 0.0
+
+
+def _routed_runtime() -> bool:
+    """Startup exports explicit mode; detection remains stdlib-only."""
+    mode = os.environ.get("KERYKEION_LEB_MODE") or os.environ.get("LIBEPHEMERIS_MODE")
+    return mode in ("db", "routed")
 
 
 def _managed_data_dir() -> Path | None:
@@ -215,6 +223,8 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
     try:
         import libephemeris as ephe
 
+        if ephe.get_calc_mode() in ("db", "routed"):
+            return _validate_routed_runtime(ephe, tier)
         inventory = ephe.get_leb_inventory()
         requirements = ephe.get_runtime_data_requirements(tier)
     except Exception as exc:
@@ -238,9 +248,7 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
     except ValueError:
         tier_is_sufficient = False
     if not tier_is_sufficient:
-        errors.append(
-            f"Precision tier must be at least {tier!r}, got {active_tier!r}."
-        )
+        errors.append(f"Precision tier must be at least {tier!r}, got {active_tier!r}.")
     if report["network_policy"] != "sealed":
         errors.append(f"Network policy must be 'sealed', got {report['network_policy']!r}.")
     if not inventory.get("ready"):
@@ -303,6 +311,16 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
     except Exception as exc:
         errors.append(f"Cannot validate the exposed point catalog: {exc}")
 
+    _validate_iers(report)
+    report["ready"] = not errors
+    report["state"] = "invalid" if errors else "ready-degraded" if warnings else "ready"
+    return report
+
+
+def _validate_iers(report: dict[str, Any]) -> None:
+    """Validate the same required local temporal inputs for every transport."""
+    errors = report["errors"]
+    warnings = report["warnings"]
     try:
         from libephemeris.iers_data import (
             DEFAULT_MAX_AGE_DAYS,
@@ -339,13 +357,44 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
     except Exception as exc:
         errors.append(f"Cannot inspect IERS cache: {exc}")
 
+
+def _validate_routed_runtime(ephe: Any, tier: str) -> dict[str, Any]:
+    """Validate only required sources; optional remote tiers stay lazy."""
+    report = _base_status(mode=ephe.get_calc_mode(), precision_tier=ephe.get_precision_tier(), network_policy=ephe.get_network_policy())
+    inventory = ephe.get_runtime_inventory(tier)
+    report["sources"] = inventory.get("sources", [])
+    errors = report["errors"]
+    if not inventory.get("ready"):
+        errors.append("Required coefficient sources are unavailable or invalid.")
+    if report["network_policy"] != "sealed":
+        errors.append("Runtime HTTP/download access must remain sealed.")
+    # Inspect the report, not a date-less global coverage query that would open
+    # optional DB routes outside the required tier.
+    catalog = _required_product_catalog(ephe)
+    reviewed_bodies = {body_id: bool(report["sources"]) for _, body_id in catalog}
+    if not report["sources"]:
+        errors.append("No required coefficient sources are available.")
+    required_groups = set(_required_leb_groups())
+    for source in report["sources"]:
+        if not source.get("reviewed"):
+            errors.append(f"Required source tier lacks a reviewed artifact manifest: {source.get('tier')}.")
+        missing_groups = sorted(required_groups - set(source.get("groups", [])))
+        if missing_groups:
+            errors.append(f"Required source tier lacks artifact groups: {source.get('tier')}: {', '.join(missing_groups)}.")
+        # Each required tier must independently cover the exposed catalog.
+        # Union coverage could let base conceal an incomplete remote import.
+        by_body = {body["body_id"]: body for body in source.get("bodies", [])}
+        for point_name, body_id in catalog:
+            body = by_body.get(body_id)
+            reviewed = bool(body and body.get("reviewed"))
+            reviewed_bodies[body_id] = reviewed_bodies[body_id] and reviewed
+            if not reviewed:
+                errors.append(f"Exposed point lacks reviewed coefficients in required source tier {source.get('tier')}: {point_name}.")
+    for point_name, body_id in catalog:
+        report["catalog"].append({"point_name": point_name, "body_id": body_id, "reviewed": reviewed_bodies[body_id]})
+    _validate_iers(report)
     report["ready"] = not errors
-    if errors:
-        report["state"] = "invalid"
-    elif warnings:
-        report["state"] = "ready-degraded"
-    else:
-        report["state"] = "ready"
+    report["state"] = "invalid" if errors else "ready-degraded" if report["warnings"] else "ready"
     return report
 
 
@@ -353,7 +402,19 @@ def get_ephemeris_status() -> dict[str, Any]:
     """Return cached managed readiness, or a lightweight local-development state."""
     global _cached_marker_signature, _cached_status
     global _cached_negative_signature, _cached_negative_status, _cached_negative_expires_at
-    global _ready_latched
+    global _ready_latched, _routed_cached_status, _routed_expires_at
+
+    if _routed_runtime():
+        # File marker identities cannot express remote availability. Cache only
+        # redacted health, with a bounded positive TTL and short retry interval.
+        with _cache_lock:
+            if _routed_cached_status is not None and _monotonic() < _routed_expires_at:
+                return _routed_cached_status
+            status = validate_ephemeris_runtime()
+            _routed_cached_status = status
+            _routed_expires_at = _monotonic() + (60.0 if status["ready"] else _NEGATIVE_STATUS_TTL_S)
+            _ready_latched = bool(status["ready"])
+            return status
 
     data_dir = _managed_data_dir()
     if data_dir is None:
@@ -402,6 +463,8 @@ def get_cached_ephemeris_status() -> dict[str, Any]:
     validation. They report the cached snapshot (even a stale negative one)
     and leave revalidation to ``/ready`` and the calculation gate.
     """
+    if _routed_runtime():
+        return _routed_cached_status or _unvalidated_status()
     if _managed_data_dir() is None:
         return _unmanaged_status()
     # Lock-free snapshot reads: the cached dicts are published fully built
@@ -431,6 +494,8 @@ def is_ephemeris_ready_latched() -> bool:
     :func:`reset_ephemeris_readiness_cache` or a marker change that fails
     revalidation), and in unmanaged local development where nothing is gated.
     """
+    if _routed_runtime():
+        return _ready_latched and _monotonic() < _routed_expires_at
     return _ready_latched or _managed_data_dir() is None
 
 
@@ -438,8 +503,10 @@ def reset_ephemeris_readiness_cache() -> None:
     """Clear the marker-keyed cache (test and controlled-reload helper)."""
     global _cached_marker_signature, _cached_status
     global _cached_negative_signature, _cached_negative_status, _cached_negative_expires_at
-    global _ready_latched
+    global _ready_latched, _routed_cached_status, _routed_expires_at
     with _cache_lock:
+        _routed_cached_status = None
+        _routed_expires_at = 0.0
         _cached_marker_signature = None
         _cached_status = None
         _cached_negative_signature = None
@@ -466,11 +533,7 @@ def probe_tier_present(tier: str) -> tuple[bool, list[str]]:
     if data_dir is None:
         return True, []
     leb_dir = data_dir / "leb"
-    missing = [
-        name
-        for name in _expected_leb_files(tier, groups=_probe_leb_groups())
-        if not (leb_dir / name).is_file()
-    ]
+    missing = [name for name in _expected_leb_files(tier, groups=_probe_leb_groups()) if not (leb_dir / name).is_file()]
     return not missing, missing
 
 

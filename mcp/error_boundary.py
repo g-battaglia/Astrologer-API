@@ -18,6 +18,11 @@ _INTERNAL_MESSAGE = "Internal server error. The failure has been logged."
 
 def _public_error(exc: BaseException) -> dict[str, str]:
     """Map expected caller errors, hiding all unexpected exception text."""
+    from ..utils.source_errors import source_failure
+
+    failure = source_failure(exc)
+    if failure is not None:
+        return failure[1]
     if isinstance(exc, (KerykeionException, PydanticValidationError, ValueError)):
         return {
             "status": "ERROR",

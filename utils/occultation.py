@@ -123,7 +123,7 @@ def _occultation_worker(send_conn: Any, kind: str, kwargs: dict) -> None:
             raise ValueError(f"unknown occultation kind: {kind!r}")
         send_conn.send(("ok", events))
     except BaseException as exc:  # never let the child hang the parent on a result
-        send_conn.send(("err", type(exc).__name__, str(exc)))
+        _send_worker_error(send_conn, exc)
     finally:
         send_conn.close()
 
@@ -142,9 +142,20 @@ def _heliacal_worker(send_conn: Any, kind: str, kwargs: dict) -> None:
         )
         send_conn.send(("ok", events))
     except BaseException as exc:
-        send_conn.send(("err", type(exc).__name__, str(exc)))
+        _send_worker_error(send_conn, exc)
     finally:
         send_conn.close()
+
+
+def _send_worker_error(send_conn: Any, exc: BaseException) -> None:
+    """Preserve a fatal source category without sending transport secrets."""
+    from .source_errors import source_failure
+
+    failure = source_failure(exc)
+    if failure is not None:
+        send_conn.send(("err", failure[1]["error_type"], failure[1]["message"]))
+    else:
+        send_conn.send(("err", type(exc).__name__, str(exc)))
 
 
 def _sleep_forever_worker(send_conn: Any, kind: str, kwargs: dict) -> None:  # pragma: no cover - runs in child
@@ -203,6 +214,10 @@ def _rebuild_exception(name: str, msg: str) -> BaseException:
     """Reconstruct the child's exception so ``handle_exception`` keeps its
     status mapping: KerykeionException/OverflowError/ValueError -> 400 paths,
     anything else -> generic 500."""
+    if name in ("DBError", "DBDataError", "RoutingDataError", "ConfigurationError", "NetworkSealedError"):
+        import libephemeris as ephe
+
+        return getattr(ephe, name)("Ephemeris coefficient source failure")
     if name == "KerykeionException":
         from kerykeion.schemas import KerykeionException
 
