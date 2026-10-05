@@ -60,22 +60,31 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/chart/birth-chart' \
     -H 'Content-Type: application/json' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
+    -o response.json \
     -d '{
         "subject": {
-            "name": "John Doe",
-            "city": "London",
-            "year": 1980,
-            "month": 12,
-            "day": 12,
-            "hour": 12,
-            "minute": 12,
-            "longitude": 0,
-            "latitude": 51.4825766,
+            "name": "John Lennon",
+            "city": "Liverpool",
+            "nation": "GB",
+            "year": 1940,
+            "month": 10,
+            "day": 9,
+            "hour": 18,
+            "minute": 30,
+            "longitude": -2.9916,
+            "latitude": 53.4084,
             "timezone": "Europe/London"
         },
-        "theme": "dark"
+        "style": "modern",
+        "theme": "classic"
     }'
 ```
+
+**The SVG is in `chart`, at the top level of the JSON response.** After parsing the JSON, use `data.chart` directly to render it or save it as an `.svg` file.
+
+John Lennon's natal chart, Modern style with the light theme:
+
+![John Lennon natal chart, Modern light](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Natal%20Chart%20-%20Modern.svg)
 
 Response shape:
 
@@ -87,9 +96,15 @@ Response shape:
 }
 ```
 
+Save the returned SVG and open `chart.svg` in a browser:
+
+```sh
+python3 -c 'import json; from pathlib import Path; data = json.loads(Path("response.json").read_text(encoding="utf-8")); assert data["status"] == "OK"; Path("chart.svg").write_text(data["chart"], encoding="utf-8")'
+```
+
 Set `"split_chart": true` to receive `chart_wheel` and `chart_grid` instead of `chart`. See the split example below.
 
-NOTE: The rendered SVG chart is returned in the `chart` key of the JSON response. During engine initialization, authenticated calculation requests may return `503 ServiceInitializing` with `Retry-After`; REST overload returns `503 ServerBusy` with `Retry-After`. Use bounded retries and handle gateway rate limits separately.
+During engine initialization, authenticated calculation requests may return `503 ServiceInitializing` with `Retry-After`; REST overload returns `503 ServerBusy` with `Retry-After`. Use bounded retries and handle gateway rate limits separately.
 
 ## Endpoints
 
