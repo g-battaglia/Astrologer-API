@@ -4,6 +4,8 @@ Miscellaneous endpoints.
 Health check and status probes only.
 """
 
+from __future__ import annotations
+
 from logging import getLogger
 
 import anyio
@@ -13,6 +15,7 @@ from fastapi.responses import JSONResponse
 from ..config.settings import settings
 from ..types.response_models import ApiStatusResponseModel, ProbeResponseModel
 from ..utils.logging_utils import log_request
+from ..utils.ephemeris_readiness import worker_readiness_status
 
 logger = getLogger(__name__)
 router = APIRouter()
@@ -48,6 +51,10 @@ def _public_ephemeris_status(status: dict) -> dict:
         reason = "ready"
     elif state in {"pending", "initializing", "validating"}:
         reason = "provisioning"
+    elif state == "warming":
+        reason = "worker_warmup"
+    elif state == "warmup-failed":
+        reason = "worker_warmup_failed"
     else:
         reason = "runtime_validation_failed"
     return {
@@ -84,7 +91,7 @@ def _probe_response(status: dict, *, gate: bool) -> JSONResponse:
     response_model=ProbeResponseModel,
     openapi_extra={"security": []},
 )
-async def health() -> JSONResponse:
+async def health(request: Request) -> JSONResponse:
     """
     **GET** `/health`
 
@@ -102,7 +109,7 @@ async def health() -> JSONResponse:
     - `ephemeris_ready`: compatibility boolean from the cached readiness view
     - `ephemeris`: sanitized readiness state and reason code
     """
-    return _probe_response(_cached_ephemeris_status(), gate=False)
+    return _probe_response(worker_readiness_status(request.app, _cached_ephemeris_status()), gate=False)
 
 
 @router.get(
@@ -117,7 +124,7 @@ async def health() -> JSONResponse:
     },
     openapi_extra={"security": []},
 )
-async def ready() -> JSONResponse:
+async def ready(request: Request) -> JSONResponse:
     """Operator readiness probe; calculation routes use the same gate.
 
     This is the probe allowed to trigger runtime validation (off the event
@@ -125,7 +132,7 @@ async def ready() -> JSONResponse:
     often a failing runtime is revalidated.
     """
     ephemeris = await anyio.to_thread.run_sync(_ephemeris_status)
-    return _probe_response(ephemeris, gate=True)
+    return _probe_response(worker_readiness_status(request.app, ephemeris), gate=True)
 
 
 @router.get(

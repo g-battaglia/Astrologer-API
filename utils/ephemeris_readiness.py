@@ -475,6 +475,20 @@ def is_ephemeris_ready() -> bool:
     return bool(get_ephemeris_status()["ready"])
 
 
+def is_worker_warm(application: Any) -> bool:
+    """Return this app worker's optional startup warm-up gate, without I/O."""
+    state = getattr(application, "state", None)
+    return not getattr(state, "ephemeris_warmup_required", False) or getattr(state, "ephemeris_warmup_state", "warming") == "ready"
+
+
+def worker_readiness_status(application: Any, inventory: dict[str, Any]) -> dict[str, Any]:
+    """Combine inventory validation and worker warm-up without mutating caches."""
+    if not inventory.get("ready") or is_worker_warm(application):
+        return inventory
+    state = getattr(application.state, "ephemeris_warmup_state", "warming")
+    return {**inventory, "ready": False, "state": state}
+
+
 def is_ephemeris_ready_latched() -> bool:
     """Synchronous per-request fast path for local or recently checked data.
 

@@ -95,7 +95,7 @@ class EphemerisProbeStatusModel(BaseModel):
 
     ready: bool = Field(description="Whether the sealed ephemeris runtime is usable.")
     state: str = Field(description="Current readiness state.")
-    reason: Literal["ready", "provisioning", "runtime_validation_failed"] = Field(description="Stable, public reason code for the readiness state.")
+    reason: Literal["ready", "provisioning", "worker_warmup", "worker_warmup_failed", "runtime_validation_failed"] = Field(description="Stable, public reason code for the readiness state.")
     precision_tier: Optional[str] = Field(default=None, description="Available ephemeris precision tier, when known.")
 
 

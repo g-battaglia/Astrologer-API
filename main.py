@@ -2,6 +2,8 @@
 This is part of Astrologer API (C) 2023 Giacomo Battaglia
 """
 
+from __future__ import annotations
+
 import asyncio
 import logging
 import logging.config
@@ -20,9 +22,26 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.routing import APIRoute
 
 from .routers import (
-    misc, charts, data, context, moon_phase, astro_calendar, fixed_stars,
-    fixed_star_discovery, sun_times, moon_voc, dominants, returns, predictive,
-    events, transits, ephemeris, analysis, traditional, locational, reports,
+    misc,
+    charts,
+    data,
+    context,
+    moon_phase,
+    astro_calendar,
+    fixed_stars,
+    fixed_star_discovery,
+    sun_times,
+    moon_voc,
+    dominants,
+    returns,
+    predictive,
+    events,
+    transits,
+    ephemeris,
+    analysis,
+    traditional,
+    locational,
+    reports,
 )
 from .routers.legacy import register_legacy_v6_routes
 from .config.settings import settings
@@ -70,6 +89,10 @@ def _prewarm_enabled() -> bool:
     return os.environ.get("EPHEMERIS_PREWARM", "true").lower() not in ("0", "false", "no")
 
 
+def _prewarm_required() -> bool:
+    return os.environ.get("EPHEMERIS_REQUIRE_PREWARM", "false").lower() in ("1", "true", "yes")
+
+
 def _warm_ephemeris_readers() -> None:
     """Open, warm and then release the sealed readers. Blocking — thread only.
 
@@ -93,6 +116,27 @@ def _warm_ephemeris_readers() -> None:
         online=False,
         suppress_geonames_warning=True,
     )
+    # Prime the required cumulative tiers in this worker. Minor bodies have
+    # narrower source windows, so the historical probes use core planets only.
+    tier = os.environ.get("EPHEMERIS_REQUIRED_TIER", "base").strip().lower()
+    years = {"base": (), "medium": (1700,), "extended": (1700, 1000, -1000)}[tier]
+    for year in years:
+        AstrologicalSubjectFactory.from_birth_data(
+            name="warmup",
+            year=year,
+            month=1,
+            day=1,
+            hour=12,
+            minute=0,
+            city="Greenwich",
+            nation="GB",
+            lng=0.0,
+            lat=51.48,
+            tz_str="Etc/UTC",
+            online=False,
+            suppress_geonames_warning=True,
+            active_points=["Sun", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"],
+        )
     try:
         import libephemeris as _eph
 
@@ -105,7 +149,7 @@ def _warm_ephemeris_readers() -> None:
         pass
 
 
-async def _prewarm_when_ready() -> None:
+async def _prewarm_when_ready(application: FastAPI | None = None) -> None:
     """Wait for provisioning and prepare readers outside request handling.
 
     The marker may appear after HTTP startup. Polling validates and warms the
@@ -122,21 +166,25 @@ async def _prewarm_when_ready() -> None:
                 break
             if time.monotonic() >= deadline:
                 _logger.warning(
-                    "Ephemeris pre-warm abandoned: runtime inventory still unvalidated after %.0fs; "
-                    "the first request will warm the cache",
+                    "Ephemeris pre-warm abandoned: runtime inventory still unvalidated after %.0fs; workers requiring pre-warm remain unavailable",
                     _PREWARM_MAX_WAIT_S,
                 )
+                if application is not None:
+                    application.state.ephemeris_warmup_state = "warmup-failed"
                 return
             await asyncio.sleep(_PREWARM_POLL_INTERVAL_S)
 
         t0 = time.perf_counter()
         await anyio.to_thread.run_sync(_warm_ephemeris_readers)
+        if application is not None:
+            application.state.ephemeris_warmup_state = "ready"
         _logger.info("Ephemeris pre-warm complete (%.0f ms)", (time.perf_counter() - t0) * 1000)
     except asyncio.CancelledError:
         raise
     except Exception as e:
-        # A pre-warm failure is never fatal: the readiness gate still governs
-        # calculation traffic and the first request re-does this work.
+        # Keep liveness available, but required warm-up must fail closed.
+        if application is not None:
+            application.state.ephemeris_warmup_state = "warmup-failed"
         _logger.warning("Ephemeris pre-warm failed: %s", e)
 
 
@@ -144,10 +192,14 @@ async def _prewarm_when_ready() -> None:
 async def lifespan(app: FastAPI):
     """Warm the sealed runtime and own this app's MCP session manager."""
     prewarm_task: asyncio.Task | None = None
+    app.state.ephemeris_warmup_required = _prewarm_required()
+    app.state.ephemeris_warmup_state = "warming"
+    if app.state.ephemeris_warmup_required and not _prewarm_enabled():
+        raise RuntimeError("EPHEMERIS_REQUIRE_PREWARM requires EPHEMERIS_PREWARM")
     cache_stop = asyncio.Event()
     cache_task = asyncio.create_task(cache_release_loop(cache_stop))
     if _prewarm_enabled():
-        prewarm_task = asyncio.create_task(_prewarm_when_ready())
+        prewarm_task = asyncio.create_task(_prewarm_when_ready(app))
     else:
         _logger.info("Ephemeris pre-warm skipped (EPHEMERIS_PREWARM=false)")
     try:
