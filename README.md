@@ -1,22 +1,13 @@
 # High Precision Astrology API
 
-![John Lennon natal chart, Modern light](https://raw.githubusercontent.com/g-battaglia/kerykeion/refs/heads/v5/tests/data/svg/John%20Lennon%20-%20Natal%20Chart%20-%20Modern.svg)
+Astrologer API lets you add **professional-grade astrology features** to any app — fast.  
+It delivers **plug-and-play SVG charts**, **rich astrological data**, and **AI-optimized XML context** for natal, synastry, transits, composites, returns, and moon phases.
 
-SVG charts, JSON astrology data and XML context for AI applications. Calculate natal charts, synastry, transits, composites, solar and lunar returns, Moon phases, planetary hours and dominant planets.
+-   NASA-grade astronomical accuracy
+-   Production-ready JSON + beautiful SVGs
+-   Used in astrology apps, compatibility/dating systems, dashboards and SaaS tools
 
-Install the [API skill](https://github.com/g-battaglia/Astrologer-API/tree/v6/skills/astrologer-api) for your coding agent:
-
-```sh
-npx skills add https://github.com/g-battaglia/Astrologer-API/tree/v6/skills/astrologer-api
-```
-
-Or ask your agent:
-
-```text
-Install the Astrologer API skill: https://github.com/g-battaglia/Astrologer-API/tree/v6/skills/astrologer-api
-```
-
-[Get an API key](https://www.kerykeion.net/astrologer-api/subscribe).
+👉 Ready to use it? Subscribe on RapidAPI: <a href="https://www.kerykeion.net/astrologer-api/subscribe" target="_blank">https://www.kerykeion.net/astrologer-api/subscribe</a>
 
 Chart examples:
 
@@ -41,7 +32,7 @@ Chart examples:
 
 ## Quick start
 
-Calculation requests require your RapidAPI key and host headers. The base URL is `https://astrologer.p.rapidapi.com/api/v6`.
+Every request must include your RapidAPI key.
 
 Headers:
 
@@ -63,12 +54,12 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/chart/birth-chart' \
     -d '{
         "subject": {
             "name": "John Doe",
-            "city": "London",
             "year": 1980,
             "month": 12,
             "day": 12,
             "hour": 12,
             "minute": 12,
+            "city": "London",
             "longitude": 0,
             "latitude": 51.4825766,
             "timezone": "Europe/London"
@@ -87,15 +78,15 @@ Response shape:
 }
 ```
 
-Set `"split_chart": true` to receive `chart_wheel` and `chart_grid` instead of `chart`. See the split example below.
+Prefer separate SVGs? Use "split_chart": true. You'll receive chart_wheel and chart_grid instead of chart. See the split example below.
 
-NOTE: The rendered SVG chart is returned in the `chart` key of the JSON response. During engine initialization, authenticated calculation requests may return `503 ServiceInitializing` with `Retry-After`; REST overload returns `503 ServerBusy` with `Retry-After`. Use bounded retries and handle gateway rate limits separately.
+NOTE: The rendered SVG chart is returned in the `chart` key of the JSON response.
 
 ## Endpoints
 
 The 31 endpoints are grouped by function below.
 
-### Charts (SVG charts + data)
+### Chart Endpoints (SVG charts + data)
 
 The API provides chart endpoints that return rendered SVG charts (found in the `chart` key, or `chart_wheel` and `chart_grid` when split) together with full astrological data.
 
@@ -107,7 +98,7 @@ The API provides chart endpoints that return rendered SVG charts (found in the `
 -   `/api/v6/chart/lunar-return` (POST) - Lunar return chart SVG + data
 -   `/api/v6/now/chart` (POST) - Current moment chart SVG + data
 
-### Chart Data (JSON only, no SVG)
+### Data Endpoints (JSON only, no SVG)
 
 Use these endpoints when you only need structured astrological data without rendered charts.
 
@@ -121,7 +112,7 @@ Use these endpoints when you only need structured astrological data without rend
 -   `/api/v6/now/subject` (POST) - Current UTC subject data
 -   `/api/v6/compatibility-score` (POST) - Ciro Discepolo compatibility score + summary
 
-### Moon Phase
+### Moon Phase Endpoints
 
 Dedicated endpoints for detailed lunar phase analysis. These use a simplified request model (no `subject` wrapper — just date/time and coordinates).
 
@@ -130,7 +121,7 @@ Dedicated endpoints for detailed lunar phase analysis. These use a simplified re
 -   `/api/v6/moon-phase/context` (POST) - Moon phase data with XML context
 -   `/api/v6/moon-phase/now-utc/context` (POST) - Current moon phase with XML context
 
-### AI Context (AI/LLM Integration)
+### Context Endpoints (AI/LLM Integration)
 
 Context endpoints return structured XML for use in model prompts:
 
@@ -168,6 +159,33 @@ Documentation for earlier versions is preserved on their respective branches:
 
 The earlier [website documentation](https://www.kerykeion.net/content/astrologer-api/) and [LLM reference](https://kerykeion.net/astrologer-api/llms-full.txt) cover v5.
 
+## Use with AI coding agents
+
+Let your coding agent build with Astrologer API — two paths depending on agent type.
+
+**Agents with skill support** — install the [v6 API skill](https://github.com/g-battaglia/Astrologer-API/tree/v6/skills/astrologer-api):
+
+```sh
+npx skills add https://github.com/g-battaglia/Astrologer-API/tree/v6/skills/astrologer-api
+```
+
+Or ask your agent to install it:
+
+```text
+Install the Astrologer API skill: https://github.com/g-battaglia/Astrologer-API/tree/v6/skills/astrologer-api
+```
+
+The skill covers all 31 RapidAPI endpoints, complete request examples, chart options, SVG responses, server-side Python and JavaScript clients, and error handling.
+
+**For agents without skill support** — paste this prompt:
+
+```text
+Use the Astrologer API v6 to build [feature].
+Read the API skill and its linked references first:
+https://github.com/g-battaglia/Astrologer-API/blob/v6/skills/astrologer-api/SKILL.md
+Use the /api/v6 endpoints and keep the RapidAPI key on the server.
+```
+
 ## Copy‑paste examples
 
 ### 1) Natal chart (SVG + data)
@@ -178,10 +196,14 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/chart/birth-chart' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{
-        "subject": { "name": "Ada", "city": "Rome", "year": 1990, "month": 5, "day": 1, "hour": 10, "minute": 0, "longitude": 12.4964, "latitude": 41.9028, "timezone": "Europe/Rome" },
-        "theme": "classic",
-        "language": "EN"
+        "subject": {"name": "Ada", "year": 1990, "month": 5, "day": 1, "hour": 10, "minute": 0, "city": "Rome", "longitude": 12.4964, "latitude": 41.9028, "timezone": "Europe/Rome"}
     }'
+```
+
+To save the SVG, add `-o response.json` to the request above, then run:
+
+```sh
+python3 -c 'import json; from pathlib import Path; data = json.loads(Path("response.json").read_text(encoding="utf-8")); assert data["status"] == "OK"; Path("chart.svg").write_text(data["chart"], encoding="utf-8")'
 ```
 
 Two SVGs (wheel + grid) with split_chart:
@@ -201,7 +223,7 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/chart/birth-chart' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{
-        "subject": { "name": "Ada", "city": "Rome", "year": 1990, "month": 5, "day": 1, "hour": 10, "minute": 0, "longitude": 12.4964, "latitude": 41.9028, "timezone": "Europe/Rome" },
+        "subject": {"name": "Ada", "year": 1990, "month": 5, "day": 1, "hour": 10, "minute": 0, "city": "Rome", "longitude": 12.4964, "latitude": 41.9028, "timezone": "Europe/Rome"},
         "split_chart": true
     }'
 ```
@@ -226,7 +248,9 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/chart-data/birth-chart' \
     -H 'Content-Type: application/json' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
-    -d '{ "subject": { "name": "Ada", "city": "Rome", "year": 1990, "month": 5, "day": 1, "hour": 10, "minute": 0, "longitude": 12.4964, "latitude": 41.9028, "timezone": "Europe/Rome" } }'
+    -d '{
+        "subject": {"name": "Ada", "year": 1990, "month": 5, "day": 1, "hour": 10, "minute": 0, "city": "Rome", "longitude": 12.4964, "latitude": 41.9028, "timezone": "Europe/Rome"}
+    }'
 ```
 
 ### 2) Synastry chart
@@ -237,9 +261,8 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/chart/synastry' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{
-        "first_subject": { "name": "Alice", "city": "London", "year": 1990, "month": 7, "day": 5, "hour": 9, "minute": 30, "longitude": -0.1278, "latitude": 51.5074, "timezone": "Europe/London" },
-        "second_subject": { "name": "Bob", "city": "Paris", "year": 1988, "month": 1, "day": 20, "hour": 18, "minute": 15, "longitude": 2.3522, "latitude": 48.8566, "timezone": "Europe/Paris" },
-        "theme": "dark"
+        "first_subject": {"name": "Alice", "year": 1990, "month": 7, "day": 5, "hour": 9, "minute": 30, "city": "London", "longitude": -0.1278, "latitude": 51.5074, "timezone": "Europe/London"},
+        "second_subject": {"name": "Bob", "year": 1988, "month": 1, "day": 20, "hour": 18, "minute": 15, "city": "Paris", "longitude": 2.3522, "latitude": 48.8566, "timezone": "Europe/Paris"}
     }'
 ```
 
@@ -251,8 +274,8 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/compatibility-score' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{
-        "first_subject": { "name": "Alice", "city": "London", "year": 1990, "month": 7, "day": 5, "hour": 9, "minute": 30, "longitude": -0.1278, "latitude": 51.5074, "timezone": "Europe/London" },
-        "second_subject": { "name": "Bob", "city": "Paris", "year": 1988, "month": 1, "day": 20, "hour": 18, "minute": 15, "longitude": 2.3522, "latitude": 48.8566, "timezone": "Europe/Paris" }
+        "first_subject": {"name": "Alice", "year": 1990, "month": 7, "day": 5, "hour": 9, "minute": 30, "city": "London", "longitude": -0.1278, "latitude": 51.5074, "timezone": "Europe/London"},
+        "second_subject": {"name": "Bob", "year": 1988, "month": 1, "day": 20, "hour": 18, "minute": 15, "city": "Paris", "longitude": 2.3522, "latitude": 48.8566, "timezone": "Europe/Paris"}
     }'
 ```
 
@@ -276,8 +299,8 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/chart/transit' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{
-        "first_subject": { "name": "John Doe", "city": "London", "year": 1980, "month": 12, "day": 12, "hour": 12, "minute": 12, "longitude": 0, "latitude": 51.4826, "timezone": "Europe/London" },
-        "transit_subject": { "name": "Transit", "year": 2025, "month": 1, "day": 1, "hour": 0, "minute": 0, "city": "London", "nation": "GB", "longitude": 0, "latitude": 51.48, "timezone": "Europe/London" }
+        "first_subject": {"name": "John Doe", "year": 1980, "month": 12, "day": 12, "hour": 12, "minute": 12, "city": "London", "longitude": 0, "latitude": 51.4826, "timezone": "Europe/London"},
+        "transit_subject": {"name": "Transit", "year": 2025, "month": 1, "day": 1, "hour": 0, "minute": 0, "city": "London", "longitude": 0, "latitude": 51.48, "timezone": "Europe/London"}
     }'
 ```
 
@@ -289,10 +312,8 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/chart/solar-return' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{
-        "subject": { "name": "John Doe", "city": "London", "year": 1980, "month": 12, "day": 12, "hour": 12, "minute": 12, "longitude": 0, "latitude": 51.4826, "timezone": "Europe/London" },
-        "year": 2025,
-        "wheel_type": "dual",
-        "return_location": { "longitude": -74.0060, "latitude": 40.7128, "timezone": "America/New_York" }
+        "subject": {"name": "John Doe", "year": 1980, "month": 12, "day": 12, "hour": 12, "minute": 12, "city": "London", "longitude": 0, "latitude": 51.4826, "timezone": "Europe/London"},
+        "year": 2025
     }'
 ```
 
@@ -306,8 +327,14 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/moon-phase' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{
-        "year": 1993, "month": 10, "day": 10, "hour": 12, "minute": 12,
-        "latitude": 51.5074, "longitude": -0.1276, "timezone": "Europe/London"
+        "year": 1993,
+        "month": 10,
+        "day": 10,
+        "hour": 12,
+        "minute": 12,
+        "latitude": 51.5074,
+        "longitude": -0.1276,
+        "timezone": "Europe/London"
     }'
 ```
 
@@ -343,8 +370,14 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/moon-phase/context' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{
-        "year": 1993, "month": 10, "day": 10, "hour": 12, "minute": 12,
-        "latitude": 51.5074, "longitude": -0.1276, "timezone": "Europe/London"
+        "year": 1993,
+        "month": 10,
+        "day": 10,
+        "hour": 12,
+        "minute": 12,
+        "latitude": 51.5074,
+        "longitude": -0.1276,
+        "timezone": "Europe/London"
     }'
 ```
 
@@ -358,7 +391,7 @@ curl -X POST 'https://astrologer.p.rapidapi.com/api/v6/context/birth-chart' \
     -H 'X-RapidAPI-Host: astrologer.p.rapidapi.com' \
     -H 'X-RapidAPI-Key: YOUR_API_KEY' \
     -d '{
-        "subject": { "name": "Ada", "city": "Rome", "year": 1990, "month": 5, "day": 1, "hour": 10, "minute": 0, "longitude": 12.4964, "latitude": 41.9028, "timezone": "Europe/Rome" }
+        "subject": {"name": "Ada", "year": 1990, "month": 5, "day": 1, "hour": 10, "minute": 0, "city": "Rome", "longitude": 12.4964, "latitude": 41.9028, "timezone": "Europe/Rome"}
     }'
 ```
 
@@ -673,6 +706,8 @@ Example request:
 Tip: For reliable, reproducible requests, send coordinates and timezone when available; otherwise consider caching GeoNames results or checking its current usage limits.
 
 ## Troubleshooting
+
+During engine initialization, authenticated calculation requests may return `503 ServiceInitializing` with `Retry-After`; REST overload returns `503 ServerBusy` with `Retry-After`. Use bounded retries and handle gateway rate limits separately.
 
 ### Strict Input Validation
 
