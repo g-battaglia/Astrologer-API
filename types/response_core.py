@@ -5,8 +5,9 @@ from pydantic import BaseModel, Field
 from kerykeion.schemas import (
     AstrologicalSubjectModel,
     DualChartDataModel,
-    MoonPhaseLocationModel,
-    MoonPhaseOverviewModel,
+    MoonPhaseMoonSummaryModel,
+    MoonPhaseOverviewModel as MoonPhaseOverviewModel,
+    MoonPhaseSunInfoModel,
     RelationshipScoreAspectModel,
     SingleChartDataModel,
     ScoreBreakdownItemModel,
@@ -184,16 +185,23 @@ class ContextResponseModel(StatusResponseModel):
     chart_data: Union[SingleChartDataModel, DualChartDataModel] = Field(description="Serialized chart data payload.")
 
 
-class PublicMoonPhaseLocationModel(MoonPhaseLocationModel):
+class PublicMoonPhaseLocationModel(BaseModel):
     """Wire format after location_precision rounding (the engine's fields are strings)."""
 
     latitude: float | None = None
     longitude: float | None = None
+    precision: int | None = None
+    using_default_location: bool | None = None
+    note: str | None = None
 
 
-class PublicMoonPhaseOverviewModel(MoonPhaseOverviewModel):
+class PublicMoonPhaseOverviewModel(BaseModel):
     """The service serializes moon-phase coordinates as JSON numbers."""
 
+    timestamp: int
+    datestamp: str
+    sun: MoonPhaseSunInfoModel | None = None
+    moon: MoonPhaseMoonSummaryModel
     location: PublicMoonPhaseLocationModel | None = None
 
 

@@ -12,6 +12,7 @@ from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Callable
 
 from .cache_release import calculation_finished, calculation_started
+from .ephemeris_source_collector import run_with_ephemeris_sources
 
 
 class ServerBusyError(RuntimeError):
@@ -58,7 +59,7 @@ async def run_heavy(fn: Callable[..., Any], /, *args: Any, **kwargs: Any) -> Any
         raise ServerBusyError("Heavy calculation capacity is busy; retry later.") from exc
 
     ctx = contextvars.copy_context()
-    call = functools.partial(ctx.run, fn, *args, **kwargs)
+    call = functools.partial(ctx.run, run_with_ephemeris_sources, fn, *args, **kwargs)
     calculation_started()
     try:
         future = loop.run_in_executor(_EXECUTOR, call)

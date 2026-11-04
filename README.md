@@ -169,6 +169,13 @@ Chart context endpoints accept the same computation parameters as their correspo
 
 -   `/api/v6/analysis/dominants` (POST) - Dominant-planet ranking and element/quality analysis
 
+## Self-hosted beta compatibility
+
+This beta uses `kerykeion==6.1.0b1` and native `libephemeris==4.0.0b1`.
+Use authenticated local LEB2 assets for the required bodies and date ranges.
+The former `postgres` installation extra is unavailable until a native-v4
+coefficient provider is qualified; the older v3 provider is not compatible.
+
 ## Documentation
 
 The [RapidAPI playground](https://rapidapi.com/gbattaglia/api/astrologer/playground/) contains request schemas and examples. [View the source code](https://github.com/g-battaglia/Astrologer-API/tree/v6).
