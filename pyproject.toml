@@ -24,11 +24,6 @@ dependencies = [
     "libephemeris==4.0.0b1",
 ]
 
-[project.optional-dependencies]
-postgres = [
-    "libephemeris-postgres @ git+https://github.com/g-battaglia/libephemeris@efbf04f95dc16d386ccac96c6b5874183de6f3c9#subdirectory=packages/libephemeris-postgres",
-]
-
 [tool.setuptools]
 packages = ["app", "app.config", "app.mcp", "app.mcp.tools", "app.middleware", "app.routers", "app.types", "app.types.request_domains", "app.types.response_domains", "app.utils"]
 package-dir = {app = "."}

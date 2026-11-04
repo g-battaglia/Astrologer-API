@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import functools
 import json
+import math
 import os
 import sys
 import threading
@@ -231,7 +232,8 @@ def _catalog_coverage_reviewed(body_coverage: Any, body_id: int, inventory: dict
 
     v4 deliberately leaves a multi-file coverage envelope unlabeled/unreviewed.
     It is not a serving image. Only the hash-verified live inventory can attest
-    its contributors; the envelope alone must never grant readiness.
+    its contributors and their continuous union; the envelope alone must never
+    grant readiness.
     """
     if body_coverage is None:
         return False
@@ -249,9 +251,15 @@ def _catalog_coverage_reviewed(body_coverage: Any, body_id: int, inventory: dict
         return False
     starts = [body.get("jd_start") for _image, body in contributors]
     ends = [body.get("jd_end") for _image, body in contributors]
-    if not all(isinstance(value, (int, float)) for value in (*starts, *ends)):
+    if not all(isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value) for value in (*starts, *ends)):
         return False
-    return min(starts) == body_coverage.jd_start and max(ends) == body_coverage.jd_end
+    intervals = sorted(zip(starts, ends))
+    coverage_start, coverage_end = intervals[0]
+    for start, end in intervals:
+        if start > end or start > coverage_end:
+            return False
+        coverage_end = max(coverage_end, end)
+    return coverage_start == body_coverage.jd_start and coverage_end == body_coverage.jd_end
 
 
 def validate_ephemeris_runtime() -> dict[str, Any]:
