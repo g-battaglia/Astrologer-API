@@ -226,6 +226,34 @@ def _required_product_catalog(ephe: Any) -> list[tuple[str, int]]:
     return [(name, int(body_id)) for name, body_id in candidates if body_id in ephe.SPK_BODY_NAME_MAP]
 
 
+def _catalog_coverage_reviewed(body_coverage: Any, body_id: int, inventory: dict[str, Any]) -> bool:
+    """Authenticate undated native envelopes from every contributing image.
+
+    v4 deliberately leaves a multi-file coverage envelope unlabeled/unreviewed.
+    It is not a serving image. Only the hash-verified live inventory can attest
+    its contributors; the envelope alone must never grant readiness.
+    """
+    if body_coverage is None:
+        return False
+    if body_coverage.reviewed:
+        return True
+    if getattr(body_coverage, "data_file", None) is not None:
+        return False
+    contributors = [
+        (image, body)
+        for image in inventory.get("files", [])
+        for body in image.get("bodies", [])
+        if body.get("body_id") == body_id
+    ]
+    if not contributors or not all(image.get("reviewed") is True for image, _body in contributors):
+        return False
+    starts = [body.get("jd_start") for _image, body in contributors]
+    ends = [body.get("jd_end") for _image, body in contributors]
+    if not all(isinstance(value, (int, float)) for value in (*starts, *ends)):
+        return False
+    return min(starts) == body_coverage.jd_start and max(ends) == body_coverage.jd_end
+
+
 def validate_ephemeris_runtime() -> dict[str, Any]:
     """Inspect the active runtime and return a machine-readable readiness report."""
     errors: list[str] = []
@@ -336,27 +364,26 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
             entry = {
                 "point_name": point_name,
                 "body_id": body_id,
-                "reviewed": bool(body_coverage and body_coverage.reviewed),
+                "reviewed": _catalog_coverage_reviewed(body_coverage, body_id, inventory),
                 "coverage_start_jd": body_coverage.jd_start if body_coverage else None,
                 "coverage_end_jd": body_coverage.jd_end if body_coverage else None,
             }
             report["catalog"].append(entry)
             if body_coverage is None:
                 errors.append(f"Exposed point has no LEB coverage: {point_name} ({body_id}).")
-            elif not body_coverage.reviewed:
+            elif not entry["reviewed"]:
                 errors.append(f"Exposed point is backed by unreviewed data: {point_name} ({body_id}).")
     except Exception as exc:
         errors.append(f"Cannot validate the exposed point catalog: {exc}")
 
     try:
-        from libephemeris.iers_data import (
-            DEFAULT_MAX_AGE_DAYS,
-            get_iers_cache_info,
-            load_iers_data,
-        )
+        from libephemeris import iers_data
 
-        load_iers_data(force_download=False)
-        iers_info = get_iers_cache_info()
+        # The native beta exposes this public constant at runtime but its stub
+        # re-export lacks a concrete declaration. Keep the runtime policy.
+        max_age_days = float(getattr(iers_data, "DEFAULT_MAX_AGE_DAYS"))
+        iers_data.load_iers_data(force_download=False)
+        iers_info = iers_data.get_iers_cache_info()
         report["iers"] = {
             "finals": bool(iers_info.get("finals_exists")),
             "leap_seconds": bool(iers_info.get("leap_seconds_exists")),
@@ -377,10 +404,10 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         stale_iers = [
             name.removesuffix("_age_days")
             for name in ("finals_age_days", "leap_seconds_age_days", "delta_t_age_days")
-            if isinstance(report["iers"].get(name), (int, float)) and report["iers"][name] > DEFAULT_MAX_AGE_DAYS
+            if isinstance(report["iers"].get(name), (int, float)) and report["iers"][name] > max_age_days
         ]
         if stale_iers:
-            warnings.append(f"IERS cache refresh is overdue for: {', '.join(stale_iers)} (>{DEFAULT_MAX_AGE_DAYS} days).")
+            warnings.append(f"IERS cache refresh is overdue for: {', '.join(stale_iers)} (>{max_age_days:g} days).")
     except Exception as exc:
         errors.append(f"Cannot inspect IERS cache: {exc}")
 

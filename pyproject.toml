@@ -20,8 +20,8 @@ dependencies = [
     "typing-extensions",
     "pyjwt>=2.10.1",
     "mcp[cli]",
-    "kerykeion @ https://github.com/g-battaglia/kerykeion/releases/download/v6.0.5/kerykeion-6.0.5-py3-none-any.whl",
-    "libephemeris @ git+https://github.com/g-battaglia/libephemeris@efbf04f95dc16d386ccac96c6b5874183de6f3c9",
+    "kerykeion==6.1.0b1",
+    "libephemeris==4.0.0b1",
 ]
 
 [project.optional-dependencies]

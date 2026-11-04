@@ -25,6 +25,7 @@ from kerykeion.settings.config_constants import DEFAULT_ACTIVE_POINTS
 
 from kerykeion.schemas import MoonPhaseOverviewModel
 
+from .ephemeris_source_collector import record_subject_sources
 from .heavy_work import ServerBusyError, run_heavy  # noqa: F401 - compatibility re-export
 from .logging_utils import get_request_id, log_exception
 from .rendering_validation import validate_colors_settings, validate_language_pack
@@ -310,6 +311,7 @@ def build_subject(subject_request: SubjectModel, *, active_points: Optional[Sequ
 
         subject.active_midpoints = MidpointFactory.compute_active_midpoint_points(subject, midpoint_pairs)
 
+    record_subject_sources(subject)
     return subject
 
 
@@ -367,6 +369,7 @@ def build_now_subject(request_body, utc_datetime) -> object:
 
         subject.active_midpoints = MidpointFactory.compute_active_midpoint_points(subject, midpoint_pairs)
 
+    record_subject_sources(subject)
     return subject
 
 
@@ -388,7 +391,7 @@ def build_transit_subject(
 
     v6_kwargs = _extract_v6_calculation_config(natal_subject_request) if natal_subject_request else {}
 
-    return AstrologicalSubjectFactory.from_birth_data(
+    subject = AstrologicalSubjectFactory.from_birth_data(
         name=transit_request.name or "Transit",
         year=transit_request.year,
         month=transit_request.month,
@@ -415,6 +418,8 @@ def build_transit_subject(
         custom_ayanamsa_ayan_t0=custom_ayanamsa_ayan_t0,
         **v6_kwargs,
     )
+    record_subject_sources(subject)
+    return subject
 
 
 @functools.lru_cache(maxsize=8)
@@ -1053,6 +1058,7 @@ def calculate_return_chart_data(
             raise KerykeionException("Year must be provided when iso_datetime is not set.")
         return_subject = return_factory.next_return_from_date(request_body.year, 1, 1, return_type=return_type, backwards=backwards)
 
+    record_subject_sources(return_subject)
     if request_body.wheel_type == "dual":
         chart_data = ChartDataFactory.create_chart_data(
             "DualReturnChart",
@@ -1086,6 +1092,7 @@ def calculate_return_chart_data(
 def _build_return_chart_data(request_body, natal_subject, return_subject, active_points, active_aspects):
     """Shared dual/single return chart-data construction for heliocentric and
     lunar-node-crossing returns."""
+    record_subject_sources(return_subject)
     if request_body.wheel_type == "dual":
         return ChartDataFactory.create_chart_data(
             "DualReturnChart",
@@ -1286,6 +1293,7 @@ def create_composite_chart_data(
     else:
         composite_subject = composite_factory.get_midpoint_composite_subject_model()
 
+    record_subject_sources(composite_subject)
     chart_data = ChartDataFactory.create_chart_data(
         "Composite",
         composite_subject,
@@ -1323,6 +1331,7 @@ def create_moon_phase_overview(
         suppress_geonames_warning=True,
     )
 
+    record_subject_sources(subject)
     return MoonPhaseDetailsFactory.from_subject(
         subject,
         using_default_location=request_body.using_default_location,
