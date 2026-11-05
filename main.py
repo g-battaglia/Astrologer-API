@@ -93,7 +93,7 @@ def _prewarm_required() -> bool:
     return os.environ.get("EPHEMERIS_REQUIRE_PREWARM", "false").lower() in ("1", "true", "yes")
 
 
-def _warm_ephemeris_readers() -> None:
+def _warm_ephemeris_readers() -> bool:
     """Open, warm and then release the sealed readers. Blocking — thread only.
 
     Cooling an unvalidated reader would violate the startup boundary, so this
@@ -137,8 +137,27 @@ def _warm_ephemeris_readers() -> None:
             suppress_geonames_warning=True,
             active_points=["Sun", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"],
         )
-    if release_cache():
+    released = release_cache()
+    if released:
         _logger.info("Ephemeris page cache release requested")
+    return released
+
+
+async def _retry_warmup_cache_release(deadline: float) -> None:
+    """Retry a refused warm-up release without delaying worker availability."""
+    try:
+        while time.monotonic() < deadline:
+            if await anyio.to_thread.run_sync(is_ephemeris_ready):
+                if await anyio.to_thread.run_sync(release_cache):
+                    _logger.info("Ephemeris page cache release requested after readiness refresh")
+                    return
+            await asyncio.sleep(_PREWARM_POLL_INTERVAL_S)
+        _logger.warning("Ephemeris warm-up cache release retry deadline reached")
+    except asyncio.CancelledError:
+        raise
+    except Exception as exc:
+        # Cache advice is best effort; a retry failure does not undo warm-up.
+        _logger.warning("Ephemeris warm-up cache release retry failed (%s)", type(exc).__name__)
 
 
 async def _prewarm_when_ready(application: FastAPI | None = None) -> None:
@@ -167,10 +186,12 @@ async def _prewarm_when_ready(application: FastAPI | None = None) -> None:
             await asyncio.sleep(_PREWARM_POLL_INTERVAL_S)
 
         t0 = time.perf_counter()
-        await anyio.to_thread.run_sync(_warm_ephemeris_readers)
+        released = await anyio.to_thread.run_sync(_warm_ephemeris_readers)
         if application is not None:
             application.state.ephemeris_warmup_state = "ready"
         _logger.info("Ephemeris pre-warm complete (%.0f ms)", (time.perf_counter() - t0) * 1000)
+        if released is False:
+            await _retry_warmup_cache_release(deadline)
     except asyncio.CancelledError:
         raise
     except Exception as e:
