@@ -7,6 +7,7 @@ import logging
 import math
 import os
 import threading
+import time
 from concurrent.futures import ThreadPoolExecutor
 
 from .ephemeris_readiness import is_ephemeris_ready_latched
@@ -21,6 +22,7 @@ _EXECUTOR = ThreadPoolExecutor(max_workers=1, thread_name_prefix="cache-release"
 _state_lock = threading.Lock()
 _active_calculations = 0
 _activity_generation = 0
+_last_release_warning: float | None = None
 
 
 def calculation_started() -> None:
@@ -42,19 +44,38 @@ def activity_snapshot() -> tuple[int, int]:
         return _active_calculations, _activity_generation
 
 
-def release_cache() -> None:
-    """Best-effort blocking advisory call; execute only in `_EXECUTOR`."""
+def release_cache() -> bool:
+    """Best-effort idle/warm-up release; run outside the event loop."""
+    global _last_release_warning
     if not is_ephemeris_ready_latched():
-        return
+        return False
     try:
         import libephemeris as ephe
 
-        reader = ephe.get_leb_reader()
-        if reader:
-            reader.cool()
-        ephe.release_data_cache()
-    except Exception:
-        logger.debug("Page-cache release failed", exc_info=False)
+        cool_all = getattr(ephe, "cool_leb_readers", None)
+        if cool_all is not None:
+            # This visits acquired descriptors only, without discovery, hashing
+            # or a recursive scan of unrelated data files.
+            # The decoded cache already has a small native byte budget. Keep
+            # it hot so releasing multi-gigabyte file cache does not undo warmup.
+            cool_all(clear_coefficients=False)
+        else:
+            # Compatibility with earlier native/legacy releases.
+            reader = ephe.get_leb_reader()
+            if reader:
+                reader.cool()
+            ephe.release_data_cache()
+        return True
+    except Exception as exc:
+        now = time.monotonic()
+        with _state_lock:
+            warn = _last_release_warning is None or now - _last_release_warning >= 60
+            if warn:
+                _last_release_warning = now
+        if warn:
+            # Paths, provider errors and request data must not escape in logs.
+            logger.warning("Ephemeris cache release failed (%s)", type(exc).__name__)
+        return False
 
 
 async def cache_release_loop(stop: asyncio.Event) -> None:

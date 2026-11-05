@@ -49,7 +49,7 @@ from .mcp.server import create_mcp_server, mcp as default_mcp_server
 from .middleware.secret_key_checker_middleware import SecretKeyCheckerMiddleware, auth_is_open
 from .middleware.ephemeris_debug_middleware import EphemerisDebugMiddleware
 from .middleware.ephemeris_readiness_middleware import EphemerisReadinessMiddleware
-from .utils.cache_release import cache_release_loop
+from .utils.cache_release import cache_release_loop, release_cache
 from .utils.ephemeris_readiness import is_ephemeris_ready
 from .types.response_models import Public422Response
 from .utils.logging_utils import log_exception
@@ -137,16 +137,8 @@ def _warm_ephemeris_readers() -> None:
             suppress_geonames_warning=True,
             active_points=["Sun", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"],
         )
-    try:
-        import libephemeris as _eph
-
-        reader = _eph.get_leb_reader()
-        if reader:
-            reader.cool()
-        _eph.release_data_cache()
-        _logger.info("Ephemeris page cache released")
-    except Exception:
-        pass
+    if release_cache():
+        _logger.info("Ephemeris page cache release requested")
 
 
 async def _prewarm_when_ready(application: FastAPI | None = None) -> None:

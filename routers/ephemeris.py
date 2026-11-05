@@ -4,6 +4,7 @@ import inspect
 import json
 from datetime import datetime
 from functools import lru_cache
+from io import BytesIO
 from logging import getLogger
 from typing import Any, Callable, cast
 from fastapi import APIRouter, Request, Response
@@ -175,42 +176,44 @@ async def ephemeris_data(request_body: EphemerisRequestModel, request: Request) 
             **fixed_stars_kwargs,
         )
 
-        data = await run_heavy(factory.get_ephemeris_data, as_model=True)
-
-        def _serialize_body() -> bytes:
-            # Serialization cost scales with samples × nested models: when the
-            # caller excluded houses, skip the twelve house-cusp models at dump
-            # time instead of serializing and then discarding them (the previous
-            # dump-then-overwrite wasted 12 model dumps per sample).
+        def _calculate_and_serialize() -> bytes:
+            # Keep admission until conversion completes. An iterator avoids a
+            # whole batch of models and dumped dictionaries coexisting in RAM;
+            # older factories retain their list API as a compatibility fallback.
+            generate = getattr(factory, "iter_ephemeris_data", factory.get_ephemeris_data)
+            samples = generate(as_model=True)
             exclude = None if request_body.include_houses else {"houses"}
-            rows = [sample.model_dump(mode="json", exclude=exclude, exclude_none=request_body.omit_nulls) for sample in data]
-            for row in rows:
-                if not request_body.include_houses:
-                    row["houses"] = []
-                # Public contract: the fixed_stars key is present only when stars
-                # were requested, keeping star-less responses byte-identical
-                # across kerykeion versions (newer models always carry the field).
-                if not requested_fixed_stars:
-                    row.pop("fixed_stars", None)
-            # Same dumps arguments as starlette's JSONResponse.render, so the
-            # bytes on the wire are identical to the previous in-loop path.
-            # The truncation field appears ONLY when a cut happened, keeping
-            # untrimmed responses byte-identical to the previous contract.
-            payload: dict = {"status": "OK", "ephemeris": rows}
-            if fixed_stars_truncation is not None:
-                payload["fixed_stars_truncated"] = fixed_stars_truncation
-            return json.dumps(
-                payload,
-                ensure_ascii=False,
-                allow_nan=False,
-                indent=None,
-                separators=(",", ":"),
-            ).encode("utf-8")
+            def encode(value: Any) -> bytes:
+                return json.dumps(value, ensure_ascii=False, allow_nan=False, separators=(",", ":")).encode("utf-8")
 
-        # Dumping and JSON-encoding hundreds of samples takes hundreds of
-        # milliseconds: keep it off the event loop so liveness probes stay
-        # responsive while a batch is being serialized.
-        body = await run_heavy(_serialize_body)
+            try:
+                with BytesIO() as body:
+                    body.write(b'{"status":"OK","ephemeris":[')
+                    first = True
+                    for sample in samples:
+                        row = sample.model_dump(mode="json", exclude=exclude, exclude_none=request_body.omit_nulls)
+                        if not request_body.include_houses:
+                            row["houses"] = []
+                        if not requested_fixed_stars:
+                            row.pop("fixed_stars", None)
+                        if not first:
+                            body.write(b",")
+                        body.write(encode(row))
+                        first = False
+                    body.write(b"]")
+                    if fixed_stars_truncation is not None:
+                        body.write(b',"fixed_stars_truncated":')
+                        body.write(encode(fixed_stars_truncation))
+                    body.write(b"}")
+                    return body.getvalue()
+            finally:
+                close = getattr(samples, "close", None)
+                if close is not None:
+                    close()
+
+        # Finish validation/calculation before response headers: failures retain
+        # their normal error response, and serialization stays off the event loop.
+        body = await run_heavy(_calculate_and_serialize)
 
         return Response(
             content=body,
