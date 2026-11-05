@@ -177,6 +177,7 @@ async def ephemeris_data(request_body: EphemerisRequestModel, request: Request) 
         )
 
         def _calculate_and_serialize() -> bytes:
+            """Encode one sample at a time while retaining heavy-work admission."""
             # Keep admission until conversion completes. An iterator avoids a
             # whole batch of models and dumped dictionaries coexisting in RAM;
             # older factories retain their list API as a compatibility fallback.
@@ -184,6 +185,7 @@ async def ephemeris_data(request_body: EphemerisRequestModel, request: Request) 
             samples = generate(as_model=True)
             exclude = None if request_body.include_houses else {"houses"}
             def encode(value: Any) -> bytes:
+                """Use strict JSON semantics shared by the response envelope."""
                 return json.dumps(value, ensure_ascii=False, allow_nan=False, separators=(",", ":")).encode("utf-8")
 
             try:

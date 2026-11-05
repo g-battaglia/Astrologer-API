@@ -71,7 +71,7 @@ def _required_leb_groups() -> tuple[str, ...]:
     fallback answers.
     """
     try:
-        from libephemeris.leb_groups import LEB2_GROUPS
+        from libephemeris.download import LEB2_GROUPS
     except Exception:  # noqa: BLE001 — any import-time failure means "fall back"
         return _probe_leb_groups()
     return tuple(LEB2_GROUPS)
