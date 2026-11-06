@@ -223,6 +223,7 @@ def _rebuild_exception(name: str, msg: str) -> BaseException:
 
 
 def native_search_reuse_enabled() -> bool:
+    """Read the optional worker-reuse policy, rejecting ambiguous values."""
     value = os.environ.get("NATIVE_SEARCH_REUSE", "false").strip().lower()
     if value not in {"true", "false", "1", "0", "yes", "no"}:
         raise RuntimeError("NATIVE_SEARCH_REUSE must be a boolean")
@@ -230,6 +231,7 @@ def native_search_reuse_enabled() -> bool:
 
 
 def _warm_native_search_runtime() -> None:
+    """Authenticate all selected data and warm the actual serving child."""
     from kerykeion import AstrologicalSubjectFactory
     from kerykeion.ephemeris_backend.backend import BACKEND_NAME, ephe
 
@@ -245,6 +247,7 @@ def _warm_native_search_runtime() -> None:
 
 
 def _cool_native_search_runtime() -> None:
+    """Release unused mapped pages while retaining verified bounded caches."""
     from kerykeion.ephemeris_backend.backend import BACKEND_NAME, ephe
 
     cool = getattr(ephe, "cool_leb_readers", None)
@@ -255,21 +258,27 @@ def _cool_native_search_runtime() -> None:
 
 
 class _ReusableResultSink:
+    """Adapt one-shot workers to a pipe owned by the persistent worker loop."""
+
     def __init__(self, connection: Any):
+        """Wrap the persistent pipe and start with no successful response."""
         self.connection = connection
         self.ok = False
 
     def send(self, result: tuple) -> None:
+        """Forward a result and record whether the process remains reusable."""
         self.ok = result[0] == "ok"
         self.connection.send(result)
 
     def close(self) -> None:
+        """Leave pipe ownership with the loop after a one-shot worker returns."""
         # The existing one-shot workers close their result sink. The persistent
         # loop owns this connection and closes it after its final job instead.
         pass
 
 
 def _native_search_worker_loop(connection: Any, initializer: Callable | None = None, worker: Callable | None = None) -> None:
+    """Warm once, serve serial jobs and exit after an unsuccessful job."""
     try:
         (initializer or _warm_native_search_runtime)()
         connection.send(("ok", None))
@@ -302,6 +311,7 @@ def _native_search_worker_loop(connection: Any, initializer: Callable | None = N
 
 @dataclass(eq=False)
 class _RetainedWorker:
+    """Own a spawned process, its IPC endpoints and its shared reap future."""
     process: Any
     connection: Any
     child_connection: Any
@@ -309,6 +319,7 @@ class _RetainedWorker:
 
 
 def _pooled_exchange(worker: _RetainedWorker, kind: str, kwargs: dict, timeout: float) -> tuple:
+    """Send and receive off-loop within one shared IPC wall-time budget."""
     # IPC writes can block too. Keep serialization/write and wait off the event
     # loop; the parent's independent wall-clock watchdog covers both phases.
     started = time.monotonic()
@@ -320,12 +331,16 @@ def _pooled_exchange(worker: _RetainedWorker, kind: str, kwargs: dict, timeout: 
 
 
 def _consume_background_failure(future: asyncio.Future) -> None:
+    """Observe a shielded future's exception after its caller was cancelled."""
     if not future.cancelled():
         future.exception()
 
 
 class _NativeSearchPool:
+    """Manage prewarmed, serially leased and independently killable children."""
+
     def __init__(self, *, initializer: Callable | None = None, worker: Callable | None = None):
+        """Initialize loop-owned lifecycle state and optional spawn test seams."""
         self.initializer = initializer
         self.worker = worker
         self.available: asyncio.Queue[_RetainedWorker] = asyncio.Queue()
@@ -338,6 +353,7 @@ class _NativeSearchPool:
         self.owners = 0
 
     async def _discard(self, worker: _RetainedWorker) -> None:
+        """Finish reaping before propagating even repeated caller cancellation."""
         if worker.reap is None:
             worker.reap = asyncio.get_running_loop().run_in_executor(
                 _NATIVE_REAP_EXECUTOR, _reap, worker.process, worker.connection, worker.child_connection,
@@ -354,6 +370,7 @@ class _NativeSearchPool:
             raise asyncio.CancelledError
 
     async def _create(self) -> _RetainedWorker:
+        """Spawn and authenticate one child; reap any unsuccessful startup."""
         parent, child = _MP_CONTEXT.Pipe(duplex=True)
         process = _MP_CONTEXT.Process(target=_native_search_worker_loop, args=(child, self.initializer, self.worker), daemon=True)
         retained = _RetainedWorker(process, parent, child)
@@ -372,6 +389,7 @@ class _NativeSearchPool:
             raise
 
     async def _start(self) -> None:
+        """Warm exactly the existing execution budget before publishing ready."""
         # Reserve the existing execution budget while warming: optional startup
         # traffic cannot create another set of native processes alongside it.
         _, execution = _get_capacity(asyncio.get_running_loop())
@@ -396,12 +414,14 @@ class _NativeSearchPool:
                 execution.release()
 
     async def start(self) -> None:
+        """Share a single startup operation between overlapping lifespan owners."""
         if self.start_task is None:
             self.start_task = asyncio.create_task(self._start())
             self.start_task.add_done_callback(_consume_background_failure)
         await asyncio.shield(self.start_task)
 
     async def _recover(self) -> None:
+        """Replace a reaped child, backing off while warmup remains unavailable."""
         delay = 1.0
         while not self.closed:
             try:
@@ -419,6 +439,7 @@ class _NativeSearchPool:
                 delay = min(30.0, delay * 2)
 
     async def run(self, kind: str, kwargs: dict, timeout: float) -> list:
+        """Lease a ready child and discard it on failure, timeout or cancellation."""
         try:
             worker = self.available.get_nowait()
         except asyncio.QueueEmpty as error:
@@ -452,6 +473,7 @@ class _NativeSearchPool:
                         task.add_done_callback(self.tasks.discard)
 
     async def _close(self) -> None:
+        """Stop creation/recovery and reap every child before draining the queue."""
         self.closed = True
         self.ready = False
         pending = [*self.tasks, *([self.start_task] if self.start_task else [])]
@@ -463,6 +485,7 @@ class _NativeSearchPool:
             self.available.get_nowait()
 
     async def close(self) -> None:
+        """Share complete shutdown and defer cancellation until cleanup finishes."""
         # Lifespan cancellation must not abandon recovery/startup children.
         # Share one complete cleanup even when multiple owners are cancelled.
         if self.close_task is None:
@@ -479,6 +502,7 @@ class _NativeSearchPool:
 
 
 def acquire_native_search_pool() -> _NativeSearchPool | None:
+    """Acquire lifespan ownership of the current loop's optional search pool."""
     if not native_search_reuse_enabled():
         return None
     loop = asyncio.get_running_loop()
@@ -491,6 +515,7 @@ def acquire_native_search_pool() -> _NativeSearchPool | None:
 
 
 async def release_native_search_pool(pool: _NativeSearchPool | None) -> None:
+    """Release ownership and shut down children when the final owner exits."""
     if pool is None:
         return
     pool.owners -= 1
