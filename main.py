@@ -8,6 +8,7 @@ import asyncio
 import logging
 import logging.config
 import os
+import threading
 import time
 from collections.abc import Awaitable, Callable
 from contextlib import asynccontextmanager, suppress
@@ -83,6 +84,9 @@ except Exception:
 # cheap; the deadline stops an unprovisionable worker from polling forever.
 _PREWARM_POLL_INTERVAL_S = 2.0
 _PREWARM_MAX_WAIT_S = 900.0
+# Retained until a retry's worker really exits, including after its awaiter is
+# cancelled. A later lifespan never queues another inventory scan behind it.
+_PREWARM_CACHE_RETRY_LOCK = threading.Lock()
 
 
 def _prewarm_enabled() -> bool:
@@ -144,20 +148,49 @@ def _warm_ephemeris_readers() -> bool:
 
 
 async def _retry_warmup_cache_release(deadline: float) -> None:
-    """Retry a refused warm-up release without delaying worker availability."""
+    """Bound best-effort retry waits without delaying availability or shutdown."""
+    stopped = threading.Event()
+
+    def attempt() -> bool:
+        # Worker cancellation cannot interrupt native I/O. Keep single-flight
+        # ownership until it exits, and skip the next step after cancellation.
+        # No application/request objects or lifespan resources enter this job.
+        if not _PREWARM_CACHE_RETRY_LOCK.acquire(blocking=False):
+            return False
+        try:
+            if stopped.is_set() or time.monotonic() >= deadline:
+                return False
+            if not is_ephemeris_ready():
+                return False
+            if stopped.is_set() or time.monotonic() >= deadline:
+                return False
+            # An already-running call may finish after its awaiter is gone.
+            # Readiness publishes under its own lock; cache advice retains
+            # acquired image owners and decoded coefficients, without closing
+            # readers. Neither operation publishes worker warm-up state.
+            return release_cache()
+        finally:
+            _PREWARM_CACHE_RETRY_LOCK.release()
+
     try:
-        while time.monotonic() < deadline:
-            if await anyio.to_thread.run_sync(is_ephemeris_ready):
-                if await anyio.to_thread.run_sync(release_cache):
-                    _logger.info("Ephemeris page cache release requested after readiness refresh")
-                    return
-            await asyncio.sleep(_PREWARM_POLL_INTERVAL_S)
+        while (remaining := deadline - time.monotonic()) > 0:
+            released = False
+            with anyio.move_on_after(remaining) as waiting:
+                released = await anyio.to_thread.run_sync(attempt, abandon_on_cancel=True)
+            if waiting.cancel_called:
+                break
+            if released:
+                _logger.info("Ephemeris page cache release requested after readiness refresh")
+                return
+            await asyncio.sleep(min(_PREWARM_POLL_INTERVAL_S, max(0.0, deadline - time.monotonic())))
         _logger.warning("Ephemeris warm-up cache release retry deadline reached")
     except asyncio.CancelledError:
         raise
     except Exception as exc:
         # Cache advice is best effort; a retry failure does not undo warm-up.
         _logger.warning("Ephemeris warm-up cache release retry failed (%s)", type(exc).__name__)
+    finally:
+        stopped.set()
 
 
 async def _prewarm_when_ready(application: FastAPI | None = None) -> None:
@@ -220,8 +253,10 @@ async def lifespan(app: FastAPI):
         async with mcp_server.session_manager.run():
             yield
     finally:
-        # A pre-warm still polling or hashing at shutdown is abandoned here, so
-        # it can never outlive the app or block a restart.
+        # Stop polling and cancel the retry wait. A native retry already in
+        # flight may finish safely with process-owned state; its stop token
+        # prevents further steps and its single-flight ownership prevents
+        # replacement retries from piling up across lifespan cycles.
         if prewarm_task is not None:
             prewarm_task.cancel()
             with suppress(asyncio.CancelledError):
