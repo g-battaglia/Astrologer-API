@@ -15,6 +15,7 @@ from contextlib import asynccontextmanager, suppress
 from typing import cast
 
 import anyio
+from .utils.occultation import acquire_native_search_pool, release_native_search_pool, native_search_reuse_enabled
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from starlette.responses import Response
@@ -221,6 +222,11 @@ async def _prewarm_when_ready(application: FastAPI | None = None) -> None:
         t0 = time.perf_counter()
         released = await anyio.to_thread.run_sync(_warm_ephemeris_readers)
         if application is not None:
+            pool = acquire_native_search_pool()
+            application.state.native_search_pool = pool
+            if pool is not None:
+                await pool.start()
+        if application is not None:
             application.state.ephemeris_warmup_state = "ready"
         _logger.info("Ephemeris pre-warm complete (%.0f ms)", (time.perf_counter() - t0) * 1000)
         if released is False:
@@ -240,6 +246,9 @@ async def lifespan(app: FastAPI):
     prewarm_task: asyncio.Task | None = None
     app.state.ephemeris_warmup_required = _prewarm_required()
     app.state.ephemeris_warmup_state = "warming"
+    app.state.native_search_pool = None
+    if native_search_reuse_enabled() and not _prewarm_enabled():
+        raise RuntimeError("NATIVE_SEARCH_REUSE requires EPHEMERIS_PREWARM")
     if app.state.ephemeris_warmup_required and not _prewarm_enabled():
         raise RuntimeError("EPHEMERIS_REQUIRE_PREWARM requires EPHEMERIS_PREWARM")
     cache_stop = asyncio.Event()
@@ -261,9 +270,13 @@ async def lifespan(app: FastAPI):
             prewarm_task.cancel()
             with suppress(asyncio.CancelledError):
                 await prewarm_task
-        cache_stop.set()
-        with suppress(asyncio.CancelledError):
-            await cache_task
+        try:
+            await release_native_search_pool(app.state.native_search_pool)
+        finally:
+            app.state.native_search_pool = None
+            cache_stop.set()
+            with suppress(asyncio.CancelledError):
+                await cache_task
         # The heavy pool is deliberately NOT shut down here: it is module-level
         # state shared across lifespan cycles, so shutting it down would break
         # any process that starts the app twice (sequential TestClient context
