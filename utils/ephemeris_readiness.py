@@ -71,10 +71,12 @@ def _required_leb_groups() -> tuple[str, ...]:
     fallback answers.
     """
     try:
-        from libephemeris.leb_groups import LEB2_GROUPS
+        from libephemeris import download
+
+        groups = getattr(download, "LEB2_GROUPS")
     except Exception:  # noqa: BLE001 — any import-time failure means "fall back"
         return _probe_leb_groups()
-    return tuple(LEB2_GROUPS)
+    return tuple(groups)
 
 # A failed validation may be a transient filesystem or parse hiccup, so it must
 # be allowed to heal — but re-validating on every poll would let /ready and the

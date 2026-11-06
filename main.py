@@ -8,6 +8,7 @@ import asyncio
 import logging
 import logging.config
 import os
+import threading
 import time
 from collections.abc import Awaitable, Callable
 from contextlib import asynccontextmanager, suppress
@@ -49,7 +50,7 @@ from .mcp.server import create_mcp_server, mcp as default_mcp_server
 from .middleware.secret_key_checker_middleware import SecretKeyCheckerMiddleware, auth_is_open
 from .middleware.ephemeris_debug_middleware import EphemerisDebugMiddleware
 from .middleware.ephemeris_readiness_middleware import EphemerisReadinessMiddleware
-from .utils.cache_release import cache_release_loop
+from .utils.cache_release import cache_release_loop, release_cache
 from .utils.ephemeris_readiness import is_ephemeris_ready
 from .types.response_models import Public422Response
 from .utils.logging_utils import log_exception
@@ -83,6 +84,9 @@ except Exception:
 # cheap; the deadline stops an unprovisionable worker from polling forever.
 _PREWARM_POLL_INTERVAL_S = 2.0
 _PREWARM_MAX_WAIT_S = 900.0
+# Retained until a retry's worker really exits, including after its awaiter is
+# cancelled. A later lifespan never queues another inventory scan behind it.
+_PREWARM_CACHE_RETRY_LOCK = threading.Lock()
 
 
 def _prewarm_enabled() -> bool:
@@ -93,7 +97,7 @@ def _prewarm_required() -> bool:
     return os.environ.get("EPHEMERIS_REQUIRE_PREWARM", "false").lower() in ("1", "true", "yes")
 
 
-def _warm_ephemeris_readers() -> None:
+def _warm_ephemeris_readers() -> bool:
     """Open, warm and then release the sealed readers. Blocking — thread only.
 
     Cooling an unvalidated reader would violate the startup boundary, so this
@@ -137,16 +141,56 @@ def _warm_ephemeris_readers() -> None:
             suppress_geonames_warning=True,
             active_points=["Sun", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"],
         )
-    try:
-        import libephemeris as _eph
+    released = release_cache()
+    if released:
+        _logger.info("Ephemeris page cache release requested")
+    return released
 
-        reader = _eph.get_leb_reader()
-        if reader:
-            reader.cool()
-        _eph.release_data_cache()
-        _logger.info("Ephemeris page cache released")
-    except Exception:
-        pass
+
+async def _retry_warmup_cache_release(deadline: float) -> None:
+    """Bound best-effort retry waits without delaying availability or shutdown."""
+    stopped = threading.Event()
+
+    def attempt() -> bool:
+        # Worker cancellation cannot interrupt native I/O. Keep single-flight
+        # ownership until it exits, and skip the next step after cancellation.
+        # No application/request objects or lifespan resources enter this job.
+        if not _PREWARM_CACHE_RETRY_LOCK.acquire(blocking=False):
+            return False
+        try:
+            if stopped.is_set() or time.monotonic() >= deadline:
+                return False
+            if not is_ephemeris_ready():
+                return False
+            if stopped.is_set() or time.monotonic() >= deadline:
+                return False
+            # An already-running call may finish after its awaiter is gone.
+            # Readiness publishes under its own lock; cache advice retains
+            # acquired image owners and decoded coefficients, without closing
+            # readers. Neither operation publishes worker warm-up state.
+            return release_cache()
+        finally:
+            _PREWARM_CACHE_RETRY_LOCK.release()
+
+    try:
+        while (remaining := deadline - time.monotonic()) > 0:
+            released = False
+            with anyio.move_on_after(remaining) as waiting:
+                released = await anyio.to_thread.run_sync(attempt, abandon_on_cancel=True)
+            if waiting.cancel_called:
+                break
+            if released:
+                _logger.info("Ephemeris page cache release requested after readiness refresh")
+                return
+            await asyncio.sleep(min(_PREWARM_POLL_INTERVAL_S, max(0.0, deadline - time.monotonic())))
+        _logger.warning("Ephemeris warm-up cache release retry deadline reached")
+    except asyncio.CancelledError:
+        raise
+    except Exception as exc:
+        # Cache advice is best effort; a retry failure does not undo warm-up.
+        _logger.warning("Ephemeris warm-up cache release retry failed (%s)", type(exc).__name__)
+    finally:
+        stopped.set()
 
 
 async def _prewarm_when_ready(application: FastAPI | None = None) -> None:
@@ -175,10 +219,12 @@ async def _prewarm_when_ready(application: FastAPI | None = None) -> None:
             await asyncio.sleep(_PREWARM_POLL_INTERVAL_S)
 
         t0 = time.perf_counter()
-        await anyio.to_thread.run_sync(_warm_ephemeris_readers)
+        released = await anyio.to_thread.run_sync(_warm_ephemeris_readers)
         if application is not None:
             application.state.ephemeris_warmup_state = "ready"
         _logger.info("Ephemeris pre-warm complete (%.0f ms)", (time.perf_counter() - t0) * 1000)
+        if released is False:
+            await _retry_warmup_cache_release(deadline)
     except asyncio.CancelledError:
         raise
     except Exception as e:
@@ -207,8 +253,10 @@ async def lifespan(app: FastAPI):
         async with mcp_server.session_manager.run():
             yield
     finally:
-        # A pre-warm still polling or hashing at shutdown is abandoned here, so
-        # it can never outlive the app or block a restart.
+        # Stop polling and cancel the retry wait. A native retry already in
+        # flight may finish safely with process-owned state; its stop token
+        # prevents further steps and its single-flight ownership prevents
+        # replacement retries from piling up across lifespan cycles.
         if prewarm_task is not None:
             prewarm_task.cancel()
             with suppress(asyncio.CancelledError):
