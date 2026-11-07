@@ -20,7 +20,7 @@ dependencies = [
     "typing-extensions",
     "pyjwt>=2.10.1",
     "mcp[cli]",
-    "kerykeion==6.1.0b4",
+    "kerykeion==6.1.0b5",
     "libephemeris==4.0.0b4",
     "svg-polish==1.0.1",
 ]
