@@ -476,11 +476,35 @@ async def deprecated_mcp_sse(request: Request) -> Response:
     )
 
 
+def _describe_moon_phase_event_times(schema: dict) -> None:
+    """Document the API wire exception without changing dependency model types."""
+    contract = (
+        "API event timestamps normally retain the subject's local offset. "
+        "Historical offsets containing seconds are represented in UTC because "
+        "RFC 3339 cannot encode such offsets. The instant and available fractional "
+        "seconds are preserved; the requested timezone and civil day are unchanged."
+    )
+    schemas = schema.get("components", {}).get("schemas", {})
+    for name, fields in (
+        ("MoonPhaseSunInfoModel", ("sunrise", "sunset", "solar_noon")),
+        ("MoonPhaseMoonSummaryModel", ("moonrise", "moonset")),
+    ):
+        model = schemas.get(name)
+        if model is None:
+            continue
+        description = model.get("description", "")
+        if contract not in description:
+            model["description"] = f"{description}\n\n{contract}".strip()
+        for field in fields:
+            model["properties"][field]["description"] = f"{contract} Null when no event is supplied."
+
+
 def _install_openapi_security(application: FastAPI) -> None:
     base_openapi = application.openapi
 
     def openapi_with_security():
         schema = base_openapi()
+        _describe_moon_phase_event_times(schema)
         names = settings.secret_key_names
         if isinstance(names, str):
             names = [names] if names else []

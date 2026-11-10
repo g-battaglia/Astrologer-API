@@ -40,7 +40,10 @@ def register_moon_phase_tools(mcp: Any) -> None:
         Returns phase name, illumination percentage, stage (waxing/waning), lunar age,
         upcoming major phases, next eclipses, sunrise/sunset, and zodiac positions.
         ``location_precision`` rounds the returned coordinates; ``using_default_location``
-        substitutes the library's default observation point.
+        substitutes the library's default observation point. Event timestamps
+        retain local minute-aligned offsets; historical offsets containing
+        seconds are represented in UTC, preserving the exact instant and the
+        requested civil day in both JSON and XML context.
         """
         try:
             subject = await run_heavy(
