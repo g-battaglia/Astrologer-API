@@ -2,6 +2,10 @@
 Moon phase endpoints - detailed lunar phase data.
 
 Endpoints under /api/v6/moon-phase/*.
+
+Event times retain the subject-local offset when RFC 3339 can represent it.
+Historical offsets containing seconds are emitted as the exact UTC instant,
+without rounding the offset or changing the subject's requested civil day.
 """
 
 from logging import getLogger
@@ -42,6 +46,11 @@ async def moon_phase(request_body: MoonPhaseRequestModel, request: Request) -> J
     Includes: phase name, illumination, stage (waxing/waning), age, upcoming major phases,
     next lunar/solar eclipses, sunrise/sunset, sun position, and zodiac signs.
 
+    **Event timestamps:** Sunrise, sunset, solar noon, moonrise and moonset retain
+    their local offset for modern/minute-offset zones. Historical offsets with
+    seconds are represented in UTC to preserve the exact instant and remain
+    compatible with RFC 3339 clients. The requested civil day does not change.
+
     **Parameters:**
     - `year`, `month`, `day`, `hour`, `minute`: Date and time of the event (required).
     - `second`: Seconds (optional, default 0).
@@ -69,6 +78,10 @@ async def moon_phase_context(request_body: MoonPhaseRequestModel, request: Reque
     **POST** `/api/v6/moon-phase/context`
 
     Returns detailed moon phase information with AI-optimized XML context.
+
+    JSON and XML represent the same event instants. Historical event offsets
+    containing seconds are normalized to UTC, without changing the requested
+    civil day; modern/minute-offset timestamps keep their local representation.
 
     **Parameters:**
     - `year`, `month`, `day`, `hour`, `minute`: Date and time of the event (required).

@@ -1347,9 +1347,44 @@ def _format_coordinate(value, precision: int) -> float:
     return rounded
 
 
+def _moon_phase_wire_overview(overview: MoonPhaseOverviewModel) -> MoonPhaseOverviewModel:
+    """Normalize only event offsets that RFC 3339 cannot represent.
+
+    Historical local-mean-time offsets can contain seconds. Pydantic truncates
+    those offset seconds for datetime fields, changing the instant, while JS
+    rejects them in ISO string fields. Convert the original aware instant to UTC
+    BEFORE serialization. Modern/minute-offset values and the subject's local
+    civil-day metadata stay unchanged; no astronomical value is recalculated.
+    Work on copies so callers can safely reuse the original engine model.
+    """
+    updates: dict[str, Any] = {}
+    if overview.sun is not None:
+        solar_updates = {}
+        for field in ("sunrise", "sunset", "solar_noon"):
+            moment = getattr(overview.sun, field)
+            if moment is not None:
+                offset = moment.utcoffset()
+                if offset is not None and offset.total_seconds() % 60:
+                    solar_updates[field] = moment.astimezone(timezone.utc)
+        if solar_updates:
+            updates["sun"] = overview.sun.model_copy(update=solar_updates)
+
+    lunar_updates = {}
+    for field in ("moonrise", "moonset"):
+        text = getattr(overview.moon, field)
+        if text is not None:
+            moment = datetime.fromisoformat(text)
+            offset = moment.utcoffset()
+            if offset is not None and offset.total_seconds() % 60:
+                lunar_updates[field] = iso_utc(moment)
+    if lunar_updates:
+        updates["moon"] = overview.moon.model_copy(update=lunar_updates)
+    return overview.model_copy(update=updates) if updates else overview
+
+
 def moon_phase_payload(overview, *, omit_nulls: bool = False) -> dict:
-    """Wrap a moon phase overview in a standard response payload."""
-    data = dump(overview, omit_nulls=omit_nulls)
+    """Wrap a moon phase overview with instant-preserving RFC 3339 event times."""
+    data = dump(_moon_phase_wire_overview(overview), omit_nulls=omit_nulls)
 
     location = data.get("location")
     if location:
@@ -1365,9 +1400,10 @@ def moon_phase_payload(overview, *, omit_nulls: bool = False) -> dict:
 
 def moon_phase_context_payload(overview, *, omit_nulls: bool = False) -> dict:
     """Wrap a moon phase overview with AI-optimized context in a standard response payload."""
-    data_payload = moon_phase_payload(overview, omit_nulls=omit_nulls)
+    wire_overview = _moon_phase_wire_overview(overview)
+    data_payload = moon_phase_payload(wire_overview, omit_nulls=omit_nulls)
     return {
         "status": data_payload["status"],
-        "context": to_context(overview),
+        "context": to_context(wire_overview),
         "moon_phase_overview": data_payload["moon_phase_overview"],
     }
