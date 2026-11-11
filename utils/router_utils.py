@@ -3,6 +3,7 @@ from __future__ import annotations
 import functools
 import inspect
 import json
+import logging
 from datetime import datetime, timezone
 from logging import getLogger
 from typing import Any, Literal, Optional, Sequence, Union, Callable, cast
@@ -28,6 +29,7 @@ from kerykeion.schemas import MoonPhaseOverviewModel
 from .ephemeris_source_collector import record_subject_sources
 from .heavy_work import ServerBusyError, run_heavy  # noqa: F401 - compatibility re-export
 from .logging_utils import get_request_id, log_exception
+from .observability import emit, request_fields
 from .rendering_validation import validate_colors_settings, validate_language_pack
 from .source_errors import source_failure
 from ..types.request_models import (
@@ -783,9 +785,9 @@ def _build_geonames_error_response(
 async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     """Handle exceptions and return appropriate JSON responses.
 
-    GeoNames errors get contextual messages with city/nation details and are
-    logged at WARNING level. All other errors are logged at ERROR with full
-    traceback.
+    Preserve the response contract while logging only closed classifications.
+    Client validation never becomes an operational alert; unexpected failures
+    are recorded without arbitrary exception text or request content.
     """
     message = str(exc).strip() or exc.__class__.__name__
 
@@ -808,11 +810,17 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     source_result = source_failure(exc)
     if source_result is not None:
         status_code, content = source_result
-        logger.warning(
-            "Ephemeris coefficient source failure | request_id=%s | path=%s | status=%s",
-            get_request_id(request),
-            request.url.path,
-            status_code,
+        emit(
+            logger,
+            "api.source",
+            level=logging.WARNING,
+            request_id=get_request_id(request),
+            http_status=status_code,
+            fault="source",
+            outcome="unavailable",
+            availability_impact="unavailable",
+            error_code="ephemeris_source",
+            **request_fields(request),
         )
         return JSONResponse(
             content=content,
@@ -824,12 +832,7 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     geonames_category = _classify_geonames_error(message)
     if geonames_category is not None:
         city, nation = _extract_location_from_body(body_str)
-        logger.warning(
-            "GeoNames %s | request_id=%s | path=%s",
-            geonames_category,
-            get_request_id(request),
-            request.url.path,
-        )
+        emit(logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), outcome="invalid_arguments", error_code="geonames", **request_fields(request))
         status_code, content = _build_geonames_error_response(
             geonames_category,
             city,
@@ -843,7 +846,7 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     # the ephemeris / timezone math as OverflowError or "out of range"
     # ValueError). Surface that as a clean client error instead of a 500.
     if isinstance(exc, OverflowError) or (isinstance(exc, ValueError) and "out of range" in message.lower()):
-        logger.warning("Date-range overflow | request_id=%s | path=%s", get_request_id(request), request.url.path)
+        emit(logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), http_status=400, outcome="invalid_arguments", error_code="date_range", **request_fields(request))
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -880,7 +883,7 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
             if skipped
             else "Pass is_dst=true or is_dst=false to disambiguate, or shift the time outside the DST transition."
         )
-        logger.warning("DST gap/fold | request_id=%s | path=%s", get_request_id(request), request.url.path)
+        emit(logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), http_status=400, outcome="invalid_arguments", error_code="dst_transition", **request_fields(request))
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -895,7 +898,7 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     # final guard so a future dependency change cannot turn a bounded client
     # request into an internal 500.
     if isinstance(exc, ValueError) and message.lower().startswith(("too many days:", "too many hours:", "too many minutes:")):
-        logger.warning("Ephemeris resource limit | request_id=%s | path=%s", get_request_id(request), request.url.path)
+        emit(logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), http_status=422, outcome="invalid_arguments", error_code="resource_limit", **request_fields(request))
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -907,7 +910,7 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
 
     # --- Bounded heavy-work admission path ---
     if isinstance(exc, ServerBusyError):
-        logger.warning("Heavy-work capacity busy | request_id=%s | path=%s", get_request_id(request), request.url.path)
+        emit(logger, "api.capacity", request_id=get_request_id(request), http_status=503, outcome="busy", availability_impact="unavailable", error_code="capacity", **request_fields(request))
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -925,7 +928,9 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     # simply runs ahead of its engine, and the log line that matters is which
     # capability was asked for.
     if isinstance(exc, EngineCapabilityError):
-        logger.warning("Engine capability refused | request_id=%s | path=%s", get_request_id(request), request.url.path)
+        emit(
+            logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), http_status=422, outcome="invalid_arguments", error_code="engine_capability", **request_fields(request)
+        )
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -936,8 +941,8 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
         )
 
     # --- Generic error path ---
-    log_exception(logger, request, "calculation", exc)
     if isinstance(exc, KerykeionException):
+        emit(logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), http_status=400, outcome="invalid_arguments", **request_fields(request))
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -946,8 +951,8 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
             },
             status_code=400,
         )
-    # Unexpected exception: never leak internal details (paths, library
-    # internals) to the client — the full traceback is already logged above.
+    log_exception(logger, request, "calculation", exc)
+    # Unexpected exception: neither client nor sinks receive internal details.
     return JSONResponse(
         content={
             "status": "ERROR",

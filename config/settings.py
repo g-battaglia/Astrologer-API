@@ -94,6 +94,8 @@ class Settings(BaseSettings):
     # Default ON; flip via TOML or the EPHEMERIS_FIXED_STARS_ENABLED env var
     # (no deploy needed) to reject star-bearing batch requests with a 422.
     ephemeris_fixed_stars_enabled: bool = config.get("ephemeris_fixed_stars_enabled", True)
+    # Explicit local text mode still uses the closed operational record.
+    operational_log_format: str = config.get("operational_log_format", "json")
 
     @property
     def log_level_int(self) -> int:
@@ -109,10 +111,8 @@ class Settings(BaseSettings):
             "disable_existing_loggers": False,
             "formatters": {
                 "default": {
-                    "()": "uvicorn.logging.DefaultFormatter",
-                    "fmt": "[%(asctime)s] %(levelprefix)s %(message)s - Module: %(name)s",
-                    "use_colors": None,
-                    "datefmt": "%Y-%m-%d %H:%M:%S",
+                    "()": "app.utils.observability.EventFormatter",
+                    "pretty": self.operational_log_format == "pretty",
                 },
                 "access": {
                     "()": "uvicorn.logging.AccessFormatter",
@@ -123,8 +123,8 @@ class Settings(BaseSettings):
             "handlers": {
                 "default": {
                     "formatter": "default",
-                    "class": "logging.StreamHandler",
-                    "stream": "ext://sys.stderr",
+                    "class": "app.utils.observability.QuietStreamHandler",
+                    "stream": "ext://sys.stdout",
                 },
                 "access": {
                     "formatter": "access",

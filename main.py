@@ -54,31 +54,23 @@ from .middleware.ephemeris_readiness_middleware import EphemerisReadinessMiddlew
 from .utils.cache_release import cache_release_loop, release_cache
 from .utils.ephemeris_readiness import is_ephemeris_ready
 from .types.response_models import Public422Response
-from .utils.logging_utils import log_exception
+from .utils.logging_utils import get_request_id, log_exception
+from .utils.observability import emit, engine_event, register_routes, request_fields
+from .utils.operational_alerts import shutdown as stop_alerts, startup as start_alerts
 from .utils.source_errors import source_failure
 from .utils.validation_helpers import format_extra_field_error
 
 
 logging.config.dictConfig(settings.LOGGING_CONFIG)
 
-# Log dependency versions and ephemeris backend at startup
+# Installed package versions are attached by the closed formatter. Importing
+# the app does not prove inventory validation or worker warm-up succeeded.
 _logger = logging.getLogger(__name__)
 try:
-    from importlib.metadata import version as _pkg_version
     from kerykeion.ephemeris_backend import BACKEND_NAME as _backend
-
-    _logger.info("kerykeion %s (backend=%s)", _pkg_version("kerykeion"), _backend)
-
-    if _backend == "libephemeris":
-        import libephemeris as _eph
-
-        _mode = _eph.get_calc_mode()
-        _tier = _eph.get_precision_tier()
-        _network = _eph.get_network_policy()
-        _parts = [f"mode={_mode}", f"tier={_tier}", f"network={_network}"]
-        _logger.info("libephemeris %s (%s)", _eph.__version__, ", ".join(_parts))
 except Exception:
-    _logger.warning("ephemeris backend: detection failed")
+    _backend = "unknown"
+emit(_logger, "engine.starting", backend=_backend, outcome="initializing", availability_impact="unknown")
 
 
 # Pre-warm polling. Marker-absent polls cost one stat(), so a short interval is
@@ -210,16 +202,12 @@ async def _prewarm_when_ready(application: FastAPI | None = None) -> None:
             if await anyio.to_thread.run_sync(is_ephemeris_ready):
                 break
             if time.monotonic() >= deadline:
-                _logger.warning(
-                    "Ephemeris pre-warm abandoned: runtime inventory still unvalidated after %.0fs; workers requiring pre-warm remain unavailable",
-                    _PREWARM_MAX_WAIT_S,
-                )
+                engine_event(_logger, "engine.unavailable", backend=_backend)
                 if application is not None:
                     application.state.ephemeris_warmup_state = "warmup-failed"
                 return
             await asyncio.sleep(_PREWARM_POLL_INTERVAL_S)
 
-        t0 = time.perf_counter()
         released = await anyio.to_thread.run_sync(_warm_ephemeris_readers)
         if application is not None:
             pool = acquire_native_search_pool()
@@ -228,21 +216,24 @@ async def _prewarm_when_ready(application: FastAPI | None = None) -> None:
                 await pool.start()
         if application is not None:
             application.state.ephemeris_warmup_state = "ready"
-        _logger.info("Ephemeris pre-warm complete (%.0f ms)", (time.perf_counter() - t0) * 1000)
+        from .utils.ephemeris_readiness import get_cached_ephemeris_status
+
+        engine_event(_logger, "engine.ready", get_cached_ephemeris_status(), backend=_backend)
         if released is False:
             await _retry_warmup_cache_release(deadline)
     except asyncio.CancelledError:
         raise
-    except Exception as e:
+    except Exception:
         # Keep liveness available, but required warm-up must fail closed.
         if application is not None:
             application.state.ephemeris_warmup_state = "warmup-failed"
-        _logger.warning("Ephemeris pre-warm failed: %s", e)
+        engine_event(_logger, "engine.unavailable", backend=_backend)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Warm the sealed runtime and own this app's MCP session manager."""
+    start_alerts()
     prewarm_task: asyncio.Task | None = None
     app.state.ephemeris_warmup_required = _prewarm_required()
     app.state.ephemeris_warmup_state = "warming"
@@ -277,6 +268,7 @@ async def lifespan(app: FastAPI):
             cache_stop.set()
             with suppress(asyncio.CancelledError):
                 await cache_task
+            await anyio.to_thread.run_sync(stop_alerts)
         # The heavy pool is deliberately NOT shut down here: it is module-level
         # state shared across lifespan cycles, so shutting it down would break
         # any process that starts the app twice (sequential TestClient context
@@ -425,12 +417,16 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
         }
         enriched_errors.append(sanitized_error)
 
-    logging.warning(
-        "Validation error | request_id=%s | path=%s | issue_count=%d | issue_types=%s",
-        request.state.request_id if hasattr(request.state, "request_id") else "unassigned",
-        request.url.path,
-        len(enriched_errors),
-        sorted({str(error.get("type", "unknown")) for error in enriched_errors}),
+    emit(
+        _logger,
+        "api.validation",
+        level=logging.WARNING,
+        request_id=get_request_id(request),
+        issue_count=len(enriched_errors),
+        http_status=422,
+        outcome="invalid_arguments",
+        availability_impact="none",
+        **request_fields(request),
     )
 
     return JSONResponse(
@@ -447,11 +443,7 @@ async def global_exception_handler(request: Request, exc: Exception):
     source_result = source_failure(exc)
     if source_result is not None:
         status_code, content = source_result
-        _logger.warning(
-            "Ephemeris coefficient source failure | path=%s | status=%s",
-            request.url.path,
-            status_code,
-        )
+        emit(_logger, "api.source", level=logging.WARNING, http_status=status_code, fault="source", outcome="unavailable", availability_impact="unavailable", **request_fields(request))
         return JSONResponse(
             status_code=status_code,
             headers={"Retry-After": "2"} if status_code == 503 else None,
@@ -636,6 +628,7 @@ def create_app(mcp_server=None) -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    register_routes(application.routes)
     return application
 
 
