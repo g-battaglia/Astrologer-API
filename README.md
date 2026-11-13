@@ -30,6 +30,28 @@ Chart examples:
   </tr>
 </table>
 
+## Run locally
+
+Use Python 3.12 or later. From a checkout of the `v6` branch, install the API
+and the task runner, then start the server:
+
+```sh
+uv run poe start
+# For automatic reload after editing the source:
+uv run poe dev
+```
+
+Both tasks bind to `127.0.0.1:8000` with local access enabled. Open
+`http://127.0.0.1:8000/docs` to try the routes. Calculation endpoints require
+an available LibEphemeris 4.0 inventory. Run
+`uv run libephemeris download leb2-extended` to provision it, or point
+`LIBEPHEMERIS_DATA_DIR` at an existing compatible inventory. The download
+requires several gigabytes of disk space.
+
+`ASTROLOGER_CONFIG_FILE` can point to your own application TOML. For network
+deployment, configure authentication and launch Uvicorn with the appropriate
+bind address and credentials.
+
 ## Quick start
 
 Every request must include your RapidAPI key.

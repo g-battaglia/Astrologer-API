@@ -2,16 +2,20 @@
 This is part of Astrologer API (C) 2023 Giacomo Battaglia
 """
 
+from __future__ import annotations
+
 import asyncio
 import logging
 import logging.config
 import os
+import threading
 import time
 from collections.abc import Awaitable, Callable
 from contextlib import asynccontextmanager, suppress
 from typing import cast
 
 import anyio
+from .utils.occultation import acquire_native_search_pool, release_native_search_pool, native_search_reuse_enabled
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from starlette.responses import Response
@@ -20,9 +24,26 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.routing import APIRoute
 
 from .routers import (
-    misc, charts, data, context, moon_phase, astro_calendar, fixed_stars,
-    fixed_star_discovery, sun_times, moon_voc, dominants, returns, predictive,
-    events, transits, ephemeris, analysis, traditional, locational, reports,
+    misc,
+    charts,
+    data,
+    context,
+    moon_phase,
+    astro_calendar,
+    fixed_stars,
+    fixed_star_discovery,
+    sun_times,
+    moon_voc,
+    dominants,
+    returns,
+    predictive,
+    events,
+    transits,
+    ephemeris,
+    analysis,
+    traditional,
+    locational,
+    reports,
 )
 from .routers.legacy import register_legacy_v6_routes
 from .config.settings import settings
@@ -30,46 +51,47 @@ from .mcp.server import create_mcp_server, mcp as default_mcp_server
 from .middleware.secret_key_checker_middleware import SecretKeyCheckerMiddleware, auth_is_open
 from .middleware.ephemeris_debug_middleware import EphemerisDebugMiddleware
 from .middleware.ephemeris_readiness_middleware import EphemerisReadinessMiddleware
-from .utils.cache_release import cache_release_loop
+from .middleware.request_logging_middleware import RequestLoggingMiddleware
+from .utils.cache_release import cache_release_loop, release_cache
 from .utils.ephemeris_readiness import is_ephemeris_ready
 from .types.response_models import Public422Response
-from .utils.logging_utils import log_exception
+from .utils.logging_utils import get_request_id, log_exception
+from .utils.observability import emit, engine_event, register_routes, request_fields
+from .utils.operational_alerts import shutdown as stop_alerts, startup as start_alerts
+from .utils.source_errors import source_failure
 from .utils.validation_helpers import format_extra_field_error
 
 
 logging.config.dictConfig(settings.LOGGING_CONFIG)
 
-# Log dependency versions and ephemeris backend at startup
+# Installed package versions are attached by the closed formatter. Importing
+# the app does not prove inventory validation or worker warm-up succeeded.
 _logger = logging.getLogger(__name__)
 try:
-    from importlib.metadata import version as _pkg_version
     from kerykeion.ephemeris_backend import BACKEND_NAME as _backend
-
-    _logger.info("kerykeion %s (backend=%s)", _pkg_version("kerykeion"), _backend)
-
-    if _backend == "libephemeris":
-        import libephemeris as _eph
-
-        _mode = _eph.get_calc_mode()
-        _tier = _eph.get_precision_tier()
-        _network = _eph.get_network_policy()
-        _parts = [f"mode={_mode}", f"tier={_tier}", f"network={_network}"]
-        _logger.info("libephemeris %s (%s)", _eph.__version__, ", ".join(_parts))
 except Exception:
-    _logger.warning("ephemeris backend: detection failed")
+    _backend = "unknown"
+emit(_logger, "engine.starting", backend=_backend, outcome="initializing", availability_impact="unknown")
 
 
 # Pre-warm polling. Marker-absent polls cost one stat(), so a short interval is
 # cheap; the deadline stops an unprovisionable worker from polling forever.
 _PREWARM_POLL_INTERVAL_S = 2.0
 _PREWARM_MAX_WAIT_S = 900.0
+# Retained until a retry's worker really exits, including after its awaiter is
+# cancelled. A later lifespan never queues another inventory scan behind it.
+_PREWARM_CACHE_RETRY_LOCK = threading.Lock()
 
 
 def _prewarm_enabled() -> bool:
     return os.environ.get("EPHEMERIS_PREWARM", "true").lower() not in ("0", "false", "no")
 
 
-def _warm_ephemeris_readers() -> None:
+def _prewarm_required() -> bool:
+    return os.environ.get("EPHEMERIS_REQUIRE_PREWARM", "false").lower() in ("1", "true", "yes")
+
+
+def _warm_ephemeris_readers() -> bool:
     """Open, warm and then release the sealed readers. Blocking — thread only.
 
     Cooling an unvalidated reader would violate the startup boundary, so this
@@ -92,19 +114,80 @@ def _warm_ephemeris_readers() -> None:
         online=False,
         suppress_geonames_warning=True,
     )
+    # Prime the required cumulative tiers in this worker. Minor bodies have
+    # narrower source windows, so the historical probes use core planets only.
+    tier = os.environ.get("EPHEMERIS_REQUIRED_TIER", "base").strip().lower()
+    years = {"base": (), "medium": (1700,), "extended": (1700, 1000, -1000)}[tier]
+    for year in years:
+        AstrologicalSubjectFactory.from_birth_data(
+            name="warmup",
+            year=year,
+            month=1,
+            day=1,
+            hour=12,
+            minute=0,
+            city="Greenwich",
+            nation="GB",
+            lng=0.0,
+            lat=51.48,
+            tz_str="Etc/UTC",
+            online=False,
+            suppress_geonames_warning=True,
+            active_points=["Sun", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"],
+        )
+    released = release_cache()
+    if released:
+        _logger.info("Ephemeris page cache release requested")
+    return released
+
+
+async def _retry_warmup_cache_release(deadline: float) -> None:
+    """Bound best-effort retry waits without delaying availability or shutdown."""
+    stopped = threading.Event()
+
+    def attempt() -> bool:
+        # Worker cancellation cannot interrupt native I/O. Keep single-flight
+        # ownership until it exits, and skip the next step after cancellation.
+        # No application/request objects or lifespan resources enter this job.
+        if not _PREWARM_CACHE_RETRY_LOCK.acquire(blocking=False):
+            return False
+        try:
+            if stopped.is_set() or time.monotonic() >= deadline:
+                return False
+            if not is_ephemeris_ready():
+                return False
+            if stopped.is_set() or time.monotonic() >= deadline:
+                return False
+            # An already-running call may finish after its awaiter is gone.
+            # Readiness publishes under its own lock; cache advice retains
+            # acquired image owners and decoded coefficients, without closing
+            # readers. Neither operation publishes worker warm-up state.
+            return release_cache()
+        finally:
+            _PREWARM_CACHE_RETRY_LOCK.release()
+
     try:
-        import libephemeris as _eph
+        while (remaining := deadline - time.monotonic()) > 0:
+            released = False
+            with anyio.move_on_after(remaining) as waiting:
+                released = await anyio.to_thread.run_sync(attempt, abandon_on_cancel=True)
+            if waiting.cancel_called:
+                break
+            if released:
+                _logger.info("Ephemeris page cache release requested after readiness refresh")
+                return
+            await asyncio.sleep(min(_PREWARM_POLL_INTERVAL_S, max(0.0, deadline - time.monotonic())))
+        _logger.warning("Ephemeris warm-up cache release retry deadline reached")
+    except asyncio.CancelledError:
+        raise
+    except Exception as exc:
+        # Cache advice is best effort; a retry failure does not undo warm-up.
+        _logger.warning("Ephemeris warm-up cache release retry failed (%s)", type(exc).__name__)
+    finally:
+        stopped.set()
 
-        reader = _eph.get_leb_reader()
-        if reader:
-            reader.cool()
-        _eph.release_data_cache()
-        _logger.info("Ephemeris page cache released")
-    except Exception:
-        pass
 
-
-async def _prewarm_when_ready() -> None:
+async def _prewarm_when_ready(application: FastAPI | None = None) -> None:
     """Wait for provisioning and prepare readers outside request handling.
 
     The marker may appear after HTTP startup. Polling validates and warms the
@@ -120,33 +203,50 @@ async def _prewarm_when_ready() -> None:
             if await anyio.to_thread.run_sync(is_ephemeris_ready):
                 break
             if time.monotonic() >= deadline:
-                _logger.warning(
-                    "Ephemeris pre-warm abandoned: runtime inventory still unvalidated after %.0fs; "
-                    "the first request will warm the cache",
-                    _PREWARM_MAX_WAIT_S,
-                )
+                engine_event(_logger, "engine.unavailable", backend=_backend)
+                if application is not None:
+                    application.state.ephemeris_warmup_state = "warmup-failed"
                 return
             await asyncio.sleep(_PREWARM_POLL_INTERVAL_S)
 
-        t0 = time.perf_counter()
-        await anyio.to_thread.run_sync(_warm_ephemeris_readers)
-        _logger.info("Ephemeris pre-warm complete (%.0f ms)", (time.perf_counter() - t0) * 1000)
+        released = await anyio.to_thread.run_sync(_warm_ephemeris_readers)
+        if application is not None:
+            pool = acquire_native_search_pool()
+            application.state.native_search_pool = pool
+            if pool is not None:
+                await pool.start()
+        if application is not None:
+            application.state.ephemeris_warmup_state = "ready"
+        from .utils.ephemeris_readiness import get_cached_ephemeris_status
+
+        engine_event(_logger, "engine.ready", get_cached_ephemeris_status(), backend=_backend)
+        if released is False:
+            await _retry_warmup_cache_release(deadline)
     except asyncio.CancelledError:
         raise
-    except Exception as e:
-        # A pre-warm failure is never fatal: the readiness gate still governs
-        # calculation traffic and the first request re-does this work.
-        _logger.warning("Ephemeris pre-warm failed: %s", e)
+    except Exception:
+        # Keep liveness available, but required warm-up must fail closed.
+        if application is not None:
+            application.state.ephemeris_warmup_state = "warmup-failed"
+        engine_event(_logger, "engine.unavailable", backend=_backend)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Warm the sealed runtime and own this app's MCP session manager."""
+    start_alerts()
     prewarm_task: asyncio.Task | None = None
+    app.state.ephemeris_warmup_required = _prewarm_required()
+    app.state.ephemeris_warmup_state = "warming"
+    app.state.native_search_pool = None
+    if native_search_reuse_enabled() and not _prewarm_enabled():
+        raise RuntimeError("NATIVE_SEARCH_REUSE requires EPHEMERIS_PREWARM")
+    if app.state.ephemeris_warmup_required and not _prewarm_enabled():
+        raise RuntimeError("EPHEMERIS_REQUIRE_PREWARM requires EPHEMERIS_PREWARM")
     cache_stop = asyncio.Event()
     cache_task = asyncio.create_task(cache_release_loop(cache_stop))
     if _prewarm_enabled():
-        prewarm_task = asyncio.create_task(_prewarm_when_ready())
+        prewarm_task = asyncio.create_task(_prewarm_when_ready(app))
     else:
         _logger.info("Ephemeris pre-warm skipped (EPHEMERIS_PREWARM=false)")
     try:
@@ -154,15 +254,22 @@ async def lifespan(app: FastAPI):
         async with mcp_server.session_manager.run():
             yield
     finally:
-        # A pre-warm still polling or hashing at shutdown is abandoned here, so
-        # it can never outlive the app or block a restart.
+        # Stop polling and cancel the retry wait. A native retry already in
+        # flight may finish safely with process-owned state; its stop token
+        # prevents further steps and its single-flight ownership prevents
+        # replacement retries from piling up across lifespan cycles.
         if prewarm_task is not None:
             prewarm_task.cancel()
             with suppress(asyncio.CancelledError):
                 await prewarm_task
-        cache_stop.set()
-        with suppress(asyncio.CancelledError):
-            await cache_task
+        try:
+            await release_native_search_pool(app.state.native_search_pool)
+        finally:
+            app.state.native_search_pool = None
+            cache_stop.set()
+            with suppress(asyncio.CancelledError):
+                await cache_task
+            await anyio.to_thread.run_sync(stop_alerts)
         # The heavy pool is deliberately NOT shut down here: it is module-level
         # state shared across lifespan cycles, so shutting it down would break
         # any process that starts the app twice (sequential TestClient context
@@ -311,12 +418,16 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
         }
         enriched_errors.append(sanitized_error)
 
-    logging.warning(
-        "Validation error | request_id=%s | path=%s | issue_count=%d | issue_types=%s",
-        request.state.request_id if hasattr(request.state, "request_id") else "unassigned",
-        request.url.path,
-        len(enriched_errors),
-        sorted({str(error.get("type", "unknown")) for error in enriched_errors}),
+    emit(
+        _logger,
+        "api.validation",
+        level=logging.WARNING,
+        request_id=get_request_id(request),
+        issue_count=len(enriched_errors),
+        http_status=422,
+        outcome="invalid_arguments",
+        availability_impact="none",
+        **request_fields(request),
     )
 
     return JSONResponse(
@@ -330,6 +441,15 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 
 
 async def global_exception_handler(request: Request, exc: Exception):
+    source_result = source_failure(exc)
+    if source_result is not None:
+        status_code, content = source_result
+        emit(_logger, "api.source", level=logging.WARNING, http_status=status_code, fault="source", outcome="unavailable", availability_impact="unavailable", **request_fields(request))
+        return JSONResponse(
+            status_code=status_code,
+            headers={"Retry-After": "2"} if status_code == 503 else None,
+            content=content,
+        )
     log_exception(_logger, request, "unhandled request", exc)
     return JSONResponse(
         status_code=500,
@@ -349,11 +469,35 @@ async def deprecated_mcp_sse(request: Request) -> Response:
     )
 
 
+def _describe_moon_phase_event_times(schema: dict) -> None:
+    """Document the API wire exception without changing dependency model types."""
+    contract = (
+        "API event timestamps normally retain the subject's local offset. "
+        "Historical offsets containing seconds are represented in UTC because "
+        "RFC 3339 cannot encode such offsets. The instant and available fractional "
+        "seconds are preserved; the requested timezone and civil day are unchanged."
+    )
+    schemas = schema.get("components", {}).get("schemas", {})
+    for name, fields in (
+        ("MoonPhaseSunInfoModel", ("sunrise", "sunset", "solar_noon")),
+        ("MoonPhaseMoonSummaryModel", ("moonrise", "moonset")),
+    ):
+        model = schemas.get(name)
+        if model is None:
+            continue
+        description = model.get("description", "")
+        if contract not in description:
+            model["description"] = f"{description}\n\n{contract}".strip()
+        for field in fields:
+            model["properties"][field]["description"] = f"{contract} Null when no event is supplied."
+
+
 def _install_openapi_security(application: FastAPI) -> None:
     base_openapi = application.openapi
 
     def openapi_with_security():
         schema = base_openapi()
+        _describe_moon_phase_event_times(schema)
         names = settings.secret_key_names
         if isinstance(names, str):
             names = [names] if names else []
@@ -371,12 +515,20 @@ def _install_openapi_security(application: FastAPI) -> None:
     application.openapi = openapi_with_security  # type: ignore[method-assign]
 
 
+class MarketplaceFastAPI(FastAPI):
+    def build_middleware_stack(self):
+        # The wrapper observes the response from Starlette's outer error
+        # handler as well as responses returned by application middleware.
+        return RequestLoggingMiddleware(super().build_middleware_stack())
+
+
 def create_app(mcp_server=None) -> FastAPI:
     """Create an independent application and MCP lifecycle."""
     if mcp_server is None:
         mcp_server = create_mcp_server()
 
-    application = FastAPI(
+    app_class = MarketplaceFastAPI if os.getenv("OBSERVABILITY_ROLE") == "marketplace" else FastAPI
+    application = app_class(
         debug=settings.debug,
         docs_url=settings.docs_url,
         redoc_url=settings.redoc_url,
@@ -485,6 +637,7 @@ def create_app(mcp_server=None) -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    register_routes(application.routes)
     return application
 
 

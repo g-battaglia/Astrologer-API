@@ -3,6 +3,7 @@ from __future__ import annotations
 import functools
 import inspect
 import json
+import logging
 from datetime import datetime, timezone
 from logging import getLogger
 from typing import Any, Literal, Optional, Sequence, Union, Callable, cast
@@ -25,9 +26,12 @@ from kerykeion.settings.config_constants import DEFAULT_ACTIVE_POINTS
 
 from kerykeion.schemas import MoonPhaseOverviewModel
 
+from .ephemeris_source_collector import record_subject_sources
 from .heavy_work import ServerBusyError, run_heavy  # noqa: F401 - compatibility re-export
 from .logging_utils import get_request_id, log_exception
+from .observability import emit, request_fields
 from .rendering_validation import validate_colors_settings, validate_language_pack
+from .source_errors import source_failure
 from ..types.request_models import (
     DEFAULT_NAKSHATRA_AYANAMSA,
     _ENGINE_RETURN_FACTORY_ACCEPTS_NAKSHATRA_AYANAMSA,
@@ -309,6 +313,7 @@ def build_subject(subject_request: SubjectModel, *, active_points: Optional[Sequ
 
         subject.active_midpoints = MidpointFactory.compute_active_midpoint_points(subject, midpoint_pairs)
 
+    record_subject_sources(subject)
     return subject
 
 
@@ -366,6 +371,7 @@ def build_now_subject(request_body, utc_datetime) -> object:
 
         subject.active_midpoints = MidpointFactory.compute_active_midpoint_points(subject, midpoint_pairs)
 
+    record_subject_sources(subject)
     return subject
 
 
@@ -387,7 +393,7 @@ def build_transit_subject(
 
     v6_kwargs = _extract_v6_calculation_config(natal_subject_request) if natal_subject_request else {}
 
-    return AstrologicalSubjectFactory.from_birth_data(
+    subject = AstrologicalSubjectFactory.from_birth_data(
         name=transit_request.name or "Transit",
         year=transit_request.year,
         month=transit_request.month,
@@ -414,6 +420,8 @@ def build_transit_subject(
         custom_ayanamsa_ayan_t0=custom_ayanamsa_ayan_t0,
         **v6_kwargs,
     )
+    record_subject_sources(subject)
+    return subject
 
 
 @functools.lru_cache(maxsize=8)
@@ -777,9 +785,9 @@ def _build_geonames_error_response(
 async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     """Handle exceptions and return appropriate JSON responses.
 
-    GeoNames errors get contextual messages with city/nation details and are
-    logged at WARNING level. All other errors are logged at ERROR with full
-    traceback.
+    Preserve the response contract while logging only closed classifications.
+    Client validation never becomes an operational alert; unexpected failures
+    are recorded without arbitrary exception text or request content.
     """
     message = str(exc).strip() or exc.__class__.__name__
 
@@ -796,16 +804,35 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
         )
         body_str = ""
 
+    # --- Configured ephemeris source path ---
+    # Check the complete cause/context chain before library-specific mappings:
+    # callers may wrap a source failure in a Kerykeion exception.
+    source_result = source_failure(exc)
+    if source_result is not None:
+        status_code, content = source_result
+        emit(
+            logger,
+            "api.source",
+            level=logging.WARNING,
+            request_id=get_request_id(request),
+            http_status=status_code,
+            fault="source",
+            outcome="unavailable",
+            availability_impact="unavailable",
+            error_code="ephemeris_source",
+            **request_fields(request),
+        )
+        return JSONResponse(
+            content=content,
+            status_code=status_code,
+            headers={"Retry-After": "2"} if status_code == 503 else None,
+        )
+
     # --- GeoNames-specific path ---
     geonames_category = _classify_geonames_error(message)
     if geonames_category is not None:
         city, nation = _extract_location_from_body(body_str)
-        logger.warning(
-            "GeoNames %s | request_id=%s | path=%s",
-            geonames_category,
-            get_request_id(request),
-            request.url.path,
-        )
+        emit(logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), outcome="invalid_arguments", error_code="geonames", **request_fields(request))
         status_code, content = _build_geonames_error_response(
             geonames_category,
             city,
@@ -819,7 +846,7 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     # the ephemeris / timezone math as OverflowError or "out of range"
     # ValueError). Surface that as a clean client error instead of a 500.
     if isinstance(exc, OverflowError) or (isinstance(exc, ValueError) and "out of range" in message.lower()):
-        logger.warning("Date-range overflow | request_id=%s | path=%s", get_request_id(request), request.url.path)
+        emit(logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), http_status=400, outcome="invalid_arguments", error_code="date_range", **request_fields(request))
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -856,7 +883,7 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
             if skipped
             else "Pass is_dst=true or is_dst=false to disambiguate, or shift the time outside the DST transition."
         )
-        logger.warning("DST gap/fold | request_id=%s | path=%s", get_request_id(request), request.url.path)
+        emit(logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), http_status=400, outcome="invalid_arguments", error_code="dst_transition", **request_fields(request))
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -871,7 +898,7 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     # final guard so a future dependency change cannot turn a bounded client
     # request into an internal 500.
     if isinstance(exc, ValueError) and message.lower().startswith(("too many days:", "too many hours:", "too many minutes:")):
-        logger.warning("Ephemeris resource limit | request_id=%s | path=%s", get_request_id(request), request.url.path)
+        emit(logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), http_status=422, outcome="invalid_arguments", error_code="resource_limit", **request_fields(request))
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -883,7 +910,7 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
 
     # --- Bounded heavy-work admission path ---
     if isinstance(exc, ServerBusyError):
-        logger.warning("Heavy-work capacity busy | request_id=%s | path=%s", get_request_id(request), request.url.path)
+        emit(logger, "api.capacity", request_id=get_request_id(request), http_status=503, outcome="busy", availability_impact="unavailable", error_code="capacity", **request_fields(request))
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -901,7 +928,9 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
     # simply runs ahead of its engine, and the log line that matters is which
     # capability was asked for.
     if isinstance(exc, EngineCapabilityError):
-        logger.warning("Engine capability refused | request_id=%s | path=%s", get_request_id(request), request.url.path)
+        emit(
+            logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), http_status=422, outcome="invalid_arguments", error_code="engine_capability", **request_fields(request)
+        )
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -912,8 +941,8 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
         )
 
     # --- Generic error path ---
-    log_exception(logger, request, "calculation", exc)
     if isinstance(exc, KerykeionException):
+        emit(logger, "api.validation", level=logging.WARNING, request_id=get_request_id(request), http_status=400, outcome="invalid_arguments", **request_fields(request))
         return JSONResponse(
             content={
                 "status": "ERROR",
@@ -922,8 +951,8 @@ async def handle_exception(exc: Exception, request: Request) -> JSONResponse:
             },
             status_code=400,
         )
-    # Unexpected exception: never leak internal details (paths, library
-    # internals) to the client — the full traceback is already logged above.
+    log_exception(logger, request, "calculation", exc)
+    # Unexpected exception: neither client nor sinks receive internal details.
     return JSONResponse(
         content={
             "status": "ERROR",
@@ -1034,6 +1063,7 @@ def calculate_return_chart_data(
             raise KerykeionException("Year must be provided when iso_datetime is not set.")
         return_subject = return_factory.next_return_from_date(request_body.year, 1, 1, return_type=return_type, backwards=backwards)
 
+    record_subject_sources(return_subject)
     if request_body.wheel_type == "dual":
         chart_data = ChartDataFactory.create_chart_data(
             "DualReturnChart",
@@ -1067,6 +1097,7 @@ def calculate_return_chart_data(
 def _build_return_chart_data(request_body, natal_subject, return_subject, active_points, active_aspects):
     """Shared dual/single return chart-data construction for heliocentric and
     lunar-node-crossing returns."""
+    record_subject_sources(return_subject)
     if request_body.wheel_type == "dual":
         return ChartDataFactory.create_chart_data(
             "DualReturnChart",
@@ -1267,6 +1298,7 @@ def create_composite_chart_data(
     else:
         composite_subject = composite_factory.get_midpoint_composite_subject_model()
 
+    record_subject_sources(composite_subject)
     chart_data = ChartDataFactory.create_chart_data(
         "Composite",
         composite_subject,
@@ -1304,6 +1336,7 @@ def create_moon_phase_overview(
         suppress_geonames_warning=True,
     )
 
+    record_subject_sources(subject)
     return MoonPhaseDetailsFactory.from_subject(
         subject,
         using_default_location=request_body.using_default_location,
@@ -1319,9 +1352,44 @@ def _format_coordinate(value, precision: int) -> float:
     return rounded
 
 
+def _moon_phase_wire_overview(overview: MoonPhaseOverviewModel) -> MoonPhaseOverviewModel:
+    """Normalize only event offsets that RFC 3339 cannot represent.
+
+    Historical local-mean-time offsets can contain seconds. Pydantic truncates
+    those offset seconds for datetime fields, changing the instant, while JS
+    rejects them in ISO string fields. Convert the original aware instant to UTC
+    BEFORE serialization. Modern/minute-offset values and the subject's local
+    civil-day metadata stay unchanged; no astronomical value is recalculated.
+    Work on copies so callers can safely reuse the original engine model.
+    """
+    updates: dict[str, Any] = {}
+    if overview.sun is not None:
+        solar_updates = {}
+        for field in ("sunrise", "sunset", "solar_noon"):
+            moment = getattr(overview.sun, field)
+            if moment is not None:
+                offset = moment.utcoffset()
+                if offset is not None and offset.total_seconds() % 60:
+                    solar_updates[field] = moment.astimezone(timezone.utc)
+        if solar_updates:
+            updates["sun"] = overview.sun.model_copy(update=solar_updates)
+
+    lunar_updates = {}
+    for field in ("moonrise", "moonset"):
+        text = getattr(overview.moon, field)
+        if text is not None:
+            moment = datetime.fromisoformat(text)
+            offset = moment.utcoffset()
+            if offset is not None and offset.total_seconds() % 60:
+                lunar_updates[field] = iso_utc(moment)
+    if lunar_updates:
+        updates["moon"] = overview.moon.model_copy(update=lunar_updates)
+    return overview.model_copy(update=updates) if updates else overview
+
+
 def moon_phase_payload(overview, *, omit_nulls: bool = False) -> dict:
-    """Wrap a moon phase overview in a standard response payload."""
-    data = dump(overview, omit_nulls=omit_nulls)
+    """Wrap a moon phase overview with instant-preserving RFC 3339 event times."""
+    data = dump(_moon_phase_wire_overview(overview), omit_nulls=omit_nulls)
 
     location = data.get("location")
     if location:
@@ -1337,9 +1405,10 @@ def moon_phase_payload(overview, *, omit_nulls: bool = False) -> dict:
 
 def moon_phase_context_payload(overview, *, omit_nulls: bool = False) -> dict:
     """Wrap a moon phase overview with AI-optimized context in a standard response payload."""
-    data_payload = moon_phase_payload(overview, omit_nulls=omit_nulls)
+    wire_overview = _moon_phase_wire_overview(overview)
+    data_payload = moon_phase_payload(wire_overview, omit_nulls=omit_nulls)
     return {
         "status": data_payload["status"],
-        "context": to_context(overview),
+        "context": to_context(wire_overview),
         "moon_phase_overview": data_payload["moon_phase_overview"],
     }

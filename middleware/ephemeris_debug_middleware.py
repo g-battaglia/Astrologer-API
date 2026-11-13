@@ -2,8 +2,8 @@
 Ephemeris debug middleware — opt-in ASGI middleware.
 
 Activated exclusively by the ``X-Debug-Ephemeris: true`` request header.
-When active, wraps chart computation in an :class:`EphemerisSourceCollector`
-that uses libephemeris's ContextVar-based tracing to capture which
+When active, wraps chart computation in an :class:`EphemerisRequestSources`
+that accumulates worker-local native traces to capture which
 sub-backend (LEB, Skyfield, Horizons, SPK, ASSIST, Keplerian) computed
 each celestial body, then injects an ``_ephemeris_debug`` key into the
 JSON response body.
@@ -19,7 +19,7 @@ import json
 import logging
 from typing import Any, Callable, Dict, List, Tuple
 
-from ..utils.ephemeris_source_collector import EphemerisSourceCollector
+from ..utils.ephemeris_source_collector import EphemerisRequestSources
 
 logger = logging.getLogger(__name__)
 
@@ -33,8 +33,8 @@ class EphemerisDebugMiddleware:
 
     When ``X-Debug-Ephemeris: true`` is present:
 
-    1. Enters an :class:`EphemerisSourceCollector` context that activates
-       libephemeris's ContextVar-based tracing accumulator.
+    1. Enters an async-safe request scope. Each calculation worker captures
+       its own native trace and publishes sources into that scope.
     2. Buffers the JSON response body.
     3. Injects ``_ephemeris_debug`` with the captured backend map.
     4. Forwards the (possibly modified) response.
@@ -65,7 +65,7 @@ class EphemerisDebugMiddleware:
         await self._handle_debug_request(scope, receive, send)
 
     async def _handle_debug_request(self, scope: Dict[str, Any], receive: Callable, send: Callable) -> None:
-        collector = EphemerisSourceCollector()
+        collector = EphemerisRequestSources()
         response_start: Dict[str, Any] | None = None
         body_parts: List[bytes] = []
 

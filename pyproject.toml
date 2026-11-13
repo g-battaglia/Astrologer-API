@@ -13,24 +13,38 @@ dependencies = [
     "pydantic",
     "pydantic-settings",
     "starlette",
-    "fastapi",
+    "fastapi>=0.128,<0.129",
     "uvicorn",
     "tzdata>=2025.2",
     "scour",
     "typing-extensions",
     "pyjwt>=2.10.1",
-    "mcp[cli]",
-    "kerykeion==6.0.0a93",
-    "libephemeris>=3.1.0,<4"
+    "mcp[cli]<2",
+    "kerykeion==6.1.0",
+    "libephemeris==4.0.0",
+    "svg-polish==1.0.1",
 ]
 
 [tool.setuptools]
-packages = ["app", "app.config", "app.mcp", "app.mcp.tools", "app.middleware", "app.routers", "app.types", "app.utils"]
+packages = ["app", "app.config", "app.mcp", "app.mcp.tools", "app.middleware", "app.routers", "app.types", "app.types.request_domains", "app.types.response_domains", "app.utils"]
 package-dir = {app = "."}
 include-package-data = false
 
 [tool.uv]
 prerelease = "allow"
+
+[dependency-groups]
+dev = ["poethepoet>=0.40,<1"]
+
+[tool.poe.tasks.start]
+help = "Serve the API locally on port 8000"
+cmd = "python -P -m uvicorn app.main:app --app-dir .venv --host 127.0.0.1"
+env = { ASTROLOGER_ALLOW_NO_AUTH = "true" }
+
+[tool.poe.tasks.dev]
+help = "Serve the API locally with automatic reload"
+cmd = "python -P -m uvicorn app.main:app --app-dir .venv --host 127.0.0.1 --reload"
+env = { ASTROLOGER_ALLOW_NO_AUTH = "true", ENV_TYPE = "dev" }
 
 [tool.ruff]
 line-length = 200

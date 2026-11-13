@@ -9,6 +9,8 @@ from starlette.datastructures import Headers
 from starlette.responses import JSONResponse
 from starlette.types import ASGIApp, Receive, Scope, Send
 
+from ..utils.observability import emit
+
 
 def normalize_secret_config(secret_key_names: str | list[str], secret_keys: list) -> tuple[list[str], list[str]]:
     """Normalize raw secret config into ``(names, values)`` with empties removed."""
@@ -73,6 +75,7 @@ class SecretKeyCheckerMiddleware:
                 await self.app(scope, receive, send)
                 return
 
+        emit(logging.getLogger(__name__), "api.authentication", level=logging.WARNING, http_status=403, outcome="forbidden", availability_impact="none")
         response = JSONResponse(
             status_code=403,
             content={

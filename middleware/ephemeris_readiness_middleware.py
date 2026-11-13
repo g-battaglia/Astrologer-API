@@ -10,19 +10,21 @@ until the runtime is ready. ``/health``, ``/ready`` and ``/`` stay reachable so
 operators can distinguish liveness from readiness and inspect the failure.
 """
 
+from __future__ import annotations
+
 import json
 from typing import Any, Callable, Dict
 
 import anyio
 
-from ..utils.ephemeris_readiness import is_ephemeris_ready, is_ephemeris_ready_latched
+from ..utils.ephemeris_readiness import is_ephemeris_ready, is_ephemeris_ready_latched, is_worker_warm
 
 _RETRY_AFTER_S = 60
 
 _BODY = json.dumps(
     {
         "status": "ERROR",
-        "message": (f"The sealed ephemeris runtime is not ready; provisioning or inventory validation is still pending. Retry in about {_RETRY_AFTER_S} seconds."),
+        "message": (f"The sealed ephemeris runtime is not ready; provisioning, inventory validation or worker warm-up is still pending. Retry in about {_RETRY_AFTER_S} seconds."),
         "error_type": "ServiceInitializing",
     }
 ).encode("utf-8")
@@ -45,7 +47,7 @@ class EphemerisReadinessMiddleware:
             # the LEB inventory, so keep that disk work off the event loop;
             # the short negative TTL in get_ephemeris_status() bounds how
             # often a failing runtime is revalidated.
-            runtime_ready = is_ephemeris_ready_latched() or await anyio.to_thread.run_sync(is_ephemeris_ready)
+            runtime_ready = is_worker_warm(scope.get("app")) and (is_ephemeris_ready_latched() or await anyio.to_thread.run_sync(is_ephemeris_ready))
         if not runtime_ready:
             await send(
                 {

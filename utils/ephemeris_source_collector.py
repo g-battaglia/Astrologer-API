@@ -1,22 +1,20 @@
 """
 Ephemeris source collector — captures libephemeris backend information.
 
-Uses libephemeris's ContextVar-based tracing to record which sub-backend
-(LEB, Skyfield, Horizons, SPK, ASSIST, Keplerian) computed each celestial
-body during a chart calculation.
-
-Design constraints:
-- Zero overhead when not in use (ContextVar check ~50ns per body).
-- No log-level manipulation, no regex, no handler attachment.
-- Thread-safe and async-safe via ContextVar.
+Request-local accumulation bridges native thread-local traces from calculation
+workers. Completed subject provenance supplies sources from Kerykeion's nested
+trace scopes, which do not merge into their native parent. No providers are
+inferred from configuration, filenames or precomputed request payloads.
 """
 
 from __future__ import annotations
 
-from contextvars import Token
-from typing import Dict, Optional
+from contextvars import ContextVar, Token
+from threading import Lock
+from typing import Any, Callable, Dict
 
 import libephemeris
+from pydantic import BaseModel
 
 # ---------------------------------------------------------------------------
 # Ephemeris body-ID → human-readable name
@@ -91,44 +89,116 @@ def _resolve_body_name(body_id: int) -> str:
 # ---------------------------------------------------------------------------
 
 
+def _merge_sources(target: Dict[str, str], sources: Dict[str, str]) -> None:
+    for name, source in sources.items():
+        previous = target.get(name)
+        target[name] = source if previous is None or previous == source else "Mixed"
+
+
 class EphemerisSourceCollector:
-    """
-    Context manager that captures ephemeris backend sources via libephemeris tracing.
-
-    Usage::
-
-        collector = EphemerisSourceCollector()
-        with collector:
-            # ... chart calculations ...
-            pass
-        sources = collector.get_sources()
-        # {"Sun": "LEB", "Moon": "Skyfield", "Chiron": "SPK", ...}
-
-    When not used (no ``with`` block entered), zero overhead.
-    """
-
-    __slots__ = ("_token", "_raw_results")
+    """Synchronous native trace; enter and exit on the calculating thread."""
 
     def __init__(self) -> None:
-        self._token: Optional[Token] = None
-        self._raw_results: Dict[int, str] = {}
+        self._token: Any = None
+        self._context_token: Token | None = None
+        self._sources: Dict[str, str] = {}
+        self._reported: Dict[str, str] = {}
 
     def __enter__(self) -> "EphemerisSourceCollector":
+        self._sources = {}
+        self._reported = {}
         self._token = libephemeris.start_tracing()
+        self._context_token = _WORKER_COLLECTOR.set(self)
         return self
 
     def __exit__(self, *exc: object) -> bool:
-        # Snapshot results before resetting the ContextVar
-        self._raw_results = libephemeris.get_trace_results()
-        if self._token is not None:
-            self._token.var.reset(self._token)
+        try:
+            self._sources = self.get_sources()
+        finally:
+            try:
+                if self._token is not None:
+                    self._token.reset()
+            finally:
+                self._token = None
+                if self._context_token is not None:
+                    _WORKER_COLLECTOR.reset(self._context_token)
+                    self._context_token = None
         return False
 
     def get_sources(self) -> Dict[str, str]:
-        """Return ``{point_name: backend}`` for every body observed.
+        """Owned snapshot; an exited empty collector never reads another scope."""
+        if self._token is None:
+            return dict(self._sources)
+        sources = {_resolve_body_name(body): source for body, source in libephemeris.get_trace_results().items()}
+        _merge_sources(sources, self._reported)
+        return sources
 
-        Works both inside the ``with`` block (reads live from ContextVar)
-        and after exit (reads from snapshot taken in ``__exit__``).
-        """
-        raw = self._raw_results or libephemeris.get_trace_results()
-        return {_resolve_body_name(body_id): source for body_id, source in raw.items()}
+
+class EphemerisRequestSources:
+    """Async-safe request scope, with no native token on the event-loop thread."""
+
+    def __init__(self) -> None:
+        self._context_token: Token | None = None
+        self._sources: Dict[str, str] = {}
+        self._lock = Lock()
+
+    def __enter__(self) -> "EphemerisRequestSources":
+        self._context_token = _REQUEST_SOURCES.set(self)
+        return self
+
+    def __exit__(self, *exc: object) -> bool:
+        if self._context_token is not None:
+            _REQUEST_SOURCES.reset(self._context_token)
+            self._context_token = None
+        return False
+
+    def merge(self, sources: Dict[str, str]) -> None:
+        # A cancelled request can leave an admitted worker finishing later.
+        with self._lock:
+            _merge_sources(self._sources, sources)
+
+    def get_sources(self) -> Dict[str, str]:
+        with self._lock:
+            return dict(self._sources)
+
+
+_REQUEST_SOURCES: ContextVar[EphemerisRequestSources | None] = ContextVar("ephemeris_request_sources", default=None)
+_WORKER_COLLECTOR: ContextVar[EphemerisSourceCollector | None] = ContextVar("ephemeris_worker_collector", default=None)
+
+
+def run_with_ephemeris_sources(fn: Callable[..., Any], /, *args: Any, **kwargs: Any) -> Any:
+    """Collect only opted-in work, on its worker, and publish even after failure."""
+    request_sources = _REQUEST_SOURCES.get()
+    if request_sources is None:
+        return fn(*args, **kwargs)
+    collector = EphemerisSourceCollector()
+    try:
+        with collector:
+            return fn(*args, **kwargs)
+    finally:
+        request_sources.merge(collector.get_sources())
+
+
+def record_subject_sources(subject: BaseModel) -> None:
+    """Retain engine provenance immediately after a subject was computed.
+
+    Native nested traces are isolated. Use their reported point sources, never
+    guessed labels or serialized precomputed input. With debug off no model
+    traversal or serialization is performed.
+    """
+    collector = _WORKER_COLLECTOR.get()
+    if collector is None:
+        return
+
+    def visit(value: Any) -> None:
+        if isinstance(value, BaseModel):
+            name, source = getattr(value, "name", None), getattr(value, "source", None)
+            if isinstance(name, str) and isinstance(source, str) and source != "Derived":
+                _merge_sources(collector._reported, {name: source})
+            for field in type(value).model_fields:
+                visit(getattr(value, field))
+        elif isinstance(value, (tuple, list)):
+            for item in value:
+                visit(item)
+
+    visit(subject)

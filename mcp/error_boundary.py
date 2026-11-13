@@ -11,6 +11,7 @@ from mcp.server.fastmcp.exceptions import ToolError
 from pydantic import ValidationError as PydanticValidationError
 
 from ..utils.heavy_work import ServerBusyError
+from ..utils.source_errors import source_failure
 
 
 _INTERNAL_MESSAGE = "Internal server error. The failure has been logged."
@@ -18,6 +19,9 @@ _INTERNAL_MESSAGE = "Internal server error. The failure has been logged."
 
 def _public_error(exc: BaseException) -> dict[str, str]:
     """Map expected caller errors, hiding all unexpected exception text."""
+    failure = source_failure(exc)
+    if failure is not None:
+        return failure[1]
     if isinstance(exc, (KerykeionException, PydanticValidationError, ValueError)):
         return {
             "status": "ERROR",

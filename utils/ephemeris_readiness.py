@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import functools
 import json
+import math
 import os
 import sys
 import threading
@@ -70,21 +71,29 @@ def _required_leb_groups() -> tuple[str, ...]:
     fallback answers.
     """
     try:
-        from libephemeris.leb_groups import LEB2_GROUPS
+        from libephemeris import download
+
+        groups = getattr(download, "LEB2_GROUPS")
     except Exception:  # noqa: BLE001 — any import-time failure means "fall back"
         return _probe_leb_groups()
-    return tuple(LEB2_GROUPS)
+    return tuple(groups)
 
 # A failed validation may be a transient filesystem or parse hiccup, so it must
 # be allowed to heal — but re-validating on every poll would let /ready and the
 # calculation gate re-open (and re-hash) the inventory in a request storm.
 # Cache the negative report for a short TTL instead.
 _NEGATIVE_STATUS_TTL_S = 10.0
+# External coefficient sources need periodic positive health checks as well: a
+# marker is local process state and cannot prove that a remote source is still
+# reachable after startup. Local file-only deployments retain the immutable
+# positive cache for the hot readiness path.
+_EXTERNAL_SOURCE_STATUS_TTL_S = 30.0
 _monotonic = time.monotonic
 
 _cache_lock = threading.Lock()
 _cached_marker_signature: tuple[int, int] | None = None
 _cached_status: dict[str, Any] | None = None
+_cached_positive_expires_at: float | None = None
 _cached_negative_signature: tuple[int, int] | None = None
 _cached_negative_status: dict[str, Any] | None = None
 _cached_negative_expires_at: float | None = None
@@ -101,8 +110,35 @@ def _managed_data_dir() -> Path | None:
     return Path(value) if value else None
 
 
+def _has_external_source() -> bool:
+    """Return whether one global external LEB reader factory is configured."""
+    return bool(os.environ.get("LIBEPHEMERIS_LEB_SOURCE", "").strip())
+
+
+def _configured_source_tiers() -> tuple[str, ...]:
+    """Return the manually selected tiers served by the global source."""
+    if not _has_external_source():
+        return ()
+    raw = os.environ.get("LIBEPHEMERIS_PG_TIERS", "medium,extended")
+    selected = {item.strip().lower() for item in raw.split(",") if item.strip()}
+    if not selected or not selected <= set(_LEB_TIER_ORDER):
+        raise ValueError("Invalid LIBEPHEMERIS_PG_TIERS")
+    return tuple(tier for tier in _LEB_TIER_ORDER if tier in selected)
+
+
 def _required_tier() -> str:
     return os.environ.get(_REQUIRED_TIER_ENV, "extended").strip().lower()
+
+
+def _runtime_tiers(tier: str) -> tuple[str, ...]:
+    """Return every tier served through the configured local/remote target."""
+    if not _has_external_source():
+        return _eligible_tiers(tier)
+    target = os.environ.get("EPHEMERIS_TARGET_TIER", tier).strip().lower()
+    try:
+        return _eligible_tiers(target)
+    except ValueError as exc:
+        raise ValueError(f"Unsupported required ephemeris tier: {target!r}") from exc
 
 
 def _eligible_tiers(tier: str) -> tuple[str, ...]:
@@ -115,7 +151,8 @@ def _eligible_tiers(tier: str) -> tuple[str, ...]:
 
 def _expected_leb_files(tier: str, groups: tuple[str, ...] | None = None) -> list[str]:
     resolved = _required_leb_groups() if groups is None else groups
-    return [f"{eligible_tier}_{group}.leb2" for eligible_tier in _eligible_tiers(tier) for group in resolved]
+    tiers = _runtime_tiers(tier)
+    return [f"{eligible_tier}_{group}.leb2" for eligible_tier in tiers for group in resolved]
 
 
 def _base_status(**overrides: Any) -> dict[str, Any]:
@@ -192,6 +229,41 @@ def _required_product_catalog(ephe: Any) -> list[tuple[str, int]]:
     return [(name, int(body_id)) for name, body_id in candidates if body_id in ephe.SPK_BODY_NAME_MAP]
 
 
+def _catalog_coverage_reviewed(body_coverage: Any, body_id: int, inventory: dict[str, Any]) -> bool:
+    """Authenticate undated native envelopes from every contributing image.
+
+    v4 deliberately leaves a multi-file coverage envelope unlabeled/unreviewed.
+    It is not a serving image. Only the hash-verified live inventory can attest
+    its contributors and their continuous union; the envelope alone must never
+    grant readiness.
+    """
+    if body_coverage is None:
+        return False
+    if body_coverage.reviewed:
+        return True
+    if getattr(body_coverage, "data_file", None) is not None:
+        return False
+    contributors = [
+        (image, body)
+        for image in inventory.get("files", [])
+        for body in image.get("bodies", [])
+        if body.get("body_id") == body_id
+    ]
+    if not contributors or not all(image.get("reviewed") is True for image, _body in contributors):
+        return False
+    starts = [body.get("jd_start") for _image, body in contributors]
+    ends = [body.get("jd_end") for _image, body in contributors]
+    if not all(isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value) for value in (*starts, *ends)):
+        return False
+    intervals = sorted(zip(starts, ends))
+    coverage_start, coverage_end = intervals[0]
+    for start, end in intervals:
+        if start > end or start > coverage_end:
+            return False
+        coverage_end = max(coverage_end, end)
+    return coverage_start == body_coverage.jd_start and coverage_end == body_coverage.jd_end
+
+
 def validate_ephemeris_runtime() -> dict[str, Any]:
     """Inspect the active runtime and return a machine-readable readiness report."""
     errors: list[str] = []
@@ -216,9 +288,20 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         import libephemeris as ephe
 
         inventory = ephe.get_leb_inventory()
-        requirements = ephe.get_runtime_data_requirements(tier)
+        configured = _configured_source_tiers()
+        requirement_tier = _runtime_tiers(tier)[-1]
+        requirements = ephe.get_runtime_data_requirements(requirement_tier)
+        if configured:
+            # Metadata stays cached in the reader. Readiness (not liveness)
+            # checks transport once per positive-cache TTL as well.
+            from libephemeris_postgres import ping
+
+            ping()
     except Exception as exc:
-        errors.append(f"Cannot inspect libephemeris runtime: {exc}")
+        if _has_external_source():
+            errors.append("Configured ephemeris coefficient source is unavailable.")
+        else:
+            errors.append(f"Cannot inspect libephemeris runtime: {exc}")
         return report
 
     report["mode"] = inventory.get("mode")
@@ -291,27 +374,26 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
             entry = {
                 "point_name": point_name,
                 "body_id": body_id,
-                "reviewed": bool(body_coverage and body_coverage.reviewed),
+                "reviewed": _catalog_coverage_reviewed(body_coverage, body_id, inventory),
                 "coverage_start_jd": body_coverage.jd_start if body_coverage else None,
                 "coverage_end_jd": body_coverage.jd_end if body_coverage else None,
             }
             report["catalog"].append(entry)
             if body_coverage is None:
                 errors.append(f"Exposed point has no LEB coverage: {point_name} ({body_id}).")
-            elif not body_coverage.reviewed:
+            elif not entry["reviewed"]:
                 errors.append(f"Exposed point is backed by unreviewed data: {point_name} ({body_id}).")
     except Exception as exc:
         errors.append(f"Cannot validate the exposed point catalog: {exc}")
 
     try:
-        from libephemeris.iers_data import (
-            DEFAULT_MAX_AGE_DAYS,
-            get_iers_cache_info,
-            load_iers_data,
-        )
+        from libephemeris import iers_data
 
-        load_iers_data(force_download=False)
-        iers_info = get_iers_cache_info()
+        # The native beta exposes this public constant at runtime but its stub
+        # re-export lacks a concrete declaration. Keep the runtime policy.
+        max_age_days = float(getattr(iers_data, "DEFAULT_MAX_AGE_DAYS"))
+        iers_data.load_iers_data(force_download=False)
+        iers_info = iers_data.get_iers_cache_info()
         report["iers"] = {
             "finals": bool(iers_info.get("finals_exists")),
             "leap_seconds": bool(iers_info.get("leap_seconds_exists")),
@@ -332,10 +414,10 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
         stale_iers = [
             name.removesuffix("_age_days")
             for name in ("finals_age_days", "leap_seconds_age_days", "delta_t_age_days")
-            if isinstance(report["iers"].get(name), (int, float)) and report["iers"][name] > DEFAULT_MAX_AGE_DAYS
+            if isinstance(report["iers"].get(name), (int, float)) and report["iers"][name] > max_age_days
         ]
         if stale_iers:
-            warnings.append(f"IERS cache refresh is overdue for: {', '.join(stale_iers)} (>{DEFAULT_MAX_AGE_DAYS} days).")
+            warnings.append(f"IERS cache refresh is overdue for: {', '.join(stale_iers)} (>{max_age_days:g} days).")
     except Exception as exc:
         errors.append(f"Cannot inspect IERS cache: {exc}")
 
@@ -351,7 +433,7 @@ def validate_ephemeris_runtime() -> dict[str, Any]:
 
 def get_ephemeris_status() -> dict[str, Any]:
     """Return cached managed readiness, or a lightweight local-development state."""
-    global _cached_marker_signature, _cached_status
+    global _cached_marker_signature, _cached_status, _cached_positive_expires_at
     global _cached_negative_signature, _cached_negative_status, _cached_negative_expires_at
     global _ready_latched
 
@@ -367,7 +449,8 @@ def get_ephemeris_status() -> dict[str, Any]:
     signature = (stat.st_mtime_ns, stat.st_size)
 
     with _cache_lock:
-        if _cached_marker_signature == signature and _cached_status is not None:
+        positive_valid = _cached_positive_expires_at is None or _monotonic() < _cached_positive_expires_at
+        if _cached_marker_signature == signature and _cached_status is not None and positive_valid:
             return _cached_status
         # Positive validation is immutable for this marker/package process and
         # can be latched. A negative report may be a transient filesystem or
@@ -384,10 +467,16 @@ def get_ephemeris_status() -> dict[str, Any]:
             _cached_negative_signature = None
             _cached_negative_status = None
             _cached_negative_expires_at = None
+            _cached_positive_expires_at = (
+                _monotonic() + _EXTERNAL_SOURCE_STATUS_TTL_S
+                if _has_external_source()
+                else None
+            )
             _ready_latched = True
         else:
             _cached_marker_signature = None
             _cached_status = None
+            _cached_positive_expires_at = None
             _ready_latched = False
             _cached_negative_signature = signature
             _cached_negative_status = status
@@ -423,25 +512,43 @@ def is_ephemeris_ready() -> bool:
     return bool(get_ephemeris_status()["ready"])
 
 
-def is_ephemeris_ready_latched() -> bool:
-    """Synchronous per-request fast path: no lock, no stat, no validation.
+def is_worker_warm(application: Any) -> bool:
+    """Return this app worker's optional startup warm-up gate, without I/O."""
+    state = getattr(application, "state", None)
+    return not getattr(state, "ephemeris_warmup_required", False) or getattr(state, "ephemeris_warmup_state", "warming") == "ready"
 
-    True once a positive validation has been latched for this process (the
-    sealed inventory is immutable, so the latch only clears via
-    :func:`reset_ephemeris_readiness_cache` or a marker change that fails
-    revalidation), and in unmanaged local development where nothing is gated.
+
+def worker_readiness_status(application: Any, inventory: dict[str, Any]) -> dict[str, Any]:
+    """Combine inventory validation and worker warm-up without mutating caches."""
+    if not inventory.get("ready") or is_worker_warm(application):
+        return inventory
+    state = getattr(application.state, "ephemeris_warmup_state", "warming")
+    return {**inventory, "ready": False, "state": state}
+
+
+def is_ephemeris_ready_latched() -> bool:
+    """Synchronous per-request fast path for local or recently checked data.
+
+    External sources use a short positive TTL so the readiness endpoint can
+    detect a provider outage; local file-only deployments retain the immutable
+    process latch.
     """
+    if _cached_positive_expires_at is not None:
+        return (
+            _ready_latched and _monotonic() < _cached_positive_expires_at
+        ) or _managed_data_dir() is None
     return _ready_latched or _managed_data_dir() is None
 
 
 def reset_ephemeris_readiness_cache() -> None:
     """Clear the marker-keyed cache (test and controlled-reload helper)."""
-    global _cached_marker_signature, _cached_status
+    global _cached_marker_signature, _cached_status, _cached_positive_expires_at
     global _cached_negative_signature, _cached_negative_status, _cached_negative_expires_at
     global _ready_latched
     with _cache_lock:
         _cached_marker_signature = None
         _cached_status = None
+        _cached_positive_expires_at = None
         _cached_negative_signature = None
         _cached_negative_status = None
         _cached_negative_expires_at = None
