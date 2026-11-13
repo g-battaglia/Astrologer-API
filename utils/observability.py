@@ -1,4 +1,4 @@
-"""Closed operational events: no request payloads or arbitrary exception text.
+"""Structured operational events with explicitly selected fields.
 
 Application logs complement edge access logs; they do not duplicate latency or
 request accounting. Only catalog messages and explicitly validated fields reach
@@ -7,6 +7,7 @@ console/notification sinks, including when a dependency writes a legacy record.
 
 from __future__ import annotations
 
+from base64 import b64encode
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from functools import lru_cache
@@ -24,6 +25,8 @@ CATALOG = {
     "engine.ready": "Engine ready",
     "engine.unavailable": "Engine initialization unavailable",
     "api.request": "Calculation request accepted",
+    "api.request.ok": "Request OK",
+    "api.request.failed": "Request returned a non-200 status",
     "api.exception": "Unhandled calculation failure",
     "api.validation": "Request arguments rejected",
     "api.authentication": "Authentication rejected",
@@ -116,7 +119,7 @@ def _clean_field(key: str, value: object):
 @dataclass(frozen=True)
 class _Event:
     name: str
-    fields: tuple[tuple[str, str | int], ...]
+    fields: tuple[tuple[str, str | int | bool], ...]
 
 
 def _logger_name(record: logging.LogRecord) -> str:
@@ -173,12 +176,29 @@ class QuietStreamHandler(logging.StreamHandler):
         pass
 
 
-def emit(logger: logging.Logger, name: str, *, level: int = logging.INFO, **fields) -> None:
-    """Build a fresh, closed record before either console or alert delivery."""
+def emit(
+    logger: logging.Logger,
+    name: str,
+    *,
+    level: int = logging.INFO,
+    request_body: bytes | None = None,
+    request_body_complete: bool = False,
+    **fields,
+) -> None:
+    """Attach failed request bodies to console records only."""
     if type(name) is not str or name not in CATALOG:
         return
     cleaned = tuple((key, safe) for key, value in fields.items() if (safe := _clean_field(key, value)) is not None)
-    event = _Event(name, cleaned)
+    console_fields = cleaned
+    if name == "api.request.failed" and request_body is not None:
+        try:
+            body = request_body.decode("utf-8")
+            encoding = "utf-8"
+        except UnicodeDecodeError:
+            body = b64encode(request_body).decode("ascii")
+            encoding = "base64"
+        console_fields += (("request_body", body), ("request_body_encoding", encoding), ("request_body_complete", request_body_complete))
+    event = _Event(name, console_fields)
     try:
         logger.log(level, CATALOG[name], extra={"_operational_event": event}, stacklevel=2)
     except Exception:

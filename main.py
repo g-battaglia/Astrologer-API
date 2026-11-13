@@ -51,6 +51,7 @@ from .mcp.server import create_mcp_server, mcp as default_mcp_server
 from .middleware.secret_key_checker_middleware import SecretKeyCheckerMiddleware, auth_is_open
 from .middleware.ephemeris_debug_middleware import EphemerisDebugMiddleware
 from .middleware.ephemeris_readiness_middleware import EphemerisReadinessMiddleware
+from .middleware.request_logging_middleware import RequestLoggingMiddleware
 from .utils.cache_release import cache_release_loop, release_cache
 from .utils.ephemeris_readiness import is_ephemeris_ready
 from .types.response_models import Public422Response
@@ -514,12 +515,20 @@ def _install_openapi_security(application: FastAPI) -> None:
     application.openapi = openapi_with_security  # type: ignore[method-assign]
 
 
+class MarketplaceFastAPI(FastAPI):
+    def build_middleware_stack(self):
+        # The wrapper observes the response from Starlette's outer error
+        # handler as well as responses returned by application middleware.
+        return RequestLoggingMiddleware(super().build_middleware_stack())
+
+
 def create_app(mcp_server=None) -> FastAPI:
     """Create an independent application and MCP lifecycle."""
     if mcp_server is None:
         mcp_server = create_mcp_server()
 
-    application = FastAPI(
+    app_class = MarketplaceFastAPI if os.getenv("OBSERVABILITY_ROLE") == "marketplace" else FastAPI
+    application = app_class(
         debug=settings.debug,
         docs_url=settings.docs_url,
         redoc_url=settings.redoc_url,
